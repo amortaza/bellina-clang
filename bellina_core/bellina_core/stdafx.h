@@ -38,3 +38,5 @@
 
 #include "WinOs/WinOs.h"
 #include "Xel/Xel.h"
+
+#include "g2.h"

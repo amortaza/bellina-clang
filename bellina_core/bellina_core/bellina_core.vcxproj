@@ -154,6 +154,11 @@
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h" />
+    <ClInclude Include="bellina.h" />
+    <ClInclude Include="bl-core.h" />
+    <ClInclude Include="bl-extern.h" />
+    <ClInclude Include="bl-node.h" />
+    <ClInclude Include="bl-render.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -163,8 +168,11 @@
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp" />
+    <ClCompile Include="bl-core.cpp" />
+    <ClCompile Include="bl-internal.cpp" />
+    <ClCompile Include="bl-node.cpp" />
+    <ClCompile Include="bl-render.cpp" />
     <ClCompile Include="callbacks.cpp" />
-    <ClCompile Include="draw.cpp" />
     <ClCompile Include="init.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stdafx.cpp">

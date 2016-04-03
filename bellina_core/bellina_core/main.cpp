@@ -1,11 +1,11 @@
 #include "stdafx.h"
-
-#include "Main.h"
+#include "bellina.h"
+#include "main.h"
 
 void OnTick() {
 	try
 	{
-		Draw();
+		bl::paint();
 	}
 	catch (char* msg) {
 		printf(msg);
