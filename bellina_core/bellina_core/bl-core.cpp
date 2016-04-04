@@ -11,8 +11,9 @@ using namespace bl::Internal;
 void bl::init() {
 	g2::init();
 
+	// window not available yet
 	root = new Node();
-	root->dim(320, 240);
+	//root->dim(320, 240);
 }
 
 void bl::uninit() {

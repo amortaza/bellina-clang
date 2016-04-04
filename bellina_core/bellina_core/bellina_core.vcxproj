@@ -94,7 +94,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>freetype263d.lib;glew32s.lib;opengl32.lib;xel_lib.lib;g2_lib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>freetype263d.lib;glew32s.lib;opengl32.lib;xel_lib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,6 +154,16 @@
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h" />
+    <ClInclude Include="..\..\..\g2\g2\AceTexture.hpp" />
+    <ClInclude Include="..\..\..\g2\g2\AceTextureRect.hpp" />
+    <ClInclude Include="..\..\..\g2\g2\free_font.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_canvas.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_core.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_externals.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_font.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_opacity.h" />
+    <ClInclude Include="..\..\..\g2\g2\g2_texture.h" />
     <ClInclude Include="bellina.h" />
     <ClInclude Include="bl-core.h" />
     <ClInclude Include="bl-extern.h" />
@@ -168,6 +178,14 @@
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\free_font.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_canvas.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_core.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_font.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_internal.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_opacity.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_rect.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\g2_texture.cpp" />
     <ClCompile Include="bl-core.cpp" />
     <ClCompile Include="bl-internal.cpp" />
     <ClCompile Include="bl-node.cpp" />

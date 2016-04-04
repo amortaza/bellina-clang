@@ -15,6 +15,9 @@
     <Filter Include="bellina_core">
       <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="g2">
+      <UniqueIdentifier>{4a535589-ef64-4b7c-9032-b4f8e50b76c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -62,6 +65,36 @@
     <ClInclude Include="bl-extern.h">
       <Filter>bellina_core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\free_font.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_canvas.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_core.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_externals.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_font.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_opacity.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2_texture.h">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\AceTexture.hpp">
+      <Filter>g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\AceTextureRect.hpp">
+      <Filter>g2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,6 +132,30 @@
     </ClCompile>
     <ClCompile Include="bl-internal.cpp">
       <Filter>bellina_core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\free_font.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_canvas.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_core.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_font.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_internal.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_opacity.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_rect.cpp">
+      <Filter>g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2_texture.cpp">
+      <Filter>g2</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

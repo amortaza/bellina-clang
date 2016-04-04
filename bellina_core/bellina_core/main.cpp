@@ -33,7 +33,7 @@ int main(int argc, char** argv) {
 
 	Xel::Window::SetTitle("Bellina v0.1.0");
 	Xel::Window::SetPosition(200, 100);
-	Xel::Window::SetSize(1280, 800);
+	Xel::Window::SetSize(1300, 843);
 
 	Xel::Loop(OnTick);
 

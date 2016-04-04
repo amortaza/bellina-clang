@@ -19,6 +19,7 @@
 #include <windowsx.h>
 #include <windef.h>
 
+#include <list>
 #include <stack>
 
 #include <ft2build.h>
