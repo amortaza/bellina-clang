@@ -10,13 +10,16 @@ void Init_OnGL() {
 
 	Node *root = bl::Internal::root;
 	root->pos(0, 0);
-	root->color(0, 255, 255);
+	root->color(0, 0, 0);
+	root->label("Welcome to Bellina!");
 
 	Node *kid = new Node();
 
-	kid->dim(300, 80);
-	kid->pos(1250, 50);
-	kid->color(255, 0, 255);
+	kid->dim(300, 280);
+	kid->pos(150, 50);
+	kid->color(50, 0, 0);
+	kid->font("arial", 40);
+	kid->label("Whats up?");
 
 	root->addKid(kid);
 }

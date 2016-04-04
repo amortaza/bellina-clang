@@ -27,7 +27,7 @@ void bl::paint() {
 	bl::render(bl::Internal::root);
 
 	g2::texture(bl::Internal::root->canvasRef);
-	g2::rectFlipped(g2::flags::G2_TEXTURE, 10, 10, winW-20, winH-20);
+	g2::rectFlipped(g2::flags::G2_TEXTURE, 0, 0, winW, winH);
 }
 
 void bl::render(Node *node) {
@@ -38,9 +38,11 @@ void bl::render(Node *node) {
 		//g2::rgb(34,78,200);
 		//g2::rect(G2_RGB_SOLID, 0, 0, 10, 10); //node->x, node->y, node->w, node->h);
 
-		/*g2::rgb(255, 0, 0);
-		g2::font("arial", 30);
-		g2::text(10, 40, "Hello Bellina!");*/
+		if (node->text) {
+			g2::rgb(255, 255, 255);
+			g2::font(node->font_name, node->font_size);
+			g2::text(0, node->textY, node->text);
+		}
 
 		std::list<Node*>::const_iterator iterator;
 		for (iterator = node->kids.begin(); iterator != node->kids.end(); ++iterator) {
