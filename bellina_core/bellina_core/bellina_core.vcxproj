@@ -154,9 +154,9 @@
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h" />
+    <ClInclude Include="..\..\..\FreeFont\free_font\free_font\free_font.h" />
     <ClInclude Include="..\..\..\g2\g2\AceTexture.hpp" />
     <ClInclude Include="..\..\..\g2\g2\AceTextureRect.hpp" />
-    <ClInclude Include="..\..\..\g2\g2\free_font.h" />
     <ClInclude Include="..\..\..\g2\g2\g2.h" />
     <ClInclude Include="..\..\..\g2\g2\g2_canvas.h" />
     <ClInclude Include="..\..\..\g2\g2\g2_core.h" />
@@ -178,7 +178,8 @@
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp" />
-    <ClCompile Include="..\..\..\g2\g2\free_font.cpp" />
+    <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp" />
+    <ClCompile Include="..\..\..\g2\g2\AceTexture.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_canvas.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_core.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_font.cpp" />

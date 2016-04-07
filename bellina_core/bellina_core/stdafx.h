@@ -30,8 +30,8 @@
 
 #include <fstream>
 #include <string>
-
-#include "Soil/SOIL.h"
+#include <list>
+#include <stack>
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
@@ -40,4 +40,5 @@
 #include "WinOs/WinOs.h"
 #include "Xel/Xel.h"
 
-#include "g2.h"
+#include "soil/soil.h"
+#include "g2/g2.h"

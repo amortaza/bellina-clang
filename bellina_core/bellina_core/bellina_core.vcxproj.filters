@@ -9,13 +9,16 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="Header Files\soil">
-      <UniqueIdentifier>{3f655a0e-354e-4860-8f89-31874803c90b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="bellina_core">
       <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
-    <Filter Include="g2">
+    <Filter Include="Source Files\soil">
+      <UniqueIdentifier>{641b7315-bfbc-4c99-aa65-4efb36e2d195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\free_font">
+      <UniqueIdentifier>{a6b6e25f-b395-4efd-afdc-6365a7c4bf3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\g2">
       <UniqueIdentifier>{4a535589-ef64-4b7c-9032-b4f8e50b76c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -32,24 +35,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\image_DXT.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\image_helper.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\SOIL.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h">
-      <Filter>Header Files\soil</Filter>
-    </ClInclude>
     <ClInclude Include="bellina.h">
       <Filter>bellina_core</Filter>
     </ClInclude>
@@ -65,35 +50,53 @@
     <ClInclude Include="bl-extern.h">
       <Filter>bellina_core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\free_font.h">
-      <Filter>g2</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_canvas.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_core.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_externals.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_font.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_opacity.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2_texture.h">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\AceTexture.hpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\AceTextureRect.hpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\image_DXT.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\image_helper.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\SOIL.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h">
+      <Filter>Source Files\soil</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\FreeFont\free_font\free_font\free_font.h">
+      <Filter>Source Files\free_font</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -109,18 +112,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\c_lib\lib\Soil\image_DXT.cpp">
-      <Filter>Header Files\soil</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp">
-      <Filter>Header Files\soil</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp">
-      <Filter>Header Files\soil</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp">
-      <Filter>Header Files\soil</Filter>
-    </ClCompile>
     <ClCompile Include="bl-node.cpp">
       <Filter>bellina_core</Filter>
     </ClCompile>
@@ -133,29 +124,44 @@
     <ClCompile Include="bl-internal.cpp">
       <Filter>bellina_core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\free_font.cpp">
-      <Filter>g2</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_canvas.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_core.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_font.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_internal.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_opacity.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_rect.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_texture.cpp">
-      <Filter>g2</Filter>
+      <Filter>Source Files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\AceTexture.cpp">
+      <Filter>Source Files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\c_lib\lib\Soil\image_DXT.cpp">
+      <Filter>Source Files\soil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp">
+      <Filter>Source Files\soil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp">
+      <Filter>Source Files\soil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp">
+      <Filter>Source Files\soil</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp">
+      <Filter>Source Files\free_font</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

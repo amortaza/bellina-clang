@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include <list>
 
-#include "g2.h"
+#include "g2/g2.h"
 
 #include "bl-render.h"
 #include "bl-extern.h"
@@ -13,35 +13,59 @@ using namespace bl::Internal;
 using namespace g2::flags;
 
 void bl::paint() {
-	//printf("win %i %i\n", winW, winH);
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
 
-	bl::Internal::root->dim(winW, winH);
+	root->dim(winW, winH);
 
 	g2::viewport(winW, winH);
 	g2::ortho(winW, winH);
 
 	//g2::clear();
 
-	bl::render(bl::Internal::root);
+	bl::render(root);
 
-	g2::texture(bl::Internal::root->canvasRef);
-	g2::rectFlipped(g2::flags::G2_TEXTURE, 0, 0, winW, winH);
+	g2::texture(root->canvas);
+	g2::rectFlipped(G2_TEXTURE, 0, 0, winW, winH);
 }
 
 void bl::render(Node *node) {
-	g2::paintCanvas(node->canvasRef);
-		g2::rgb(node->r, node->g, node->b);
-		g2::rect(G2_RGB_SOLID, 0, 0, node->w, node->h);
+	g2::paintCanvas(node->canvas);
+	{
+		if (node->flags_ & G2_COLOR_ANY) {
+			g2::color(node->r1, node->g1, node->b1);
+			g2::color2(node->r2, node->g2, node->b2);
+		}
+
+		if (node->flags_ & G2_TEXTURE) {
+			g2::texture(node->texture_);
+		}
+
+		if (node->flags_ & G2_ALPHA_ANY) {
+			g2::opacity(node->alpha1);
+			g2::opacity2(node->alpha2);
+		}
+
+		if (node->flags_ & G2_PAD) {
+			g2::padding(node->padding_left, node->padding_top, node->padding_right, node->padding_bottom);
+			g2::opacity2(node->alpha2);
+		}
+
+		if (node->flags_ & G2_PAD) {
+			g2::padding(node->padding_left, node->padding_top, node->padding_right, node->padding_bottom);
+			g2::opacity2(node->alpha2);
+		}
+
+		// we are in canvas, so x, y is 0,0
+		g2::rect(node->flags_, 0, 0, node->w, node->h);
 
 		//g2::rgb(34,78,200);
 		//g2::rect(G2_RGB_SOLID, 0, 0, 10, 10); //node->x, node->y, node->w, node->h);
 
-		if (node->text) {
-			g2::rgb(255, 255, 255);
+		if (node->label_) {
+			g2::color(255, 255, 255);
 			g2::font(node->font_name, node->font_size);
-			g2::text(0, node->textY, node->text);
+			g2::text(0, node->fontHeight, node->label_);
 		}
 
 		std::list<Node*>::const_iterator iterator;
@@ -50,8 +74,8 @@ void bl::render(Node *node) {
 
 			render(kid);
 
-			g2::texture(kid->canvasRef);
-			g2::rectFlipped(g2::flags::G2_TEXTURE, kid->x, kid->y, kid->w, kid->h);
+			g2::texture(kid->canvas);
+			g2::rectFlipped(G2_TEXTURE, kid->x, kid->y, kid->w, kid->h);
 		}
 
 	g2::endCanvas();
