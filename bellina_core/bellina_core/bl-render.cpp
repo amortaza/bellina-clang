@@ -12,6 +12,16 @@ using namespace bl::Internal;
 
 using namespace g2::flags;
 
+void _renderLabel(Node *node, int dx, int dy) {
+	g2::color(node->font_red, node->font_green, node->font_blue);
+	g2::font(node->font_name, node->font_size);
+
+	if (node->flags_ & G2_PAD)
+		g2::text(dx + node->padding_left, dy + node->padding_top + node->fontHeight, node->label_, node->font_alpha);
+	else
+		g2::text(dx, dy + node->fontHeight, node->label_, node->font_alpha);
+}
+
 void bl::paint() {
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
@@ -29,14 +39,14 @@ void bl::paint() {
 	g2::rectFlipped(G2_TEXTURE, 0, 0, winW, winH);
 
 	if (root->label_ && root->label_tops_canvas) {
-		g2::color(root->font_red, root->font_green, root->font_blue);
-		g2::font(root->font_name, root->font_size);
-
-		if (root->flags_ & G2_PAD)
-			g2::text( root->padding_left, root->padding_top + root->fontHeight, root->label_, root->font_alpha);
-		else
-			g2::text(0, root->fontHeight, root->label_, root->font_alpha);
+		_renderLabel(root,0,0);
 	}
+
+	if (root->border_tops_canvas && (root->flags_ & G2_BORDER_ANY)) {
+		g2::color(root->border_red, root->border_green, root->border_blue);
+		g2::border(root->flags_, 0, 0, root->w, root->h, root->border_thickness, root->border_alpha);
+	}
+
 }
 
 void bl::render(Node *node) {
@@ -64,9 +74,7 @@ void bl::render(Node *node) {
 
 		// ---------------------------------------------------------------------
 		if (node->label_ && !node->label_tops_canvas) {
-			g2::color(node->font_red, node->font_green, node->font_blue);
-			g2::font(node->font_name, node->font_size);
-			g2::text(0, node->fontHeight, node->label_, node->font_alpha);
+			_renderLabel(node, 0,0);
 		}
 
 		std::list<Node*>::const_iterator iterator;
@@ -86,20 +94,19 @@ void bl::render(Node *node) {
 			g2::rectFlipped(G2_TEXTURE | kidAlphaFlags, kid->x, kid->y, kid->w, kid->h);
 
 			if (kid->label_ && kid->label_tops_canvas) {
-				g2::color(kid->font_red, kid->font_green, kid->font_blue);
-				g2::font(kid->font_name, kid->font_size);
+				_renderLabel(kid, kid->x, kid->y);
+			}
 
-				if (kid->flags_ & G2_PAD)
-					g2::text(kid->padding_left + kid->x, kid->padding_top + kid->fontHeight + kid->y, kid->label_, kid->font_alpha);
-				else
-					g2::text(kid->x, kid->y + kid->fontHeight, kid->label_, kid->font_alpha);
+			if (kid->border_tops_canvas && (kid->flags_ & G2_BORDER_ANY)) {
+				g2::color(kid->border_red, kid->border_green, kid->border_blue);
+				g2::border(kid->flags_, kid->x, kid->y, kid->w, kid->h, kid->border_thickness, kid->border_alpha);
 			}
 		}
 
-		if (node->flags_ & G2_BORDER_ANY) {
-			g2::border(node->flags_, 0,0,node->w, node->h, node->border_thickness);
+		if (!node->border_tops_canvas && (node->flags_ & G2_BORDER_ANY)) {
+			g2::color(node->border_red, node->border_green, node->border_blue);
+			g2::border(node->flags_, 0, 0,node->w, node->h, node->border_thickness, node->border_alpha);
 		}
-
 	}
 	g2::endCanvas();
 }

@@ -13,7 +13,6 @@ void bl::init() {
 
 	// window not available yet
 	root = new Node();
-	//root->dim(320, 240);
 }
 
 void bl::uninit() {

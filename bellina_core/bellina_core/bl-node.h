@@ -26,13 +26,16 @@ namespace bl {
 
 		unsigned char border_red, border_green, border_blue;
 		int border_thickness;
+		float border_alpha;
 
 		int flags_;
 
 		char* label_;
 		char* font_name;
 		int font_size;
+
 		bool label_tops_canvas;
+		bool border_tops_canvas;
 
 		std::list<Node*> kids;
 
@@ -49,9 +52,10 @@ namespace bl {
 		void color1(unsigned char r, unsigned char g, unsigned char b);
 		void color2(unsigned char r, unsigned char g, unsigned char b);
 
-		void opacity1(float);
-		void opacity2(float);
+		void canvasOpacity1(float);
+		void canvasOpacity2(float);
 		void fontOpacity(float);
+		void borderOpacity(float);
 
 		void texture(g2::TextureRef*);
 		void mask(g2::TextureRef*);
@@ -72,5 +76,12 @@ namespace bl {
 		void removeFlag(int);
 
 		void labelTops(bool);
+		void borderTops(bool);
+
+		void setColorSolidFlag();
+		void setColorHorizGradientFlag();
+		void setColorVertGradientFlag();
+
+		void setTextureFlag();
 	};
 }

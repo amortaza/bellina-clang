@@ -18,9 +18,11 @@ Node::Node() {
 	font_size = 24;
 	label_ = 0;
 
-	opacity1(1.f);
-	opacity2(1.f);
+	canvasOpacity1(1.f);
+	canvasOpacity2(1.f);
+
 	fontOpacity(1.f);
+	borderOpacity(1.f);
 
 	pos(0, 0);
 	padding(0, 0, 0, 0);
@@ -38,6 +40,10 @@ Node::Node() {
 
 void Node::labelTops(bool tops) {
 	label_tops_canvas = tops;
+}
+
+void Node::borderTops(bool tops) {
+	border_tops_canvas = tops;
 }
 
 void Node::color1(unsigned char _r, unsigned char _g, unsigned char _b) {
@@ -97,6 +103,10 @@ void Node::fontOpacity(float alpha) {
 	font_alpha = alpha;
 }
 
+void Node::borderOpacity(float alpha) {
+	border_alpha = alpha;
+}
+
 void Node::padding(int l, int t, int r, int b) {
 	padding_left = l; padding_top = t; padding_right = r; padding_bottom = b;
 }
@@ -107,11 +117,11 @@ void Node::label(char *_text) {
 	if (!font_name) font("arial", font_size);
 }
 
-void Node::opacity1(float opacity) {
+void Node::canvasOpacity1(float opacity) {
 	alpha1_canvas = opacity;
 }
 
-void Node::opacity2(float opacity) {
+void Node::canvasOpacity2(float opacity) {
 	alpha2_canvas = opacity;
 }
 
@@ -128,7 +138,7 @@ void Node::flags(int _flags) {
 }
 
 void Node::addFlag(int flag) {
-	flags_ ^= flag;
+	flags_ |= flag;
 }
 
 void Node::removeFlag(int flag) {
@@ -145,6 +155,9 @@ Node::~Node() {
 	// texture ref
 	if (texture_) delete texture_;
 
+	// mask ref
+	if (mask_) delete mask_;
+
 	// do not delete mask_
 
 	// canvas ref
@@ -158,4 +171,27 @@ Node::~Node() {
 
 		delete kid;
 	}
+}
+
+void Node::setColorSolidFlag() {
+	flags_ &= ~G2_TEXTURE;
+	flags_ &= ~G2_COLOR_ANY;
+	flags_ |= G2_COLOR_SOLID;
+}
+
+void Node::setColorHorizGradientFlag() {
+	flags_ &= ~G2_TEXTURE;
+	flags_ &= ~G2_COLOR_ANY;
+	flags_ |= G2_COLOR_HORIZ_GRADIENT;
+}
+
+void Node::setColorVertGradientFlag() {
+	flags_ &= ~G2_TEXTURE;
+	flags_ &= ~G2_COLOR_ANY;
+	flags_ |= G2_COLOR_VERT_GRADIENT;
+}
+
+void Node::setTextureFlag() {
+	flags_ |= G2_TEXTURE;
+	flags_ &= ~G2_COLOR_ANY;
 }
