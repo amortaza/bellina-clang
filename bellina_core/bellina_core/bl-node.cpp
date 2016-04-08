@@ -31,8 +31,13 @@ Node::Node() {
 	borderColor(255, 0, 255);
 
 	borderThickness(1);
+	labelTops(false);
 
 	flags_ = G2_COLOR_SOLID | G2_ALPHA_NONE;
+}
+
+void Node::labelTops(bool tops) {
+	label_tops_canvas = tops;
 }
 
 void Node::color1(unsigned char _r, unsigned char _g, unsigned char _b) {
@@ -103,11 +108,11 @@ void Node::label(char *_text) {
 }
 
 void Node::opacity1(float opacity) {
-	alpha1 = opacity;
+	alpha1_canvas = opacity;
 }
 
 void Node::opacity2(float opacity) {
-	alpha2 = opacity;
+	alpha2_canvas = opacity;
 }
 
 void Node::texture(TextureRef* ref) {

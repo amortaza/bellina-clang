@@ -21,12 +21,22 @@ void bl::paint() {
 	g2::viewport(winW, winH);
 	g2::ortho(winW, winH);
 
-	//g2::clear();
+	g2::clear();
 
 	bl::render(root);
 
 	g2::texture(root->canvas);
 	g2::rectFlipped(G2_TEXTURE, 0, 0, winW, winH);
+
+	if (root->label_ && root->label_tops_canvas) {
+		g2::color(root->font_red, root->font_green, root->font_blue);
+		g2::font(root->font_name, root->font_size);
+
+		if (root->flags_ & G2_PAD)
+			g2::text( root->padding_left, root->padding_top + root->fontHeight, root->label_, root->font_alpha);
+		else
+			g2::text(0, root->fontHeight, root->label_, root->font_alpha);
+	}
 }
 
 void bl::render(Node *node) {
@@ -41,31 +51,22 @@ void bl::render(Node *node) {
 			g2::texture(node->texture_);
 		}
 
-		if (node->flags_ & G2_ALPHA_ANY) {
-			g2::opacity(node->alpha1);
-			g2::opacity2(node->alpha2);
+		if (node->flags_ & G2_MASK) {
+			g2::mask(node->mask_);
 		}
 
 		if (node->flags_ & G2_PAD) {
 			g2::padding(node->padding_left, node->padding_top, node->padding_right, node->padding_bottom);
-			g2::opacity2(node->alpha2);
-		}
-
-		if (node->flags_ & G2_PAD) {
-			g2::padding(node->padding_left, node->padding_top, node->padding_right, node->padding_bottom);
-			g2::opacity2(node->alpha2);
 		}
 
 		// we are in canvas, so x, y is 0,0
 		g2::rect(node->flags_, 0, 0, node->w, node->h);
 
-		//g2::rgb(34,78,200);
-		//g2::rect(G2_RGB_SOLID, 0, 0, 10, 10); //node->x, node->y, node->w, node->h);
-
-		if (node->label_) {
-			g2::color(255, 255, 255);
+		// ---------------------------------------------------------------------
+		if (node->label_ && !node->label_tops_canvas) {
+			g2::color(node->font_red, node->font_green, node->font_blue);
 			g2::font(node->font_name, node->font_size);
-			g2::text(0, node->fontHeight, node->label_);
+			g2::text(0, node->fontHeight, node->label_, node->font_alpha);
 		}
 
 		std::list<Node*>::const_iterator iterator;
@@ -74,9 +75,31 @@ void bl::render(Node *node) {
 
 			render(kid);
 
+			int kidAlphaFlags = kid->flags_ & G2_ALPHA_ANY;
+
+			if (kidAlphaFlags) {
+				g2::opacity(kid->alpha1_canvas);
+				g2::opacity2(kid->alpha2_canvas);
+			}
+
 			g2::texture(kid->canvas);
-			g2::rectFlipped(G2_TEXTURE, kid->x, kid->y, kid->w, kid->h);
+			g2::rectFlipped(G2_TEXTURE | kidAlphaFlags, kid->x, kid->y, kid->w, kid->h);
+
+			if (kid->label_ && kid->label_tops_canvas) {
+				g2::color(kid->font_red, kid->font_green, kid->font_blue);
+				g2::font(kid->font_name, kid->font_size);
+
+				if (kid->flags_ & G2_PAD)
+					g2::text(kid->padding_left + kid->x, kid->padding_top + kid->fontHeight + kid->y, kid->label_, kid->font_alpha);
+				else
+					g2::text(kid->x, kid->y + kid->fontHeight, kid->label_, kid->font_alpha);
+			}
 		}
 
+		if (node->flags_ & G2_BORDER_ANY) {
+			g2::border(node->flags_, 0,0,node->w, node->h, node->border_thickness);
+		}
+
+	}
 	g2::endCanvas();
 }

@@ -14,7 +14,7 @@ namespace bl {
 		unsigned char r2, g2, b2;
 		unsigned char font_red, font_green, font_blue;
 
-		float alpha1, alpha2;
+		float alpha1_canvas, alpha2_canvas;
 		float font_alpha;
 
 		g2::TextureRef* texture_;
@@ -32,6 +32,7 @@ namespace bl {
 		char* label_;
 		char* font_name;
 		int font_size;
+		bool label_tops_canvas;
 
 		std::list<Node*> kids;
 
@@ -69,5 +70,7 @@ namespace bl {
 		void flags(int);
 		void addFlag(int);
 		void removeFlag(int);
+
+		void labelTops(bool);
 	};
 }
