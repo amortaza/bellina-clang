@@ -9,6 +9,7 @@
 
 using namespace bl;
 using namespace bl::Internal;
+using namespace bl::flags;
 
 using namespace g2::flags;
 
@@ -16,10 +17,68 @@ void _renderLabel(Node *node, int dx, int dy) {
 	g2::color(node->font_red, node->font_green, node->font_blue);
 	g2::font(node->font_name, node->font_size);
 
-	if (node->flags_ & G2_PAD)
+	if (node->flags & G2_PAD)
 		g2::text(dx + node->padding_left, dy + node->padding_top + node->fontHeight, node->label_, node->font_alpha);
 	else
 		g2::text(dx, dy + node->fontHeight, node->label_, node->font_alpha);
+}
+
+void _renderBorder(Node *n, bool mustTopCanvas, int deltaX, int deltaY) {
+	BorderSide *b = 0;
+
+	int bx = deltaX, bw = n->w;
+
+	if (n->flags & BL_BORDER_LEFT) {
+		b = &n->border_left;
+
+		if (b->topsCanvas == mustTopCanvas) {
+			g2::opacity(b->alpha);
+			g2::color(b->red, b->green, b->blue);
+			g2::rect(G2_COLOR_SOLID | G2_ALPHA_SOLID, deltaX, deltaY, b->thickness, n->h);
+		}
+
+		bx += b->thickness;
+		bw -= b->thickness;
+	}
+
+	if (n->flags & BL_BORDER_RIGHT) {
+		b = &n->border_right;
+
+		if (b->topsCanvas == mustTopCanvas) {
+			g2::opacity(b->alpha);
+			g2::color(b->red, b->green, b->blue);
+			g2::rect(G2_COLOR_SOLID | G2_ALPHA_SOLID, deltaX + n->w - b->thickness, deltaY, b->thickness, n->h);
+		}
+
+		bw -= b->thickness;
+	}
+
+	if (n->flags & BL_BORDER_TOP) {
+		b = &n->border_top;
+
+		int by = deltaY;
+		int bh = b->thickness;
+
+		if (b->topsCanvas == mustTopCanvas) {
+			g2::opacity(b->alpha);
+			g2::color(b->red, b->green, b->blue);
+			g2::rect(G2_COLOR_SOLID | G2_ALPHA_SOLID, bx, by, bw, bh);
+		}
+	}
+
+
+	if (n->flags & BL_BORDER_BOTTOM) {
+		b = &n->border_bottom;
+
+		int by = deltaY + n->h - b->thickness;
+		int bh = b->thickness;
+
+		if (b->topsCanvas == mustTopCanvas) {
+			g2::opacity(b->alpha);
+			g2::color(b->red, b->green, b->blue);
+			g2::rect(G2_COLOR_SOLID | G2_ALPHA_SOLID, bx, by, bw, bh);
+		}
+	}
 }
 
 void bl::paint() {
@@ -42,35 +101,33 @@ void bl::paint() {
 		_renderLabel(root,0,0);
 	}
 
-	if (root->border_tops_canvas && (root->flags_ & G2_BORDER_ANY)) {
-		g2::color(root->border_red, root->border_green, root->border_blue);
-		g2::border(root->flags_, 0, 0, root->w, root->h, root->border_thickness, root->border_alpha);
+	if (root->flags & BL_BORDER_ANY) {
+		_renderBorder(root, true, 0, 0);
 	}
-
 }
 
 void bl::render(Node *node) {
 	g2::paintCanvas(node->canvas);
 	{
-		if (node->flags_ & G2_COLOR_ANY) {
+		if (node->flags & G2_COLOR_ANY) {
 			g2::color(node->r1, node->g1, node->b1);
 			g2::color2(node->r2, node->g2, node->b2);
 		}
 
-		if (node->flags_ & G2_TEXTURE) {
+		if (node->flags & G2_TEXTURE) {
 			g2::texture(node->texture_);
 		}
 
-		if (node->flags_ & G2_MASK) {
+		if (node->flags & G2_MASK) {
 			g2::mask(node->mask_);
 		}
 
-		if (node->flags_ & G2_PAD) {
+		if (node->flags & G2_PAD) {
 			g2::padding(node->padding_left, node->padding_top, node->padding_right, node->padding_bottom);
 		}
 
 		// we are in canvas, so x, y is 0,0
-		g2::rect(node->flags_, 0, 0, node->w, node->h);
+		g2::rect(node->flags, 0, 0, node->w, node->h);
 
 		// ---------------------------------------------------------------------
 		if (node->label_ && !node->label_tops_canvas) {
@@ -83,7 +140,7 @@ void bl::render(Node *node) {
 
 			render(kid);
 
-			int kidAlphaFlags = kid->flags_ & G2_ALPHA_ANY;
+			int kidAlphaFlags = kid->flags & G2_ALPHA_ANY;
 
 			if (kidAlphaFlags) {
 				g2::opacity(kid->alpha1_canvas);
@@ -97,15 +154,13 @@ void bl::render(Node *node) {
 				_renderLabel(kid, kid->x, kid->y);
 			}
 
-			if (kid->border_tops_canvas && (kid->flags_ & G2_BORDER_ANY)) {
-				g2::color(kid->border_red, kid->border_green, kid->border_blue);
-				g2::border(kid->flags_, kid->x, kid->y, kid->w, kid->h, kid->border_thickness, kid->border_alpha);
+			if (kid->flags & BL_BORDER_ANY) {
+				_renderBorder(kid, true, kid->x, kid->y);
 			}
 		}
 
-		if (!node->border_tops_canvas && (node->flags_ & G2_BORDER_ANY)) {
-			g2::color(node->border_red, node->border_green, node->border_blue);
-			g2::border(node->flags_, 0, 0,node->w, node->h, node->border_thickness, node->border_alpha);
+		if (node->flags & BL_BORDER_ANY) {
+			_renderBorder(node, false, 0,0);
 		}
 	}
 	g2::endCanvas();

@@ -4,6 +4,13 @@
 #include "g2/g2.h"
 
 namespace bl {
+	struct BorderSide {
+		unsigned char red, green, blue;
+		int thickness;
+		float alpha;
+		bool topsCanvas;
+	};
+
 	class Node {
 
 	public:
@@ -24,18 +31,15 @@ namespace bl {
 		//         label
 		int padding_left, padding_top, padding_right, padding_bottom;
 
-		unsigned char border_red, border_green, border_blue;
-		int border_thickness;
-		float border_alpha;
+		BorderSide border_left, border_top, border_right, border_bottom;
 
-		int flags_;
+		int flags;
 
 		char* label_;
 		char* font_name;
 		int font_size;
 
 		bool label_tops_canvas;
-		bool border_tops_canvas;
 
 		std::list<Node*> kids;
 
@@ -54,16 +58,17 @@ namespace bl {
 
 		void canvasOpacity1(float);
 		void canvasOpacity2(float);
-		void fontOpacity(float);
-		void borderOpacity(float);
+		void fontOpacity(float);		
 
 		void texture(g2::TextureRef*);
 		void mask(g2::TextureRef*);
 
 		void padding(int l, int t, int r, int b);
 
-		void borderColor(unsigned char r, unsigned char g, unsigned char b);
-		void borderThickness(int);
+		void borderColor(unsigned int border_flag, unsigned char r, unsigned char g, unsigned char b);
+		void borderThickness(unsigned int border_flag, int);
+		void borderTops(unsigned int border_flag, bool);
+		void borderOpacity(unsigned int border_flag, float);
 
 		void font(char *name, int size);
 		void fontColor(unsigned char r, unsigned char g, unsigned char b);
@@ -71,12 +76,11 @@ namespace bl {
 
 		void addKid(Node *);
 
-		void flags(int);
+		void resetFlags(int);
 		void addFlag(int);
 		void removeFlag(int);
 
-		void labelTops(bool);
-		void borderTops(bool);
+		void labelTops(bool);		
 
 		void setColorSolidFlag();
 		void setColorHorizGradientFlag();

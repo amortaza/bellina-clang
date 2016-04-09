@@ -4,6 +4,8 @@
 
 using namespace bl;
 using namespace bl::Internal;
+using namespace bl::flags;
+
 using namespace g2::flags;
 
 g2::TextureRef* guitar;
@@ -20,19 +22,14 @@ void Init_OnGL() {
 	root->color1(50, 0, 50);
 	root->color2(0, 0, 50);
 	root->setColorHorizGradientFlag();
-	root->borderColor(255, 0, 0);
-	root->borderThickness(4);
-	root->borderOpacity(1.0f);
-	root->borderTops(true);
-	root->addFlag(G2_BORDER_ALL);
-	//root->label("Welcome to Bellina!");
+
+	root->label("Welcome to Bellina!");
 	
 	Node *kid = new Node();
 
 	kid->dim(300, 280);
 	kid->pos(150, 50);
 	kid->labelTops(true);
-	kid->borderTops(true);
 	kid->canvasOpacity1(.945);
 	kid->canvasOpacity2(.015);
 	kid->addFlag(G2_ALPHA_HORIZ_GRADIENT);
@@ -42,12 +39,13 @@ void Init_OnGL() {
 	kid->addFlag(G2_MASK);
 	kid->mask(jet);
 
-	kid->borderColor(255, 255, 0);
-	kid->borderThickness(8);
-	kid->borderOpacity(1.f);
-	kid->borderTops(true);
+	kid->borderColor(BL_BORDER_ALL, 255, 255, 0);
+	kid->borderThickness(BL_BORDER_ALL, 8);
+	kid->borderOpacity(BL_BORDER_ALL, 1.f);
+	kid->borderTops(BL_BORDER_ALL, false);
+	kid->borderTops(BL_BORDER_RIGHT, true);
 
-	kid->addFlag(G2_BORDER_LEFT);
+	kid->addFlag(BL_BORDER_ALL);
 
 	kid->padding(10, 10, 60, 60);
 	kid->addFlag(G2_PAD);
@@ -56,11 +54,7 @@ void Init_OnGL() {
 	kid->fontOpacity(1.f);
 	kid->font("arial", 30);
 	kid->label("Hello world!");
-
-	//kid->color1(50, 0, 0);
-	//kid->font("arial", 40);
-	//kid->label("Whats up?");
-
+	
 	root->addKid(kid);
 }
 

@@ -163,34 +163,31 @@
     <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp">
       <Filter>Source Files\free_font</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\AceTexture.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\AceTexture.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_border.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_canvas.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_canvas.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_core.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_core.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_font.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_font.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_internal.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_internal.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_mask.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_mask.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_opacity.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_rect.cpp">
-      <Filter>Source Files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_texture.cpp">
+    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
   </ItemGroup>

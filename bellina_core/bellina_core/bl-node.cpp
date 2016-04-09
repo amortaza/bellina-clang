@@ -1,12 +1,15 @@
 #include "stdafx.h"
 
 #include"g2/g2.h"
+
+#include"bl-extern.h"
 #include"bl-node.h"
 
 using namespace g2;
 using namespace g2::flags;
 
 using namespace bl;
+using namespace bl::flags;
 
 Node::Node() {
 	canvas = 0;
@@ -22,7 +25,6 @@ Node::Node() {
 	canvasOpacity2(1.f);
 
 	fontOpacity(1.f);
-	borderOpacity(1.f);
 
 	pos(0, 0);
 	padding(0, 0, 0, 0);
@@ -30,20 +32,19 @@ Node::Node() {
 	color1(255, 0, 0);
 	color2(255, 0, 0);
 	fontColor(255, 255, 255);
-	borderColor(255, 0, 255);
 
-	borderThickness(1);
 	labelTops(false);
 
-	flags_ = G2_COLOR_SOLID | G2_ALPHA_NONE;
+	borderColor(BL_BORDER_ALL, 255, 255, 0);
+	borderOpacity(BL_BORDER_ALL, 1.f);
+	borderThickness(BL_BORDER_ALL, 1);
+	borderTops(BL_BORDER_ALL, false);
+
+	flags = G2_COLOR_SOLID | G2_ALPHA_NONE;
 }
 
 void Node::labelTops(bool tops) {
 	label_tops_canvas = tops;
-}
-
-void Node::borderTops(bool tops) {
-	border_tops_canvas = tops;
 }
 
 void Node::color1(unsigned char _r, unsigned char _g, unsigned char _b) {
@@ -52,14 +53,6 @@ void Node::color1(unsigned char _r, unsigned char _g, unsigned char _b) {
 
 void Node::color2(unsigned char _r, unsigned char _g, unsigned char _b) {
 	r2 = _r; g2 = _g; b2 = _b;
-}
-
-void Node::borderColor(unsigned char _r, unsigned char _g, unsigned char _b) {
-	border_red = _r; border_green = _g; border_blue = _b;
-}
-
-void Node::borderThickness(int thickness) {
-	border_thickness = thickness;
 }
 
 void resetCanvasRef(Node *node, int w, int h) {
@@ -103,10 +96,6 @@ void Node::fontOpacity(float alpha) {
 	font_alpha = alpha;
 }
 
-void Node::borderOpacity(float alpha) {
-	border_alpha = alpha;
-}
-
 void Node::padding(int l, int t, int r, int b) {
 	padding_left = l; padding_top = t; padding_right = r; padding_bottom = b;
 }
@@ -133,16 +122,16 @@ void Node::mask(TextureRef* ref) {
 	mask_ = ref;
 }
 
-void Node::flags(int _flags) {
-	flags_ = _flags;
+void Node::resetFlags(int flags_) {
+	flags = flags_;
 }
 
 void Node::addFlag(int flag) {
-	flags_ |= flag;
+	flags |= flag;
 }
 
 void Node::removeFlag(int flag) {
-	flags_ &= ~flag;
+	flags &= ~flag;
 }
 
 Node::~Node() {
@@ -174,24 +163,72 @@ Node::~Node() {
 }
 
 void Node::setColorSolidFlag() {
-	flags_ &= ~G2_TEXTURE;
-	flags_ &= ~G2_COLOR_ANY;
-	flags_ |= G2_COLOR_SOLID;
+	flags &= ~G2_TEXTURE;
+	flags &= ~G2_COLOR_ANY;
+	flags |= G2_COLOR_SOLID;
 }
 
 void Node::setColorHorizGradientFlag() {
-	flags_ &= ~G2_TEXTURE;
-	flags_ &= ~G2_COLOR_ANY;
-	flags_ |= G2_COLOR_HORIZ_GRADIENT;
+	flags &= ~G2_TEXTURE;
+	flags &= ~G2_COLOR_ANY;
+	flags |= G2_COLOR_HORIZ_GRADIENT;
 }
 
 void Node::setColorVertGradientFlag() {
-	flags_ &= ~G2_TEXTURE;
-	flags_ &= ~G2_COLOR_ANY;
-	flags_ |= G2_COLOR_VERT_GRADIENT;
+	flags &= ~G2_TEXTURE;
+	flags &= ~G2_COLOR_ANY;
+	flags |= G2_COLOR_VERT_GRADIENT;
 }
 
 void Node::setTextureFlag() {
-	flags_ |= G2_TEXTURE;
-	flags_ &= ~G2_COLOR_ANY;
+	flags |= G2_TEXTURE;
+	flags &= ~G2_COLOR_ANY;
 }
+
+void Node::borderColor(unsigned int border_flag, unsigned char r, unsigned char g, unsigned char b) {
+	if (border_flag & BL_BORDER_LEFT) {
+		border_left.red = r;
+		border_left.green = g;
+		border_left.blue = b;
+	}
+
+	if (border_flag & BL_BORDER_TOP) {
+		border_top.red = r;
+		border_top.green = g;
+		border_top.blue = b;
+	}
+
+	if (border_flag & BL_BORDER_RIGHT) {
+		border_right.red = r;
+		border_right.green = g;
+		border_right.blue = b;
+	}
+
+	if (border_flag & BL_BORDER_BOTTOM) {
+		border_bottom.red = r;
+		border_bottom.green = g;
+		border_bottom.blue = b;
+	}
+}
+
+void Node::borderThickness(unsigned int border_flag, int thickness) {
+	if (border_flag & BL_BORDER_LEFT) border_left.thickness = thickness;
+	if (border_flag & BL_BORDER_TOP) border_top.thickness = thickness;
+	if (border_flag & BL_BORDER_RIGHT) border_right.thickness = thickness;
+	if (border_flag & BL_BORDER_BOTTOM) border_bottom.thickness = thickness;
+}
+
+void Node::borderTops(unsigned int border_flag, bool tops) {
+	if (border_flag & BL_BORDER_LEFT) border_left.topsCanvas = tops;
+	if (border_flag & BL_BORDER_TOP) border_top.topsCanvas = tops;
+	if (border_flag & BL_BORDER_RIGHT) border_right.topsCanvas = tops;
+	if (border_flag & BL_BORDER_BOTTOM) border_bottom.topsCanvas = tops;
+}
+
+void Node::borderOpacity(unsigned int border_flag, float alpha) {
+	if (border_flag & BL_BORDER_LEFT) border_left.alpha = alpha;
+	if (border_flag & BL_BORDER_TOP) border_top.alpha = alpha;
+	if (border_flag & BL_BORDER_RIGHT) border_right.alpha = alpha;
+	if (border_flag & BL_BORDER_BOTTOM) border_bottom.alpha = alpha;
+}
+
