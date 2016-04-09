@@ -15,6 +15,8 @@ namespace bl {
 	void paint();
 
 	// node control
+	void id(char*);
+
 	void pos(int _x, int _y);
 	void dim(int _w, int _h);
 

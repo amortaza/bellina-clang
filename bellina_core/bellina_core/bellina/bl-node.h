@@ -20,6 +20,8 @@ namespace bl {
 	public:
 		Point global_pos;
 
+		char* nid;
+
 		int x, y;
 		int w, h;
 		
@@ -56,6 +58,8 @@ namespace bl {
 
 		Node(Node *parent_);
 		~Node();
+
+		void id(char*);
 
 		void pos(int _x, int _y);
 		void dim(int _w, int _h);

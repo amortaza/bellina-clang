@@ -44,6 +44,10 @@ void bl::end() {
 		current_node = 0;
 }
 
+void bl::id(char* nid) {
+	current_node->id(nid);
+}
+
 void bl::pos(int x, int y) {
 	current_node->pos(x, y);
 }

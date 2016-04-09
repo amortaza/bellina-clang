@@ -5,27 +5,34 @@
 using namespace bl;
 using namespace bl::util;
 
-bool _nodeContainsPoint(Node *node, int parentWx, int parentWy, int wx, int wy) {
-	return true;
-
+bool _nodeContainsPoint(Node *node, int wx, int wy) {
+	return wx >= node->global_pos.x && wx <= node->global_pos.x + node->w && wy >= node->global_pos.y && wy <= node->global_pos.y + node->h;
 }
 
-Node* _getNodeAtPos(Node *parent, int parentWx, int parentWy, int wx, int wy) {
+Node* _getNodeAtPos(Node *parent, int wx, int wy) {
 	if (!parent) return 0;
 
-	if (!_nodeContainsPoint(parent, wx - parentWx, wy - parentWy,wx,wy)) return 0;
+	if (!_nodeContainsPoint(parent, wx,wy)) return 0;
 
 	std::list<Node*>::const_iterator iterator;
 
+	Node* topmost = parent;
 	for (iterator = parent->kids.begin(); iterator != parent->kids.end(); ++iterator) {
 		Node *kid = *iterator;
 
-		Node *node = _getNodeAtPos(kid, kid->x + parentWx, kid->y + parentWy, wx, wy);
+		if (_nodeContainsPoint(kid, wx, wy)) {
+			topmost = kid;
+		}
 	}
+
+	// now get the topmost from topmost
+	topmost = _getNodeAtPos(topmost, wx, wy);
+
+	return topmost;
 }
 
 Node* bl::util::getNodeAtPos(int wx, int wy) {
-	Node *node = _getNodeAtPos(Internal::root, 0, 0, wx, wy);
+	Node *node = _getNodeAtPos(Internal::root, wx, wy);
 
 	if (!node) return Internal::root;
 }

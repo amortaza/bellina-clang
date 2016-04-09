@@ -13,6 +13,7 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 	parent = parent_;
+	nid = 0;
 
 	global_pos.x = 0;
 	global_pos.y = 0;
@@ -46,6 +47,10 @@ Node::Node(Node* parent_) {
 	borderTops(BL_BORDER_ALL, false);
 
 	flags = G2_COLOR_SOLID | G2_ALPHA_NONE;
+}
+
+void Node::id(char* _id) {
+	nid = _strdup(_id);
 }
 
 void Node::labelTops(bool tops) {
@@ -148,6 +153,9 @@ void Node::removeFlag(int flag) {
 }
 
 Node::~Node() {
+	// id
+	if (nid) delete[] nid;
+
 	// font
 	if (font_name) delete[] font_name;
 
