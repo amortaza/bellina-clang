@@ -28,7 +28,7 @@ void bl::uninit() {
 Node* bl::nd() {
 	Node* parent = current_node;
 
-	current_node = new Node();
+	current_node = new Node(parent);
 
 	if (parent) parent->addKid(current_node);
 

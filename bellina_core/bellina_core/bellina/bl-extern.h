@@ -28,4 +28,9 @@ namespace bl {
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
 	}
+
+	namespace util {
+		void calcGlobalPositions();
+		Node* getNodeAtPos(int wx, int wy);
+	}
 }

@@ -1,26 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Source Files\soil">
-      <UniqueIdentifier>{641b7315-bfbc-4c99-aa65-4efb36e2d195}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\free_font">
-      <UniqueIdentifier>{a6b6e25f-b395-4efd-afdc-6365a7c4bf3a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\g2">
-      <UniqueIdentifier>{4a535589-ef64-4b7c-9032-b4f8e50b76c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\g2\include">
-      <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
-    </Filter>
     <Filter Include="sample">
       <UniqueIdentifier>{d0e83cbd-e913-4191-a4e7-11d6ba862b82}</UniqueIdentifier>
     </Filter>
@@ -30,11 +10,31 @@
     <Filter Include="bellina-ui">
       <UniqueIdentifier>{99a8fd7f-407f-4682-827b-2a12a42b8e73}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina-renderer">
-      <UniqueIdentifier>{75d67782-efd1-467e-9a7c-ff9cfac449ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="bellina-lib">
       <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="header files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="source files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="source files\soil">
+      <UniqueIdentifier>{641b7315-bfbc-4c99-aa65-4efb36e2d195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\free_font">
+      <UniqueIdentifier>{a6b6e25f-b395-4efd-afdc-6365a7c4bf3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\g2">
+      <UniqueIdentifier>{4a535589-ef64-4b7c-9032-b4f8e50b76c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\g2\include">
+      <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina-render">
+      <UniqueIdentifier>{75d67782-efd1-467e-9a7c-ff9cfac449ca}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,79 +42,79 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
-      <Filter>Header Files</Filter>
+      <Filter>header files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
-      <Filter>Source Files</Filter>
+      <Filter>source files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\image_DXT.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\image_helper.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\SOIL.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\FreeFont\free_font\free_font\free_font.h">
-      <Filter>Source Files\free_font</Filter>
+      <Filter>source files\free_font</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceFramebuffer.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceImageRect.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceMaskRgbRect.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceProgram.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceRgbRect.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceShader.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceTexture.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceTextureGlyph.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\AceTextureRect.hpp">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_canvas.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_core.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_externals.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h">
-      <Filter>Source Files\g2\include</Filter>
+      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="sample\main.h">
       <Filter>sample</Filter>
@@ -132,7 +132,7 @@
       <Filter>bellina-ui</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-render.h">
-      <Filter>bellina-renderer</Filter>
+      <Filter>bellina-render</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-core.h">
       <Filter>bellina-om</Filter>
@@ -146,49 +146,49 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>header files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_DXT.cpp">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp">
-      <Filter>Source Files\soil</Filter>
+      <Filter>source files\soil</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp">
-      <Filter>Source Files\free_font</Filter>
+      <Filter>source files\free_font</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\AceTexture.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_canvas.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_core.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_font.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_internal.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_mask.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp">
-      <Filter>Source Files\g2</Filter>
+      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="sample\init.cpp">
       <Filter>sample</Filter>
@@ -206,7 +206,7 @@
       <Filter>bellina-ui</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-render.cpp">
-      <Filter>bellina-renderer</Filter>
+      <Filter>bellina-render</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina-om</Filter>
@@ -216,6 +216,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-fluent-font.cpp">
       <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-util.cpp">
+      <Filter>bellina-lib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

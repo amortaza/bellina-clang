@@ -11,7 +11,12 @@ using namespace g2::flags;
 using namespace bl;
 using namespace bl::flags;
 
-Node::Node() {
+Node::Node(Node* parent_) {
+	parent = parent_;
+
+	global_pos.x = 0;
+	global_pos.y = 0;
+
 	canvas = 0;
 	texture_ = 0;
 	mask_ = 0;

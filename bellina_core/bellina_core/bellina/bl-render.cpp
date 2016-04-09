@@ -87,6 +87,8 @@ void bl::paint() {
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
 
+	bl::util::calcGlobalPositions();
+
 	root->dim(winW, winH);
 
 	g2::viewport(winW, winH);

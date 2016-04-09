@@ -11,9 +11,15 @@ namespace bl {
 		bool topsCanvas;
 	};
 
+	struct Point {
+		int x, y;
+	};
+
 	class Node {
 
 	public:
+		Point global_pos;
+
 		int x, y;
 		int w, h;
 		
@@ -41,13 +47,14 @@ namespace bl {
 
 		bool label_tops_canvas;
 
+		Node* parent;
 		std::list<Node*> kids;
 
 	public:
 		g2::CanvasRef* canvas;
 		int fontHeight;
 
-		Node();
+		Node(Node *parent_);
 		~Node();
 
 		void pos(int _x, int _y);
