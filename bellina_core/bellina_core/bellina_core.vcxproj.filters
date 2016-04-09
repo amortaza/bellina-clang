@@ -24,6 +24,9 @@
     <Filter Include="Source Files\g2\include">
       <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sample">
+      <UniqueIdentifier>{d0e83cbd-e913-4191-a4e7-11d6ba862b82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -32,26 +35,8 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina.h">
-      <Filter>bellina_core</Filter>
-    </ClInclude>
-    <ClInclude Include="bl-node.h">
-      <Filter>bellina_core</Filter>
-    </ClInclude>
-    <ClInclude Include="bl-render.h">
-      <Filter>bellina_core</Filter>
-    </ClInclude>
-    <ClInclude Include="bl-core.h">
-      <Filter>bellina_core</Filter>
-    </ClInclude>
-    <ClInclude Include="bl-extern.h">
-      <Filter>bellina_core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\image_DXT.h">
       <Filter>Source Files\soil</Filter>
@@ -122,31 +107,28 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h">
       <Filter>Source Files\g2\include</Filter>
     </ClInclude>
+    <ClInclude Include="sample\main.h">
+      <Filter>sample</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bellina.h">
+      <Filter>bellina_core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-core.h">
+      <Filter>bellina_core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-extern.h">
+      <Filter>bellina_core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-node.h">
+      <Filter>bellina_core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-render.h">
+      <Filter>bellina_core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="callbacks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="init.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="bl-node.cpp">
-      <Filter>bellina_core</Filter>
-    </ClCompile>
-    <ClCompile Include="bl-render.cpp">
-      <Filter>bellina_core</Filter>
-    </ClCompile>
-    <ClCompile Include="bl-core.cpp">
-      <Filter>bellina_core</Filter>
-    </ClCompile>
-    <ClCompile Include="bl-internal.cpp">
-      <Filter>bellina_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_DXT.cpp">
       <Filter>Source Files\soil</Filter>
@@ -189,6 +171,27 @@
     </ClCompile>
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp">
       <Filter>Source Files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="sample\callbacks.cpp">
+      <Filter>sample</Filter>
+    </ClCompile>
+    <ClCompile Include="sample\init.cpp">
+      <Filter>sample</Filter>
+    </ClCompile>
+    <ClCompile Include="sample\main.cpp">
+      <Filter>sample</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core.cpp">
+      <Filter>bellina_core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-internal.cpp">
+      <Filter>bellina_core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-node.cpp">
+      <Filter>bellina_core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-render.cpp">
+      <Filter>bellina_core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

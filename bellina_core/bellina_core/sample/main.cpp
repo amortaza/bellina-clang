@@ -1,5 +1,7 @@
 #include "stdafx.h"
-#include "bellina.h"
+
+#include "bellina/bellina.h"
+
 #include "main.h"
 
 void OnTick() {

@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\_c\g2\g2;C:\_c\c_lib\lib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>c:\_c\bellina_core\bellina_core\bellina_core;C:\_c\g2\g2;C:\_c\c_lib\lib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>C:\_c\c_lib\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -171,12 +171,12 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h" />
-    <ClInclude Include="bellina.h" />
-    <ClInclude Include="bl-core.h" />
-    <ClInclude Include="bl-extern.h" />
-    <ClInclude Include="bl-node.h" />
-    <ClInclude Include="bl-render.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="bellina\bellina.h" />
+    <ClInclude Include="bellina\bl-core.h" />
+    <ClInclude Include="bellina\bl-extern.h" />
+    <ClInclude Include="bellina\bl-node.h" />
+    <ClInclude Include="bellina\bl-render.h" />
+    <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
@@ -195,13 +195,13 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp" />
-    <ClCompile Include="bl-core.cpp" />
-    <ClCompile Include="bl-internal.cpp" />
-    <ClCompile Include="bl-node.cpp" />
-    <ClCompile Include="bl-render.cpp" />
-    <ClCompile Include="callbacks.cpp" />
-    <ClCompile Include="init.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="bellina\bl-core.cpp" />
+    <ClCompile Include="bellina\bl-internal.cpp" />
+    <ClCompile Include="bellina\bl-node.cpp" />
+    <ClCompile Include="bellina\bl-render.cpp" />
+    <ClCompile Include="sample\callbacks.cpp" />
+    <ClCompile Include="sample\init.cpp" />
+    <ClCompile Include="sample\main.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
