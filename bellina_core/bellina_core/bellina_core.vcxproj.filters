@@ -9,9 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="bellina_core">
-      <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\soil">
       <UniqueIdentifier>{641b7315-bfbc-4c99-aa65-4efb36e2d195}</UniqueIdentifier>
     </Filter>
@@ -29,6 +26,15 @@
     </Filter>
     <Filter Include="bellina-om">
       <UniqueIdentifier>{4aa32dab-8334-4fca-b16c-5742b2a183e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina-ui">
+      <UniqueIdentifier>{99a8fd7f-407f-4682-827b-2a12a42b8e73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina-renderer">
+      <UniqueIdentifier>{75d67782-efd1-467e-9a7c-ff9cfac449ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina-lib">
+      <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -114,24 +120,27 @@
       <Filter>sample</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bellina.h">
-      <Filter>bellina_core</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina\bl-core.h">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-lib</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-extern.h">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-lib</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-node.h">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-lib</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-ui.h">
+      <Filter>bellina-ui</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-render.h">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-renderer</Filter>
     </ClInclude>
-    <ClInclude Include="bl-fluent-border.h">
+    <ClInclude Include="bellina\bl-core.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
-    <ClInclude Include="bl-fluent-font.h">
+    <ClInclude Include="bellina\bl-fluent-border.h">
+      <Filter>bellina-om</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-fluent-font.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
   </ItemGroup>
@@ -181,31 +190,31 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp">
       <Filter>Source Files\g2</Filter>
     </ClCompile>
-    <ClCompile Include="sample\callbacks.cpp">
-      <Filter>sample</Filter>
-    </ClCompile>
     <ClCompile Include="sample\init.cpp">
       <Filter>sample</Filter>
     </ClCompile>
     <ClCompile Include="sample\main.cpp">
       <Filter>sample</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-core.cpp">
-      <Filter>bellina_core</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-internal.cpp">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-lib</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-node.cpp">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-ui.cpp">
+      <Filter>bellina-ui</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-render.cpp">
-      <Filter>bellina_core</Filter>
+      <Filter>bellina-renderer</Filter>
     </ClCompile>
-    <ClCompile Include="bl-fluent-border.cpp">
+    <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
-    <ClCompile Include="bl-fluent-font.cpp">
+    <ClCompile Include="bellina\bl-fluent-border.cpp">
+      <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-fluent-font.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
   </ItemGroup>

@@ -26,18 +26,18 @@ int main(int argc, char** argv) {
 
 	Xel::Init();
 
-	Xel::Window::SetCallbacks(OnResize, Init_OnGL, UnInit);
+	Xel::Window::SetCallbacks(bl::ui::onResize, Init_OnGL, UnInit);
 
 	Xel::Mouse::SetCallbacks(
-		OnMouseMove,
-		OnMouseButton,
-		OnMouseScroll);
+		bl::ui::onMouseMove,
+		bl::ui::onMouseButton,
+		bl::ui::onMouseScroll);
 
 	Xel::Keyboard::SetCallbacks(
-		OnKeyDown,
-		OnKeyUp);
+		bl::ui::onKeyDown,
+		bl::ui::onKeyUp);
 
-	Xel::Window::SetTitle("Bellina v0.1.0");
+	Xel::Window::SetTitle("Bellina v0.2.0");
 	Xel::Window::SetPosition(200, 100);
 	Xel::Window::SetSize(1300, 843);
 
