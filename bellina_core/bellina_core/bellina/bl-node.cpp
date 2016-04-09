@@ -107,6 +107,11 @@ void Node::fontOpacity(float alpha) {
 
 void Node::padding(int l, int t, int r, int b) {
 	padding_left = l; padding_top = t; padding_right = r; padding_bottom = b;
+
+	if (l < 1 && t < 1 && r < 1 && b < 1)
+		removeFlag(G2_PAD);
+	else
+		addFlag(G2_PAD);
 }
 
 void Node::canvasOpacity1(float opacity) {

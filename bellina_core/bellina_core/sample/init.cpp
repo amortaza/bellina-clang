@@ -30,10 +30,10 @@ void Render_My_Bellina() {
 
 		bl::nd();
 		{
-			bl::pos(frame, 10);
+			bl::pos(10, 10);
 			bl::dim(320, 240);
 			bl::color(0, 50, 50);
-			bl::padding(10, 10, 0, 0);
+			bl::padding(10, 3, 0, 0);
 
 			//bl::font("arial", 35)->text("Hi, Clown!")->color(255, 255, 255);
 			bl::text("Hi, Clown!")->font("arial", 35)->color(255, 255, 255);
@@ -42,9 +42,9 @@ void Render_My_Bellina() {
 
 			bl::nd();
 			{
-				bl::pos(20, 70);
+				bl::pos(20, 170);
 				bl::dim(160, 120);
-				bl::color(0, 50, 150);
+				bl::color(0, 150, 150);
 			}
 			bl::end();
 		}
