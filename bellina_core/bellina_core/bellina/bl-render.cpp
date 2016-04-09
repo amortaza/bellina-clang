@@ -82,6 +82,8 @@ void _renderBorder(Node *n, bool mustTopCanvas, int deltaX, int deltaY) {
 }
 
 void bl::paint() {
+	if (!root) return;
+
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
 

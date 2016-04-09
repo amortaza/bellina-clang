@@ -4,9 +4,13 @@
 
 #include "main.h"
 
+void Render_My_Bellina();
+
 void OnTick() {
 	try
 	{
+		Render_My_Bellina();
+
 		bl::paint();
 	}
 	catch (char* msg) {
@@ -39,6 +43,7 @@ int main(int argc, char** argv) {
 
 	Xel::Loop(OnTick);
 
+	//int i; std::cin >> i;
 	printf("good bye.\n");	return 0;
 }
 

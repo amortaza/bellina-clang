@@ -58,14 +58,14 @@ void Node::color2(unsigned char _r, unsigned char _g, unsigned char _b) {
 void resetCanvasRef(Node *node, int w, int h) {
 	if (node->canvas) delete node->canvas;
 
-	printf("creating canvas %i %i\n", w, h);
+//	printf("creating canvas %i %i\n", w, h);
 	node->canvas = g2::createCanvas(w,h);
 }
 
 void Node::dim(int _w, int _h) {
 	if (_w != w || _h != h) {
 		w = _w; h = _h;
-		resetCanvasRef(this, _w, _h);		
+		resetCanvasRef(this, _w, _h);
 	}
 	else {
 		w = _w; h = _h;
@@ -80,11 +80,20 @@ void Node::addKid(Node* kid) {
 	kids.push_back(kid);
 }
 
+void Node::label(char *_text) {
+	label_ = _strdup(_text);
+
+	if (!font_name) font("arial", font_size);
+}
+
 void Node::font(char *name, int size) {
-	font_name = _strdup(name);
 	font_size = size;
 
+	if (font_name) delete[] font_name;
+	font_name = _strdup(name);
+
 	g2::font(font_name, size);
+
 	fontHeight = g2::font_height();
 }
 
@@ -98,12 +107,6 @@ void Node::fontOpacity(float alpha) {
 
 void Node::padding(int l, int t, int r, int b) {
 	padding_left = l; padding_top = t; padding_right = r; padding_bottom = b;
-}
-
-void Node::label(char *_text) {
-	label_ = _strdup(_text);
-
-	if (!font_name) font("arial", font_size);
 }
 
 void Node::canvasOpacity1(float opacity) {

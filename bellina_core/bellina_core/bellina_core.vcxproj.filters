@@ -27,6 +27,9 @@
     <Filter Include="sample">
       <UniqueIdentifier>{d0e83cbd-e913-4191-a4e7-11d6ba862b82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina-om">
+      <UniqueIdentifier>{4aa32dab-8334-4fca-b16c-5742b2a183e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -125,6 +128,12 @@
     <ClInclude Include="bellina\bl-render.h">
       <Filter>bellina_core</Filter>
     </ClInclude>
+    <ClInclude Include="bl-fluent-border.h">
+      <Filter>bellina-om</Filter>
+    </ClInclude>
+    <ClInclude Include="bl-fluent-font.h">
+      <Filter>bellina-om</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -192,6 +201,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-render.cpp">
       <Filter>bellina_core</Filter>
+    </ClCompile>
+    <ClCompile Include="bl-fluent-border.cpp">
+      <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bl-fluent-font.cpp">
+      <Filter>bellina-om</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

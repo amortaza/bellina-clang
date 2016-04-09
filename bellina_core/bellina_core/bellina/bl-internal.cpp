@@ -1,6 +1,8 @@
 #include "stdafx.h"
 
 #include "bl-node.h"
+#include "bl-fluent-border.h"
+#include "bl-fluent-font.h"
 
 namespace bl {
 	namespace flags {
@@ -13,6 +15,14 @@ namespace bl {
 	}
 
 	namespace Internal {
-		Node *root;
+		Node *root = 0;
+		Node *current_node = 0;
+
+		unsigned int border_flag = bl::flags::BL_BORDER_ALL;
+
+		std::stack<Node *> nodeStack;
+
+		FluentBorder fluent_border;
+		FluentFont fluent_font;
 	}
 }

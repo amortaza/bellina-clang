@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <ctime>
 
 #include "bellina/bellina.h"
 
@@ -11,13 +12,53 @@ using namespace g2::flags;
 g2::TextureRef* guitar;
 g2::TextureRef* jet;
 
+int frame = 0;
+long double first = time(0);
+
+void Render_My_Bellina() {
+	frame++;	
+	if (frame % 32 == 0) {
+		long double delta = time(0) - first;
+		printf("FPS = %1.2f\n", (float)frame / delta);
+	}
+
+	if (root) {delete root; root = 0;}
+
+	root = bl::nd(); 
+	{
+		bl::color(50, 0, 50);
+
+		bl::nd();
+		{
+			bl::pos(frame, 10);
+			bl::dim(320, 240);
+			bl::color(0, 50, 50);
+			bl::padding(10, 10, 0, 0);
+
+			//bl::font("arial", 35)->text("Hi, Clown!")->color(255, 255, 255);
+			bl::text("Hi, Clown!")->font("arial", 35)->color(255, 255, 255);
+
+			bl::border(BL_BORDER_ALL)->color(50, 0, 50)->thickness(4);
+
+			bl::nd();
+			{
+				bl::pos(20, 70);
+				bl::dim(160, 120);
+				bl::color(0, 50, 150);
+			}
+			bl::end();
+		}
+		bl::end();
+	}
+	bl::end();
+}
 void Init_OnGL() {
 	bl::init();
 
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 
-	Node *root = bl::Internal::root;
+	/*Node *root = bl::Internal::root;
 	root->pos(0, 0);
 	root->color1(50, 0, 50);
 	root->color2(0, 0, 50);
@@ -59,7 +100,7 @@ void Init_OnGL() {
 	kid->font("arial", 30);
 	kid->label("Hello world!");
 	
-	root->addKid(kid);
+	root->addKid(kid);*/
 }
 
 void UnInit() {
