@@ -4,10 +4,12 @@
 
 #include "bl-core.h"
 #include "bl-extern.h"
+#include "bl-sys.h"
 
 using namespace bl;
 using namespace bl::Internal;
 using namespace bl::flags;
+using namespace bl::sys;
 
 void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseMove = cb;

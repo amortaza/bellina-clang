@@ -179,6 +179,7 @@
     <ClInclude Include="bellina\bl-fluent-font.h" />
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-render.h" />
+    <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-ui.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="bellina\bl-flags.cpp" />
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
+    <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-ui.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />
     <ClCompile Include="bellina\bl-internal.cpp" />

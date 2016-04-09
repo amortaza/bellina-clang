@@ -36,6 +36,9 @@
     <Filter Include="bellina-render">
       <UniqueIdentifier>{75d67782-efd1-467e-9a7c-ff9cfac449ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina-util">
+      <UniqueIdentifier>{5a36d469-8554-4e39-8ea5-bec76ae17e19}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -146,6 +149,9 @@
     <ClInclude Include="bellina\bl-flags.h">
       <Filter>bellina-lib</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-sys.h">
+      <Filter>bellina-util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -220,11 +226,14 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-util.cpp">
-      <Filter>bellina-lib</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-flags.cpp">
       <Filter>bellina-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-util.cpp">
+      <Filter>bellina-util</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-sys.cpp">
+      <Filter>bellina-util</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

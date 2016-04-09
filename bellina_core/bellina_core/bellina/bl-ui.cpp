@@ -2,9 +2,11 @@
 
 #include "bl-extern.h"
 #include "bl-ui.h"
+#include "bl-sys.h"
 
 using namespace bl;
 using namespace bl::Internal;
+using namespace bl::sys;
 
 void _call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
 	if (node->callback_onMouseMove_enabled && node->callback_onMouseMove != nullptr) {
@@ -23,6 +25,9 @@ void _call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
 }
 
 void bl::ui::onMouseMove(int mx, int my) {
+	mouse_x_prev = mouse_x; mouse_y_prev = mouse_y;
+	mouse_x = mx; mouse_y = my;
+
 	bl::node = util::getNodeAtPos(mx, my);
 
 	if (bl::node) {		
