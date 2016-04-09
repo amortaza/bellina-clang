@@ -10,5 +10,6 @@ namespace bl {
 		extern unsigned int BL_BORDER_ANY;
 
 		extern unsigned int BL_MOUSE_MOVE;
+		extern unsigned int BL_MOUSE_MOVE_BUBBLE;
 	}
 }

@@ -11,5 +11,6 @@ namespace bl {
 		unsigned int BL_BORDER_ANY = BL_BORDER_ALL;
 
 		unsigned int BL_MOUSE_MOVE = 1 << 0;
+		unsigned int BL_MOUSE_MOVE_BUBBLE = 1 << 1;
 	}
 }

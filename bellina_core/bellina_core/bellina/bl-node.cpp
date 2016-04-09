@@ -13,6 +13,7 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 	callback_onMouseMove_enabled = false;
+	callback_onMouseMove_enabled_bubble = true;
 	callback_onMouseMove = nullptr;
 
 	parent = parent_;

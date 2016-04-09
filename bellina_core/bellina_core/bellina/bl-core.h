@@ -18,7 +18,7 @@ namespace bl {
 	void enable(int callbackFlag);
 	void disable(int callbackFlag);
 
-	void onMouseMove(std::function<void(int mx, int my)>);
+	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
 
 	// node control
 	void id(char*);

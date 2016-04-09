@@ -9,18 +9,19 @@ using namespace bl;
 using namespace bl::Internal;
 using namespace bl::flags;
 
-void bl::onMouseMove(std::function<void(int mx, int my)> cb) {
+void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseMove = cb;
 	current_node->callback_onMouseMove_enabled = true;
 }
 
 void bl::enable(int callbackFlag) {
 	if (callbackFlag & BL_MOUSE_MOVE) current_node->callback_onMouseMove_enabled = true;
+	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->callback_onMouseMove_enabled_bubble = true;
 }
 
 void bl::disable(int callbackFlag) {
-	if (callbackFlag & BL_MOUSE_MOVE) 
-		current_node->callback_onMouseMove_enabled = false;
+	if (callbackFlag & BL_MOUSE_MOVE) current_node->callback_onMouseMove_enabled = false;
+	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->callback_onMouseMove_enabled_bubble = false;
 }
 
 void bl::init() {

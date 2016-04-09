@@ -18,7 +18,7 @@ long double first = time(0);
 
 void Render_My_Bellina() {
 	frame++;	
-	if (frame % 32 == 0) {
+	if (frame % 512 == 0) {
 		long double delta = time(0) - first;
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
@@ -30,16 +30,20 @@ void Render_My_Bellina() {
 		bl::id("root node");
 		bl::color(50, 0, 50);
 
-		bl::onMouseMove([](int mx, int my) {
-			printf("from root: node is %s\n", bl::node->nid);
+		bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
+			if (bubbledFrom==0)
+			printf("******** from root: node is %s\n", bl::node->nid);
+			else
+				printf("        from root: node is %s\n", bl::node->nid);
 		});
 
 		bl::nd();
 		{
-			bl::onMouseMove([](int mx, int my) {
-				printf("from child: node is %s\n", bl::node->nid);
+			bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
+				printf("        from child: node is %s\n", bl::node->nid);
 			});
 			bl::enable(BL_MOUSE_MOVE);
+			bl::enable(BL_MOUSE_MOVE_BUBBLE);
 
 			bl::id("child A");
 			bl::pos(10, 10);

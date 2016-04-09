@@ -24,7 +24,8 @@ namespace bl {
 		Point global_pos;
 
 		bool callback_onMouseMove_enabled;
-		std::function<void(int mx, int my)> callback_onMouseMove;
+		bool callback_onMouseMove_enabled_bubble;
+		std::function<void(int mx, int my, Node* bubbledFrom)> callback_onMouseMove;
 
 		char* nid;
 

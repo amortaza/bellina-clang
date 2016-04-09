@@ -6,28 +6,27 @@
 using namespace bl;
 using namespace bl::Internal;
 
-void _call_mouse_move(Node *node, int mx, int my) {
+void _call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
 	if (node->callback_onMouseMove_enabled && node->callback_onMouseMove != nullptr) {
-		node->callback_onMouseMove(mx, my);
+		bl::node = node;
+		node->callback_onMouseMove(mx, my, bubbledFrom);
 	}
 
-	// bubble up the event!
-	Node *parent = node->parent;
-
-	while (parent) {
-		bl::node = parent;
-		_call_mouse_move(parent, mx, my);
-		parent = parent->parent;
+	if (node->callback_onMouseMove_enabled_bubble) {
+		
+		// bubble up the event!
+		if (node->parent) {
+			bl::node = node->parent;
+			_call_mouse_move(node->parent, mx, my, node);
+		}
 	}
-
-	bl::node = node;
 }
 
 void bl::ui::onMouseMove(int mx, int my) {
 	bl::node = util::getNodeAtPos(mx, my);
 
 	if (bl::node) {		
-		_call_mouse_move(bl::node, mx, my);
+		_call_mouse_move(bl::node, mx, my, 0);
 	}
 }
 
