@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <functional>
 #include <ctime>
 
 #include "bellina/bellina.h"
@@ -26,10 +27,16 @@ void Render_My_Bellina() {
 
 	root = bl::nd(); 
 	{
+		bl::id("root node");
 		bl::color(50, 0, 50);
 
 		bl::nd();
 		{
+			bl::onMouseMove([](int mx, int my) {
+				printf("fucking awesome %s\n", bl::node->nid);
+			});
+
+			bl::id("child A");
 			bl::pos(10, 10);
 			bl::dim(320, 240);
 			bl::color(0, 50, 50);
@@ -42,6 +49,7 @@ void Render_My_Bellina() {
 
 			bl::nd();
 			{
+				bl::id("child A.1");
 				bl::pos(20, 170);
 				bl::dim(160, 120);
 				bl::color(0, 150, 150);
@@ -52,6 +60,7 @@ void Render_My_Bellina() {
 	}
 	bl::end();
 }
+
 void Init_OnGL() {
 	bl::init();
 

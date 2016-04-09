@@ -8,6 +8,10 @@
 using namespace bl;
 using namespace bl::Internal;
 
+void bl::onMouseMove(std::function<void(int mx, int my)> cb) {
+	current_node->callback_onMouseMove = cb;
+}
+
 void bl::init() {
 	g2::init();
 

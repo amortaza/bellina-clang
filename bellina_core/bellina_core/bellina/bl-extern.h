@@ -7,6 +7,8 @@
 #include <stack>
 
 namespace bl {
+	extern Node* node;
+
 	namespace flags {
 		extern unsigned int BL_BORDER_LEFT;
 		extern unsigned int BL_BORDER_TOP;
@@ -18,8 +20,7 @@ namespace bl {
 
 	namespace Internal {
 		extern Node *root;
-
-		extern Node *current_node;
+		extern Node *current_node;		
 
 		extern unsigned int border_flag;
 

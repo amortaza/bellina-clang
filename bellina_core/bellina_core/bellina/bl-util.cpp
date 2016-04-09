@@ -26,7 +26,8 @@ Node* _getNodeAtPos(Node *parent, int wx, int wy) {
 	}
 
 	// now get the topmost from topmost
-	topmost = _getNodeAtPos(topmost, wx, wy);
+	if (topmost != parent)
+		topmost = _getNodeAtPos(topmost, wx, wy);
 
 	return topmost;
 }

@@ -1,7 +1,10 @@
 #pragma once
 
 #include <list>
+#include <functional>
+
 #include "g2/g2.h"
+//#include "bl-core.h" // including this causing error
 
 namespace bl {
 	struct BorderSide {
@@ -19,6 +22,7 @@ namespace bl {
 
 	public:
 		Point global_pos;
+		std::function<void(int mx, int my)> callback_onMouseMove;
 
 		char* nid;
 

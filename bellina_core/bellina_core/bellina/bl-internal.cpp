@@ -5,6 +5,8 @@
 #include "bl-fluent-font.h"
 
 namespace bl {
+	Node* node = 0;
+
 	namespace flags {
 		unsigned int BL_BORDER_LEFT = 1 << 31;
 		unsigned int BL_BORDER_TOP = 1 << 30;
@@ -16,7 +18,7 @@ namespace bl {
 
 	namespace Internal {
 		Node *root = 0;
-		Node *current_node = 0;
+		Node *current_node = 0;		
 
 		unsigned int border_flag = bl::flags::BL_BORDER_ALL;
 

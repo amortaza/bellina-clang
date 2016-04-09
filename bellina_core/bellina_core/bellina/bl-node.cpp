@@ -12,6 +12,8 @@ using namespace bl;
 using namespace bl::flags;
 
 Node::Node(Node* parent_) {
+	callback_onMouseMove = nullptr;
+
 	parent = parent_;
 	nid = 0;
 
