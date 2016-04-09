@@ -41,6 +41,11 @@ void Render_My_Bellina() {
 				g = r;
 			});
 
+			bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				b = r;
+				r = 0; g = 0;
+			});
+
 			bl::id("child A");
 			bl::pos(10, 10);
 			bl::dim(320, 240);

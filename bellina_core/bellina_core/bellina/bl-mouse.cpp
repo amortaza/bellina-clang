@@ -30,6 +30,22 @@ void _call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Nod
 	}
 }
 
+void _call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+	if (node->callback_onMouseUp_enabled && node->callback_onMouseUp != nullptr) {
+		bl::node = node;
+		node->callback_onMouseUp(button, mx, my, bubbledFrom);
+	}
+
+	if (node->callback_onMouseUp_enabled_bubble) {
+
+		// bubble up the event!
+		if (node->parent) {
+			bl::node = node->parent;
+			_call_mouse_up(node->parent, button, mx, my, node);
+		}
+	}
+}
+
 void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
 	_updateSysMouse(mx, my);
 
@@ -38,6 +54,8 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 	if (bl::node) {
 		if (action == Xel::Mouse::Action::Down)
 			_call_mouse_down(bl::node, button, mx, my, 0);
+		else if (action == Xel::Mouse::Action::Up)
+			_call_mouse_up(bl::node, button, mx, my, 0);
 	}
 }
 

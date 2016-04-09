@@ -22,6 +22,7 @@ namespace bl {
 
 	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
 	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>); 
+	void onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
 
 	// node control
 	void id(char*);
