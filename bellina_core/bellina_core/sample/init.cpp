@@ -30,6 +30,10 @@ void Render_My_Bellina() {
 		bl::id("root node");
 		bl::color(50, 0, 50);
 
+		bl::onMouseMove([](int mx, int my) {
+			printf("this is root now %s\n", bl::node->nid);
+		});
+
 		bl::nd();
 		{
 			bl::onMouseMove([](int mx, int my) {

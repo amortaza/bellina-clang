@@ -10,8 +10,18 @@ void bl::ui::onMouseMove(int mx, int my) {
 	bl::node = util::getNodeAtPos(mx, my);
 
 	if (bl::node) {		
-		if (bl::node->callback_onMouseMove != nullptr) 
-			bl::node->callback_onMouseMove(mx,my);
+		if (bl::node->callback_onMouseMove != nullptr) {
+			bl::node->callback_onMouseMove(mx, my);
+
+			// bubble up the event!
+			Node *parent = bl::node->parent;
+			while (parent) {
+				if (parent->callback_onMouseMove!=nullptr) 
+					parent->callback_onMouseMove(mx, my);
+
+				parent = parent->parent;
+			}
+		}
 	}
 }
 
