@@ -31,14 +31,15 @@ void Render_My_Bellina() {
 		bl::color(50, 0, 50);
 
 		bl::onMouseMove([](int mx, int my) {
-			printf("this is root now %s\n", bl::node->nid);
+			printf("from root: node is %s\n", bl::node->nid);
 		});
 
 		bl::nd();
 		{
 			bl::onMouseMove([](int mx, int my) {
-				printf("fucking awesome %s\n", bl::node->nid);
+				printf("from child: node is %s\n", bl::node->nid);
 			});
+			bl::enable(BL_MOUSE_MOVE);
 
 			bl::id("child A");
 			bl::pos(10, 10);

@@ -22,6 +22,8 @@ namespace bl {
 
 	public:
 		Point global_pos;
+
+		bool callback_onMouseMove_enabled;
 		std::function<void(int mx, int my)> callback_onMouseMove;
 
 		char* nid;

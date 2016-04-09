@@ -15,6 +15,9 @@ namespace bl {
 	void paint();
 
 	// used in callbacks
+	void enable(int callbackFlag);
+	void disable(int callbackFlag);
+
 	void onMouseMove(std::function<void(int mx, int my)>);
 
 	// node control

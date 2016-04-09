@@ -7,9 +7,20 @@
 
 using namespace bl;
 using namespace bl::Internal;
+using namespace bl::flags;
 
 void bl::onMouseMove(std::function<void(int mx, int my)> cb) {
 	current_node->callback_onMouseMove = cb;
+	current_node->callback_onMouseMove_enabled = true;
+}
+
+void bl::enable(int callbackFlag) {
+	if (callbackFlag & BL_MOUSE_MOVE) current_node->callback_onMouseMove_enabled = true;
+}
+
+void bl::disable(int callbackFlag) {
+	if (callbackFlag & BL_MOUSE_MOVE) 
+		current_node->callback_onMouseMove_enabled = false;
 }
 
 void bl::init() {

@@ -143,6 +143,9 @@
     <ClInclude Include="bellina\bl-fluent-font.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-flags.h">
+      <Filter>bellina-lib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -218,6 +221,9 @@
       <Filter>bellina-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-util.cpp">
+      <Filter>bellina-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-flags.cpp">
       <Filter>bellina-lib</Filter>
     </ClCompile>
   </ItemGroup>
