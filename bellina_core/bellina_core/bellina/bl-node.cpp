@@ -16,6 +16,10 @@ Node::Node(Node* parent_) {
 	callback_onMouseMove_enabled_bubble = true;
 	callback_onMouseMove = nullptr;
 
+	callback_onMouseDown_enabled = false;
+	callback_onMouseDown_enabled_bubble = true;
+	callback_onMouseDown = nullptr;
+
 	parent = parent_;
 	nid = 0;
 

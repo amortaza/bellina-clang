@@ -15,6 +15,7 @@ g2::TextureRef* jet;
 
 int frame = 0;
 long double first = time(0);
+unsigned char r=0, g=50, b=50;
 
 void Render_My_Bellina() {
 	frame++;	
@@ -30,40 +31,25 @@ void Render_My_Bellina() {
 		bl::id("root node");
 		bl::color(50, 0, 50);
 
-		bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-			if (bubbledFrom==0)
-			printf("******** from root: node is %s\n", bl::node->nid);
-			else
-				printf("        from root: node is %s\n", bl::node->nid);
-		});
-
 		bl::nd();
 		{
 			bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-				printf("        from child: node is %s\n", bl::node->nid);
+				r += 1;
 			});
-			bl::enable(BL_MOUSE_MOVE);
-			bl::enable(BL_MOUSE_MOVE_BUBBLE);
+
+			bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				g = r;
+			});
 
 			bl::id("child A");
 			bl::pos(10, 10);
 			bl::dim(320, 240);
-			bl::color(0, 50, 50);
+			bl::color(r, g, b);
 			bl::padding(10, 3, 0, 0);
 
-			//bl::font("arial", 35)->text("Hi, Clown!")->color(255, 255, 255);
 			bl::text("Hi, Clown!")->font("arial", 35)->color(255, 255, 255);
 
 			bl::border(BL_BORDER_ALL)->color(50, 0, 50)->thickness(4);
-
-			bl::nd();
-			{
-				bl::id("child A.1");
-				bl::pos(20, 170);
-				bl::dim(160, 120);
-				bl::color(0, 150, 150);
-			}
-			bl::end();
 		}
 		bl::end();
 	}

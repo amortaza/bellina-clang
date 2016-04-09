@@ -11,5 +11,9 @@ namespace bl {
 
 		extern unsigned int BL_MOUSE_MOVE;
 		extern unsigned int BL_MOUSE_MOVE_BUBBLE;
+		extern unsigned int BL_MOUSE_DOWN;
+		extern unsigned int BL_MOUSE_DOWN_BUBBLE;
+		extern unsigned int BL_MOUSE_UP;
+		extern unsigned int BL_MOUSE_UP_BUBBLE;
 	}
 }

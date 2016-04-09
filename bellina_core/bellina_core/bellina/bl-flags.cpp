@@ -12,5 +12,9 @@ namespace bl {
 
 		unsigned int BL_MOUSE_MOVE = 1 << 0;
 		unsigned int BL_MOUSE_MOVE_BUBBLE = 1 << 1;
+		unsigned int BL_MOUSE_DOWN = 1 << 2;
+		unsigned int BL_MOUSE_DOWN_BUBBLE = 1 << 3;
+		unsigned int BL_MOUSE_UP = 1 << 4;
+		unsigned int BL_MOUSE_UP_BUBBLE = 1 << 5;
 	}
 }

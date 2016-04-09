@@ -39,6 +39,9 @@
     <Filter Include="bellina-util">
       <UniqueIdentifier>{5a36d469-8554-4e39-8ea5-bec76ae17e19}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bl-input">
+      <UniqueIdentifier>{6feae816-4d32-4161-8338-1c4a8fe86136}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -152,6 +155,9 @@
     <ClInclude Include="bellina\bl-sys.h">
       <Filter>bellina-util</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-mouse.h">
+      <Filter>bl-input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -234,6 +240,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-sys.cpp">
       <Filter>bellina-util</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-mouse.cpp">
+      <Filter>bl-input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

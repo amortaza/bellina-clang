@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Xel/Xel.h"
+
 #include "bl-node.h"
 
 #include "bl-fluent-border.h"
@@ -19,6 +21,7 @@ namespace bl {
 	void disable(int callbackFlag);
 
 	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
+	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>); 
 
 	// node control
 	void id(char*);
