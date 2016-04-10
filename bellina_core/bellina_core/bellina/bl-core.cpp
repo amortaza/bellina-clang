@@ -11,6 +11,11 @@ using namespace bl::Internal;
 using namespace bl::flags;
 using namespace bl::sys;
 
+void bl::onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)> cb) {
+	current_node->callback_onMouseScroll = cb;
+	current_node->callback_onMouseScroll_enabled = true;
+}
+
 void bl::onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseUp = cb;
 	current_node->callback_onMouseUp_enabled = true;

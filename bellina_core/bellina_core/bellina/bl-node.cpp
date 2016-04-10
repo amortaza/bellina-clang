@@ -12,6 +12,11 @@ using namespace bl;
 using namespace bl::flags;
 
 Node::Node(Node* parent_) {
+	
+	callback_onMouseScroll_enabled = false;
+	callback_onMouseScroll_enabled_bubble = true;
+	callback_onMouseScroll = nullptr;
+
 	callback_onMouseMove_enabled = false;
 	callback_onMouseMove_enabled_bubble = true;
 	callback_onMouseMove = nullptr;

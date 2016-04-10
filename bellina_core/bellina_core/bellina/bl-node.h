@@ -22,6 +22,10 @@ namespace bl {
 
 	public:
 		Point global_pos;
+		
+		bool callback_onMouseScroll_enabled;
+		bool callback_onMouseScroll_enabled_bubble;
+		std::function<void(int amount, int mx, int my, Node* bubbledFrom)> callback_onMouseScroll;
 
 		bool callback_onMouseMove_enabled;
 		bool callback_onMouseMove_enabled_bubble;

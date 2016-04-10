@@ -59,7 +59,31 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 	}
 }
 
+void _call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
+	if (node->callback_onMouseScroll_enabled && node->callback_onMouseScroll != nullptr) {
+		bl::node = node;
+		node->callback_onMouseScroll(amount, mx, my, bubbledFrom);
+	}
+
+	if (node->callback_onMouseScroll_enabled_bubble) {
+
+		// bubble up the event!
+		if (node->parent) {
+			bl::node = node->parent;
+			_call_mouse_scroll(node->parent, amount, mx, my, node);
+		}
+	}
+}
+
 void bl::ui::onMouseScroll(int amount) {
+	int mx = mouse_x;
+	int my = mouse_y;
+
+	bl::node = util::getNodeAtPos(mx, my);
+
+	if (bl::node) {
+		_call_mouse_scroll(bl::node, amount, mx, my, 0);
+	}
 }
 
 void _call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {

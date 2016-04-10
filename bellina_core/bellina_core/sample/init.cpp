@@ -34,17 +34,19 @@ void Render_My_Bellina() {
 		bl::nd();
 		{
 			bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-				r += 1;
 			});
 
 			bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-				g = r;
 			});
 
 			bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-				b = r;
-				r = 0; g = 0;
 			});
+
+			bl::onMouseScroll([](int amount, int mx, int my, Node* bubbledFrom) {
+				printf("%i\n",r);
+				r += amount/30; g += amount/30;
+			});
+
 
 			bl::id("child A");
 			bl::pos(10, 10);
