@@ -23,6 +23,10 @@ void bl::onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int m
 	current_node->callback_onMouseDown = cb;
 }
 
+void bl::onClick(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
+	current_node->callback_onClick = cb;
+}
+
 void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseMove = cb;
 }
@@ -67,6 +71,12 @@ void bl::uninit() {
 		root = 0;
 	}
 
+
+	if (last_mouse_down_node_id) {
+		delete[] last_mouse_down_node_id;
+		last_mouse_down_node_id = 0;
+	}
+
 	g2::uninit();
 }
 
@@ -81,6 +91,14 @@ Node* bl::nd() {
 }
 
 void bl::end() {
+	// validate that if mouse_click event is being captured that there is ID required
+	if (current_node && current_node->callback_onClick != nullptr) {
+		if (current_node->nid == 0) {
+			char* msg = "a node which has onClick event handler does NOT have ID...ID is required.\n";
+			printf(msg);
+			throw msg;
+		}
+	}
 	if (nodeStack.size() > 0) {
 		current_node = nodeStack.top();
 		nodeStack.pop();

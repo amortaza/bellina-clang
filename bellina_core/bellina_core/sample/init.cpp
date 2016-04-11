@@ -15,8 +15,9 @@ g2::TextureRef* jet;
 
 int frame = 0;
 long double first = time(0);
-unsigned char r=0, g=50, b=50;
+unsigned char r=0, g=50, b=150;
 
+int coolid = -1;
 void Render_My_Bellina() {
 	frame++;	
 	if (frame % 512 == 0) {
@@ -28,32 +29,16 @@ void Render_My_Bellina() {
 
 	root = bl::nd(); 
 	{
-		bl::id("root node");
+		bl::id("ROOT");
 		bl::color(50, 0, 50);
+
+		bl::onClick([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+			printf("clicked on %s\n", bl::node->nid);
+		});
 
 		bl::nd();
 		{
-			bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-			});
-
-			bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			});
-
-			bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			});
-
-			bl::onMouseScroll([](int amount, int mx, int my, Node* bubbledFrom) {
-			});
-
-			bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
-				printf("%i\n", xcode);
-				r += 30; g += 30;
-			});
-
-			bl::onKeyUp([](unsigned long long xcode, Node* bubbledFrom) {
-			});
-
-			bl::id("child A");
+			//bl::id("child A");
 			bl::pos(10, 10);
 			bl::dim(320, 240);
 			bl::color(r, g, b);
@@ -62,6 +47,24 @@ void Render_My_Bellina() {
 			bl::text("Hi, Clown!")->font("arial", 35)->color(255, 255, 255);
 
 			bl::border(BL_BORDER_ALL)->color(50, 0, 50)->thickness(4);
+
+			/*bl::onClick([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				printf("clicked on %s\n", bl::node->nid);
+			});*/
+
+			bl::nd();
+			{
+				//bl::id("child A.1");
+				bl::pos(20, 20);
+				bl::dim(160, 120);
+				bl::color(b, r, g);
+				bl::padding(10, 3, 0, 0);
+
+				bl::border(BL_BORDER_ALL)->color(50, 50, 150)->thickness(2);
+
+			}
+			bl::end();
+
 		}
 		bl::end();
 	}

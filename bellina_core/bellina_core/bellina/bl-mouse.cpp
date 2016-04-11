@@ -46,16 +46,51 @@ void _call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node*
 	}
 }
 
+void _call_mouse_click(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+	if (node->callback_onClick != nullptr) {
+		bl::node = node;
+		node->callback_onClick(button, mx, my, bubbledFrom);
+	}
+
+	if (node->callback_onClick_enabled_bubble) {
+
+		// bubble up the event!
+		if (node->parent) {
+			bl::node = node->parent;
+			_call_mouse_click(node->parent, button, mx, my, node);
+		}
+	}
+}
+
+
 void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
 	_updateSysMouse(mx, my);
 
-	bl::node = util::getNodeAtPos(mx, my);
+	Node* hit = util::getNodeAtPos(mx, my);
 
-	if (bl::node) {
-		if (action == Xel::Mouse::Action::Down)
-			_call_mouse_down(bl::node, button, mx, my, 0);
-		else if (action == Xel::Mouse::Action::Up)
-			_call_mouse_up(bl::node, button, mx, my, 0);
+	if (hit) {
+
+		if (action == Xel::Mouse::Action::Down) {			
+			last_mouse_down_node_id = _strdup(hit->nid);
+			last_mouse_down_button = button;
+			_call_mouse_down(hit, button, mx, my, 0);
+
+			printf("down %s\n", last_mouse_down_node_id);
+		}
+		else if (action == Xel::Mouse::Action::Up) {
+			printf("up %s\n", hit->nid);
+
+			_call_mouse_up(hit, button, mx, my, 0);
+
+			if (hit->nid && last_mouse_down_node_id && strcmp(hit->nid, last_mouse_down_node_id) == 0 && button == last_mouse_down_button) {
+				_call_mouse_click(hit, button, mx, my, 0);
+			}
+
+			if (last_mouse_down_node_id) {
+				delete[] last_mouse_down_node_id;
+				last_mouse_down_node_id = 0;
+			}
+		}
 	}
 }
 

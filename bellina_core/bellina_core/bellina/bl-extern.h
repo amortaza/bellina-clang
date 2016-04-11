@@ -20,6 +20,9 @@ namespace bl {
 
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
+
+		extern char* last_mouse_down_node_id;
+		extern Xel::Mouse::Button last_mouse_down_button;
 	}
 
 	namespace util {
