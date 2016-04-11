@@ -43,10 +43,15 @@ void Render_My_Bellina() {
 			});
 
 			bl::onMouseScroll([](int amount, int mx, int my, Node* bubbledFrom) {
-				printf("%i\n",r);
-				r += amount/30; g += amount/30;
 			});
 
+			bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
+				printf("%i\n", xcode);
+				r += 30; g += 30;
+			});
+
+			bl::onKeyUp([](unsigned long long xcode, Node* bubbledFrom) {
+			});
 
 			bl::id("child A");
 			bl::pos(10, 10);

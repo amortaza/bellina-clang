@@ -13,19 +13,21 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 	
-	callback_onMouseScroll_enabled = false;
+	callback_onKeyUp_enabled_bubble = true;
+	callback_onKeyUp = nullptr;
+
+	callback_onKeyDown_enabled_bubble = true;
+	callback_onKeyDown = nullptr;
+
 	callback_onMouseScroll_enabled_bubble = true;
 	callback_onMouseScroll = nullptr;
 
-	callback_onMouseMove_enabled = false;
 	callback_onMouseMove_enabled_bubble = true;
 	callback_onMouseMove = nullptr;
 
-	callback_onMouseDown_enabled = false;
 	callback_onMouseDown_enabled_bubble = true;
 	callback_onMouseDown = nullptr;
 
-	callback_onMouseUp_enabled = false;
 	callback_onMouseUp_enabled_bubble = true;
 	callback_onMouseUp = nullptr;
 

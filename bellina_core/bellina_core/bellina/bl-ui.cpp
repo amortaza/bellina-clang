@@ -9,12 +9,6 @@ using namespace bl;
 using namespace bl::Internal;
 using namespace bl::sys;
 
-void bl::ui::onKeyDown(unsigned long long xcode) {
-}
-
-void bl::ui::onKeyUp(unsigned long long xcode) {
-}
-
 void bl::ui::onResize(int w, int h) {
 	glViewport(0, 0, w, h);
 

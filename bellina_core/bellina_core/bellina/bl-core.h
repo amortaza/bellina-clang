@@ -24,6 +24,9 @@ namespace bl {
 	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>); 
 	void onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
 	void onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)>);
+
+	void onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
+	void onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
 	
 	// node control
 	void id(char*);

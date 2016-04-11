@@ -13,44 +13,44 @@ using namespace bl::sys;
 
 void bl::onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseScroll = cb;
-	current_node->callback_onMouseScroll_enabled = true;
 }
 
 void bl::onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseUp = cb;
-	current_node->callback_onMouseUp_enabled = true;
 }
 
 void bl::onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseDown = cb;
-	current_node->callback_onMouseDown_enabled = true;
 }
 
 void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseMove = cb;
-	current_node->callback_onMouseMove_enabled = true;
+}
+
+void bl::onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
+	current_node->callback_onKeyDown = cb;
+}
+
+void bl::onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
+	current_node->callback_onKeyUp = cb;
 }
 
 void bl::enable(int callbackFlag) {
-	if (callbackFlag & BL_MOUSE_MOVE) current_node->callback_onMouseMove_enabled = true;
 	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->callback_onMouseMove_enabled_bubble = true;
-
-	if (callbackFlag & BL_MOUSE_DOWN) current_node->callback_onMouseDown_enabled = true;
 	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->callback_onMouseDown_enabled_bubble = true;
-
-	if (callbackFlag & BL_MOUSE_UP) current_node->callback_onMouseUp_enabled = true;
 	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->callback_onMouseUp_enabled_bubble = true;
+	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->callback_onMouseScroll_enabled_bubble = true;
+	if (callbackFlag & BL_KEY_DOWN_BUBBLE) current_node->callback_onKeyDown_enabled_bubble = true;
+	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->callback_onKeyUp_enabled_bubble = true;
 }
 
 void bl::disable(int callbackFlag) {
-	if (callbackFlag & BL_MOUSE_MOVE) current_node->callback_onMouseMove_enabled = false;
 	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->callback_onMouseMove_enabled_bubble = false;
-
-	if (callbackFlag & BL_MOUSE_DOWN) current_node->callback_onMouseDown_enabled = false;
 	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->callback_onMouseDown_enabled_bubble = false;
-
-	if (callbackFlag & BL_MOUSE_UP) current_node->callback_onMouseUp_enabled = false;
 	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->callback_onMouseUp_enabled_bubble = false;
+	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->callback_onMouseScroll_enabled_bubble = false;
+	if (callbackFlag & BL_KEY_DOWN_BUBBLE) current_node->callback_onKeyDown_enabled_bubble = false;
+	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->callback_onKeyUp_enabled_bubble = false;
 }
 
 void bl::init() {

@@ -155,9 +155,6 @@
     <ClInclude Include="bellina\bl-sys.h">
       <Filter>bellina-util</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-mouse.h">
-      <Filter>bl-input</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -242,6 +239,9 @@
       <Filter>bellina-util</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-mouse.cpp">
+      <Filter>bl-input</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-key.cpp">
       <Filter>bl-input</Filter>
     </ClCompile>
   </ItemGroup>

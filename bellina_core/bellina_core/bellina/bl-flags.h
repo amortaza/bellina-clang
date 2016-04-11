@@ -9,13 +9,12 @@ namespace bl {
 		extern unsigned int BL_BORDER_ALL;
 		extern unsigned int BL_BORDER_ANY;
 
-		extern unsigned int BL_MOUSE_MOVE;
 		extern unsigned int BL_MOUSE_MOVE_BUBBLE;
-		extern unsigned int BL_MOUSE_DOWN;
 		extern unsigned int BL_MOUSE_DOWN_BUBBLE;
-		extern unsigned int BL_MOUSE_UP;
 		extern unsigned int BL_MOUSE_UP_BUBBLE;
-		extern unsigned int BL_MOUSE_SCROLL;
 		extern unsigned int BL_MOUSE_SCROLL_BUBBLE;
+
+		extern unsigned int BL_KEY_DOWN_BUBBLE;
+		extern unsigned int BL_KEY_UP_BUBBLE;
 	}
 }

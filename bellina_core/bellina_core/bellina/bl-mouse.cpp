@@ -15,7 +15,7 @@ void _updateSysMouse(int mx, int my) {
 }
 
 void _call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-	if (node->callback_onMouseDown_enabled && node->callback_onMouseDown != nullptr) {
+	if (node->callback_onMouseDown != nullptr) {
 		bl::node = node;
 		node->callback_onMouseDown(button, mx, my, bubbledFrom);
 	}
@@ -31,7 +31,7 @@ void _call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Nod
 }
 
 void _call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-	if (node->callback_onMouseUp_enabled && node->callback_onMouseUp != nullptr) {
+	if (node->callback_onMouseUp != nullptr) {
 		bl::node = node;
 		node->callback_onMouseUp(button, mx, my, bubbledFrom);
 	}
@@ -60,7 +60,7 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 }
 
 void _call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
-	if (node->callback_onMouseScroll_enabled && node->callback_onMouseScroll != nullptr) {
+	if (node->callback_onMouseScroll != nullptr) {
 		bl::node = node;
 		node->callback_onMouseScroll(amount, mx, my, bubbledFrom);
 	}
@@ -87,7 +87,7 @@ void bl::ui::onMouseScroll(int amount) {
 }
 
 void _call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
-	if (node->callback_onMouseMove_enabled && node->callback_onMouseMove != nullptr) {
+	if (node->callback_onMouseMove != nullptr) {
 		bl::node = node;
 		node->callback_onMouseMove(mx, my, bubbledFrom);
 	}

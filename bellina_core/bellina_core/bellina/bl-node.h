@@ -22,20 +22,22 @@ namespace bl {
 
 	public:
 		Point global_pos;
-		
-		bool callback_onMouseScroll_enabled;
+
+		bool callback_onKeyUp_enabled_bubble;
+		std::function<void(unsigned long long xcode, Node* bubbledFrom)> callback_onKeyUp;
+
+		bool callback_onKeyDown_enabled_bubble;
+		std::function<void(unsigned long long xcode, Node* bubbledFrom)> callback_onKeyDown;
+
 		bool callback_onMouseScroll_enabled_bubble;
 		std::function<void(int amount, int mx, int my, Node* bubbledFrom)> callback_onMouseScroll;
 
-		bool callback_onMouseMove_enabled;
 		bool callback_onMouseMove_enabled_bubble;
 		std::function<void(int mx, int my, Node* bubbledFrom)> callback_onMouseMove;
 
-		bool callback_onMouseDown_enabled;
 		bool callback_onMouseDown_enabled_bubble;
 		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onMouseDown;
 
-		bool callback_onMouseUp_enabled;
 		bool callback_onMouseUp_enabled_bubble;
 		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onMouseUp;
 
