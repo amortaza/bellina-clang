@@ -65,17 +65,9 @@ void bl::init() {
 }
 
 void bl::uninit() {
-	if (root) {
-		printf("deleting root at uninit\n"); 
-		delete root; 
-		root = 0;
-	}
-
-
-	if (last_mouse_down_node_id) {
-		delete[] last_mouse_down_node_id;
-		last_mouse_down_node_id = 0;
-	}
+	if (root) delete root; 
+	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
+	if (focus_node_id) delete[] focus_node_id;
 
 	g2::uninit();
 }
@@ -85,7 +77,10 @@ Node* bl::nd() {
 
 	current_node = new Node(parent);
 
-	if (parent) parent->addKid(current_node);
+	if (parent) {
+		parent->addKid(current_node);
+		nodeStack.push(parent);
+	}
 
 	return current_node;
 }
@@ -100,6 +95,7 @@ void bl::end() {
 		}
 	}
 	if (nodeStack.size() > 0) {
+		//printf("size %i\n", nodeStack.size());
 		current_node = nodeStack.top();
 		nodeStack.pop();
 	}
@@ -109,6 +105,10 @@ void bl::end() {
 
 void bl::id(char* nid) {
 	current_node->id(nid);
+}
+
+void bl::focus() {
+	//bl::focus_node_id = _strdup(current_node->nid);
 }
 
 void bl::pos(int x, int y) {
