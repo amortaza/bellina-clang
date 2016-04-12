@@ -6,10 +6,17 @@
 
 #include "bl-fluent-border.h"
 #include "bl-fluent-font.h"
+#include "bl-plugin.h"
+
+//using namespace bl::plug;
 
 namespace bl {
 	void init();
 	void uninit();	
+
+	//todo
+	void plugin(char* name, PluginInit plugin_init, PluginTick plugin_tick, PluginUninit plugin_uninit );
+	void use(char* name);
 
 	Node* nd();
 	void end();

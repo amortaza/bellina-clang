@@ -5,6 +5,7 @@
 #include "bl-core.h"
 #include "bl-extern.h"
 #include "bl-sys.h"
+#include "bl-plugin.h"
 
 using namespace bl;
 using namespace bl::Internal;
@@ -64,10 +65,21 @@ void bl::init() {
 	root = 0;
 }
 
+extern std::map<std::string, Plugin*> pluginMap;
+
 void bl::uninit() {
 	if (root) delete root; 
 	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
 	if (focus_node_id) delete[] focus_node_id;
+
+	typedef std::map<std::string, Plugin*>::iterator it1;
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+		
+		if (plugin->uninit != nullptr) plugin->uninit();
+
+		delete plugin;
+	}
 
 	g2::uninit();
 }

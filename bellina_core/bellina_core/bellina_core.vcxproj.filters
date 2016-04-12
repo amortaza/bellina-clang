@@ -42,6 +42,12 @@
     <Filter Include="bl-input">
       <UniqueIdentifier>{6feae816-4d32-4161-8338-1c4a8fe86136}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina-plugin">
+      <UniqueIdentifier>{f65a4e13-c5ba-4c2c-9f90-fc9be03555b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="plugins">
+      <UniqueIdentifier>{848fd597-a661-49a2-b297-3eee48ad12fb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -155,6 +161,12 @@
     <ClInclude Include="bellina\bl-sys.h">
       <Filter>bellina-util</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-plugin.h">
+      <Filter>bellina-plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\focus\focus.h">
+      <Filter>plugins</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -243,6 +255,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-key.cpp">
       <Filter>bl-input</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-plugin.cpp">
+      <Filter>bellina-plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\focus\focus.cpp">
+      <Filter>plugins</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

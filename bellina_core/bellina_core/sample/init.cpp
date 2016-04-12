@@ -4,6 +4,8 @@
 
 #include "bellina/bellina.h"
 
+#include "plugins/focus/focus.h"
+
 using namespace bl;
 using namespace bl::Internal;
 using namespace bl::flags;
@@ -18,6 +20,7 @@ long double first = time(0);
 unsigned char r=0, g=50, b=150;
 
 int coolid = -1;
+char* focusId = 0;
 void Render_My_Bellina() {
 	frame++;	
 	if (frame % 512 == 0) {
@@ -37,7 +40,7 @@ void Render_My_Bellina() {
 			bl::id("child A");
 			bl::pos(10, 10);
 			bl::dim(160, 120);
-			bl::color(100, 0, 0);
+			bl::color(r, 0, 0);
 		}
 		bl::end();
 
@@ -47,6 +50,18 @@ void Render_My_Bellina() {
 			bl::pos(180, 10);
 			bl::dim(160, 120);
 			bl::color(0,100,0);
+
+			/*bl::onClick([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				focusId = _strdup(bl::node->nid);
+			});*/
+
+			bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
+				if (strcmp(focusId, bl::node->nid) == 0) {
+					r += 30; g += 30;
+				}
+			});
+
+			bl::use("focus");
 		}
 		bl::end();
 	}
@@ -59,6 +74,8 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
+	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
+	//bl::plugin("focus", nullptr, nullptr, nullptr);
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 
@@ -108,5 +125,6 @@ void Init_OnGL() {
 }
 
 void UnInit() {
+	if (focusId) delete[] focusId;
 	bl::uninit();
 }

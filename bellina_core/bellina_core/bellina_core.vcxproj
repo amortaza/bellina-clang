@@ -178,9 +178,11 @@
     <ClInclude Include="bellina\bl-fluent-border.h" />
     <ClInclude Include="bellina\bl-fluent-font.h" />
     <ClInclude Include="bellina\bl-node.h" />
+    <ClInclude Include="bellina\bl-plugin.h" />
     <ClInclude Include="bellina\bl-render.h" />
     <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-ui.h" />
+    <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
@@ -205,6 +207,7 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
+    <ClCompile Include="bellina\bl-plugin.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-ui.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />
@@ -212,6 +215,7 @@
     <ClCompile Include="bellina\bl-node.cpp" />
     <ClCompile Include="bellina\bl-render.cpp" />
     <ClCompile Include="bellina\bl-util.cpp" />
+    <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="sample\init.cpp" />
     <ClCompile Include="sample\main.cpp" />
     <ClCompile Include="stdafx.cpp">
