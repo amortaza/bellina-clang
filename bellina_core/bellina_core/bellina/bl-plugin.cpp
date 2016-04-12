@@ -26,5 +26,12 @@ void bl::plugin(char* name, PluginInit init, PluginTick tick, PluginUninit unini
 }
 
 void bl::use(char* name) {
-	//Plugin* plugin = 
+	std::string key(name);
+
+	auto e2 = pluginMap.find(key);
+	if (e2 == pluginMap.end()) throw "plugin not found";
+	
+	Plugin* plugin = e2->second;
+
+	plugin->tick(0);
 }

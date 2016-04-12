@@ -22,5 +22,8 @@ namespace bl {
 
 		FluentBorder fluent_border;
 		FluentFont fluent_font;
+
+		std::list<Node*> key_down_registry;
+		std::list<Node*> key_up_registry;
 	}
 }

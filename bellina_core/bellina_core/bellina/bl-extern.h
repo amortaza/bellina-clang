@@ -25,6 +25,10 @@ namespace bl {
 
 		extern char* last_mouse_down_node_id;
 		extern Xel::Mouse::Button last_mouse_down_button;
+
+		extern std::list<Node*> key_down_registry;
+		extern std::list<Node*> key_up_registry;
+
 	}
 
 	namespace util {

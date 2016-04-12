@@ -75,10 +75,10 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 			last_mouse_down_button = button;
 			_call_mouse_down(hit, button, mx, my, 0);
 
-			printf("down %s\n", last_mouse_down_node_id);
+			//printf("down %s\n", last_mouse_down_node_id);
 		}
 		else if (action == Xel::Mouse::Action::Up) {
-			printf("up %s\n", hit->nid);
+			//printf("up %s\n", hit->nid);
 
 			_call_mouse_up(hit, button, mx, my, 0);
 

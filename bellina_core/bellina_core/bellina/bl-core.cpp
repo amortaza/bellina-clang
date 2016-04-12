@@ -34,10 +34,12 @@ void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) 
 
 void bl::onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
 	current_node->callback_onKeyDown = cb;
+	key_down_registry.push_back(current_node);
 }
 
 void bl::onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
 	current_node->callback_onKeyUp = cb;
+	key_up_registry.push_back(current_node);
 }
 
 void bl::enable(int callbackFlag) {

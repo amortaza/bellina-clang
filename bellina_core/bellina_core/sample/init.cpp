@@ -20,7 +20,7 @@ long double first = time(0);
 unsigned char r=0, g=50, b=150;
 
 int coolid = -1;
-char* focusId = 0;
+
 void Render_My_Bellina() {
 	frame++;	
 	if (frame % 512 == 0) {
@@ -29,6 +29,8 @@ void Render_My_Bellina() {
 	}
 
 	if (root) {delete root; root = 0;}
+	key_down_registry.clear();
+	key_up_registry.clear();
 
 	root = bl::nd(); 
 	{
@@ -49,26 +51,11 @@ void Render_My_Bellina() {
 			bl::id("child B");
 			bl::pos(180, 10);
 			bl::dim(160, 120);
-			bl::color(0,100,0);
-
-			/*bl::onClick([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-				focusId = _strdup(bl::node->nid);
-			});*/
-
-			bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
-				if (strcmp(focusId, bl::node->nid) == 0) {
-					r += 30; g += 30;
-				}
-			});
-
 			bl::use("focus");
 		}
 		bl::end();
 	}
 	bl::end();
-
-	Node*n= bl::Internal::root;
-	int i = 0;
 }
 
 void Init_OnGL() {
@@ -124,6 +111,5 @@ void Init_OnGL() {
 }
 
 void UnInit() {
-	if (focusId) delete[] focusId;
 	bl::uninit();
 }

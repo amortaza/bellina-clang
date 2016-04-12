@@ -6,6 +6,7 @@
 #include "bl-sys.h"
 
 using namespace bl;
+using namespace bl::Internal;
 
 void _call_key_down(Node *node, unsigned long long xcode, Node* bubbledFrom) {
 	if (node->callback_onKeyDown != nullptr) {
@@ -20,17 +21,6 @@ void _call_key_down(Node *node, unsigned long long xcode, Node* bubbledFrom) {
 			bl::node = node->parent;
 			_call_key_down(node->parent, xcode, node);
 		}
-	}
-}
-
-void bl::ui::onKeyDown(unsigned long long xcode) {
-	int mx = bl::sys::mouse_x;
-	int my = bl::sys::mouse_y;
-
-	bl::node = util::getNodeAtPos(mx, my);
-
-	if (bl::node) {
-		_call_key_down(bl::node, xcode, 0);
 	}
 }
 
@@ -50,13 +40,22 @@ void _call_key_up(Node *node, unsigned long long xcode, Node* bubbledFrom) {
 	}
 }
 
+void bl::ui::onKeyDown(unsigned long long xcode) {
+	std::list<Node*>::const_iterator iterator;
+
+	for (iterator = key_down_registry.begin(); iterator != key_down_registry.end(); ++iterator) {
+		Node* node = *iterator;
+
+		_call_key_down(node, xcode, 0);
+	}
+}
+
 void bl::ui::onKeyUp(unsigned long long xcode) {
-	int mx = bl::sys::mouse_x;
-	int my = bl::sys::mouse_y;
+	std::list<Node*>::const_iterator iterator;
 
-	bl::node = util::getNodeAtPos(mx, my);
+	for (iterator = key_up_registry.begin(); iterator != key_up_registry.end(); ++iterator) {
+		Node* node = *iterator;
 
-	if (bl::node) {
-		_call_key_up(bl::node, xcode, 0);
+		_call_key_up(node, xcode, 0);
 	}
 }
