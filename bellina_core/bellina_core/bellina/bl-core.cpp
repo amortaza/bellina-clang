@@ -65,7 +65,7 @@ void bl::init() {
 	root = 0;
 }
 
-extern std::map<std::string, Plugin*> pluginMap;
+using namespace bl::plug;
 
 void bl::uninit() {
 	if (root) delete root; 

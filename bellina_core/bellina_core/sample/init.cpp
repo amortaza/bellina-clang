@@ -75,7 +75,6 @@ void Init_OnGL() {
 	bl::init();
 
 	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
-	//bl::plugin("focus", nullptr, nullptr, nullptr);
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 

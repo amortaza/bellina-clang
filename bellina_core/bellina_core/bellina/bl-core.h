@@ -8,7 +8,7 @@
 #include "bl-fluent-font.h"
 #include "bl-plugin.h"
 
-//using namespace bl::plug;
+using namespace bl::plug;
 
 namespace bl {
 	void init();

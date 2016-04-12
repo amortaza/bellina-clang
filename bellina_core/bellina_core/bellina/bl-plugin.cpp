@@ -4,14 +4,13 @@
 
 #include "bl-plugin.h"
 
-//using namespace bl::plug;
+using namespace bl::plug;
 
-
-//namespace bl {
-	//namespace plug {
+namespace bl {
+	namespace plug {
 		std::map<std::string, Plugin*> pluginMap;
-	//}
-//}
+	}
+}
 
 void bl::plugin(char* name, PluginInit init, PluginTick tick, PluginUninit uninit) {
 	Plugin* plugin = new Plugin();
