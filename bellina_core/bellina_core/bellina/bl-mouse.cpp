@@ -2,6 +2,7 @@
 
 #include "Xel/Xel.h"
 
+#include "bl-util.h"
 #include "bl-extern.h"
 #include "bl-ui.h"
 #include "bl-sys.h"

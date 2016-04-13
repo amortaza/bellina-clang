@@ -2,6 +2,7 @@
 
 #include "eos/eos.h"
 
+#include "bl-util.h"
 #include "bl-extern.h"
 #include "bl-core.h"
 #include "bl-flags.h"

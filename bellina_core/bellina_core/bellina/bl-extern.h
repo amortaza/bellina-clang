@@ -27,9 +27,4 @@ namespace bl {
 		extern std::list<Node*> key_up_registry;
 
 	}
-
-	namespace util {
-		void calcGlobalPositions();
-		Node* getNodeAtPos(int wx, int wy);
-	}
 }

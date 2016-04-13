@@ -140,9 +140,6 @@
     <ClInclude Include="bellina\bl-extern.h">
       <Filter>bellina-lib</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-node.h">
-      <Filter>bellina-lib</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-ui.h">
       <Filter>bellina-ui</Filter>
     </ClInclude>
@@ -172,6 +169,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
       <Filter>source files\eos</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-node.h">
+      <Filter>bellina-om</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-util.h">
+      <Filter>bellina-util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -229,9 +232,6 @@
     <ClCompile Include="bellina\bl-internal.cpp">
       <Filter>bellina-lib</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-node.cpp">
-      <Filter>bellina-lib</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-ui.cpp">
       <Filter>bellina-ui</Filter>
     </ClCompile>
@@ -273,6 +273,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-paint.cpp">
       <Filter>bellina-lib</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-node.cpp">
+      <Filter>bellina-om</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

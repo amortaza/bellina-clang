@@ -183,6 +183,7 @@
     <ClInclude Include="bellina\bl-plugin.h" />
     <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-ui.h" />
+    <ClInclude Include="bellina\bl-util.h" />
     <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
