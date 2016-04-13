@@ -6,6 +6,8 @@
 #include "bl-extern.h"
 #include "bl-sys.h"
 #include "bl-plugin.h"
+#include "bl-flags.h"
+#include "bl-event.h"
 
 using namespace g2::flags;
 

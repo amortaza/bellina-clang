@@ -1,13 +1,16 @@
 #pragma once
 
+#include <functional>
+
 #include "Xel/Xel.h"
 
-#include "bl-node.h"
+#include "bl-plugin.h" // too complicated to comment out
 
-#include "bl-fluent-border.h"
-#include "bl-fluent-font.h"
-#include "bl-plugin.h"
-#include "bl-event.h"
+namespace g2 { extern class TextureRef; }
+
+namespace bl { extern class FluentBorder; }
+namespace bl { extern class FluentFont; }
+namespace bl { extern class Node; }
 
 using namespace bl;
 using namespace bl::plug;
@@ -28,7 +31,6 @@ namespace bl {
 	void init();
 	void uninit();	
 
-	//todo
 	void plugin(char* name, PluginInit plugin_init, PluginTick plugin_tick, PluginUninit plugin_uninit );
 	void use(char* name);
 

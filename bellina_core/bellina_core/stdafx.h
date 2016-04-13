@@ -18,6 +18,8 @@
 #include <list>
 #include <stack>
 
+#include <functional>
+
 #include <windows.h>
 #include <windowsx.h>
 #include <windef.h>

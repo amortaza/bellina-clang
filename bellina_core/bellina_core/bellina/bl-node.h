@@ -1,8 +1,5 @@
 #pragma once
 
-#include <list>
-#include <functional>
-
 #include "g2/g2.h"
 //#include "bl-core.h" // including this causing error
 

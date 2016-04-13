@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "bl-extern.h"
+#include "bl-node.h"
 
 using namespace bl;
 using namespace bl::util;

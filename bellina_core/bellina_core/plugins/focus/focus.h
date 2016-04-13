@@ -1,6 +1,6 @@
 #pragma once
 
-#include "bellina/bl-node.h"
+#include "bellina/bl-node.h" // focus.h (plugin) needs to be self contained
 
 namespace focus {
 	void init();

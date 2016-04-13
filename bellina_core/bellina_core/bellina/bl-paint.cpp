@@ -4,6 +4,7 @@
 
 #include "bl-extern.h"
 #include "bl-core.h"
+#include "bl-flags.h"
 
 using namespace g2::flags;
 

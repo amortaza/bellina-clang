@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include <functional>
+
 #include <ctime>
 
 #include "bellina/bellina.h"

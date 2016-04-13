@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "bl-core.h"
+#include "bl-event.h"
 
 using namespace bl;
 

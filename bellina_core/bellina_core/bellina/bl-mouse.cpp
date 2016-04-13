@@ -1,10 +1,12 @@
 #include "stdafx.h"
 
 #include "Xel/Xel.h"
+
 #include "bl-extern.h"
 #include "bl-ui.h"
 #include "bl-sys.h"
 #include "bl-core.h"
+#include "bl-node.h"
 
 using namespace bl;
 using namespace bl::_;

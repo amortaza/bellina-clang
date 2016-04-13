@@ -1,7 +1,8 @@
 #pragma once
 
-//extern class bl::Node;
-//#include "bl-node.h"
+#include <map>
+
+namespace bl { extern class Node; }
 
 namespace bl {
 	namespace plug {

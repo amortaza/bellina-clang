@@ -1,11 +1,8 @@
 #pragma once
 
-#include "bl-node.h"
-#include "bl-fluent-border.h"
-#include "bl-fluent-font.h"
-#include "bl-flags.h"
-
-#include <stack>
+namespace bl { extern class Node; }
+namespace bl { extern class FluentFont; }
+namespace bl { extern class FluentBorder; }
 
 namespace bl {
 	extern Node* node;
