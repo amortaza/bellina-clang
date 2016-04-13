@@ -55,8 +55,6 @@ namespace bl {
 	// node control
 	void id(char*);
 
-	void focus();
-
 	void pos(int _x, int _y);
 	void dim(int _w, int _h);
 

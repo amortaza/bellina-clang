@@ -12,7 +12,6 @@ namespace bl {
 		Node *root = 0;
 		Node *current_node = 0;
 		char* last_mouse_down_node_id = 0;
-		char* focus_node_id = 0;
 
 		Xel::Mouse::Button last_mouse_down_button;
 

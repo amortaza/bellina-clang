@@ -99,10 +99,6 @@ void bl::id(char* nid) {
 	current_node->id(nid);
 }
 
-void bl::focus() {
-	//bl::focus_node_id = _strdup(current_node->nid);
-}
-
 void bl::pos(int x, int y) {
 	current_node->pos(x, y);
 }
@@ -233,7 +229,6 @@ using namespace bl::plug;
 void bl::uninit() {
 	if (root) delete root;
 	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
-	if (focus_node_id) delete[] focus_node_id;
 
 	typedef std::map<std::string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
