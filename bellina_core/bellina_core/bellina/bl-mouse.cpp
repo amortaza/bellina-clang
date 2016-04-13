@@ -4,6 +4,7 @@
 #include "bl-extern.h"
 #include "bl-ui.h"
 #include "bl-sys.h"
+#include "bl-core.h"
 
 using namespace bl;
 using namespace bl::Internal;
@@ -67,6 +68,14 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 	_updateSysMouse(mx, my);
 
 	Node* hit = util::getNodeAtPos(mx, my);
+
+	UiEvent event;
+	event.mx = mx; event.my = my; event.button = button; event.node = hit;
+
+	if (action == Xel::Mouse::Action::Down) 
+		bl::fire("mouse down", &event);
+	else if (action == Xel::Mouse::Action::Up) 
+		bl::fire("mouse up", &event);
 
 	if (hit) {
 

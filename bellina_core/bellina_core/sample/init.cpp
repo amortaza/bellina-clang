@@ -45,7 +45,6 @@ void Render_My_Bellina() {
 			bl::pos(10, 10);
 			bl::dim(160, 120);
 			bl::color(r, 0, 0);
-			bl::use("focus");
 		}
 		bl::end();
 
@@ -59,21 +58,13 @@ void Render_My_Bellina() {
 		bl::end();
 	}
 	bl::end();
-	Cool a; a.age=4;
-
-	bl::fire("yo", &a);
 }
 
 void Init_OnGL() {
 	bl::init();
 
 	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
-	bl::listen("yo", [](void* data) {
-		Cool* a = (Cool*)data;
-
-		printf("yo was called %i\n",a->age);
-	});
-
+	
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 

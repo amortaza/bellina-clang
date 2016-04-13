@@ -11,6 +11,15 @@ namespace focus {
 	char* focusNodeId = 0;
 
 	void init() {
+		bl::listen("mouse down", [](void* data) {
+			UiEvent* event = (UiEvent*)data;
+
+			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
+				printf("Blur!\n");
+				focusNodeId = 0;
+			}
+			//printf("yo was called %i\n", a->age);
+		});
 	}
 
 	void uninit() {
