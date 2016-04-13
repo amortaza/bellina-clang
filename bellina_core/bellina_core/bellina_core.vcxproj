@@ -173,6 +173,7 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h" />
     <ClInclude Include="bellina\bellina.h" />
     <ClInclude Include="bellina\bl-core.h" />
+    <ClInclude Include="bellina\bl-event.h" />
     <ClInclude Include="bellina\bl-extern.h" />
     <ClInclude Include="bellina\bl-flags.h" />
     <ClInclude Include="bellina\bl-fluent-border.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp" />
+    <ClCompile Include="bellina\bl-event.cpp" />
     <ClCompile Include="bellina\bl-flags.cpp" />
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />

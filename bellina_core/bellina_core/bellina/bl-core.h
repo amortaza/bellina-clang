@@ -7,10 +7,16 @@
 #include "bl-fluent-border.h"
 #include "bl-fluent-font.h"
 #include "bl-plugin.h"
+#include "bl-event.h"
 
 using namespace bl::plug;
 
 namespace bl {
+	typedef std::function<void(void*)> EventCallback;
+
+	void listen(char* event_name, EventCallback event_callback);
+	void fire(char* event_name, void* event_data);
+
 	void init();
 	void uninit();	
 

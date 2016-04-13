@@ -60,32 +60,6 @@ void bl::disable(int callbackFlag) {
 	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->callback_onKeyUp_enabled_bubble = false;
 }
 
-void bl::init() {
-	g2::init();
-
-	// window not available yet
-	root = 0;
-}
-
-using namespace bl::plug;
-
-void bl::uninit() {
-	if (root) delete root; 
-	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
-	if (focus_node_id) delete[] focus_node_id;
-
-	typedef std::map<std::string, Plugin*>::iterator it1;
-	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
-		Plugin* plugin = it->second;
-		
-		if (plugin->uninit != nullptr) plugin->uninit();
-
-		delete plugin;
-	}
-
-	g2::uninit();
-}
-
 Node* bl::nd() {
 	Node* parent = current_node;
 
@@ -243,3 +217,30 @@ void bl::setTextureFlag() {
 	current_node->setTextureFlag();
 }
 
+void bl::init() {
+	g2::init();
+
+	// window not available yet
+	root = 0;
+}
+
+using namespace bl::plug;
+
+void bl::uninit() {
+	if (root) delete root;
+	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
+	if (focus_node_id) delete[] focus_node_id;
+
+	typedef std::map<std::string, Plugin*>::iterator it1;
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+
+		if (plugin->uninit != nullptr) plugin->uninit();
+
+		delete plugin;
+	}
+
+	bl::event::uninit();
+
+	g2::uninit();
+}

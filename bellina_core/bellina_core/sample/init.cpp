@@ -20,7 +20,9 @@ long double first = time(0);
 unsigned char r=0, g=50, b=150;
 
 int coolid = -1;
-
+struct Cool {
+	int age;
+};
 void Render_My_Bellina() {
 	frame++;	
 	if (frame % 512 == 0) {
@@ -57,12 +59,21 @@ void Render_My_Bellina() {
 		bl::end();
 	}
 	bl::end();
+	Cool a; a.age=4;
+
+	bl::fire("yo", &a);
 }
 
 void Init_OnGL() {
 	bl::init();
 
 	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
+	bl::listen("yo", [](void* data) {
+		Cool* a = (Cool*)data;
+
+		printf("yo was called %i\n",a->age);
+	});
+
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 

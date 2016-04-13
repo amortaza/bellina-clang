@@ -48,6 +48,9 @@
     <Filter Include="plugins">
       <UniqueIdentifier>{848fd597-a661-49a2-b297-3eee48ad12fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bl-event">
+      <UniqueIdentifier>{744ae470-9c3c-4d14-a910-66a600fe01cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -167,6 +170,9 @@
     <ClInclude Include="plugins\focus\focus.h">
       <Filter>plugins</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-event.h">
+      <Filter>bl-event</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -261,6 +267,9 @@
     </ClCompile>
     <ClCompile Include="plugins\focus\focus.cpp">
       <Filter>plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-event.cpp">
+      <Filter>bl-event</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
