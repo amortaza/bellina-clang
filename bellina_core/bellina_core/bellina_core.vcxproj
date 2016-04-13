@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>c:\_c\bellina_core\bellina_core\bellina_core;C:\_c\g2\g2;C:\_c\c_lib\lib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>C:\_c\eos\eos_dev\eos_dev;c:\_c\bellina_core\bellina_core\bellina_core;C:\_c\g2\g2;C:\_c\c_lib\lib;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>C:\_c\c_lib\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,6 +154,7 @@
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h" />
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stb_image_aug.h" />
+    <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h" />
     <ClInclude Include="..\..\..\FreeFont\free_font\free_font\free_font.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\AceFramebuffer.hpp" />
     <ClInclude Include="..\..\..\g2\g2\g2\AceImageRect.hpp" />
@@ -180,7 +181,6 @@
     <ClInclude Include="bellina\bl-fluent-font.h" />
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-plugin.h" />
-    <ClInclude Include="bellina\bl-render.h" />
     <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-ui.h" />
     <ClInclude Include="plugins\focus\focus.h" />
@@ -193,6 +193,7 @@
     <ClCompile Include="..\..\..\c_lib\lib\Soil\image_helper.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\SOIL.cpp" />
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp" />
+    <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp" />
     <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\AceTexture.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_canvas.cpp" />
@@ -209,13 +210,13 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
+    <ClCompile Include="bellina\bl-paint.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-ui.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />
     <ClCompile Include="bellina\bl-internal.cpp" />
     <ClCompile Include="bellina\bl-node.cpp" />
-    <ClCompile Include="bellina\bl-render.cpp" />
     <ClCompile Include="bellina\bl-util.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="sample\init.cpp" />

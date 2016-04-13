@@ -7,7 +7,7 @@
 #include "plugins/focus/focus.h"
 
 using namespace bl;
-using namespace bl::Internal;
+using namespace bl::_;
 using namespace bl::flags;
 
 using namespace g2::flags;
@@ -24,7 +24,7 @@ struct Cool {
 	int age;
 };
 void Render_My_Bellina() {
-	frame++;	
+	frame++;
 	if (frame % 512 == 0) {
 		long double delta = time(0) - first;
 		printf("FPS = %1.2f\n", (float)frame / delta);
@@ -34,7 +34,7 @@ void Render_My_Bellina() {
 	key_down_registry.clear();
 	key_up_registry.clear();
 
-	root = bl::nd(); 
+	root = bl::nd();
 	{
 		bl::id("ROOT");
 		bl::color(50, 0, 50);
@@ -64,18 +64,18 @@ void Init_OnGL() {
 	bl::init();
 
 	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
-	
+
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");
 
-	/*Node *root = bl::Internal::root;
+	/*Node *root = bl::_::root;
 	root->pos(0, 0);
 	root->color1(50, 0, 50);
 	root->color2(0, 0, 50);
 	root->setColorHorizGradientFlag();
 
 	root->label("Welcome to Bellina!");
-	
+
 	Node *kid = new Node();
 
 	kid->dim(300, 280);
@@ -109,7 +109,7 @@ void Init_OnGL() {
 	kid->fontOpacity(1.f);
 	kid->font("arial", 30);
 	kid->label("Hello world!");
-	
+
 	root->addKid(kid);*/
 }
 

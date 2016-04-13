@@ -8,7 +8,7 @@
 namespace bl {
 	Node* node = 0;
 
-	namespace Internal {
+	namespace _ {
 		Node *root = 0;
 		Node *current_node = 0;
 		char* last_mouse_down_node_id = 0;

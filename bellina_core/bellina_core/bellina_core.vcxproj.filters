@@ -33,9 +33,6 @@
     <Filter Include="source files\g2\include">
       <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina-render">
-      <UniqueIdentifier>{75d67782-efd1-467e-9a7c-ff9cfac449ca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="bellina-util">
       <UniqueIdentifier>{5a36d469-8554-4e39-8ea5-bec76ae17e19}</UniqueIdentifier>
     </Filter>
@@ -50,6 +47,9 @@
     </Filter>
     <Filter Include="bl-event">
       <UniqueIdentifier>{744ae470-9c3c-4d14-a910-66a600fe01cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source files\eos">
+      <UniqueIdentifier>{5925e3bf-4f89-416d-b5e2-ebeaa2e712e2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +146,6 @@
     <ClInclude Include="bellina\bl-ui.h">
       <Filter>bellina-ui</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-render.h">
-      <Filter>bellina-render</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-core.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
@@ -172,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-event.h">
       <Filter>bl-event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
+      <Filter>source files\eos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -235,9 +235,6 @@
     <ClCompile Include="bellina\bl-ui.cpp">
       <Filter>bellina-ui</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-render.cpp">
-      <Filter>bellina-render</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
@@ -270,6 +267,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-event.cpp">
       <Filter>bl-event</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp">
+      <Filter>source files\eos</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-paint.cpp">
+      <Filter>bellina-lib</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

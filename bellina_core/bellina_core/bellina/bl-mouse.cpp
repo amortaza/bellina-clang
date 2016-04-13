@@ -7,7 +7,7 @@
 #include "bl-core.h"
 
 using namespace bl;
-using namespace bl::Internal;
+using namespace bl::_;
 using namespace bl::sys;
 
 void _updateSysMouse(int mx, int my) {
@@ -72,14 +72,14 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 	UiEvent event;
 	event.mx = mx; event.my = my; event.button = button; event.node = hit;
 
-	if (action == Xel::Mouse::Action::Down) 
+	if (action == Xel::Mouse::Action::Down)
 		bl::fire("mouse down", &event);
-	else if (action == Xel::Mouse::Action::Up) 
+	else if (action == Xel::Mouse::Action::Up)
 		bl::fire("mouse up", &event);
 
 	if (hit) {
 
-		if (action == Xel::Mouse::Action::Down) {			
+		if (action == Xel::Mouse::Action::Down) {
 			last_mouse_down_node_id = _strdup(hit->nid);
 			last_mouse_down_button = button;
 			_call_mouse_down(hit, button, mx, my, 0);

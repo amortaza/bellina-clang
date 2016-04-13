@@ -1,14 +1,16 @@
 #include "stdafx.h"
 
-#include "g2/g2.h"
+#include "eos/eos.h"
 
 #include "bl-core.h"
 #include "bl-extern.h"
 #include "bl-sys.h"
 #include "bl-plugin.h"
 
+using namespace g2::flags;
+
 using namespace bl;
-using namespace bl::Internal;
+using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::sys;
 
@@ -244,3 +246,4 @@ void bl::uninit() {
 
 	g2::uninit();
 }
+

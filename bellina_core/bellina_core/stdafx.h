@@ -5,40 +5,33 @@
 
 #include "targetver.h"
 
+#define _CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+
+#include <fstream>
+#include <iostream>
+#include <stdlib.h>
 #include <stdio.h>
+#include <string>
 #include <tchar.h>
 
-#include <stdlib.h>
-#include <iostream>
-
-#define _CRTDBG_MAP_ALLOC
-#include <stdlib.h>
-#include <crtdbg.h>
+#include <list>
+#include <stack>
 
 #include <windows.h>
 #include <windowsx.h>
 #include <windef.h>
 
-#include <list>
-#include <stack>
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#define GLEW_STATIC 
+#define GLEW_STATIC
 #include "GL/glew.h"
-
-#include <fstream>
-#include <string>
-#include <list>
-#include <stack>
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
-#include "WinOs/WinOs.h"
 #include "Xel/Xel.h"
 
 #include "soil/soil.h"
-#include "g2/g2.h"

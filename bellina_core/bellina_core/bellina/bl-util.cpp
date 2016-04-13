@@ -33,9 +33,9 @@ Node* _getNodeAtPos(Node *parent, int wx, int wy) {
 }
 
 Node* bl::util::getNodeAtPos(int wx, int wy) {
-	Node *node = _getNodeAtPos(Internal::root, wx, wy);
+	Node *node = _getNodeAtPos(_::root, wx, wy);
 
-	if (!node) return Internal::root;
+	if (!node) return _::root;
 }
 
 void _calcGlobalPositions(Node* node, int parentX, int parentY) {
@@ -52,7 +52,7 @@ void _calcGlobalPositions(Node* node, int parentX, int parentY) {
 }
 
 void bl::util::calcGlobalPositions() {
-	if (!Internal::root) return;
+	if (!_::root) return;
 
-	_calcGlobalPositions(Internal::root, 0, 0);
+	_calcGlobalPositions(_::root, 0, 0);
 }

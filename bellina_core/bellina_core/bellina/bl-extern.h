@@ -10,9 +10,9 @@
 namespace bl {
 	extern Node* node;
 
-	namespace Internal {
+	namespace _ {
 		extern Node *root;
-		extern Node *current_node;		
+		extern Node *current_node;
 
 		extern unsigned int border_flag;
 
@@ -20,7 +20,7 @@ namespace bl {
 
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
-		
+
 		extern char* focus_node_id;
 
 		extern char* last_mouse_down_node_id;

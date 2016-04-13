@@ -6,7 +6,7 @@
 #include "bl-sys.h"
 
 using namespace bl;
-using namespace bl::Internal;
+using namespace bl::_;
 
 void _call_key_down(Node *node, unsigned long long xcode, Node* bubbledFrom) {
 	if (node->callback_onKeyDown != nullptr) {

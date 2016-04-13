@@ -6,7 +6,7 @@
 #include "bl-sys.h"
 
 using namespace bl;
-using namespace bl::Internal;
+using namespace bl::_;
 using namespace bl::sys;
 
 void bl::ui::onResize(int w, int h) {
