@@ -8,7 +8,7 @@ namespace bl {
 	extern Node* node;
 
 	namespace _ {
-		extern Node *root;
+		extern Node *root_node;
 		extern Node *current_node;
 
 		extern unsigned int border_flag;

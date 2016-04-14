@@ -61,6 +61,13 @@ void bl::disable(int callbackFlag) {
 	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->callback_onKeyUp_enabled_bubble = false;
 }
 
+void bl::root() {
+	if (root_node) { delete root_node; root_node = 0; }
+
+	root_node = div();
+	id("ROOT");
+}
+
 Node* bl::div() {
 	Node* parent = current_node;
 
@@ -210,13 +217,12 @@ void bl::init() {
 	g2::init();
 
 	// window not available yet
-	root = 0;
 }
 
 using namespace bl::plug;
 
 void bl::uninit() {
-	if (root) delete root;	
+	if (root_node) delete root_node;
 
 	bl::plug::uninit();
 

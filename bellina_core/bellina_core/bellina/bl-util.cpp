@@ -5,6 +5,7 @@
 #include "bl-node.h"
 
 using namespace bl;
+using namespace bl::_;
 using namespace bl::util;
 
 namespace bl {
@@ -56,13 +57,13 @@ bool bl::util::isNode(Node *node, char* id) {
 }
 
 Node* bl::util::getNodeAtPos(int wx, int wy) {
-	Node *node = getNodeAtPos(_::root, wx, wy);
+	Node *node = getNodeAtPos(root_node, wx, wy);
 
-	if (!node) return _::root;
+	if (!node) return root_node;
 }
 
 void bl::util::calcGlobalPositions() {
-	if (!_::root) return;
+	if (!root_node) return;
 
-	calcGlobalPositions(_::root, 0, 0);
+	calcGlobalPositions(root_node, 0, 0);
 }

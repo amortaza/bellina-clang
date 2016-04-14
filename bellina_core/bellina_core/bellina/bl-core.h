@@ -19,6 +19,8 @@ using namespace bl::plug;
 namespace bl {
 	typedef std::function<void(void*)> EventCallback;
 
+	void root();
+
 	void listen(char* event_name, EventCallback event_callback);
 	void fire(char* event_name, void* event_data);
 
@@ -32,7 +34,7 @@ namespace bl {
 	Node* div();
 	void end();
 
-	void paint();
+	void tick();
 
 	// node control
 	void id(char*);

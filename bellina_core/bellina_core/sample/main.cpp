@@ -12,9 +12,7 @@ void Render_My_Bellina();
 void OnTick() {
 	try
 	{
-		Render_My_Bellina();
-
-		bl::paint();
+		Render_My_Bellina();		
 	}
 	catch (char* msg) {
 		printf(msg);

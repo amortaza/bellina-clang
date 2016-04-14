@@ -9,7 +9,7 @@ namespace bl {
 	Node* node = 0;
 
 	namespace _ {
-		Node *root = 0;
+		Node *root_node = 0; // "root" is a function
 		Node *current_node = 0;
 
 		unsigned int border_flag = bl::flags::BL_BORDER_ALL;

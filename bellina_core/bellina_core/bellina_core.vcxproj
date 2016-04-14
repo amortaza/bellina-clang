@@ -219,6 +219,7 @@
     <ClCompile Include="bellina\bl-core.cpp" />
     <ClCompile Include="bellina\bl-internal.cpp" />
     <ClCompile Include="bellina\bl-node.cpp" />
+    <ClCompile Include="bellina\bl-tick.cpp" />
     <ClCompile Include="bellina\bl-util.cpp" />
     <ClCompile Include="bellina\bl-window.cpp" />
     <ClCompile Include="plugins\click\click.cpp" />

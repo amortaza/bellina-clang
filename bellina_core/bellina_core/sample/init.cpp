@@ -8,8 +8,6 @@
 #include "plugins/click/click.h"
 
 using namespace bl;
-using namespace bl::_;
-using namespace bl::event::_;
 using namespace bl::flags;
 
 using namespace g2::flags;
@@ -25,6 +23,7 @@ int coolid = -1;
 struct Cool {
 	int age;
 };
+
 void Render_My_Bellina() {
 	frame++;
 	if (frame % 512 == 0) {
@@ -32,13 +31,8 @@ void Render_My_Bellina() {
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
-	if (root) {delete root; root = 0;}
-	key_down_registry.clear();
-	key_up_registry.clear();
-
-	root = bl::div();
+	bl::root();
 	{
-		bl::id("ROOT");
 		bl::color(50, 0, 50);
 
 		bl::div();
@@ -64,6 +58,8 @@ void Render_My_Bellina() {
 		bl::end();
 	}
 	bl::end();
+
+	bl::tick();
 }
 
 void Init_OnGL() {
