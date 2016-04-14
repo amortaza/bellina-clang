@@ -26,6 +26,7 @@ namespace bl {
 
 	void plugin(char* name, PluginInit plugin_init, PluginTick plugin_tick, PluginUninit plugin_uninit );
 	void use(char* name);
+	void use(char* name, PluginCallback cb);
 
 	Node* div();
 	void end();

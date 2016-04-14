@@ -25,15 +25,20 @@ void bl::plugin(char* name, PluginInit init, PluginTick tick, PluginUninit unini
 	if (init != nullptr) init();
 }
 
+
 void bl::use(char* name) {
+	use(name, nullptr);
+}
+
+void bl::use(char* name, PluginCallback cb) {
 	std::string key(name);
 
 	auto e2 = pluginMap.find(key);
 	if (e2 == pluginMap.end()) throw "plugin not found";
-	
+
 	Plugin* plugin = e2->second;
 
-	plugin->tick(0);
+	plugin->tick(cb);
 }
 
 void bl::plug::uninit() {

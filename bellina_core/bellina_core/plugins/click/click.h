@@ -4,6 +4,13 @@
 
 namespace click {
 	void init();
-	void tick(bl::Node*);
+	void tick(PluginCallback);
 	void uninit();
+
+	struct MouseClickEvent {
+		int mx;
+		int my;
+		Node* node;
+		Xel::Mouse::Button button;
+	};
 }

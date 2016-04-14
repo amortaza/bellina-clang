@@ -4,6 +4,6 @@
 
 namespace focus {
 	void init();
-	void tick(bl::Node* a);
+	void tick(PluginCallback);
 	void uninit();
 }

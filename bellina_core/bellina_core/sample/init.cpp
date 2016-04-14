@@ -46,7 +46,10 @@ void Render_My_Bellina() {
 			bl::pos(10, 10);
 			bl::dim(160, 120);
 			bl::color(r, 0, 0);
-			bl::use("click");
+			bl::use("click", [](void* e) {
+				click::MouseClickEvent* event = (click::MouseClickEvent*) e;
+				printf("clicked on node %s\n", event->node->nid);
+			});
 		}
 		bl::end();
 
