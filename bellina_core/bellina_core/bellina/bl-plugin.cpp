@@ -12,11 +12,21 @@ namespace bl {
 	}
 }
 
-void bl::plugin(char* name, PluginInit init, PluginTick tick, PluginUninit uninit) {
+void bl::plug::tick() {
+	typedef std::map<std::string, Plugin*>::iterator it1;
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+
+		if (plugin->tick != nullptr) plugin->tick();
+	}
+}
+
+void bl::plugin(char* name, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
 	Plugin* plugin = new Plugin();
 
 	plugin->name.assign(name, strlen(name));
 	plugin->init = init;
+	plugin->onNode = onNode;
 	plugin->tick = tick;
 	plugin->uninit = uninit;
 
@@ -38,7 +48,7 @@ void bl::use(char* name, PluginCallback cb) {
 
 	Plugin* plugin = e2->second;
 
-	plugin->tick(cb);
+	plugin->onNode(cb);
 }
 
 void bl::plug::uninit() {

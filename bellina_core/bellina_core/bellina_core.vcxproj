@@ -213,7 +213,6 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
-    <ClCompile Include="bellina\bl-paint.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />

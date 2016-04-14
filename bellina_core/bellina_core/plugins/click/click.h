@@ -4,8 +4,10 @@
 
 namespace click {
 	void init();
-	void tick(PluginCallback);
+	void tick();
 	void uninit();
+
+	void onNode(PluginCallback);
 
 	struct MouseClickEvent {
 		int mx;

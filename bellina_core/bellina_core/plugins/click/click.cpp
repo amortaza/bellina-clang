@@ -44,7 +44,11 @@ namespace click {
 		freeId();
 	}
 
-	void tick(PluginCallback cb) {
+	void tick() {
+		printf("tick click\n");
+	}
+
+	void onNode(PluginCallback cb) {
 		click::cb = cb;
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {

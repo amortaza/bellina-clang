@@ -26,7 +26,11 @@ namespace focus {
 		if (focusNodeId) delete[] focusNodeId;
 	}
 
-	void tick(PluginCallback cb) {
+	void tick() {
+		printf("tick focus\n");
+	}
+
+	void onNode(PluginCallback cb) {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {

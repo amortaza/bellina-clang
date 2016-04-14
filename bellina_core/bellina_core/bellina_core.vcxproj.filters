@@ -274,9 +274,6 @@
     <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp">
       <Filter>source files\eos</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-paint.cpp">
-      <Filter>bellina-lib</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-node.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>

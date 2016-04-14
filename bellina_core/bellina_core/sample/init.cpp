@@ -65,8 +65,8 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
-	bl::plugin("click", click::init, click::tick, click::uninit);
+	bl::plugin("focus", focus::init, focus::onNode, focus::tick, focus::uninit);
+	bl::plugin("click", click::init, click::onNode, click::tick, click::uninit);
 
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");

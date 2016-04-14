@@ -19,6 +19,8 @@ void bl::tick() {
 	key_down_registry.clear();
 	key_up_registry.clear();
 
+	bl::plug::tick();
+
 	if (!root_node) return;
 
 	int winW = Xel::Window::width;
