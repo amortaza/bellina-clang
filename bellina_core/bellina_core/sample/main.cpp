@@ -2,7 +2,10 @@
 
 #include "bellina/bellina.h"
 
-#include "main.h"
+void Draw();
+
+void Init_OnGL();
+void UnInit();
 
 void Render_My_Bellina();
 
@@ -26,18 +29,18 @@ int main(int argc, char** argv) {
 
 	Xel::Init();
 
-	Xel::Window::SetCallbacks(bl::ui::onResize, Init_OnGL, UnInit);
+	Xel::Window::SetCallbacks(bl::input::onResize, Init_OnGL, UnInit);
 
 	Xel::Mouse::SetCallbacks(
-		bl::ui::onMouseMove,
-		bl::ui::onMouseButton,
-		bl::ui::onMouseScroll);
+		bl::input::onMouseMove,
+		bl::input::onMouseButton,
+		bl::input::onMouseScroll);
 
 	Xel::Keyboard::SetCallbacks(
-		bl::ui::onKeyDown,
-		bl::ui::onKeyUp);
+		bl::input::onKeyDown,
+		bl::input::onKeyUp);
 
-	Xel::Window::SetTitle("Bellina v0.2.0");
+	Xel::Window::SetTitle("Bellina v0.3.0");
 	Xel::Window::SetPosition(200, 100);
 	Xel::Window::SetSize(1300, 843);
 

@@ -7,9 +7,6 @@
     <Filter Include="bellina-om">
       <UniqueIdentifier>{4aa32dab-8334-4fca-b16c-5742b2a183e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina-ui">
-      <UniqueIdentifier>{99a8fd7f-407f-4682-827b-2a12a42b8e73}</UniqueIdentifier>
-    </Filter>
     <Filter Include="bellina-lib">
       <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
@@ -140,9 +137,6 @@
     <ClInclude Include="bellina\bl-extern.h">
       <Filter>bellina-lib</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-ui.h">
-      <Filter>bellina-ui</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-core.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
@@ -175,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-util.h">
       <Filter>bellina-util</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-input.h">
+      <Filter>bl-input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -232,9 +229,6 @@
     <ClCompile Include="bellina\bl-internal.cpp">
       <Filter>bellina-lib</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-ui.cpp">
-      <Filter>bellina-ui</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
@@ -276,6 +270,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-node.cpp">
       <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-input.cpp">
+      <Filter>bl-input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

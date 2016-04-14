@@ -9,12 +9,10 @@ namespace bl {
 
 		struct KeyUpEvent {
 			unsigned long long xcode;
-			Node* node;
 		};
 
 		struct KeyDownEvent {
 			unsigned long long xcode;
-			Node* node;
 		};
 
 		struct MouseScrollEvent {

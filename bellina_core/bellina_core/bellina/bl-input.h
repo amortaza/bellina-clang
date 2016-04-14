@@ -3,7 +3,7 @@
 #include "Xel/Xel_Mouse.h"
 
 namespace bl {
-	namespace ui {
+	namespace input {
 		void onMouseMove(int mx, int my);
 		void onMouseScroll(int amount);
 		void onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int x, int y);
