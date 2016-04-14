@@ -4,8 +4,18 @@
 #include "bl-event.h"
 
 using namespace bl;
+using namespace bl::event;
 
-std::map<std::string, std::list<EventCallback>*> eventRegistry;
+namespace bl {
+	namespace event {
+		std::map<std::string, std::list<EventCallback>*> eventRegistry;
+
+		namespace _ {
+			std::list<Node*> key_down_registry;
+			std::list<Node*> key_up_registry;
+		}
+	}
+}
 
 void bl::listen(char* event_name, bl::EventCallback event_callback) {
 	std::string key = std::string(event_name);
@@ -33,10 +43,7 @@ void bl::fire(char* event_name, void* event_data) {
 
 	auto e2 = eventRegistry.find(key);
 
-	if (e2 == eventRegistry.end()) {
-		// printf("No event handlers for %s\n", event_name);
-	}
-	else {
+	if (e2 != eventRegistry.end()) {
 		callbacks = e2->second;
 
 		std::list<EventCallback>::const_iterator iterator;

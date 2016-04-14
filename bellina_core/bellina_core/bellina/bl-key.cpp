@@ -11,6 +11,7 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::input;
 using namespace bl::event;
+using namespace bl::event::_;
 
 namespace bl {
 	namespace input {

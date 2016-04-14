@@ -17,9 +17,5 @@ namespace bl {
 
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
-
-		extern std::list<Node*> key_down_registry;
-		extern std::list<Node*> key_up_registry;
-
 	}
 }

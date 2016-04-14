@@ -5,6 +5,7 @@
 #include "Xel/Xel.h"
 
 #include "bl-plugin.h" // too complicated to comment out
+#include "bl-types.h"
 
 namespace g2 { extern class TextureRef; }
 
@@ -78,11 +79,11 @@ namespace bl {
 	void enable(int callbackFlag);
 	void disable(int callbackFlag);	
 
-	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
-	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
-	void onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
-	void onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)>);
+	void onMouseMove(MouseMoveCallback);
+	void onMouseDown(MouseDownCallback);
+	void onMouseUp(MouseUpCallback);
+	void onMouseScroll(MouseScrollCallback);
 
-	void onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
-	void onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
+	void onKeyDown(KeyDownCallback);
+	void onKeyUp(KeyUpCallback);
 }

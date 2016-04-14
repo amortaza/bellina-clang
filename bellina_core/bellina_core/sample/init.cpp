@@ -9,6 +9,7 @@
 
 using namespace bl;
 using namespace bl::_;
+using namespace bl::event::_;
 using namespace bl::flags;
 
 using namespace g2::flags;
@@ -28,7 +29,7 @@ void Render_My_Bellina() {
 	frame++;
 	if (frame % 512 == 0) {
 		long double delta = time(0) - first;
-		//printf("FPS = %1.2f\n", (float)frame / delta);
+		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
 	if (root) {delete root; root = 0;}

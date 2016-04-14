@@ -13,31 +13,32 @@ using namespace g2::flags;
 
 using namespace bl;
 using namespace bl::_;
+using namespace bl::event::_;
 using namespace bl::flags;
 using namespace bl::sys;
 
-void bl::onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)> cb) {
+void bl::onMouseScroll(MouseScrollCallback cb) {
 	current_node->callback_onMouseScroll = cb;
 }
 
-void bl::onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
+void bl::onMouseUp(MouseUpCallback cb) {
 	current_node->callback_onMouseUp = cb;
 }
 
-void bl::onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
+void bl::onMouseDown(MouseDownCallback cb) {
 	current_node->callback_onMouseDown = cb;
 }
 
-void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
+void bl::onMouseMove(MouseMoveCallback cb) {
 	current_node->callback_onMouseMove = cb;
 }
 
-void bl::onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
+void bl::onKeyDown(KeyDownCallback cb) {
 	current_node->callback_onKeyDown = cb;
 	key_down_registry.push_back(current_node);
 }
 
-void bl::onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)> cb) {
+void bl::onKeyUp(KeyUpCallback cb) {
 	current_node->callback_onKeyUp = cb;
 	key_up_registry.push_back(current_node);
 }
