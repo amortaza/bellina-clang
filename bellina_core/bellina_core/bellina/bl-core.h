@@ -15,13 +15,6 @@ namespace bl { extern class Node; }
 using namespace bl;
 using namespace bl::plug;
 
-struct UiEvent {
-	int mx;
-	int my;
-	Node* node;
-	Xel::Mouse::Button button;
-};
-
 namespace bl {
 	typedef std::function<void(void*)> EventCallback;
 

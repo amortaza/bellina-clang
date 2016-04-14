@@ -1,18 +1,19 @@
 #include "stdafx.h"
 
-#include "bellina/bl-extern.h"
-#include "bellina/bl-core.h"
+#include "bellina/bellina.h"
+#include "bellina/bl-event.h"
 
 #include "focus.h"
 
 using namespace bl;
+using namespace bl::event;
 
 namespace focus {
 	char* focusNodeId = 0;
 
 	void init() {
 		bl::listen("mouse down", [](void* data) {
-			UiEvent* event = (UiEvent*)data;
+			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
 				printf("Blur!\n");

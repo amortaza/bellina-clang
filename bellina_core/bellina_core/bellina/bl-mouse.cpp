@@ -2,6 +2,7 @@
 
 #include "Xel/Xel.h"
 
+#include "bl-event.h"
 #include "bl-util.h"
 #include "bl-extern.h"
 #include "bl-ui.h"
@@ -12,6 +13,7 @@
 using namespace bl;
 using namespace bl::_;
 using namespace bl::sys;
+using namespace bl::event;
 
 void _updateSysMouse(int mx, int my) {
 	mouse_x_prev = mouse_x; mouse_y_prev = mouse_y;
@@ -72,7 +74,7 @@ void bl::ui::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action,
 
 	Node* hit = util::getNodeAtPos(mx, my);
 
-	UiEvent event;
+	MouseDownEvent event;
 	event.mx = mx; event.my = my; event.button = button; event.node = hit;
 
 	if (action == Xel::Mouse::Action::Down)
