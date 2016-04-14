@@ -34,9 +34,6 @@ namespace bl {
 		bool callback_onMouseMove_enabled_bubble;
 		std::function<void(int mx, int my, Node* bubbledFrom)> callback_onMouseMove;
 
-		bool callback_onClick_enabled_bubble;
-		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onClick;
-
 		bool callback_onMouseDown_enabled_bubble;
 		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onMouseDown;
 

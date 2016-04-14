@@ -5,6 +5,7 @@
 #include "bellina/bellina.h"
 
 #include "plugins/focus/focus.h"
+#include "plugins/click/click.h"
 
 using namespace bl;
 using namespace bl::_;
@@ -27,7 +28,7 @@ void Render_My_Bellina() {
 	frame++;
 	if (frame % 512 == 0) {
 		long double delta = time(0) - first;
-		printf("FPS = %1.2f\n", (float)frame / delta);
+		//printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
 	if (root) {delete root; root = 0;}
@@ -45,6 +46,7 @@ void Render_My_Bellina() {
 			bl::pos(10, 10);
 			bl::dim(160, 120);
 			bl::color(r, 0, 0);
+			bl::use("click");
 		}
 		bl::end();
 
@@ -53,7 +55,7 @@ void Render_My_Bellina() {
 			bl::id("child B");
 			bl::pos(180, 10);
 			bl::dim(160, 120);
-			bl::use("focus");
+			//bl::use("focus");
 		}
 		bl::end();
 	}
@@ -64,6 +66,7 @@ void Init_OnGL() {
 	bl::init();
 
 	bl::plugin("focus", focus::init, focus::tick, focus::uninit);
+	bl::plugin("click", click::init, click::tick, click::uninit);
 
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");

@@ -11,9 +11,6 @@ namespace bl {
 	namespace _ {
 		Node *root = 0;
 		Node *current_node = 0;
-		char* last_mouse_down_node_id = 0;
-
-		Xel::Mouse::Button last_mouse_down_button;
 
 		unsigned int border_flag = bl::flags::BL_BORDER_ALL;
 

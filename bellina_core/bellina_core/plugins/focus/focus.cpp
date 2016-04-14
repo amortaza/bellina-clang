@@ -1,7 +1,6 @@
 #include "stdafx.h"
 
 #include "bellina/bellina.h"
-#include "bellina/bl-event.h"
 
 #include "focus.h"
 

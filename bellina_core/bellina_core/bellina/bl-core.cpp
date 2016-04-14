@@ -28,10 +28,6 @@ void bl::onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int m
 	current_node->callback_onMouseDown = cb;
 }
 
-void bl::onClick(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> cb) {
-	current_node->callback_onClick = cb;
-}
-
 void bl::onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)> cb) {
 	current_node->callback_onMouseMove = cb;
 }
@@ -78,14 +74,6 @@ Node* bl::div() {
 }
 
 void bl::end() {
-	// validate that if mouse_click event is being captured that there is ID required
-	if (current_node && current_node->callback_onClick != nullptr) {
-		if (current_node->nid == 0) {
-			char* msg = "a node which has onClick event handler does NOT have ID...ID is required.\n";
-			printf(msg);
-			throw msg;
-		}
-	}
 	if (nodeStack.size() > 0) {
 		//printf("size %i\n", nodeStack.size());
 		current_node = nodeStack.top();
@@ -227,17 +215,9 @@ void bl::init() {
 using namespace bl::plug;
 
 void bl::uninit() {
-	if (root) delete root;
-	if (last_mouse_down_node_id) delete[] last_mouse_down_node_id;
+	if (root) delete root;	
 
-	typedef std::map<std::string, Plugin*>::iterator it1;
-	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
-		Plugin* plugin = it->second;
-
-		if (plugin->uninit != nullptr) plugin->uninit();
-
-		delete plugin;
-	}
+	bl::plug::uninit();
 
 	bl::event::uninit();
 

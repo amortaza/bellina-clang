@@ -75,9 +75,7 @@ namespace bl {
 
 	// input
 	void enable(int callbackFlag);
-	void disable(int callbackFlag);
-
-	void onClick(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
+	void disable(int callbackFlag);	
 
 	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
 	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);

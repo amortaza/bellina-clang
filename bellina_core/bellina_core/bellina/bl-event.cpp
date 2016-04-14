@@ -34,7 +34,7 @@ void bl::fire(char* event_name, void* event_data) {
 	auto e2 = eventRegistry.find(key);
 
 	if (e2 == eventRegistry.end()) {
-		printf("No event handlers for %s\n", event_name);
+		// printf("No event handlers for %s\n", event_name);
 	}
 	else {
 		callbacks = e2->second;

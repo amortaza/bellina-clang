@@ -35,3 +35,14 @@ void bl::use(char* name) {
 
 	plugin->tick(0);
 }
+
+void bl::plug::uninit() {
+	typedef std::map<std::string, Plugin*>::iterator it1;
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+
+		if (plugin->uninit != nullptr) plugin->uninit();
+
+		delete plugin;
+	}
+}

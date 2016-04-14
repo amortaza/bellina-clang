@@ -18,5 +18,7 @@ namespace bl {
 		};
 
 		extern std::map<std::string, Plugin*> pluginMap;
+
+		void uninit();
 	}
 }

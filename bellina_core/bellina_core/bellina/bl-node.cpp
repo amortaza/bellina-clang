@@ -26,9 +26,6 @@ Node::Node(Node* parent_) {
 	callback_onMouseMove_enabled_bubble = true;
 	callback_onMouseMove = nullptr;
 
-	callback_onClick_enabled_bubble = true;
-	callback_onClick = nullptr;
-
 	callback_onMouseDown_enabled_bubble = true;
 	callback_onMouseDown = nullptr;
 

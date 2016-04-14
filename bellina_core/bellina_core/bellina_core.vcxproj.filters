@@ -48,6 +48,12 @@
     <Filter Include="source files\eos">
       <UniqueIdentifier>{5925e3bf-4f89-416d-b5e2-ebeaa2e712e2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\focus">
+      <UniqueIdentifier>{1b9b1552-ee6f-4d5a-993d-466e80c68311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="plugins\click">
+      <UniqueIdentifier>{8747d206-28b0-4f50-adb2-802fbb54e23f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -155,9 +161,6 @@
     <ClInclude Include="bellina\bl-plugin.h">
       <Filter>bellina-plugin</Filter>
     </ClInclude>
-    <ClInclude Include="plugins\focus\focus.h">
-      <Filter>plugins</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-event.h">
       <Filter>bl-event</Filter>
     </ClInclude>
@@ -172,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-input.h">
       <Filter>bl-input</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\focus\focus.h">
+      <Filter>plugins\focus</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\click\click.h">
+      <Filter>plugins\click</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -256,9 +265,6 @@
     <ClCompile Include="bellina\bl-plugin.cpp">
       <Filter>bellina-plugin</Filter>
     </ClCompile>
-    <ClCompile Include="plugins\focus\focus.cpp">
-      <Filter>plugins</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-event.cpp">
       <Filter>bl-event</Filter>
     </ClCompile>
@@ -273,6 +279,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-window.cpp">
       <Filter>bl-input</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\focus\focus.cpp">
+      <Filter>plugins\focus</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\click\click.cpp">
+      <Filter>plugins\click</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
