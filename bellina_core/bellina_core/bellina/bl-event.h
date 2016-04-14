@@ -42,6 +42,11 @@ namespace bl {
 			Xel::Mouse::Button button;
 		};
 
+		struct ResizeEvent {
+			int width;
+			int height;
+		};
+
 		void uninit();
 	} 
 }

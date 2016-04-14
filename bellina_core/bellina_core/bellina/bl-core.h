@@ -27,24 +27,11 @@ namespace bl {
 	void plugin(char* name, PluginInit plugin_init, PluginTick plugin_tick, PluginUninit plugin_uninit );
 	void use(char* name);
 
-	Node* nd();
+	Node* div();
 	void end();
 
 	void paint();
 
-	// used in callbacks
-	void enable(int callbackFlag);
-	void disable(int callbackFlag);
-
-	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
-	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>); 
-	void onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
-	void onClick(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
-	void onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)>);
-
-	void onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
-	void onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
-	
 	// node control
 	void id(char*);
 
@@ -85,4 +72,18 @@ namespace bl {
 	void setColorVertGradientFlag();
 
 	void setTextureFlag();
+
+	// input
+	void enable(int callbackFlag);
+	void disable(int callbackFlag);
+
+	void onClick(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
+
+	void onMouseMove(std::function<void(int mx, int my, Node* bubbledFrom)>);
+	void onMouseDown(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
+	void onMouseUp(std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)>);
+	void onMouseScroll(std::function<void(int amount, int mx, int my, Node* bubbledFrom)>);
+
+	void onKeyDown(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
+	void onKeyUp(std::function<void(unsigned long long xcode, Node* bubbledFrom)>);
 }

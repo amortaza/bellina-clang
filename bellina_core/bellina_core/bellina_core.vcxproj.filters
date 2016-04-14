@@ -271,7 +271,7 @@
     <ClCompile Include="bellina\bl-node.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-input.cpp">
+    <ClCompile Include="bellina\bl-window.cpp">
       <Filter>bl-input</Filter>
     </ClCompile>
   </ItemGroup>

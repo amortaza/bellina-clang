@@ -209,7 +209,6 @@
     <ClCompile Include="bellina\bl-flags.cpp" />
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
-    <ClCompile Include="bellina\bl-input.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-paint.cpp" />
@@ -219,6 +218,7 @@
     <ClCompile Include="bellina\bl-internal.cpp" />
     <ClCompile Include="bellina\bl-node.cpp" />
     <ClCompile Include="bellina\bl-util.cpp" />
+    <ClCompile Include="bellina\bl-window.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="sample\init.cpp" />
     <ClCompile Include="sample\main.cpp" />

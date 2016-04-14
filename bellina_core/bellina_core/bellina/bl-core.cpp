@@ -64,7 +64,7 @@ void bl::disable(int callbackFlag) {
 	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->callback_onKeyUp_enabled_bubble = false;
 }
 
-Node* bl::nd() {
+Node* bl::div() {
 	Node* parent = current_node;
 
 	current_node = new Node(parent);

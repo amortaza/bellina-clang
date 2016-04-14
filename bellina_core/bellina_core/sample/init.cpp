@@ -34,12 +34,12 @@ void Render_My_Bellina() {
 	key_down_registry.clear();
 	key_up_registry.clear();
 
-	root = bl::nd();
+	root = bl::div();
 	{
 		bl::id("ROOT");
 		bl::color(50, 0, 50);
 
-		bl::nd();
+		bl::div();
 		{
 			bl::id("child A");
 			bl::pos(10, 10);
@@ -48,7 +48,7 @@ void Render_My_Bellina() {
 		}
 		bl::end();
 
-		bl::nd();
+		bl::div();
 		{
 			bl::id("child B");
 			bl::pos(180, 10);
