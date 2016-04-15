@@ -37,10 +37,10 @@ void bl::plugin(char* name, PluginInit init, PluginOnNode onNode, PluginTick tic
 
 
 void bl::use(char* name) {
-	use(name, nullptr);
+	on(name, nullptr);
 }
 
-void bl::use(char* name, PluginCallback cb) {
+void bl::on(char* name, PluginCallback cb) {
 	std::string key(name);
 
 	auto e2 = pluginMap.find(key);
