@@ -28,6 +28,9 @@ namespace bl {
 	void use(char* name);
 	void on(char* name, PluginCallback cb);
 
+	void pluginSetInt(char* name, char* prop_name, int value);
+	int  pluginGetInt(char* name, char* prop_name);
+
 	Node* div();
 	void end();
 

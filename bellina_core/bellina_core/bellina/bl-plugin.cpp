@@ -9,7 +9,28 @@ using namespace bl::plug;
 namespace bl {
 	namespace plug {
 		std::map<std::string, Plugin*> pluginMap;
+
+		std::map<std::string, int> intMap;
 	}
+}
+
+void bl::pluginSetInt(char* name, char* prop_name, int value) {
+	std::string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	intMap[key] = value;
+}
+
+int bl::pluginGetInt(char* name, char* prop_name) {
+	std::string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	auto e2 = intMap.find(key);
+	if (e2 == intMap.end()) throw "plugin value not found in pluginGetInt";
+
+	return e2->second;
 }
 
 void bl::plug::tick() {
@@ -52,6 +73,7 @@ void bl::on(char* name, PluginCallback cb) {
 }
 
 void bl::plug::uninit() {
+	//
 	typedef std::map<std::string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
 		Plugin* plugin = it->second;
@@ -60,4 +82,7 @@ void bl::plug::uninit() {
 
 		delete plugin;
 	}
+
+	//
+	intMap.clear();
 }

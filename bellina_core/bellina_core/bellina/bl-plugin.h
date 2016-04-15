@@ -14,7 +14,7 @@ namespace bl {
 		struct Plugin {
 			std::string name;
 
-			PluginInit   init;
+			PluginInit init;
 			PluginOnNode onNode;
 			PluginTick tick;
 			PluginUninit uninit;
