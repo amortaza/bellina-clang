@@ -4,12 +4,6 @@
     <Filter Include="sample">
       <UniqueIdentifier>{d0e83cbd-e913-4191-a4e7-11d6ba862b82}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina-om">
-      <UniqueIdentifier>{4aa32dab-8334-4fca-b16c-5742b2a183e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bellina-lib">
-      <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
-    </Filter>
     <Filter Include="header files">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
@@ -30,15 +24,6 @@
     <Filter Include="source files\g2\include">
       <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina-util">
-      <UniqueIdentifier>{5a36d469-8554-4e39-8ea5-bec76ae17e19}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bl-input">
-      <UniqueIdentifier>{6feae816-4d32-4161-8338-1c4a8fe86136}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="bellina-plugin">
-      <UniqueIdentifier>{f65a4e13-c5ba-4c2c-9f90-fc9be03555b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="plugins">
       <UniqueIdentifier>{848fd597-a661-49a2-b297-3eee48ad12fb}</UniqueIdentifier>
     </Filter>
@@ -51,8 +36,29 @@
     <Filter Include="plugins\click">
       <UniqueIdentifier>{8747d206-28b0-4f50-adb2-802fbb54e23f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bl-listener">
+    <Filter Include="bellina">
+      <UniqueIdentifier>{1e09382e-7174-4c90-9591-5ca344e78f51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-listener">
       <UniqueIdentifier>{744ae470-9c3c-4d14-a910-66a600fe01cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-input">
+      <UniqueIdentifier>{6feae816-4d32-4161-8338-1c4a8fe86136}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-core">
+      <UniqueIdentifier>{c273aa34-e03d-401a-a980-f39f55f93805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-util">
+      <UniqueIdentifier>{5a36d469-8554-4e39-8ea5-bec76ae17e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-plugin">
+      <UniqueIdentifier>{f65a4e13-c5ba-4c2c-9f90-fc9be03555b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-om">
+      <UniqueIdentifier>{4aa32dab-8334-4fca-b16c-5742b2a183e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-lib">
+      <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -138,37 +144,34 @@
       <Filter>sample</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bellina.h">
-      <Filter>bellina-lib</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina\bl-core.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-lib</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-fluent-border.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-fluent-font.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-flags.h">
-      <Filter>bellina-lib</Filter>
+      <Filter>bellina\bl-lib</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-sys.h">
-      <Filter>bellina-util</Filter>
+      <Filter>bellina\bl-util</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-plugin.h">
-      <Filter>bellina-plugin</Filter>
+      <Filter>bellina\bl-plugin</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
       <Filter>source files\eos</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-node.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-util.h">
-      <Filter>bellina-util</Filter>
+      <Filter>bellina\bl-util</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-input.h">
-      <Filter>bl-input</Filter>
+      <Filter>bellina\bl-input</Filter>
     </ClInclude>
     <ClInclude Include="plugins\focus\focus.h">
       <Filter>plugins\focus</Filter>
@@ -177,13 +180,16 @@
       <Filter>plugins\click</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-types.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-globals.h">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-listener.h">
-      <Filter>bl-listener</Filter>
+      <Filter>bellina\bl-listener</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-core.h">
+      <Filter>bellina\bl-core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -238,41 +244,38 @@
     <ClCompile Include="sample\main.cpp">
       <Filter>sample</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-core.cpp">
-      <Filter>bellina-om</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-fluent-border.cpp">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-fluent-font.cpp">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-flags.cpp">
-      <Filter>bellina-lib</Filter>
+      <Filter>bellina\bl-lib</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-util.cpp">
-      <Filter>bellina-util</Filter>
+      <Filter>bellina\bl-util</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-sys.cpp">
-      <Filter>bellina-util</Filter>
+      <Filter>bellina\bl-util</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-mouse.cpp">
-      <Filter>bl-input</Filter>
+      <Filter>bellina\bl-input</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-key.cpp">
-      <Filter>bl-input</Filter>
+      <Filter>bellina\bl-input</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-plugin.cpp">
-      <Filter>bellina-plugin</Filter>
+      <Filter>bellina\bl-plugin</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp">
       <Filter>source files\eos</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-node.cpp">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-window.cpp">
-      <Filter>bl-input</Filter>
+      <Filter>bellina\bl-input</Filter>
     </ClCompile>
     <ClCompile Include="plugins\focus\focus.cpp">
       <Filter>plugins\focus</Filter>
@@ -281,13 +284,22 @@
       <Filter>plugins\click</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-tick.cpp">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-globals.cpp">
-      <Filter>bellina-om</Filter>
+      <Filter>bellina\bl-om</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-listener.cpp">
-      <Filter>bl-listener</Filter>
+      <Filter>bellina\bl-listener</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core.cpp">
+      <Filter>bellina\bl-core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core-input.cpp">
+      <Filter>bellina\bl-core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core-node.cpp">
+      <Filter>bellina\bl-core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

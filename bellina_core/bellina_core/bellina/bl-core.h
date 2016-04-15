@@ -1,7 +1,5 @@
 #pragma once
 
-#include <functional>
-
 #include "Xel/Xel.h"
 
 #include "bl-plugin.h" // too complicated to comment out
@@ -81,11 +79,11 @@ namespace bl {
 	void enable(int callbackFlag);
 	void disable(int callbackFlag);	
 
-	void onMouseMove(MouseMoveCallback);
-	void onMouseDown(MouseDownCallback);
-	void onMouseUp(MouseUpCallback);
-	void onMouseScroll(MouseScrollCallback);
+	void onMouseMove(NodeMouseMoveCallback);
+	void onMouseDown(NodeMouseDownCallback);
+	void onMouseUp(NodeMouseUpCallback);
+	void onMouseScroll(NodeMouseScrollCallback);
 
-	void onKeyDown(KeyDownCallback);
-	void onKeyUp(KeyUpCallback);
+	void onKeyDown(NodeKeyDownCallback);
+	void onKeyUp(NodeKeyUpCallback);
 }

@@ -17,12 +17,12 @@ namespace bl {
 	namespace input {
 
 		void call_key_down(Node *node, unsigned long long xcode, Node* bubbledFrom) {
-			if (node->callback_onKeyDown != nullptr) {
+			if (node->onKeyDown != nullptr) {
 				bl::node = node;
-				node->callback_onKeyDown(xcode, bubbledFrom);
+				node->onKeyDown(xcode, bubbledFrom);
 			}
 
-			if (node->callback_onKeyDown_enabled_bubble) {
+			if (node->onKeyDown_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {
@@ -33,12 +33,12 @@ namespace bl {
 		}
 
 		void call_key_up(Node *node, unsigned long long xcode, Node* bubbledFrom) {
-			if (node->callback_onKeyUp != nullptr) {
+			if (node->onKeyUp != nullptr) {
 				bl::node = node;
-				node->callback_onKeyUp(xcode, bubbledFrom);
+				node->onKeyUp(xcode, bubbledFrom);
 			}
 
-			if (node->callback_onKeyUp_enabled_bubble) {
+			if (node->onKeyUp_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {

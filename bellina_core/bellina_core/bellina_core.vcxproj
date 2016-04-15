@@ -207,6 +207,8 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp" />
+    <ClCompile Include="bellina\bl-core-input.cpp" />
+    <ClCompile Include="bellina\bl-core-node.cpp" />
     <ClCompile Include="bellina\bl-flags.cpp" />
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />

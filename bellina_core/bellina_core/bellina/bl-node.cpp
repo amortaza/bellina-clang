@@ -14,23 +14,23 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 	
-	callback_onKeyUp_enabled_bubble = true;
-	callback_onKeyUp = nullptr;
+	onKeyUp_enabled_bubble = true;
+	onKeyUp = nullptr;
 
-	callback_onKeyDown_enabled_bubble = true;
-	callback_onKeyDown = nullptr;
+	onKeyDown_enabled_bubble = true;
+	onKeyDown = nullptr;
 
-	callback_onMouseScroll_enabled_bubble = true;
-	callback_onMouseScroll = nullptr;
+	onMouseScroll_enabled_bubble = true;
+	onMouseScroll = nullptr;
 
-	callback_onMouseMove_enabled_bubble = true;
-	callback_onMouseMove = nullptr;
+	onMouseMove_enabled_bubble = true;
+	onMouseMove = nullptr;
 
-	callback_onMouseDown_enabled_bubble = true;
-	callback_onMouseDown = nullptr;
+	onMouseDown_enabled_bubble = true;
+	onMouseDown = nullptr;
 
-	callback_onMouseUp_enabled_bubble = true;
-	callback_onMouseUp = nullptr;
+	onMouseUp_enabled_bubble = true;
+	onMouseUp = nullptr;
 
 	parent = parent_;
 	nid = 0;

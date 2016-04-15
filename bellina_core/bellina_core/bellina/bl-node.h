@@ -1,9 +1,9 @@
 #pragma once
 
-#include <functional>
+#include "bl-types.h"
 
-#include "g2/g2.h"
-//#include "bl-core.h" // including this causing error
+namespace g2 { extern class CanvasRef; }
+namespace g2 { extern class TextureRef; }
 
 namespace bl {
 	struct BorderSide {
@@ -22,23 +22,23 @@ namespace bl {
 	public:
 		Point global_pos;
 
-		bool callback_onKeyUp_enabled_bubble;
-		std::function<void(unsigned long long xcode, Node* bubbledFrom)> callback_onKeyUp;
+		bool onKeyUp_enabled_bubble;
+		NodeKeyUpCallback onKeyUp;
 
-		bool callback_onKeyDown_enabled_bubble;
-		std::function<void(unsigned long long xcode, Node* bubbledFrom)> callback_onKeyDown;
+		bool onKeyDown_enabled_bubble;
+		NodeKeyDownCallback onKeyDown;
 
-		bool callback_onMouseScroll_enabled_bubble;
-		std::function<void(int amount, int mx, int my, Node* bubbledFrom)> callback_onMouseScroll;
+		bool onMouseScroll_enabled_bubble;
+		NodeMouseScrollCallback onMouseScroll;
 
-		bool callback_onMouseMove_enabled_bubble;
-		std::function<void(int mx, int my, Node* bubbledFrom)> callback_onMouseMove;
+		bool onMouseMove_enabled_bubble;
+		NodeMouseMoveCallback onMouseMove;
 
-		bool callback_onMouseDown_enabled_bubble;
-		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onMouseDown;
+		bool onMouseDown_enabled_bubble;
+		NodeMouseDownCallback onMouseDown;
 
-		bool callback_onMouseUp_enabled_bubble;
-		std::function<void(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> callback_onMouseUp;
+		bool onMouseUp_enabled_bubble;
+		NodeMouseUpCallback onMouseUp;
 
 		char* nid;
 

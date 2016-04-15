@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "g2/g2.h"
+
 #include "bl-core.h"
 #include "bl-globals.h"
 #include "bl-sys.h"

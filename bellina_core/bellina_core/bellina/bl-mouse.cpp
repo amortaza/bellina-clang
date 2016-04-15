@@ -24,12 +24,12 @@ namespace bl {
 		}
 
 		void call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (node->callback_onMouseDown != nullptr) {
+			if (node->onMouseDown != nullptr) {
 				bl::node = node;
-				node->callback_onMouseDown(button, mx, my, bubbledFrom);
+				node->onMouseDown(button, mx, my, bubbledFrom);
 			}
 
-			if (node->callback_onMouseDown_enabled_bubble) {
+			if (node->onMouseDown_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {
@@ -40,12 +40,12 @@ namespace bl {
 		}
 
 		void call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (node->callback_onMouseUp != nullptr) {
+			if (node->onMouseUp != nullptr) {
 				bl::node = node;
-				node->callback_onMouseUp(button, mx, my, bubbledFrom);
+				node->onMouseUp(button, mx, my, bubbledFrom);
 			}
 
-			if (node->callback_onMouseUp_enabled_bubble) {
+			if (node->onMouseUp_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {
@@ -56,12 +56,12 @@ namespace bl {
 		}
 
 		void call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
-			if (node->callback_onMouseScroll != nullptr) {
+			if (node->onMouseScroll != nullptr) {
 				bl::node = node;
-				node->callback_onMouseScroll(amount, mx, my, bubbledFrom);
+				node->onMouseScroll(amount, mx, my, bubbledFrom);
 			}
 
-			if (node->callback_onMouseScroll_enabled_bubble) {
+			if (node->onMouseScroll_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {
@@ -72,12 +72,12 @@ namespace bl {
 		}
 
 		void call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
-			if (node->callback_onMouseMove != nullptr) {
+			if (node->onMouseMove != nullptr) {
 				bl::node = node;
-				node->callback_onMouseMove(mx, my, bubbledFrom);
+				node->onMouseMove(mx, my, bubbledFrom);
 			}
 
-			if (node->callback_onMouseMove_enabled_bubble) {
+			if (node->onMouseMove_enabled_bubble) {
 
 				// bubble up the event!
 				if (node->parent) {

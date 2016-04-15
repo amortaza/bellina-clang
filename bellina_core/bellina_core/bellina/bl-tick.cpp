@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include "g2/g2.h"
+
 #include "eos/eos.h"
 
 #include "bl-util.h"
