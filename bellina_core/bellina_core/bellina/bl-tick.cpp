@@ -3,17 +3,17 @@
 #include "eos/eos.h"
 
 #include "bl-util.h"
-#include "bl-global.h"
+#include "bl-globals.h"
 #include "bl-core.h"
 #include "bl-flags.h"
-#include "bl-event.h"
+#include "bl-listener.h"
 
 using namespace g2::flags;
 
 using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
-using namespace bl::event::_;
+using namespace bl::listener::_;
 
 void bl::tick() {
 	key_down_registry.clear();

@@ -1,10 +1,10 @@
 #include "stdafx.h"
 
 #include "bl-input.h"
-#include "bl-event.h"
+#include "bl-listener.h"
 #include "bl-core.h"
 
-using namespace bl::event;
+using namespace bl::listener;
 
 void bl::input::onResize(int w, int h) {
 	glViewport(0, 0, w, h);

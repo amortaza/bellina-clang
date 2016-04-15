@@ -13,4 +13,6 @@ namespace bl {
 
 	typedef std::function<void(unsigned long long xcode, Node* bubbledFrom)> KeyDownCallback;
 	typedef std::function<void(unsigned long long xcode, Node* bubbledFrom)> KeyUpCallback;
+
+	typedef std::function<void(void*)> ListenerCallback;
 }

@@ -1,17 +1,17 @@
 #include "stdafx.h"
 
 #include "bl-node.h"
-#include "bl-global.h"
+#include "bl-globals.h"
 #include "bl-input.h"
 #include "bl-sys.h"
-#include "bl-event.h"
+#include "bl-listener.h"
 #include "bl-core.h"
 
 using namespace bl;
 using namespace bl::_;
 using namespace bl::input;
-using namespace bl::event;
-using namespace bl::event::_;
+using namespace bl::listener;
+using namespace bl::listener::_;
 
 namespace bl {
 	namespace input {

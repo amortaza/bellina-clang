@@ -16,12 +16,11 @@ namespace bl { extern class Node; }
 using namespace bl;
 using namespace bl::plug;
 
-namespace bl {
-	typedef std::function<void(void*)> EventCallback;
+namespace bl {	
 
 	void root();
 
-	void listen(char* event_name, EventCallback event_callback);
+	void listen(char* event_name, ListenerCallback event_callback);
 	void fire(char* event_name, void* event_data);
 
 	void init();

@@ -2,9 +2,9 @@
 
 #include "Xel/Xel.h"
 
-#include "bl-event.h"
+#include "bl-listener.h"
 #include "bl-util.h"
-#include "bl-global.h"
+#include "bl-globals.h"
 #include "bl-input.h"
 #include "bl-sys.h"
 #include "bl-core.h"
@@ -13,7 +13,7 @@
 using namespace bl;
 using namespace bl::_;
 using namespace bl::sys;
-using namespace bl::event;
+using namespace bl::listener;
 using namespace bl::input;
 
 namespace bl {

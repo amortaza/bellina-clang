@@ -1,11 +1,13 @@
 #pragma once
 
+#include <list>
+
 #include "Xel/Xel.h"
 
 namespace bl { extern class Node; }
 
 namespace bl { 
-	namespace event {
+	namespace listener {
 
 		struct KeyUpEvent {
 			unsigned long long xcode;

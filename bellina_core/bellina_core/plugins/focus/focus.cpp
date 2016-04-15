@@ -5,7 +5,7 @@
 #include "focus.h"
 
 using namespace bl;
-using namespace bl::event;
+using namespace bl::listener;
 
 namespace focus {
 	char* focusNodeId = 0;

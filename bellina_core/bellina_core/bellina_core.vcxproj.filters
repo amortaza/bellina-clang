@@ -42,9 +42,6 @@
     <Filter Include="plugins">
       <UniqueIdentifier>{848fd597-a661-49a2-b297-3eee48ad12fb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bl-event">
-      <UniqueIdentifier>{744ae470-9c3c-4d14-a910-66a600fe01cd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source files\eos">
       <UniqueIdentifier>{5925e3bf-4f89-416d-b5e2-ebeaa2e712e2}</UniqueIdentifier>
     </Filter>
@@ -53,6 +50,9 @@
     </Filter>
     <Filter Include="plugins\click">
       <UniqueIdentifier>{8747d206-28b0-4f50-adb2-802fbb54e23f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bl-listener">
+      <UniqueIdentifier>{744ae470-9c3c-4d14-a910-66a600fe01cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -140,9 +140,6 @@
     <ClInclude Include="bellina\bellina.h">
       <Filter>bellina-lib</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-extern.h">
-      <Filter>bellina-lib</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-core.h">
       <Filter>bellina-om</Filter>
     </ClInclude>
@@ -160,9 +157,6 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-plugin.h">
       <Filter>bellina-plugin</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina\bl-event.h">
-      <Filter>bl-event</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
       <Filter>source files\eos</Filter>
@@ -184,6 +178,12 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-types.h">
       <Filter>bellina-om</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-globals.h">
+      <Filter>bellina-om</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-listener.h">
+      <Filter>bl-listener</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -238,9 +238,6 @@
     <ClCompile Include="sample\main.cpp">
       <Filter>sample</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-internal.cpp">
-      <Filter>bellina-lib</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina-om</Filter>
     </ClCompile>
@@ -268,9 +265,6 @@
     <ClCompile Include="bellina\bl-plugin.cpp">
       <Filter>bellina-plugin</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-event.cpp">
-      <Filter>bl-event</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp">
       <Filter>source files\eos</Filter>
     </ClCompile>
@@ -288,6 +282,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-tick.cpp">
       <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-globals.cpp">
+      <Filter>bellina-om</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-listener.cpp">
+      <Filter>bl-listener</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

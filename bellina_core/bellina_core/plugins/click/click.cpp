@@ -5,7 +5,7 @@
 #include "click.h"
 
 using namespace bl;
-using namespace bl::event;
+using namespace bl::listener;
 
 namespace click {
 

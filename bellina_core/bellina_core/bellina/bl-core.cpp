@@ -3,17 +3,17 @@
 #include "eos/eos.h"
 
 #include "bl-core.h"
-#include "bl-global.h"
+#include "bl-globals.h"
 #include "bl-sys.h"
 #include "bl-plugin.h"
 #include "bl-flags.h"
-#include "bl-event.h"
+#include "bl-listener.h"
 
 using namespace g2::flags;
 
 using namespace bl;
 using namespace bl::_;
-using namespace bl::event::_;
+using namespace bl::listener::_;
 using namespace bl::flags;
 using namespace bl::sys;
 
@@ -226,7 +226,7 @@ void bl::uninit() {
 
 	bl::plug::uninit();
 
-	bl::event::uninit();
+	bl::listener::uninit();
 
 	g2::uninit();
 }
