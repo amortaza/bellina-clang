@@ -31,6 +31,8 @@ void Render_My_Bellina() {
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
+	bl::tick();
+
 	bl::root();
 	{
 		bl::color(50, 0, 50);
@@ -59,7 +61,7 @@ void Render_My_Bellina() {
 	}
 	bl::end();
 
-	bl::tick();
+	bl::paint();
 }
 
 void Init_OnGL() {

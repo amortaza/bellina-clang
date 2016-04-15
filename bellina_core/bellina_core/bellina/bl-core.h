@@ -35,6 +35,7 @@ namespace bl {
 	void end();
 
 	void tick();
+	void paint();
 
 	// node control
 	void id(char*);
