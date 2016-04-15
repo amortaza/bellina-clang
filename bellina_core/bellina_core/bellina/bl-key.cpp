@@ -17,9 +17,12 @@ namespace bl {
 	namespace input {
 
 		void call_key_down(Node *node, unsigned long long xcode, Node* bubbledFrom) {
-			if (node->onKeyDown != nullptr) {
+
+			std::list<NodeKeyDownCallback>::const_iterator iterator;
+			for (iterator = node->onKeyDown_callbacks.begin(); iterator != node->onKeyDown_callbacks.end(); ++iterator) {
+				NodeKeyDownCallback cb = *iterator;
 				bl::node = node;
-				node->onKeyDown(xcode, bubbledFrom);
+				cb(xcode, bubbledFrom);
 			}
 
 			if (node->onKeyDown_enabled_bubble) {
@@ -33,9 +36,12 @@ namespace bl {
 		}
 
 		void call_key_up(Node *node, unsigned long long xcode, Node* bubbledFrom) {
-			if (node->onKeyUp != nullptr) {
+
+			std::list<NodeKeyUpCallback>::const_iterator iterator;
+			for (iterator = node->onKeyUp_callbacks.begin(); iterator != node->onKeyUp_callbacks.end(); ++iterator) {
+				NodeKeyUpCallback cb = *iterator;
 				bl::node = node;
-				node->onKeyUp(xcode, bubbledFrom);
+				cb(xcode, bubbledFrom);
 			}
 
 			if (node->onKeyUp_enabled_bubble) {

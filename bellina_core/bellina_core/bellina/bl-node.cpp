@@ -15,22 +15,11 @@ using namespace bl::flags;
 Node::Node(Node* parent_) {
 	
 	onKeyUp_enabled_bubble = true;
-	onKeyUp = nullptr;
-
 	onKeyDown_enabled_bubble = true;
-	onKeyDown = nullptr;
-
 	onMouseScroll_enabled_bubble = true;
-	onMouseScroll = nullptr;
-
 	onMouseMove_enabled_bubble = true;
-	onMouseMove = nullptr;
-
 	onMouseDown_enabled_bubble = true;
-	onMouseDown = nullptr;
-
 	onMouseUp_enabled_bubble = true;
-	onMouseUp = nullptr;
 
 	parent = parent_;
 	nid = 0;

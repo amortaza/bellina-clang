@@ -24,9 +24,12 @@ namespace bl {
 		}
 
 		void call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (node->onMouseDown != nullptr) {
+
+			std::list<NodeMouseDownCallback>::const_iterator iterator;
+			for (iterator = node->onMouseDown_callbacks.begin(); iterator != node->onMouseDown_callbacks.end(); ++iterator) {
+				NodeMouseDownCallback cb = *iterator;
 				bl::node = node;
-				node->onMouseDown(button, mx, my, bubbledFrom);
+				cb(button, mx, my, bubbledFrom);
 			}
 
 			if (node->onMouseDown_enabled_bubble) {
@@ -40,9 +43,12 @@ namespace bl {
 		}
 
 		void call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (node->onMouseUp != nullptr) {
+
+			std::list<NodeMouseUpCallback>::const_iterator iterator;
+			for (iterator = node->onMouseUp_callbacks.begin(); iterator != node->onMouseUp_callbacks.end(); ++iterator) {
+				NodeMouseUpCallback cb = *iterator;
 				bl::node = node;
-				node->onMouseUp(button, mx, my, bubbledFrom);
+				cb(button, mx, my, bubbledFrom);
 			}
 
 			if (node->onMouseUp_enabled_bubble) {
@@ -56,9 +62,12 @@ namespace bl {
 		}
 
 		void call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
-			if (node->onMouseScroll != nullptr) {
+
+			std::list<NodeMouseScrollCallback>::const_iterator iterator;
+			for (iterator = node->onMouseScroll_callbacks.begin(); iterator != node->onMouseScroll_callbacks.end(); ++iterator) {
+				NodeMouseScrollCallback cb = *iterator;
 				bl::node = node;
-				node->onMouseScroll(amount, mx, my, bubbledFrom);
+				cb(amount, mx, my, bubbledFrom);
 			}
 
 			if (node->onMouseScroll_enabled_bubble) {
@@ -72,9 +81,12 @@ namespace bl {
 		}
 
 		void call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
-			if (node->onMouseMove != nullptr) {
+
+			std::list<NodeMouseMoveCallback>::const_iterator iterator;
+			for (iterator = node->onMouseMove_callbacks.begin(); iterator != node->onMouseMove_callbacks.end(); ++iterator) {
+				NodeMouseMoveCallback cb = *iterator;
 				bl::node = node;
-				node->onMouseMove(mx, my, bubbledFrom);
+				cb(mx, my, bubbledFrom);
 			}
 
 			if (node->onMouseMove_enabled_bubble) {
@@ -86,7 +98,6 @@ namespace bl {
 				}
 			}
 		}
-
 	}
 }
 

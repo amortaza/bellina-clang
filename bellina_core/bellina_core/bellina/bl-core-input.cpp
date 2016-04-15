@@ -17,28 +17,28 @@ using namespace bl::sys;
 using namespace bl::listener::_;
 
 void bl::onMouseScroll(NodeMouseScrollCallback cb) {
-	current_node->onMouseScroll = cb;
+	current_node->onMouseScroll_callbacks.push_back(cb);
 }
 
 void bl::onMouseUp(NodeMouseUpCallback cb) {
-	current_node->onMouseUp = cb;
+	current_node->onMouseUp_callbacks.push_back(cb);
 }
 
 void bl::onMouseDown(NodeMouseDownCallback cb) {
-	current_node->onMouseDown = cb;
+	current_node->onMouseDown_callbacks.push_back(cb);
 }
 
 void bl::onMouseMove(NodeMouseMoveCallback cb) {
-	current_node->onMouseMove = cb;
+	current_node->onMouseMove_callbacks.push_back(cb);
 }
 
 void bl::onKeyDown(NodeKeyDownCallback cb) {
-	current_node->onKeyDown = cb;
+	current_node->onKeyDown_callbacks.push_back(cb);
 	key_down_registry.push_back(current_node);
 }
 
 void bl::onKeyUp(NodeKeyUpCallback cb) {
-	current_node->onKeyUp = cb;
+	current_node->onKeyUp_callbacks.push_back(cb);
 	key_up_registry.push_back(current_node);
 }
 

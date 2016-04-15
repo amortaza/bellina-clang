@@ -23,22 +23,22 @@ namespace bl {
 		Point global_pos;
 
 		bool onKeyUp_enabled_bubble;
-		NodeKeyUpCallback onKeyUp;
+		std::list<NodeKeyUpCallback> onKeyUp_callbacks;
 
 		bool onKeyDown_enabled_bubble;
-		NodeKeyDownCallback onKeyDown;
+		std::list<NodeKeyDownCallback> onKeyDown_callbacks;
 
 		bool onMouseScroll_enabled_bubble;
-		NodeMouseScrollCallback onMouseScroll;
+		std::list<NodeMouseScrollCallback> onMouseScroll_callbacks;
 
 		bool onMouseMove_enabled_bubble;
-		NodeMouseMoveCallback onMouseMove;
+		std::list<NodeMouseMoveCallback> onMouseMove_callbacks;
 
 		bool onMouseDown_enabled_bubble;
-		NodeMouseDownCallback onMouseDown;
+		std::list<NodeMouseDownCallback> onMouseDown_callbacks;
 
 		bool onMouseUp_enabled_bubble;
-		NodeMouseUpCallback onMouseUp;
+		std::list<NodeMouseUpCallback> onMouseUp_callbacks;
 
 		char* nid;
 
