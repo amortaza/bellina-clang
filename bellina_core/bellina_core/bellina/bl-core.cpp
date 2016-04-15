@@ -3,7 +3,7 @@
 #include "eos/eos.h"
 
 #include "bl-core.h"
-#include "bl-extern.h"
+#include "bl-global.h"
 #include "bl-sys.h"
 #include "bl-plugin.h"
 #include "bl-flags.h"

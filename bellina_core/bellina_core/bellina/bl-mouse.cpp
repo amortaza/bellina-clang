@@ -4,7 +4,7 @@
 
 #include "bl-event.h"
 #include "bl-util.h"
-#include "bl-extern.h"
+#include "bl-global.h"
 #include "bl-input.h"
 #include "bl-sys.h"
 #include "bl-core.h"

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 
 #include "bl-node.h"
-#include "bl-extern.h"
+#include "bl-global.h"
 #include "bl-input.h"
 #include "bl-sys.h"
 #include "bl-event.h"

@@ -2,7 +2,7 @@
 
 #include"g2/g2.h"
 
-#include"bl-extern.h"
+#include"bl-global.h"
 #include"bl-node.h"
 #include"bl-flags.h"
 
