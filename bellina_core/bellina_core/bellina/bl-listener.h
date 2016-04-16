@@ -48,12 +48,5 @@ namespace bl {
 			int width;
 			int height;
 		};
-
-		void uninit();
-
-		namespace _ {
-			extern std::list<Node*> key_down_registry;
-			extern std::list<Node*> key_up_registry;
-		}
 	} 
 }

@@ -2,8 +2,11 @@
 
 #include <map>
 
+#include "echo/echo.h"
+
 #include "bl-types.h"
 
+using namespace echo;
 using namespace bl;
 
 namespace bl { extern class Node; }
@@ -20,9 +23,9 @@ namespace bl {
 			PluginUninit uninit;
 		};
 
-		extern std::map<std::string, Plugin*> pluginMap;
+		extern std::map<std::string, Plugin*> pluginMap;		
 
 		void tick();
-		void uninit();
+		void uninit();		
 	}
 }

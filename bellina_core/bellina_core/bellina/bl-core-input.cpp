@@ -32,23 +32,11 @@ void bl::onMouseMove(NodeMouseMoveCallback cb) {
 	current_node->onMouseMove_callbacks.push_back(cb);
 }
 
-void bl::onKeyDown(NodeKeyDownCallback cb) {
-	current_node->onKeyDown_callbacks.push_back(cb);
-	key_down_registry.push_back(current_node);
-}
-
-void bl::onKeyUp(NodeKeyUpCallback cb) {
-	current_node->onKeyUp_callbacks.push_back(cb);
-	key_up_registry.push_back(current_node);
-}
-
 void bl::enable(int callbackFlag) {
 	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->onMouseMove_enabled_bubble = true;
 	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->onMouseDown_enabled_bubble = true;
 	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->onMouseUp_enabled_bubble = true;
 	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->onMouseScroll_enabled_bubble = true;
-	if (callbackFlag & BL_KEY_DOWN_BUBBLE) current_node->onKeyDown_enabled_bubble = true;
-	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->onKeyUp_enabled_bubble = true;
 }
 
 void bl::disable(int callbackFlag) {
@@ -56,6 +44,4 @@ void bl::disable(int callbackFlag) {
 	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->onMouseDown_enabled_bubble = false;
 	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->onMouseUp_enabled_bubble = false;
 	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->onMouseScroll_enabled_bubble = false;
-	if (callbackFlag & BL_KEY_DOWN_BUBBLE) current_node->onKeyDown_enabled_bubble = false;
-	if (callbackFlag & BL_KEY_UP_BUBBLE) current_node->onKeyUp_enabled_bubble = false;
 }

@@ -6,27 +6,11 @@ namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
 namespace bl {
-	struct BorderSide {
-		unsigned char red, green, blue;
-		int thickness;
-		float alpha;
-		bool topsCanvas;
-	};
-
-	struct Point {
-		int x, y;
-	};
 
 	class Node {
 
 	public:
 		Point global_pos;
-
-		bool onKeyUp_enabled_bubble;
-		std::list<NodeKeyUpCallback> onKeyUp_callbacks;
-
-		bool onKeyDown_enabled_bubble;
-		std::list<NodeKeyDownCallback> onKeyDown_callbacks;
 
 		bool onMouseScroll_enabled_bubble;
 		std::list<NodeMouseScrollCallback> onMouseScroll_callbacks;

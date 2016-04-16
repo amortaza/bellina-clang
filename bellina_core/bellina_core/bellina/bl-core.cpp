@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "g2/g2.h"
+#include "echo/echo.h"
 
 #include "bl-core.h"
 #include "bl-globals.h"
@@ -57,8 +58,21 @@ void bl::uninit() {
 
 	bl::plug::uninit();
 
-	bl::listener::uninit();
+	delete _::node_echo;
+	delete _::plugin_echo;
 
 	g2::uninit();
 }
 
+void bl::listenShortTerm(char* event_name, echo::ListenerCallback event_callback) {
+	_::short_term_echo->listen(event_name, event_callback);
+}
+
+void bl::listenLongTerm(char* event_name, echo::ListenerCallback event_callback) {
+	_::long_term_echo->listen(event_name, event_callback);
+}
+
+void bl::fire(char* event_name, void* event_data) {
+	_::short_term_echo->fire(event_name, event_data);
+	_::long_term_echo->fire(event_name, event_data);
+}

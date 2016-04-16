@@ -42,7 +42,7 @@ void bl::plug::tick() {
 	}
 }
 
-void bl::plugin(char* name, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
+void bl::pluginLoad(char* name, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
 	Plugin* plugin = new Plugin();
 
 	plugin->name.assign(name, strlen(name));

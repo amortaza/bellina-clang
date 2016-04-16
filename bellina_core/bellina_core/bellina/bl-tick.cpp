@@ -18,9 +18,6 @@ using namespace bl::flags;
 using namespace bl::listener::_;
 
 void bl::tick() {
-	key_down_registry.clear();
-	key_up_registry.clear();
-
 	bl::plug::tick();
 }
 

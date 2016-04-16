@@ -1,5 +1,7 @@
 #pragma once
 
+namespace echo { extern class Echo; }
+
 namespace bl { extern class Node; }
 namespace bl { extern class FluentFont; }
 namespace bl { extern class FluentBorder; }
@@ -17,5 +19,8 @@ namespace bl {
 
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
+		
+		extern echo::Echo* node_echo;
+		extern echo::Echo* plugin_echo;
 	}
 }

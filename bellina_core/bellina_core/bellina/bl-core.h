@@ -18,18 +18,19 @@ namespace bl {
 
 	void root();
 
-	void listen(char* event_name, ListenerCallback event_callback);
+	void listenShortTerm(char* event_name, echo::ListenerCallback event_callback);
+	void listenLongTerm(char* event_name, ListenerCallback event_callback);
 	void fire(char* event_name, void* event_data);
 
 	void init();
 	void uninit();	
 
-	void plugin(char* name, PluginInit, PluginOnNode, PluginTick, PluginUninit);
-	void use(char* name);
-	void on(char* name, PluginCallback cb);
+	void use(char* plugin_name);
+	void on(char* plugin_name, PluginCallback cb);
 
-	void pluginSetInt(char* name, char* prop_name, int value);
-	int  pluginGetInt(char* name, char* prop_name);
+	void pluginLoad(char* plugin_name, PluginInit, PluginOnNode, PluginTick, PluginUninit);
+	void pluginSetInt(char* plugin_name, char* prop_name, int value);
+	int  pluginGetInt(char* plugin_name, char* prop_name);
 
 	Node* div();
 	void end();
@@ -86,7 +87,4 @@ namespace bl {
 	void onMouseDown(NodeMouseDownCallback);
 	void onMouseUp(NodeMouseUpCallback);
 	void onMouseScroll(NodeMouseScrollCallback);
-
-	void onKeyDown(NodeKeyDownCallback);
-	void onKeyUp(NodeKeyUpCallback);
 }

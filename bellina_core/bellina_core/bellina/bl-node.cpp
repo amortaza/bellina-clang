@@ -14,8 +14,6 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 	
-	onKeyUp_enabled_bubble = true;
-	onKeyDown_enabled_bubble = true;
 	onMouseScroll_enabled_bubble = true;
 	onMouseMove_enabled_bubble = true;
 	onMouseDown_enabled_bubble = true;
