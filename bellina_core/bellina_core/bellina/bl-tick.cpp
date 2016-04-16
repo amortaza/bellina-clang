@@ -10,19 +10,24 @@
 #include "bl-flags.h"
 #include "bl-listener.h"
 #include "bl-echo.h"
+#include "bl-plugin-bubble.h"
 
 using namespace g2::flags;
 
 using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
+using namespace bl::echo;
 
 void bl::tick() {
 	plugin::tick();
 
 	// delete after the plugin ticks, so nodes have chance to react
 	delete short_term_echo;
-	short_term_echo = new echo::Echo();
+	short_term_echo = new Echo();
+
+	delete pluginBubble; 
+	pluginBubble = new PluginBubble();
 
 	nodeById.clear();
 

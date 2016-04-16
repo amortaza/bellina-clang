@@ -1,9 +1,11 @@
 #include "stdafx.h"
 
 #include "bl-core.h"
-
+#include "bl-globals.h"
 #include "bl-plugin.h"
+#include "bl-plugin-bubble.h"
 
+using namespace bl::_;
 using namespace bl::plugin;
 
 namespace bl {
@@ -69,7 +71,13 @@ void bl::on(char* pluginName, PluginCallback cb) {
 
 	Plugin* plugin = e2->second;
 
+	pluginBubble->setCallback(cb, current_node, pluginName);
+
 	plugin->onNode(cb);
+}
+
+void bl::pluginCall(char* pluginName, Node* node, void* eventData) {
+	_::pluginBubble->bubbleUp(node, pluginName, eventData);
 }
 
 void bl::plugin::uninit() {

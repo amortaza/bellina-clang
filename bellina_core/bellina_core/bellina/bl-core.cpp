@@ -62,6 +62,8 @@ void bl::uninit() {
 	delete _::short_term_echo;
 	delete _::long_term_echo;	
 
+	if (pluginBubble) delete pluginBubble;
+
 	g2::uninit();
 }
 

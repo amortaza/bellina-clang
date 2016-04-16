@@ -7,8 +7,10 @@
 #include "bl-fluent-border.h"
 #include "bl-fluent-font.h"
 #include "bl-flags.h"
+#include "bl-plugin-bubble.h"
 
 using namespace bl::echo;
+using namespace bl::plugin::bubble;
 
 namespace bl {
 	Node* node = 0;
@@ -28,5 +30,7 @@ namespace bl {
 		Echo* long_term_echo = new Echo();
 
 		 std::map<std::string, Node*> nodeById;
+
+		 PluginBubble *pluginBubble = new PluginBubble();
 	}
 }

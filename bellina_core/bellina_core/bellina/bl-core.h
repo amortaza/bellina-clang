@@ -26,12 +26,13 @@ namespace bl {
 	void init();
 	void uninit();	
 
-	void use(char* plugin_name);
-	void on(char* plugin_name, PluginCallback cb);
+	void use(char* pluginName);
+	void on(char* pluginName, PluginCallback cb);
 
-	void pluginLoad(char* plugin_name, PluginInit, PluginOnNode, PluginTick, PluginUninit);
-	void pluginSetInt(char* plugin_name, char* prop_name, int value);
-	int  pluginGetInt(char* plugin_name, char* prop_name);
+	void pluginLoad(char* pluginName, PluginInit, PluginOnNode, PluginTick, PluginUninit);
+	void pluginCall(char* pluginName, Node* node, void* eventData);
+	void pluginSetInt(char* pluginName, char* propName, int value);
+	int  pluginGetInt(char* pluginName, char* propName);
 
 	Node* div();
 	void end();

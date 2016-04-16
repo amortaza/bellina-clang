@@ -46,11 +46,13 @@ void Render_My_Bellina() {
 			bl::color(r, 0, 0);
 			Node* n = bl::current();
 			bl::listenShortTerm("ace", [n](void* e) {
-				printf("acea cace %s\n",n->nid);
+				//printf("acea cace %s\n",n->nid);
 			});
 			bl::on("click", [](void* e) {
 				click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 				printf("clicked on node %s\n", event->node->nid);
+
+				return true;
 			});
 		}
 		bl::end();
@@ -63,6 +65,8 @@ void Render_My_Bellina() {
 			bl::on("focus", [](void* e) {
 				focus::FocusOnKeyEvent *event = (focus::FocusOnKeyEvent *) e;
 				printf("key down on node %s\n",event->node->nid);
+
+				return true;
 			});
 		}
 		bl::end();

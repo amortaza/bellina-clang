@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 		bl::input::onKeyUp);
 
 	Xel::Window::SetTitle("Bellina v0.3.0");
-	Xel::Window::SetPosition(200, 100);
+	Xel::Window::SetPosition(500, 100);
 	Xel::Window::SetSize(1300, 843);
 
 	Xel::Loop(OnTick);

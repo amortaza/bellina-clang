@@ -8,9 +8,9 @@ using namespace bl;
 using namespace bl::listener;
 
 namespace focus {
+	char* plugin_name = "focus";
 	
 	char* focusNodeId = 0;
-	PluginCallback g_cb = nullptr;
 
 	void init() {
 		bl::listenLongTerm("mouse down", [](void* data) {
@@ -32,7 +32,7 @@ namespace focus {
 				focusEvent.keyDownEvent = event;
 				focusEvent.node = node;
 				
-				g_cb(&focusEvent);
+				bl::pluginCall(plugin_name, node, &focusEvent);
 			}			
 		});
 	}
@@ -45,8 +45,6 @@ namespace focus {
 	}
 
 	void onNode(PluginCallback cb) {
-		g_cb = cb;
-
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {

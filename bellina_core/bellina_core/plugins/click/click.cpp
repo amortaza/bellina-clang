@@ -8,10 +8,10 @@ using namespace bl;
 using namespace bl::listener;
 
 namespace click {
+	char* plugin_name = "click";
 
 	char* lastDownNodeId = 0;
 	Xel::Mouse::Button lastDownButton;
-	PluginCallback g_cb;
 
 	void freeId() {
 		if (lastDownNodeId) {
@@ -48,7 +48,6 @@ namespace click {
 	}
 
 	void onNode(PluginCallback cb) {
-		g_cb = cb;
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
@@ -61,15 +60,13 @@ namespace click {
 
 		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
-				if (g_cb != nullptr) {
-					MouseClickEvent event;
-					event.mx = mx;
-					event.my = my;
-					event.button = button;
-					event.node = bl::node;
+				MouseClickEvent event;
+				event.mx = mx;
+				event.my = my;
+				event.button = button;
+				event.node = bl::node;
 
-					g_cb(&event);
-				}
+				bl::pluginCall(plugin_name, bl::node, &event);					
 			}
 
 			freeId();
