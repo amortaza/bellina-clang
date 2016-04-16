@@ -55,6 +55,8 @@ namespace click {
 
 			lastDownNodeId = _strdup(bl::node->nid);
 			lastDownButton = button;
+
+			return true;
 		});
 
 		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
@@ -71,6 +73,8 @@ namespace click {
 			}
 
 			freeId();
+
+			return true;
 		});
 	}
 }

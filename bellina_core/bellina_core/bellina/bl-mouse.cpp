@@ -24,78 +24,70 @@ namespace bl {
 		}
 
 		void call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+			bool bubbleUp = true;
 
 			std::list<NodeMouseDownCallback>::const_iterator iterator;
 			for (iterator = node->onMouseDown_callbacks.begin(); iterator != node->onMouseDown_callbacks.end(); ++iterator) {
 				NodeMouseDownCallback cb = *iterator;
 				bl::node = node;
-				cb(button, mx, my, bubbledFrom);
+				bubbleUp = cb(button, mx, my, bubbledFrom);
 			}
 
-			if (node->onMouseDown_enabled_bubble) {
-
-				// bubble up the event!
-				if (node->parent) {
-					bl::node = node->parent;
-					call_mouse_down(node->parent, button, mx, my, node);
-				}
+			// bubble up the event!
+			if (bubbleUp && node->parent) {
+				bl::node = node->parent;
+				call_mouse_down(node->parent, button, mx, my, node);
 			}
 		}
 
-		void call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		void call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {			
+			bool bubbleUp = true;
 
 			std::list<NodeMouseUpCallback>::const_iterator iterator;
 			for (iterator = node->onMouseUp_callbacks.begin(); iterator != node->onMouseUp_callbacks.end(); ++iterator) {
 				NodeMouseUpCallback cb = *iterator;
 				bl::node = node;
-				cb(button, mx, my, bubbledFrom);
+				bubbleUp = cb(button, mx, my, bubbledFrom);
 			}
 
-			if (node->onMouseUp_enabled_bubble) {
-
-				// bubble up the event!
-				if (node->parent) {
-					bl::node = node->parent;
-					call_mouse_up(node->parent, button, mx, my, node);
-				}
+			// bubble up the event!
+			if (bubbleUp && node->parent) {
+				bl::node = node->parent;
+				call_mouse_up(node->parent, button, mx, my, node);
 			}
 		}
 
 		void call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
+			bool bubbleUp = true;
 
 			std::list<NodeMouseScrollCallback>::const_iterator iterator;
 			for (iterator = node->onMouseScroll_callbacks.begin(); iterator != node->onMouseScroll_callbacks.end(); ++iterator) {
 				NodeMouseScrollCallback cb = *iterator;
 				bl::node = node;
-				cb(amount, mx, my, bubbledFrom);
+				bubbleUp = cb(amount, mx, my, bubbledFrom);
 			}
 
-			if (node->onMouseScroll_enabled_bubble) {
-
-				// bubble up the event!
-				if (node->parent) {
-					bl::node = node->parent;
-					call_mouse_scroll(node->parent, amount, mx, my, node);
-				}
+			// bubble up the event!
+			if (bubbleUp && node->parent) {
+				bl::node = node->parent;
+				call_mouse_scroll(node->parent, amount, mx, my, node);
 			}
 		}
 
 		void call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
+			bool bubbleUp = true;
 
 			std::list<NodeMouseMoveCallback>::const_iterator iterator;
 			for (iterator = node->onMouseMove_callbacks.begin(); iterator != node->onMouseMove_callbacks.end(); ++iterator) {
 				NodeMouseMoveCallback cb = *iterator;
 				bl::node = node;
-				cb(mx, my, bubbledFrom);
+				bubbleUp = cb(mx, my, bubbledFrom);
 			}
 
-			if (node->onMouseMove_enabled_bubble) {
-
-				// bubble up the event!
-				if (node->parent) {
-					bl::node = node->parent;
-					call_mouse_move(node->parent, mx, my, node);
-				}
+			// bubble up the event!
+			if (bubbleUp && node->parent) {
+				bl::node = node->parent;
+				call_mouse_move(node->parent, mx, my, node);
 			}
 		}
 	}

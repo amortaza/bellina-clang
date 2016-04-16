@@ -30,16 +30,3 @@ void bl::onMouseMove(NodeMouseMoveCallback cb) {
 	current_node->onMouseMove_callbacks.push_back(cb);
 }
 
-void bl::enable(int callbackFlag) {
-	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->onMouseMove_enabled_bubble = true;
-	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->onMouseDown_enabled_bubble = true;
-	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->onMouseUp_enabled_bubble = true;
-	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->onMouseScroll_enabled_bubble = true;
-}
-
-void bl::disable(int callbackFlag) {
-	if (callbackFlag & BL_MOUSE_MOVE_BUBBLE) current_node->onMouseMove_enabled_bubble = false;
-	if (callbackFlag & BL_MOUSE_DOWN_BUBBLE) current_node->onMouseDown_enabled_bubble = false;
-	if (callbackFlag & BL_MOUSE_UP_BUBBLE) current_node->onMouseUp_enabled_bubble = false;
-	if (callbackFlag & BL_MOUSE_SCROLL_BUBBLE) current_node->onMouseScroll_enabled_bubble = false;
-}

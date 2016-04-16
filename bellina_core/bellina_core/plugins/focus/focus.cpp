@@ -55,12 +55,8 @@ namespace focus {
 			focusNodeId = _strdup(bl::node->nid);
 
 			printf("focuse node id is %s\n", focusNodeId);
-		});
 
-		/*bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
-			if (focusNodeId && strcmp(focusNodeId, bl::node->nid) == 0) {
-				printf("Receiveing key %s\n", bl::node->nid);
-			}
-		});*/
+			return true;
+		});
 	}
 }

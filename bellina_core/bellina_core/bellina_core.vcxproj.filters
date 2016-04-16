@@ -197,6 +197,9 @@
     <ClInclude Include="bellina\bl-types.h">
       <Filter>bellina\bl-core</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-plugin-bubble.h">
+      <Filter>bellina\bl-plugin</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -306,6 +309,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-core-input.cpp">
       <Filter>bellina\bl-input</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-plugin-bubble.cpp">
+      <Filter>bellina\bl-plugin</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

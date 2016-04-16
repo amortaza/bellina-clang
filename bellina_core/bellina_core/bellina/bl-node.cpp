@@ -14,14 +14,10 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-Node::Node(Node* parent_) {
+Node::Node(Node* parent) {
 
-	onMouseScroll_enabled_bubble = true;
-	onMouseMove_enabled_bubble = true;
-	onMouseDown_enabled_bubble = true;
-	onMouseUp_enabled_bubble = true;
+	this->parent = parent;
 
-	parent = parent_;
 	nid = 0;
 
 	global_pos.x = 0;

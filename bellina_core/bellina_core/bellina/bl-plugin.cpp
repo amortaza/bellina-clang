@@ -42,10 +42,10 @@ void bl::plugin::tick() {
 	}
 }
 
-void bl::pluginLoad(char* name, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
+void bl::pluginLoad(char* pluginName, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
 	Plugin* plugin = new Plugin();
 
-	plugin->name.assign(name, strlen(name));
+	plugin->name.assign(pluginName, strlen(pluginName));
 	plugin->init = init;
 	plugin->onNode = onNode;
 	plugin->tick = tick;
@@ -57,12 +57,12 @@ void bl::pluginLoad(char* name, PluginInit init, PluginOnNode onNode, PluginTick
 }
 
 
-void bl::use(char* name) {
-	on(name, nullptr);
+void bl::use(char* pluginName) {
+	on(pluginName, nullptr);
 }
 
-void bl::on(char* name, PluginCallback cb) {
-	std::string key(name);
+void bl::on(char* pluginName, PluginCallback cb) {
+	std::string key(pluginName);
 
 	auto e2 = pluginMap.find(key);
 	if (e2 == pluginMap.end()) throw "plugin not found";

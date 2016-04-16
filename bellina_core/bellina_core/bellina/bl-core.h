@@ -83,9 +83,6 @@ namespace bl {
 	void setTextureFlag();
 
 	// input
-	void enable(int callbackFlag);
-	void disable(int callbackFlag);	
-
 	void onMouseMove(NodeMouseMoveCallback);
 	void onMouseDown(NodeMouseDownCallback);
 	void onMouseUp(NodeMouseUpCallback);

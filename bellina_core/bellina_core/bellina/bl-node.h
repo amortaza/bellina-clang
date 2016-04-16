@@ -12,16 +12,9 @@ namespace bl {
 	public:
 		Point global_pos;
 
-		bool onMouseScroll_enabled_bubble;
 		std::list<NodeMouseScrollCallback> onMouseScroll_callbacks;
-
-		bool onMouseMove_enabled_bubble;
 		std::list<NodeMouseMoveCallback> onMouseMove_callbacks;
-
-		bool onMouseDown_enabled_bubble;
 		std::list<NodeMouseDownCallback> onMouseDown_callbacks;
-
-		bool onMouseUp_enabled_bubble;
 		std::list<NodeMouseUpCallback> onMouseUp_callbacks;
 
 		char* nid;
