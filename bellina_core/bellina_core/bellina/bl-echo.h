@@ -6,6 +6,8 @@
 
 #include "bl-types.h"
 
+namespace bl { extern class Node; }
+
 namespace bl {
 	namespace echo {
 

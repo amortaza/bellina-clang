@@ -18,9 +18,13 @@ namespace bl {
 
 	void root();
 
-	void listenShortTerm(char* event_name, ListenerCallback event_callback);
-	void listenLongTerm(char* event_name, ListenerCallback event_callback);
-	void fire(char* event_name, void* event_data);
+	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
+	void listenLongTerm(char* eventName, ListenerCallback eventCallback);
+
+	void listen(char* eventName, ListenerCallback eventCallback);
+
+	void fire(char* eventName, void* eventData);
+	void fireAt(char* eventName, void* eventData);	
 
 	void init();
 	void uninit();	

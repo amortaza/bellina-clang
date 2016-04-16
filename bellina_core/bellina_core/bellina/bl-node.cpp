@@ -5,14 +5,18 @@
 #include"bl-globals.h"
 #include"bl-node.h"
 #include"bl-flags.h"
+#include"bl-echo.h"
 
 using namespace g2;
 using namespace g2::flags;
 
 using namespace bl;
+using namespace bl::echo;
 using namespace bl::flags;
 
 Node::Node(Node* parent_) {
+
+	nodeEcho = 0;
 	
 	onMouseScroll_enabled_bubble = true;
 	onMouseMove_enabled_bubble = true;
@@ -159,9 +163,18 @@ void Node::removeFlag(int flag) {
 	flags &= ~flag;
 }
 
+void Node::listen(char* eventName, ListenerCallback callback) {
+	if (!nodeEcho) nodeEcho = new echo::Echo();
+
+	nodeEcho->listen(eventName, callback);
+}
+
 Node::~Node() {
 	// id
 	if (nid) delete[] nid;
+
+	// echo
+	if (nodeEcho) delete nodeEcho;
 
 	// font
 	if (font_name) delete[] font_name;

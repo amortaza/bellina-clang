@@ -63,15 +63,20 @@ void bl::uninit() {
 	g2::uninit();
 }
 
-void bl::listenShortTerm(char* event_name, ListenerCallback event_callback) {
-	_::short_term_echo->listen(event_name, event_callback);
+void bl::listenShortTerm(char* eventName, ListenerCallback eventCallback) {
+	_::short_term_echo->listen(eventName, eventCallback);
 }
 
-void bl::listenLongTerm(char* event_name, ListenerCallback event_callback) {
-	_::long_term_echo->listen(event_name, event_callback);
+void bl::listenLongTerm(char* eventName, ListenerCallback eventCallback) {
+	_::long_term_echo->listen(eventName, eventCallback);
 }
 
-void bl::fire(char* event_name, void* event_data) {
-	_::short_term_echo->fire(event_name, event_data);
-	_::long_term_echo->fire(event_name, event_data);
+void bl::fire(char* eventName, void* eventData) {
+	_::short_term_echo->fire(eventName, eventData);
+	_::long_term_echo->fire(eventName, eventData);
 }
+
+void bl::fireAt(char* eventName, void* eventData) {
+	current_node->nodeEcho->fire(eventName, eventData);
+}
+
