@@ -10,5 +10,7 @@ namespace bl {
 		Node* getNodeById(char* id);
 
 		bool isNode(Node*, char* id);
+
+		char* nextGlobalId();
 	}
 }

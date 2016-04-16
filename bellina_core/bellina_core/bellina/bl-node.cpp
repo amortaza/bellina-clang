@@ -18,7 +18,7 @@ Node::Node(Node* parent) {
 
 	this->parent = parent;
 
-	nid = 0;
+	nid = 0;	
 
 	global_pos.x = 0;
 	global_pos.y = 0;

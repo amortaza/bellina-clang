@@ -70,6 +70,11 @@ void Render_My_Bellina() {
 			});
 		}
 		bl::end();
+
+		bl::div();
+		bl::pos(360, 200);
+		bl::dim(160, 120);
+		bl::end();
 	}
 	bl::end();
 	bl::fire("ace", 0);

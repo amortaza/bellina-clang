@@ -10,6 +10,7 @@
 #include "bl-flags.h"
 #include "bl-listener.h"
 #include "bl-node.h"
+#include "bl-util.h"
 
 using namespace bl;
 using namespace bl::_;
@@ -37,6 +38,10 @@ Node* bl::div() {
 }
 
 void bl::end() {
+	if (current_node->nid == 0) {
+		current_node->nid = bl::util::nextGlobalId();
+	}
+
 	if (nodeStack.size() > 0) {
 		current_node = nodeStack.top();
 		nodeStack.pop();

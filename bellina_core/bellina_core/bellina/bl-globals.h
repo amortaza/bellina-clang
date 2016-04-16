@@ -15,6 +15,7 @@ namespace bl {
 	extern Node* node;
 
 	namespace _ {
+		extern unsigned int next_global_id;
 		extern Node *root_node;
 		extern Node *current_node;
 

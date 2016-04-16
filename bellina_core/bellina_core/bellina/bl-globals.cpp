@@ -32,5 +32,7 @@ namespace bl {
 		 std::map<std::string, Node*> nodeById;
 
 		 PluginBubble *pluginBubble = new PluginBubble();
+
+		 unsigned int next_global_id = 0;
 	}
 }

@@ -31,6 +31,8 @@ void bl::tick() {
 
 	nodeById.clear();
 
+	next_global_id = 0;
+
 	if (root_node) { delete root_node; root_node = 0; }
 }
 

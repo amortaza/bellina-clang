@@ -77,3 +77,22 @@ void util::calcGlobalPositions() {
 
 	calcGlobalPositions(root_node, 0, 0);
 }
+
+char* util::nextGlobalId() {
+	char* id = new char[16];
+
+	_itoa(next_global_id++, id, 16);
+
+	int len = strlen(id);
+
+	// make it unlikey that the generated id will match human
+	id[len] = '-';
+	id[len + 1] = 'b';
+	id[len + 2] = 'l';
+	id[len + 3] = 'g';
+	id[len + 4] = 'e';
+	id[len + 5] = 'n';
+	id[len + 6] = '\0';
+
+	return id;
+}
