@@ -78,3 +78,7 @@ void bl::fire(char* eventName, void* eventData) {
 	_::long_term_echo->fire(eventName, eventData);
 }
 
+Node* bl::current() {
+	return current_node;
+}
+

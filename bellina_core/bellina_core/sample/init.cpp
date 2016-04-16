@@ -34,7 +34,6 @@ void Render_My_Bellina() {
 	}
 
 	bl::tick();
-
 	bl::root();
 	{
 		bl::color(50, 0, 50);
@@ -45,6 +44,10 @@ void Render_My_Bellina() {
 			bl::pos(10, 10);
 			bl::dim(160, 120);
 			bl::color(r, 0, 0);
+			Node* n = bl::current();
+			bl::listenShortTerm("ace", [n](void* e) {
+				printf("acea cace %s\n",n->nid);
+			});
 			bl::on("click", [](void* e) {
 				click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 				printf("clicked on node %s\n", event->node->nid);
@@ -65,7 +68,7 @@ void Render_My_Bellina() {
 		bl::end();
 	}
 	bl::end();
-
+	bl::fire("ace", 0);
 	bl::paint();
 }
 
