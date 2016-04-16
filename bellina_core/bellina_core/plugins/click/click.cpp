@@ -11,7 +11,7 @@ namespace click {
 
 	char* lastDownNodeId = 0;
 	Xel::Mouse::Button lastDownButton;
-	PluginCallback cb;
+	PluginCallback g_cb;
 
 	void freeId() {
 		if (lastDownNodeId) {
@@ -48,7 +48,7 @@ namespace click {
 	}
 
 	void onNode(PluginCallback cb) {
-		click::cb = cb;
+		g_cb = cb;
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
@@ -59,14 +59,14 @@ namespace click {
 
 		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
-				if (click::cb != nullptr) {
+				if (g_cb != nullptr) {
 					MouseClickEvent event;
 					event.mx = mx;
 					event.my = my;
 					event.button = button;
 					event.node = bl::node;
 
-					click::cb(&event);
+					g_cb(&event);
 				}
 			}
 

@@ -7,6 +7,15 @@ using namespace bl;
 using namespace bl::echo;
 
 Echo::~Echo() {
+	typedef std::map<std::string, std::list<ListenerCallback>*>::iterator it1;
+	for (it1 it = listenerRegistry.begin(); it != listenerRegistry.end(); it++) {
+		std::list<ListenerCallback>* callbacks = it->second;
+
+		callbacks->clear();
+
+		delete callbacks;
+	}
+
    	listenerRegistry.clear();
 }
 
