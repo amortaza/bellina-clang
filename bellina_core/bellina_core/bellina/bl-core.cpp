@@ -11,6 +11,7 @@
 #include "bl-listener.h"
 #include "bl-node.h"
 #include "bl-util.h"
+#include "bl-plugin-bubble.h"
 
 using namespace bl;
 using namespace bl::_;

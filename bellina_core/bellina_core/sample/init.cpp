@@ -28,12 +28,13 @@ struct Cool {
 };
 
 void Render_My_Bellina() {
+
 	frame++;
 	if (frame % 512 == 0) {
 		long double delta = time(0) - first;
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
-
+	
 	bl::tick();
 	bl::root();
 	{
@@ -44,13 +45,13 @@ void Render_My_Bellina() {
 			bl::pos(360, 200);
 			bl::dim(160, 120);
 
-			bl::on("double click", [](void* e) {
+			/*bl::on("double click", [](void* e) {
 				click::MouseClickEvent* event = (click::MouseClickEvent*)e;
 
 				printf("double clicks %s\n", event->node->nid);
 
 				return true;
-			});
+			});*/
 		}
 		bl::end();
 
@@ -89,7 +90,7 @@ void Render_My_Bellina() {
 
 	}
 	bl::end();
-	bl::fire("ace", 0);
+	
 	bl::paint();
 }
 

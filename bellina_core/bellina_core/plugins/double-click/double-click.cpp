@@ -13,6 +13,7 @@ using namespace click;
 using namespace std::chrono;
 
 namespace double_click {
+	
 	char* plugin_name = "double click";
 
 	char* lastClickNodeId = 0;
