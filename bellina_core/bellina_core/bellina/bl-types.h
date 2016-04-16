@@ -20,6 +20,10 @@ namespace bl {
 	typedef std::function<void(PluginCallback)> PluginOnNode;
 
 	//
+
+	typedef std::function<void(void*)> ListenerCallback;
+
+	//
 	
 	struct BorderSide {
 		unsigned char red, green, blue;

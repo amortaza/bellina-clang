@@ -18,7 +18,7 @@ namespace bl {
 
 	void root();
 
-	void listenShortTerm(char* event_name, echo::ListenerCallback event_callback);
+	void listenShortTerm(char* event_name, ListenerCallback event_callback);
 	void listenLongTerm(char* event_name, ListenerCallback event_callback);
 	void fire(char* event_name, void* event_data);
 

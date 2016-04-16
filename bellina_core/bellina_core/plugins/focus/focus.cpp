@@ -11,7 +11,7 @@ namespace focus {
 	char* focusNodeId = 0;
 
 	void init() {
-		bl::listen("mouse down", [](void* data) {
+		bl::listenLongTerm("mouse down", [](void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
@@ -39,10 +39,11 @@ namespace focus {
 			focusNodeId = _strdup(bl::node->nid);
 		});
 
+		/*bl::listenLongTerm("key down",)
 		bl::onKeyDown([](unsigned long long xcode, Node* bubbledFrom) {
 			if (focusNodeId && strcmp(focusNodeId, bl::node->nid) == 0) {
 				printf("Receiveing key %s\n", bl::node->nid);
 			}
-		});
+		});*/
 	}
 }

@@ -2,11 +2,8 @@
 
 #include <map>
 
-#include "echo/echo.h"
-
 #include "bl-types.h"
 
-using namespace echo;
 using namespace bl;
 
 namespace bl { extern class Node; }

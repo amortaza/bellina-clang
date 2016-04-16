@@ -14,8 +14,6 @@ using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::sys;
 
-using namespace bl::listener::_;
-
 void bl::onMouseScroll(NodeMouseScrollCallback cb) {
 	current_node->onMouseScroll_callbacks.push_back(cb);
 }

@@ -15,7 +15,6 @@ using namespace g2::flags;
 using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
-using namespace bl::listener::_;
 
 void bl::tick() {
 	bl::plug::tick();

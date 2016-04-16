@@ -21,7 +21,7 @@ namespace click {
 	}
 
 	void init() {
-		bl::listen("mouse down", [](void* data) {
+		bl::listenLongTerm("mouse down", [](void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId) ) {
@@ -30,7 +30,7 @@ namespace click {
 			}
 		});
 
-		bl::listen("mouse up", [](void* data) {
+		bl::listenLongTerm("mouse up", [](void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId)) {

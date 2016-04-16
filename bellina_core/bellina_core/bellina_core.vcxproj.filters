@@ -60,6 +60,9 @@
     <Filter Include="bellina\bl-lib">
       <UniqueIdentifier>{9e61c58c-bf10-4f5c-883b-30f5831b1f45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina\bl-echo">
+      <UniqueIdentifier>{43fe28f4-53d0-4e89-ac2e-cfdf6e7e9a33}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -179,16 +182,19 @@
     <ClInclude Include="plugins\click\click.h">
       <Filter>plugins\click</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-types.h">
-      <Filter>bellina\bl-om</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina\bl-globals.h">
-      <Filter>bellina\bl-om</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-listener.h">
       <Filter>bellina\bl-listener</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-core.h">
+      <Filter>bellina\bl-core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-globals.h">
+      <Filter>bellina\bl-core</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-echo.h">
+      <Filter>bellina\bl-echo</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-types.h">
       <Filter>bellina\bl-core</Filter>
     </ClInclude>
   </ItemGroup>
@@ -286,12 +292,6 @@
     <ClCompile Include="bellina\bl-tick.cpp">
       <Filter>bellina\bl-om</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-globals.cpp">
-      <Filter>bellina\bl-om</Filter>
-    </ClCompile>
-    <ClCompile Include="bellina\bl-listener.cpp">
-      <Filter>bellina\bl-listener</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
       <Filter>bellina\bl-core</Filter>
     </ClCompile>
@@ -300,6 +300,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-core-node.cpp">
       <Filter>bellina\bl-core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-globals.cpp">
+      <Filter>bellina\bl-core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-echo.cpp">
+      <Filter>bellina\bl-echo</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

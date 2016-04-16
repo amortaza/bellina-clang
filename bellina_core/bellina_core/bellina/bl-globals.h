@@ -20,7 +20,7 @@ namespace bl {
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
 		
-		extern echo::Echo* node_echo;
-		extern echo::Echo* plugin_echo;
+		extern echo::Echo* short_term_echo;
+		extern echo::Echo* long_term_echo;
 	}
 }

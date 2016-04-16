@@ -174,6 +174,7 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h" />
     <ClInclude Include="bellina\bellina.h" />
     <ClInclude Include="bellina\bl-core.h" />
+    <ClInclude Include="bellina\bl-echo.h" />
     <ClInclude Include="bellina\bl-flags.h" />
     <ClInclude Include="bellina\bl-fluent-border.h" />
     <ClInclude Include="bellina\bl-fluent-font.h" />
@@ -209,12 +210,12 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp" />
     <ClCompile Include="bellina\bl-core-input.cpp" />
     <ClCompile Include="bellina\bl-core-node.cpp" />
+    <ClCompile Include="bellina\bl-echo.cpp" />
     <ClCompile Include="bellina\bl-flags.cpp" />
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-globals.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
-    <ClCompile Include="bellina\bl-listener.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
