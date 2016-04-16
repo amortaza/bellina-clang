@@ -63,6 +63,9 @@
     <Filter Include="bellina\bl-echo">
       <UniqueIdentifier>{43fe28f4-53d0-4e89-ac2e-cfdf6e7e9a33}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\double-click">
+      <UniqueIdentifier>{6ed2670f-452f-4d07-874d-4c90be9ea528}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -200,6 +203,9 @@
     <ClInclude Include="bellina\bl-plugin-bubble.h">
       <Filter>bellina\bl-plugin</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\double-click\double-click.h">
+      <Filter>plugins\double-click</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -312,6 +318,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-plugin-bubble.cpp">
       <Filter>bellina\bl-plugin</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\double-click\double-click.cpp">
+      <Filter>plugins\double-click</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

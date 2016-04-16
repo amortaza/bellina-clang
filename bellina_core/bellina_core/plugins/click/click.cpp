@@ -25,7 +25,6 @@ namespace click {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId) ) {
-				printf("lost it!\n");
 				freeId();
 			}
 		});
@@ -34,7 +33,6 @@ namespace click {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId)) {
-				printf("lost it!\n");
 				freeId();
 			}
 		});
@@ -66,7 +64,9 @@ namespace click {
 				event.button = button;
 				event.node = bl::node;
 
-				bl::pluginCall(plugin_name, bl::node, &event);					
+				bl::pluginCall(plugin_name, bl::node, &event);
+
+				bl::fire("click", &event);
 			}
 
 			freeId();

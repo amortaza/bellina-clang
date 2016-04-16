@@ -8,6 +8,7 @@
 
 #include "plugins/focus/focus.h"
 #include "plugins/click/click.h"
+#include "plugins/double-click/double-click.h"
 
 using namespace bl;
 using namespace bl::flags;
@@ -37,6 +38,21 @@ void Render_My_Bellina() {
 	bl::root();
 	{
 		bl::color(50, 0, 50);
+
+		bl::div(); {
+			bl::id("triple double");
+			bl::pos(360, 200);
+			bl::dim(160, 120);
+
+			bl::on("double click", [](void* e) {
+				click::MouseClickEvent* event = (click::MouseClickEvent*)e;
+
+				printf("double clicks %s\n", event->node->nid);
+
+				return true;
+			});
+		}
+		bl::end();
 
 		bl::div();
 		{
@@ -71,10 +87,6 @@ void Render_My_Bellina() {
 		}
 		bl::end();
 
-		bl::div();
-		bl::pos(360, 200);
-		bl::dim(160, 120);
-		bl::end();
 	}
 	bl::end();
 	bl::fire("ace", 0);
@@ -86,6 +98,9 @@ void Init_OnGL() {
 
 	bl::pluginLoad("focus", focus::init, focus::onNode, focus::tick, focus::uninit);
 	bl::pluginLoad("click", click::init, click::onNode, click::tick, click::uninit);
+
+	bl::pluginSetInt("double click", "duration", 1001);
+	bl::pluginLoad("double click", double_click::init, double_click::onNode, double_click::tick, double_click::uninit);
 
 	//guitar = g2::loadTextureRgb("c:\\_c\\g2\\a.jpg");
 	//jet = g2::loadTextureRgba("c:\\_c\\g2\\jet.png");

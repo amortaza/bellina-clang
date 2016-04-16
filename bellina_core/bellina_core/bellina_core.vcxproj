@@ -188,6 +188,7 @@
     <ClInclude Include="bellina\bl-types.h" />
     <ClInclude Include="bellina\bl-util.h" />
     <ClInclude Include="plugins\click\click.h" />
+    <ClInclude Include="plugins\double-click\double-click.h" />
     <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
@@ -227,6 +228,7 @@
     <ClCompile Include="bellina\bl-util.cpp" />
     <ClCompile Include="bellina\bl-window.cpp" />
     <ClCompile Include="plugins\click\click.cpp" />
+    <ClCompile Include="plugins\double-click\double-click.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="sample\init.cpp" />
     <ClCompile Include="sample\main.cpp" />

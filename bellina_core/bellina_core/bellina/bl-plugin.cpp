@@ -35,6 +35,17 @@ int bl::pluginGetInt(char* name, char* prop_name) {
 	return e2->second;
 }
 
+bool bl::pluginHasInt(char* name, char* prop_name) {
+	std::string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	auto e2 = intMap.find(key);
+	if (e2 == intMap.end()) return false;
+
+	return true;
+}
+
 void bl::plugin::tick() {
 	typedef std::map<std::string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
