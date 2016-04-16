@@ -16,8 +16,6 @@ using namespace bl::flags;
 
 Node::Node(Node* parent_) {
 
-	//? nodeEcho = 0;
-	
 	onMouseScroll_enabled_bubble = true;
 	onMouseMove_enabled_bubble = true;
 	onMouseDown_enabled_bubble = true;
@@ -59,16 +57,6 @@ Node::Node(Node* parent_) {
 
 	flags = G2_COLOR_SOLID | G2_ALPHA_NONE;
 }
-
-//?
-/*bool Node::fire(char *eventName, void* data) {
-	if (nodeEcho) {
-		nodeEcho->fire(eventName, data);
-		return true;
-	}
-
-	return false;
-}*/
 
 void Node::id(char* _id) {
 	nid = _strdup(_id);
@@ -173,19 +161,9 @@ void Node::removeFlag(int flag) {
 	flags &= ~flag;
 }
 
-//?
-/*void Node::listen(char* eventName, ListenerCallback callback) {
-	if (!nodeEcho) nodeEcho = new echo::Echo();
-
-	nodeEcho->listen(eventName, callback);
-}*/
-
 Node::~Node() {
 	// id
 	if (nid) delete[] nid;
-
-	// echo
-	//? if (nodeEcho) delete nodeEcho;
 
 	// font
 	if (font_name) delete[] font_name;
