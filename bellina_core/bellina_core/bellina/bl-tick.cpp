@@ -23,6 +23,10 @@ void bl::tick() {
 	// delete after the plugin ticks, so nodes have chance to react
 	delete short_term_echo;
 	short_term_echo = new echo::Echo();
+
+	nodeById.clear();
+
+	if (root_node) { delete root_node; root_node = 0; }
 }
 
 void bl::paint() {

@@ -69,6 +69,7 @@ namespace bl {
 		void id(char*);
 
 		void listen(char* eventName, ListenerCallback callback);
+		bool fire(char *eventName, void* data);
 
 		void pos(int _x, int _y);
 		void dim(int _w, int _h);

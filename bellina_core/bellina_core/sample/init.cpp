@@ -57,7 +57,10 @@ void Render_My_Bellina() {
 			bl::id("child B");
 			bl::pos(180, 10);
 			bl::dim(160, 120);
-			//bl::use("focus");
+			bl::on("focus", [](void* e) {
+				focus::FocusOnKeyEvent *event = (focus::FocusOnKeyEvent *) e;
+				printf("key down on node %s\n",event->node->nid);
+			});
 		}
 		bl::end();
 	}

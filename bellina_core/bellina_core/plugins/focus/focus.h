@@ -8,4 +8,9 @@ namespace focus {
 	void uninit();
 
 	void onNode(PluginCallback);
+
+	struct FocusOnKeyEvent {
+		bl::listener::KeyDownEvent* keyDownEvent;
+		Node* node;
+	};
 }

@@ -7,3 +7,5 @@
 #include "bl-listener.h"
 #include "bl-util.h"
 #include "bl-plugin.h"
+#include "bl-node.h"
+#include "bl-echo.h"

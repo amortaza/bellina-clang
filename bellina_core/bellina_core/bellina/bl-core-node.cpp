@@ -9,6 +9,10 @@ using namespace bl::_;
 
 void bl::id(char* nid) {
 	current_node->id(nid);
+
+	std::string key(nid);
+
+	nodeById[key] = current_node;
 }
 
 void bl::listen(char* eventName, ListenerCallback eventCallback) {

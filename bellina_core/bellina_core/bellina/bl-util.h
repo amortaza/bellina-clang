@@ -7,6 +7,7 @@ namespace bl {
 		void calcGlobalPositions();
 
 		Node* getNodeAtPos(int wx, int wy);
+		Node* getNodeById(char* id);
 
 		bool isNode(Node*, char* id);
 	}

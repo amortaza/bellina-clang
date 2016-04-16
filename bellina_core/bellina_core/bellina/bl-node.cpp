@@ -60,6 +60,15 @@ Node::Node(Node* parent_) {
 	flags = G2_COLOR_SOLID | G2_ALPHA_NONE;
 }
 
+bool Node::fire(char *eventName, void* data) {
+	if (nodeEcho) {
+		nodeEcho->fire(eventName, data);
+		return true;
+	}
+
+	return false;
+}
+
 void Node::id(char* _id) {
 	nid = _strdup(_id);
 }

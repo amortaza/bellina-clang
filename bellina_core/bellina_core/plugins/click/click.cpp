@@ -45,7 +45,6 @@ namespace click {
 	}
 
 	void tick() {
-		printf("tick click\n");
 	}
 
 	void onNode(PluginCallback cb) {

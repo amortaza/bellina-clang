@@ -18,9 +18,8 @@ using namespace bl::sys;
 using namespace bl::plugin;
 
 void bl::root() {
-	if (root_node) { delete root_node; root_node = 0; }
-
 	root_node = div();
+
 	id("ROOT");
 }
 
@@ -53,12 +52,15 @@ void bl::init() {
 }
 
 void bl::uninit() {
-	if (root_node) delete root_node;
 
 	bl::plugin::uninit();
 
+	if (root_node) delete root_node;
+
+	nodeById.clear();
+
 	delete _::short_term_echo;
-	delete _::long_term_echo;
+	delete _::long_term_echo;	
 
 	g2::uninit();
 }

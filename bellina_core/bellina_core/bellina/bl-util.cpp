@@ -52,17 +52,27 @@ namespace bl {
 	}
 }
 
-bool bl::util::isNode(Node *node, char* id) {
+bool util::isNode(Node *node, char* id) {
 	return node && node->nid && id && strcmp(node->nid, id) == 0;
 }
 
-Node* bl::util::getNodeAtPos(int wx, int wy) {
+Node* util::getNodeById(char* id) {
+	std::string key(id);
+
+	auto e2 = nodeById.find(key);
+
+	if (e2 == nodeById.end()) return 0;
+
+	return e2->second;
+}
+
+Node* util::getNodeAtPos(int wx, int wy) {
 	Node *node = getNodeAtPos(root_node, wx, wy);
 
 	if (!node) return root_node;
 }
 
-void bl::util::calcGlobalPositions() {
+void util::calcGlobalPositions() {
 	if (!root_node) return;
 
 	calcGlobalPositions(root_node, 0, 0);

@@ -1,5 +1,7 @@
 #include "stdafx.h"
 
+#include <map>
+
 #include "bl-echo.h"
 #include "bl-node.h"
 #include "bl-fluent-border.h"
@@ -24,5 +26,7 @@ namespace bl {
 		
 		Echo* short_term_echo = new Echo();
 		Echo* long_term_echo = new Echo();
+
+		 std::map<std::string, Node*> nodeById;
 	}
 }

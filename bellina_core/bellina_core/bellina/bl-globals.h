@@ -1,5 +1,7 @@
 #pragma once
 
+#include <map>
+
 namespace echo { extern class Echo; }
 
 namespace bl { extern class Node; }
@@ -23,5 +25,7 @@ namespace bl {
 		
 		extern echo::Echo* short_term_echo;
 		extern echo::Echo* long_term_echo;
+
+		extern std::map<std::string, Node*> nodeById;
 	}
 }
