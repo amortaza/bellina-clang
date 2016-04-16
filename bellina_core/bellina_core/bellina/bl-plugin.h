@@ -9,7 +9,7 @@ using namespace bl;
 namespace bl { extern class Node; }
 
 namespace bl {
-	namespace plug {
+	namespace plugin {
 
 		struct Plugin {
 			std::string name;

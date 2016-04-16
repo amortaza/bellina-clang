@@ -12,7 +12,7 @@ namespace bl { extern class FluentFont; }
 namespace bl { extern class Node; }
 
 using namespace bl;
-using namespace bl::plug;
+using namespace bl::plugin;
 
 namespace bl {	
 

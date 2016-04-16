@@ -4,10 +4,10 @@
 
 #include "bl-plugin.h"
 
-using namespace bl::plug;
+using namespace bl::plugin;
 
 namespace bl {
-	namespace plug {
+	namespace plugin {
 		std::map<std::string, Plugin*> pluginMap;
 
 		std::map<std::string, int> intMap;
@@ -33,7 +33,7 @@ int bl::pluginGetInt(char* name, char* prop_name) {
 	return e2->second;
 }
 
-void bl::plug::tick() {
+void bl::plugin::tick() {
 	typedef std::map<std::string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
 		Plugin* plugin = it->second;
@@ -72,7 +72,7 @@ void bl::on(char* name, PluginCallback cb) {
 	plugin->onNode(cb);
 }
 
-void bl::plug::uninit() {
+void bl::plugin::uninit() {
 	//
 	typedef std::map<std::string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {

@@ -289,13 +289,7 @@
     <ClCompile Include="plugins\click\click.cpp">
       <Filter>plugins\click</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-tick.cpp">
-      <Filter>bellina\bl-om</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-core.cpp">
-      <Filter>bellina\bl-core</Filter>
-    </ClCompile>
-    <ClCompile Include="bellina\bl-core-input.cpp">
       <Filter>bellina\bl-core</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-core-node.cpp">
@@ -306,6 +300,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-echo.cpp">
       <Filter>bellina\bl-echo</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-tick.cpp">
+      <Filter>bellina\bl-core</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core-input.cpp">
+      <Filter>bellina\bl-input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

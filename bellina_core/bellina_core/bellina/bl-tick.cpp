@@ -17,7 +17,7 @@ using namespace bl::_;
 using namespace bl::flags;
 
 void bl::tick() {
-	bl::plug::tick();
+	bl::plugin::tick();
 }
 
 void bl::paint() {

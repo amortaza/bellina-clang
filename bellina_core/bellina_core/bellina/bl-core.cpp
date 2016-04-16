@@ -15,7 +15,7 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::sys;
-using namespace bl::plug;
+using namespace bl::plugin;
 
 void bl::root() {
 	if (root_node) { delete root_node; root_node = 0; }
@@ -55,7 +55,7 @@ void bl::init() {
 void bl::uninit() {
 	if (root_node) delete root_node;
 
-	bl::plug::uninit();
+	bl::plugin::uninit();
 
 	delete _::short_term_echo;
 	delete _::long_term_echo;
