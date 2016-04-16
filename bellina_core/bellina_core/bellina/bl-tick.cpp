@@ -9,6 +9,7 @@
 #include "bl-core.h"
 #include "bl-flags.h"
 #include "bl-listener.h"
+#include "bl-echo.h"
 
 using namespace g2::flags;
 
@@ -17,7 +18,11 @@ using namespace bl::_;
 using namespace bl::flags;
 
 void bl::tick() {
-	bl::plugin::tick();
+	plugin::tick();
+
+	// delete after the plugin ticks, so nodes have chance to react
+	delete short_term_echo;
+	short_term_echo = new echo::Echo();
 }
 
 void bl::paint() {

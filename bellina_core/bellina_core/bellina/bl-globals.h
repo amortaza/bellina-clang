@@ -5,6 +5,7 @@ namespace echo { extern class Echo; }
 namespace bl { extern class Node; }
 namespace bl { extern class FluentFont; }
 namespace bl { extern class FluentBorder; }
+namespace bl { namespace echo { extern class Echo; } }
 
 namespace bl {
 	extern Node* node;
