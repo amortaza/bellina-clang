@@ -5,14 +5,14 @@
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
-namespace bl { namespace echo { extern class Echo; } }
+//? namespace bl { namespace echo { extern class Echo; } }
 
 namespace bl {
 
 	class Node {
 
 	public:
-		echo::Echo* nodeEcho;
+		//? echo::Echo* nodeEcho;
 		Point global_pos;
 
 		bool onMouseScroll_enabled_bubble;
@@ -68,8 +68,8 @@ namespace bl {
 
 		void id(char*);
 
-		void listen(char* eventName, ListenerCallback callback);
-		bool fire(char *eventName, void* data);
+		//? void listen(char* eventName, ListenerCallback callback);
+		//? bool fire(char *eventName, void* data);
 
 		void pos(int _x, int _y);
 		void dim(int _w, int _h);

@@ -15,9 +15,10 @@ void bl::id(char* nid) {
 	nodeById[key] = current_node;
 }
 
-void bl::listen(char* eventName, ListenerCallback eventCallback) {
+//?
+/*void bl::listen(char* eventName, ListenerCallback eventCallback) {
 	current_node->listen(eventName, eventCallback);
-}
+}*/
 
 void bl::pos(int x, int y) {
 	current_node->pos(x, y);

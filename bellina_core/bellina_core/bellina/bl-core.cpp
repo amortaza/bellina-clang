@@ -78,7 +78,8 @@ void bl::fire(char* eventName, void* eventData) {
 	_::long_term_echo->fire(eventName, eventData);
 }
 
-void bl::fireAt(char* eventName, void* eventData) {
+//?
+/*void bl::fireAt(char* eventName, void* eventData) {
 	current_node->nodeEcho->fire(eventName, eventData);
-}
+}*/
 
