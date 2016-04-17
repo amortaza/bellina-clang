@@ -90,67 +90,153 @@ namespace bl {
 				call_mouse_move(node->parent, mx, my, node);
 			}
 		}
+
+		void bl_onMouseMove(int mx, int my) {
+
+			Node *node = util::getNodeAtPos(mx, my);
+
+			MouseMoveEvent event;
+			event.mx = mx;
+			event.my = my;
+			event.node = node;
+
+			bl::fire("mouse move", &event);
+
+			if (node) {
+				call_mouse_move(node, mx, my, 0);
+			}
+		}
+
+		void bl_onMouseMove_captured(int mx, int my) {
+
+			Node *node = capture_mouse_node;
+
+			MouseMoveEvent event;
+			event.mx = mx;
+			event.my = my;
+			event.node = node;
+
+			// do not fire when mouse is captured - bl::fire("mouse move", &event);
+
+			if (node) {
+				call_mouse_move(node, mx, my, 0);
+			}
+		}
+
+		void bl_onMouseScroll(int amount) {
+			int mx = mouse_x;
+			int my = mouse_y;
+
+			Node* node = util::getNodeAtPos(mx, my);
+
+			MouseScrollEvent event;
+			event.node = node;
+			event.mx = mx;
+			event.my = my;
+			event.amount = amount;
+
+			bl::fire("mouse scroll", &event);
+
+			if (node) {
+				call_mouse_scroll(node, amount, mx, my, 0);
+			}
+		}
+
+		void bl_onMouseScroll_captured(int amount) {
+			int mx = mouse_x;
+			int my = mouse_y;
+
+			Node* node = capture_mouse_node;
+
+			MouseScrollEvent event;
+			event.node = node;
+			event.mx = mx;
+			event.my = my;
+			event.amount = amount;
+
+			// do not fire on captured mouse bl::fire("mouse scroll", &event);
+
+			if (node) {
+				call_mouse_scroll(node, amount, mx, my, 0);
+			}
+		}
+
+		void bl_onMouseButton_captured(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
+
+			Node* node = capture_mouse_node;
+
+			MouseDownEvent event;
+			event.node = node;
+			event.mx = mx;
+			event.my = my;
+			event.button = button;
+
+			// do not fire on capture
+
+			if (node) {
+
+				if (action == Xel::Mouse::Action::Down)
+					call_mouse_down(node, button, mx, my, 0);
+				else if (action == Xel::Mouse::Action::Up)
+					call_mouse_up(node, button, mx, my, 0);
+			}
+		}
+
+		void bl_onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
+
+			Node* node = util::getNodeAtPos(mx, my);
+
+			MouseDownEvent event;
+			event.node = node;
+			event.mx = mx;
+			event.my = my;
+			event.button = button;
+
+			if (action == Xel::Mouse::Action::Down)
+				bl::fire("mouse down", &event);
+			else if (action == Xel::Mouse::Action::Up)
+				bl::fire("mouse up", &event);
+
+			if (node) {
+
+				if (action == Xel::Mouse::Action::Down)
+					call_mouse_down(node, button, mx, my, 0);
+				else if (action == Xel::Mouse::Action::Up)
+					call_mouse_up(node, button, mx, my, 0);
+			}
+		}
 	}
 }
 
 void bl::input::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
 	updateSysMouse(mx, my);
 
-	Node* hit = util::getNodeAtPos(mx, my);
-
-	MouseDownEvent event;
-	event.node = hit;
-	event.mx = mx; 
-	event.my = my; 
-	event.button = button; 
-
-	if (action == Xel::Mouse::Action::Down)
-		bl::fire("mouse down", &event);
-	else if (action == Xel::Mouse::Action::Up)
-		bl::fire("mouse up", &event);
-
-	if (hit) {
-
-		if (action == Xel::Mouse::Action::Down) 
-			call_mouse_down(hit, button, mx, my, 0);
-		else if (action == Xel::Mouse::Action::Up) 
-			call_mouse_up(hit, button, mx, my, 0);
-	}
+	if (capture_mouse_node)
+		bl_onMouseButton_captured(button, action, mx, my);
+	else
+		bl_onMouseButton(button, action, mx, my);
 }
 
 void bl::input::onMouseScroll(int amount) {
-	int mx = mouse_x;
-	int my = mouse_y;
-
-	Node* node = util::getNodeAtPos(mx, my);
-
-	MouseScrollEvent event;
-	event.node = node;
-	event.mx = mx; 
-	event.my = my; 
-	event.amount = amount; 
-
-	bl::fire("mouse scroll", &event);
-
-	if (node) {
-		call_mouse_scroll(node, amount, mx, my, 0);
-	}
+	if (capture_mouse_node)
+		bl_onMouseScroll_captured(amount);
+	else
+		bl_onMouseScroll(amount);
 }
 
 void bl::input::onMouseMove(int mx, int my) {
 	updateSysMouse(mx, my);
 
-	Node *node = util::getNodeAtPos(mx, my);
-
-	MouseMoveEvent event;
-	event.node = node;
-	event.mx = mx; 
-	event.my = my; 	
-
-	bl::fire("mouse scroll", &event);
-
-	if (node) {
-		call_mouse_move(node, mx, my, 0);
-	}
+	if (capture_mouse_node) 
+		bl_onMouseMove_captured(mx, my);
+	else 
+		bl_onMouseMove(mx, my);
 }
 
+void bl::captureMouse() {
+	capture_mouse_node = current_node;
+}
+
+Node* bl::getMouseOwner() {
+	return capture_mouse_node;
+}

@@ -32,5 +32,7 @@ namespace bl {
 		extern std::map<std::string, Node*> nodeById;
 
 		extern PluginBubble* pluginBubble;
+
+		extern Node* capture_mouse_node;
 	}
 }

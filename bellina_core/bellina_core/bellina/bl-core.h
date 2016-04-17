@@ -18,6 +18,9 @@ namespace bl {
 
 	void root();
 
+	void captureMouse();
+	Node* getMouseOwner();
+
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
 	void listenLongTerm(char* eventName, ListenerCallback eventCallback);
 

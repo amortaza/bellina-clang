@@ -76,6 +76,7 @@ void Render_My_Bellina() {
 
 		bl::div();
 		{
+			bl::captureMouse();
 			bl::id("child B");
 			bl::pos(180, 10);
 			bl::dim(160, 120);
