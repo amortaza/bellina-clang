@@ -72,6 +72,9 @@
     <Filter Include="bellina\bl-core\life cycle">
       <UniqueIdentifier>{45fcce16-999e-4a45-88c6-b621ebae23d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina\bl-core\shadow">
+      <UniqueIdentifier>{f8e17940-fbe0-4494-8ee5-2354d601c730}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -218,6 +221,9 @@
     <ClInclude Include="bellina\bl-lifecycle.h">
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-shadow.h">
+      <Filter>bellina\bl-core\shadow</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -338,7 +344,7 @@
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-shadow.cpp">
-      <Filter>bellina\bl-core</Filter>
+      <Filter>bellina\bl-core\shadow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ void Render_My_Bellina() {
 
 	bl::root();
 	{
-		/*bl::div(); {
+		bl::div(); {
 			
 			bl::id("dragman");
 
@@ -45,7 +45,7 @@ void Render_My_Bellina() {
 				return true;
 			});
 		}
-		bl::end();*/
+		bl::end();
 
 		bl::div(); {
 
@@ -55,12 +55,12 @@ void Render_My_Bellina() {
 			bl::pos(460, 300);
 			bl::dim(260, 220);
 
-			/*bl::shadow([](Node* shadow) {
-				shadow->x++;
-			});*/
+			bl::on("drag", [](void* e) {
+				drag::DragEvent* event = (drag::DragEvent*) e;
+				return true;
+			});
 
 			bl::div(); {
-
 				bl::id("dragman2");
 
 				bl::color(0, 50, 150);

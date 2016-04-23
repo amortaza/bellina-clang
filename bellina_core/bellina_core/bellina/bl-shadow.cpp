@@ -3,6 +3,7 @@
 #include "bl-core.h"
 #include "bl-node.h"
 #include "bl-globals.h"
+#include "bl-shadow.h"
 
 using namespace std;
 
@@ -46,4 +47,14 @@ void bl::shadow(ShadowCallback cb) {
 	cb(shadowNode);
 
 	setNodeFromShadow(current_node, shadowNode);
+}
+
+void bl::shadow_::uninit() {
+	typedef map<string, Node*>::iterator it1;
+
+	for (it1 it = shadowNodes.begin(); it != shadowNodes.end(); it++) {
+		Node* node = it->second;
+
+		delete node;
+	}
 }

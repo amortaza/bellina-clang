@@ -185,6 +185,7 @@
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-plugin-bubble.h" />
     <ClInclude Include="bellina\bl-plugin.h" />
+    <ClInclude Include="bellina\bl-shadow.h" />
     <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-types.h" />
     <ClInclude Include="bellina\bl-util.h" />

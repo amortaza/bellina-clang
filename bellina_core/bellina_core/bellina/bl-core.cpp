@@ -13,6 +13,7 @@
 #include "bl-util.h"
 #include "bl-plugin-bubble.h"
 #include "bl-lifecycle.h"
+#include "bl-shadow.h"
 
 using namespace bl;
 using namespace bl::_;
@@ -63,6 +64,7 @@ void bl::init() {
 void bl::uninit() {
 
 	bl::plugin::uninit();
+	bl::shadow_::uninit();
 
 	if (root_node) delete root_node;
 

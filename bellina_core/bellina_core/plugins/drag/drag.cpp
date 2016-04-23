@@ -15,7 +15,6 @@ namespace drag {
 
 	char* plugin_name = "drag";
 	char* clickNodeId = 0;
-	Node* pnode = 0;
 
 	int dx = 0, dy = 0;
 
@@ -61,15 +60,6 @@ namespace drag {
 			dy = bl::node->y - my;
 
 			// printf("dx dy %i %i\n", dx, dy);
-
-			return false;
-		});
-
-		
-		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.
-										  
-			freeId();
 
 			return false;
 		});
