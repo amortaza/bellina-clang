@@ -39,12 +39,12 @@ int main(int argc, char** argv) {
 		bl::input::onKeyUp);
 
 	Xel::Window::SetTitle("Bellina v0.3.0");
-	Xel::Window::SetPosition(500, 100);
-	Xel::Window::SetSize(1300, 843);
+	Xel::Window::SetPosition(720, 100);
+	Xel::Window::SetSize(1000, 743);
 
 	Xel::Loop(OnTick);
 
-	//int i; std::cin >> i;
+//	int i; std::cin >> i;
 	printf("good bye.\n");	return 0;
 }
 

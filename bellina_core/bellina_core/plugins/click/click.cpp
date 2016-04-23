@@ -42,7 +42,7 @@ namespace click {
 		freeId();
 	}
 
-	void tick() {
+	void tickOnAfterCoreRender() {
 	}
 
 	void onNode(PluginCallback cb) {

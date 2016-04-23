@@ -16,13 +16,14 @@ namespace bl {
 
 			PluginInit init;
 			PluginOnNode onNode;
-			PluginTick tick;
+			PluginTickAfterCoreRender tickAfterCoreRender;
 			PluginUninit uninit;
 		};
 
 		extern std::map<std::string, Plugin*> pluginMap;		
 
-		void tick();
+		void tickAfterCoreRender();
+
 		void uninit();		
 	}
 }

@@ -19,7 +19,7 @@ namespace bl {
 		Node *root_node = 0; // "root" is a function
 		Node *current_node = 0;
 
-		Node* capture_mouse_node = 0;//
+		//Node* capture_mouse_nod = 0;//
 
 		unsigned int border_flag = bl::flags::BL_BORDER_ALL;
 

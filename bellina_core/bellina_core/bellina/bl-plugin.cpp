@@ -16,6 +16,17 @@ namespace bl {
 	}
 }
 
+void bl::plugin::tickAfterCoreRender() {
+
+	typedef std::map<std::string, Plugin*>::iterator it1;
+
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+
+		if (plugin->tickAfterCoreRender != nullptr) plugin->tickAfterCoreRender();
+	}
+}
+
 void bl::pluginSetInt(char* name, char* prop_name, int value) {
 	std::string key(name);
 	key.append(":");
@@ -46,22 +57,13 @@ bool bl::pluginHasInt(char* name, char* prop_name) {
 	return true;
 }
 
-void bl::plugin::tick() {
-	typedef std::map<std::string, Plugin*>::iterator it1;
-	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
-		Plugin* plugin = it->second;
-
-		if (plugin->tick != nullptr) plugin->tick();
-	}
-}
-
-void bl::pluginLoad(char* pluginName, PluginInit init, PluginOnNode onNode, PluginTick tick, PluginUninit uninit) {
+void bl::pluginLoad(char* pluginName, PluginInit init, PluginOnNode onNode, PluginTickAfterCoreRender tick, PluginUninit uninit) {
 	Plugin* plugin = new Plugin();
 
 	plugin->name.assign(pluginName, strlen(pluginName));
 	plugin->init = init;
 	plugin->onNode = onNode;
-	plugin->tick = tick;
+	plugin->tickAfterCoreRender = tick;
 	plugin->uninit = uninit;
 
 	pluginMap[plugin->name] = plugin;

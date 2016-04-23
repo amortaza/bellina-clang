@@ -33,6 +33,6 @@ namespace bl {
 
 		extern PluginBubble* pluginBubble;
 
-		extern Node* capture_mouse_node;
+		//extern Node* capture_mouse_nod;
 	}
 }

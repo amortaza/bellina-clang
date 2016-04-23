@@ -38,7 +38,7 @@ namespace double_click {
 		freeId();
 	}
 
-	void tick() {
+	void tickOnAfterCoreRender() {
 	}
 
 	void onNode(PluginCallback cb) {

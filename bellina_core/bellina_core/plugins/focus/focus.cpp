@@ -41,7 +41,7 @@ namespace focus {
 		if (focusNodeId) delete[] focusNodeId;
 	}
 
-	void tick() {
+	void tickOnAfterCoreRender() {
 	}
 
 	void onNode(PluginCallback cb) {
@@ -52,7 +52,7 @@ namespace focus {
 
 			focusNodeId = _strdup(bl::node->nid);
 
-			printf("focuse node id is %s\n", focusNodeId);
+			printf("focus node id is %s\n", focusNodeId);
 
 			return true;
 		});

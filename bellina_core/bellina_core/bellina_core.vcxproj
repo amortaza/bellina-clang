@@ -180,6 +180,7 @@
     <ClInclude Include="bellina\bl-fluent-font.h" />
     <ClInclude Include="bellina\bl-globals.h" />
     <ClInclude Include="bellina\bl-input.h" />
+    <ClInclude Include="bellina\bl-lifecycle.h" />
     <ClInclude Include="bellina\bl-listener.h" />
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-plugin-bubble.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="bellina\bl-util.h" />
     <ClInclude Include="plugins\click\click.h" />
     <ClInclude Include="plugins\double-click\double-click.h" />
+    <ClInclude Include="plugins\drag\drag.h" />
     <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
@@ -218,17 +220,18 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-globals.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
+    <ClCompile Include="bellina\bl-lifecycle.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-plugin-bubble.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />
     <ClCompile Include="bellina\bl-node.cpp" />
-    <ClCompile Include="bellina\bl-tick.cpp" />
     <ClCompile Include="bellina\bl-util.cpp" />
     <ClCompile Include="bellina\bl-window.cpp" />
     <ClCompile Include="plugins\click\click.cpp" />
     <ClCompile Include="plugins\double-click\double-click.cpp" />
+    <ClCompile Include="plugins\drag\drag.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="sample\init.cpp" />
     <ClCompile Include="sample\main.cpp" />

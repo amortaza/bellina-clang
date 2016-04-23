@@ -11,6 +11,7 @@
 #include "bl-listener.h"
 #include "bl-echo.h"
 #include "bl-plugin-bubble.h"
+#include "bl-lifecycle.h"
 
 using namespace g2::flags;
 
@@ -19,8 +20,7 @@ using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::echo;
 
-void bl::tick() {
-	plugin::tick();
+void lifecycle::tickBeforeCoreRender() {	
 
 	// delete after the plugin ticks, so nodes have chance to react
 	delete short_term_echo;
@@ -38,6 +38,8 @@ void bl::tick() {
 
 void bl::paint() {
 	if (!root_node) return;
+
+	plugin::tickAfterCoreRender();
 
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;

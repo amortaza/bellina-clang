@@ -4,7 +4,7 @@
 
 namespace double_click {
 	void init();
-	void tick();
+	void tickOnAfterCoreRender();
 	void uninit();
 
 	void onNode(PluginCallback);

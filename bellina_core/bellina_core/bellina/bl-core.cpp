@@ -12,6 +12,7 @@
 #include "bl-node.h"
 #include "bl-util.h"
 #include "bl-plugin-bubble.h"
+#include "bl-lifecycle.h"
 
 using namespace bl;
 using namespace bl::_;
@@ -20,6 +21,8 @@ using namespace bl::sys;
 using namespace bl::plugin;
 
 void bl::root() {
+	lifecycle::tickBeforeCoreRender();
+
 	root_node = div();
 
 	id("ROOT");
