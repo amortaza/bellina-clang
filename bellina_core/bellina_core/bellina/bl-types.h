@@ -16,7 +16,6 @@ namespace bl {
 	typedef std::function<void(void)> PluginInit;
 	typedef std::function<void(void)> PluginUninit;
 	typedef std::function<void(void)> PluginTickAfterCoreRender;
-	typedef std::function<void(void)> PluginTickBeforeEnd;
 	typedef std::function<bool(void*)> PluginCallback;
 	typedef std::function<void(PluginCallback)> PluginOnNode;
 

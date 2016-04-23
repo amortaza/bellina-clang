@@ -79,7 +79,7 @@ void Init_OnGL() {
 	//bl::pluginLoad("double click", double_click::init, double_click::onNode, double_click::tickOnAfterCoreRender, double_click::uninit);
 
 	//bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, nullptr, drag::uninit);
-	bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::tickBeforeEnd, z_index::uninit);
+	bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::uninit);
 }
 
 void UnInit() {

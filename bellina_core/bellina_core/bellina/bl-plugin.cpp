@@ -28,17 +28,6 @@ void bl::plugin::tickAfterCoreRender() {
 	}
 }
 
-void bl::plugin::tickBeforeEnd() {
-
-	typedef map<string, Plugin*>::iterator it1;
-
-	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
-		Plugin* plugin = it->second;
-
-		if (plugin->tickBeforeEnd != nullptr) plugin->tickBeforeEnd();
-	}
-}
-
 void bl::pluginSetInt(char* name, char* prop_name, int value) {
 	std::string key(name);
 	key.append(":");
@@ -73,7 +62,6 @@ void bl::pluginLoad(	char* pluginName,
 						PluginInit init, 
 						PluginOnNode onNode, 
 						PluginTickAfterCoreRender tickAfterCoreRender, 
-						PluginTickBeforeEnd tickBeforeEnd, 
 						PluginUninit uninit) {
 
 	Plugin* plugin = new Plugin();
@@ -82,7 +70,6 @@ void bl::pluginLoad(	char* pluginName,
 	plugin->init = init;
 	plugin->onNode = onNode;
 	plugin->tickAfterCoreRender = tickAfterCoreRender;
-	plugin->tickBeforeEnd = tickBeforeEnd;
 	plugin->uninit = uninit;
 
 	pluginMap[plugin->name] = plugin;

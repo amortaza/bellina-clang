@@ -17,14 +17,12 @@ namespace bl {
 			PluginInit init;
 			PluginOnNode onNode;
 			PluginTickAfterCoreRender tickAfterCoreRender;
-			PluginTickBeforeEnd tickBeforeEnd; // current_node is still available
 			PluginUninit uninit;
 		};
 
 		extern std::map<std::string, Plugin*> pluginMap;		
 
 		void tickAfterCoreRender();
-		void tickBeforeEnd(); // current_node is still available
 
 		void uninit();		
 	}

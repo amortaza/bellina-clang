@@ -26,7 +26,7 @@ namespace z_index {
 
 		auto e2 = kidsByParent.find(key);
 		if (e2 == kidsByParent.end()) {
-			printf("creating %s\n",parent->nid);
+			
 			list<string>* l = new list<string>();
 			kidsByParent[key] = l;
 
