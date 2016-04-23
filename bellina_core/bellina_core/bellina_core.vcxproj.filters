@@ -75,6 +75,9 @@
     <Filter Include="bellina\bl-core\shadow">
       <UniqueIdentifier>{f8e17940-fbe0-4494-8ee5-2354d601c730}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\z-index">
+      <UniqueIdentifier>{a1d1d675-eb10-45b8-971c-1c4863d32d08}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -224,6 +227,9 @@
     <ClInclude Include="bellina\bl-shadow.h">
       <Filter>bellina\bl-core\shadow</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\z-index\z-index.h">
+      <Filter>plugins\z-index</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -345,6 +351,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-shadow.cpp">
       <Filter>bellina\bl-core\shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\z-index\z-index.cpp">
+      <Filter>plugins\z-index</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

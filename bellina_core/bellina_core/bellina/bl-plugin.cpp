@@ -5,6 +5,7 @@
 #include "bl-plugin.h"
 #include "bl-plugin-bubble.h"
 
+using namespace std;
 using namespace bl::_;
 using namespace bl::plugin;
 
@@ -18,12 +19,23 @@ namespace bl {
 
 void bl::plugin::tickAfterCoreRender() {
 
-	typedef std::map<std::string, Plugin*>::iterator it1;
+	typedef map<string, Plugin*>::iterator it1;
 
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
 		Plugin* plugin = it->second;
 
 		if (plugin->tickAfterCoreRender != nullptr) plugin->tickAfterCoreRender();
+	}
+}
+
+void bl::plugin::tickBeforeEnd() {
+
+	typedef map<string, Plugin*>::iterator it1;
+
+	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
+		Plugin* plugin = it->second;
+
+		if (plugin->tickBeforeEnd != nullptr) plugin->tickBeforeEnd();
 	}
 }
 
@@ -57,13 +69,20 @@ bool bl::pluginHasInt(char* name, char* prop_name) {
 	return true;
 }
 
-void bl::pluginLoad(char* pluginName, PluginInit init, PluginOnNode onNode, PluginTickAfterCoreRender tick, PluginUninit uninit) {
+void bl::pluginLoad(	char* pluginName, 
+						PluginInit init, 
+						PluginOnNode onNode, 
+						PluginTickAfterCoreRender tickAfterCoreRender, 
+						PluginTickBeforeEnd tickBeforeEnd, 
+						PluginUninit uninit) {
+
 	Plugin* plugin = new Plugin();
 
 	plugin->name.assign(pluginName, strlen(pluginName));
 	plugin->init = init;
 	plugin->onNode = onNode;
-	plugin->tickAfterCoreRender = tick;
+	plugin->tickAfterCoreRender = tickAfterCoreRender;
+	plugin->tickBeforeEnd = tickBeforeEnd;
 	plugin->uninit = uninit;
 
 	pluginMap[plugin->name] = plugin;

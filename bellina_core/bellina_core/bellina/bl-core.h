@@ -18,9 +18,6 @@ namespace bl {
 
 	void root();
 
-	//void captureMouse();
-	//Node* getMouseOwner();
-
 	void shadow(ShadowCallback);
 
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
@@ -34,7 +31,7 @@ namespace bl {
 	void use(char* pluginName);
 	void on(char* pluginName, PluginCallback cb);
 
-	void pluginLoad(char* pluginName, PluginInit, PluginOnNode, PluginTickAfterCoreRender, PluginUninit);
+	void pluginLoad(char* pluginName, PluginInit, PluginOnNode, PluginTickAfterCoreRender, PluginTickBeforeEnd, PluginUninit);
 	void pluginCall(char* pluginName, Node* node, void* eventData);
 	bool pluginHasInt(char* pluginName, char* propName);
 	void pluginSetInt(char* pluginName, char* propName, int value);

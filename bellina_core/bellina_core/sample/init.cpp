@@ -10,6 +10,7 @@
 #include "plugins/click/click.h"
 #include "plugins/double-click/double-click.h"
 #include "plugins/drag/drag.h"
+#include "plugins/z-index/z-index.h"
 
 using namespace bl;
 using namespace bl::flags;
@@ -34,46 +35,34 @@ void Render_My_Bellina() {
 	{
 		bl::div(); {
 			
-			bl::id("dragman");
+			bl::id("one");
 
 			bl::color(150, 0, 50);
 			bl::pos(360, 200);
 			bl::dim(160, 120);
-
-			bl::on("drag", [](void* e) {
-				drag::DragEvent* event = (drag::DragEvent*) e;
-				return true;
-			});
 		}
 		bl::end();
 
+		
+
+
 		bl::div(); {
 
-			bl::id("parent");
+			bl::id("two");
 
 			bl::color(50, 150, 0);
 			bl::pos(460, 300);
 			bl::dim(260, 220);
 
-			bl::on("drag", [](void* e) {
-				drag::DragEvent* event = (drag::DragEvent*) e;
-				return true;
-			});
-
-			bl::div(); {
-				bl::id("dragman2");
-
-				bl::color(0, 50, 150);
-				bl::pos(46, 30);
-				bl::dim(80, 60);
-
-				bl::on("drag", [](void* e) {
-					return true;
-				});
-			}
-			bl::end();
+			
 		}
 		bl::end();
+
+		
+
+		bl::on("z-index", [](void* e) {
+			return true;
+		});
 	}
 	bl::end();
 	
@@ -89,7 +78,8 @@ void Init_OnGL() {
 	//bl::pluginSetInt("double click", "duration", 1001);
 	//bl::pluginLoad("double click", double_click::init, double_click::onNode, double_click::tickOnAfterCoreRender, double_click::uninit);
 
-	bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, drag::uninit);
+	//bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, nullptr, drag::uninit);
+	bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::tickBeforeEnd, z_index::uninit);
 }
 
 void UnInit() {

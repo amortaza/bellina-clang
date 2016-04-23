@@ -47,6 +47,10 @@ void bl::end() {
 		current_node->nid = bl::util::nextGlobalId();
 	}
 
+	// hook
+	
+	plugin::tickBeforeEnd();
+
 	if (nodeStack.size() > 0) {
 		current_node = nodeStack.top();
 		nodeStack.pop();
