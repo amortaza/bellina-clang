@@ -21,6 +21,8 @@ namespace bl {
 	//void captureMouse();
 	//Node* getMouseOwner();
 
+	void shadow(ShadowCallback);
+
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
 	void listenLongTerm(char* eventName, ListenerCallback eventCallback);
 

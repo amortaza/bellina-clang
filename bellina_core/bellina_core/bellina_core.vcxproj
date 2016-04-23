@@ -224,6 +224,7 @@
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-plugin-bubble.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
+    <ClCompile Include="bellina\bl-shadow.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />
     <ClCompile Include="bellina\bl-node.cpp" />

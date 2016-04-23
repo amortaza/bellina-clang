@@ -20,7 +20,7 @@ namespace bl {
 	typedef std::function<void(PluginCallback)> PluginOnNode;
 
 	//
-
+	typedef std::function<void(Node*)> ShadowCallback;
 	typedef std::function<void(void*)> ListenerCallback;
 
 	//

@@ -21,12 +21,6 @@ g2::TextureRef* jet;
 
 int frame = 0;
 long double first = time(0);
-unsigned char r=0, g=50, b=150;
-
-int coolid = -1;
-struct Cool {
-	int age;
-};
 
 void Render_My_Bellina() {
 
@@ -35,28 +29,49 @@ void Render_My_Bellina() {
 		long double delta = time(0) - first;
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
-	Node*t;	
-	//printf("***************************************\n");
+
 	bl::root();
 	{
-		bl::color(50, 0, 50);
-
-		bl::div(); {
+		/*bl::div(); {
 			
-			t = _::current_node;
-
 			bl::id("dragman");
-			//printf("setting to 360\n");
+
+			bl::color(150, 0, 50);
 			bl::pos(360, 200);
 			bl::dim(160, 120);
 
 			bl::on("drag", [](void* e) {
 				drag::DragEvent* event = (drag::DragEvent*) e;
-
-				printf("dragging %s, x is %i\n", event->node->nid, event->node->x);
-
 				return true;
 			});
+		}
+		bl::end();*/
+
+		bl::div(); {
+
+			bl::id("parent");
+
+			bl::color(50, 150, 0);
+			bl::pos(460, 300);
+			bl::dim(260, 220);
+
+			/*bl::shadow([](Node* shadow) {
+				shadow->x++;
+			});*/
+
+			bl::div(); {
+
+				bl::id("dragman2");
+
+				bl::color(0, 50, 150);
+				bl::pos(46, 30);
+				bl::dim(80, 60);
+
+				bl::on("drag", [](void* e) {
+					return true;
+				});
+			}
+			bl::end();
 		}
 		bl::end();
 	}

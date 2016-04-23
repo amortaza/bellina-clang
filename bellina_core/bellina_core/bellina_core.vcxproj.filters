@@ -337,5 +337,8 @@
     <ClCompile Include="bellina\bl-lifecycle.cpp">
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClCompile>
+    <ClCompile Include="bellina\bl-shadow.cpp">
+      <Filter>bellina\bl-core</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
