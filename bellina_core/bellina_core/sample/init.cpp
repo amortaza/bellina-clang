@@ -58,9 +58,8 @@ void Render_My_Bellina() {
 		}
 		bl::end();
 
-		
-
 		bl::on("z-index", [](void* e) {
+			printf("hee\n");
 			return true;
 		});
 	}

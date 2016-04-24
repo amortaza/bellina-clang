@@ -92,7 +92,7 @@ void bl::on(char* pluginName, PluginCallback cb) {
 
 	pluginBubble->setCallback(cb, current_node, pluginName);
 
-	plugin->onNode(cb);
+	plugin->onNode();
 }
 
 void bl::pluginCall(char* pluginName, Node* node, void* eventData) {

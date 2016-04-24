@@ -6,6 +6,6 @@ namespace z_index {
 	void init();
 	void uninit();
 
-	void onNode(PluginCallback);
+	void onNode();
 	void tickBeforeEnd();
 }

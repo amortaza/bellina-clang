@@ -16,7 +16,7 @@ namespace z_index {
 	map<string, list<string>*> kidsByParent;
 
 	void init() {}
-	void onNode(PluginCallback cb) {}
+	void onNode();
 
 	void uninit();
 	void tickBeforeEnd();
@@ -49,7 +49,7 @@ void z_index::uninit() {
 	kidsByParent.clear();
 }
 
-void z_index::tickBeforeEnd() {
+void z_index::onNode() {
 	Node* p = _::current_node;
 	
 	getOrdering(p);
