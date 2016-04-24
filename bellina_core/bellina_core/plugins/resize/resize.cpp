@@ -2,6 +2,8 @@
 
 #include "bellina/bellina.h"
 
+#include "../mouse-drag/mouse-drag.h"
+
 #include "resize.h"
 
 using namespace bl;
@@ -10,68 +12,32 @@ using namespace bl::listener;
 namespace resize {
 	char* plugin_name = "resize";
 
-	/*char* lastDownNodeId = 0;
-	Xel::Mouse::Button lastDownButton;
+	void init() {}
 
-	void freeId() {
-		if (lastDownNodeId) {
-			delete [] lastDownNodeId;
-			lastDownNodeId = 0;
-		}
-	}
-*/
-	void init() {
-		/*
-		bl::listenLongTerm("mouse down", [](void* data) {
-			MouseDownEvent* event = (MouseDownEvent*)data;
+	void uninit() {}
 
-			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId) ) {
-				freeId();
-			}
-		});
-
-		bl::listenLongTerm("mouse up", [](void* data) {
-			MouseDownEvent* event = (MouseDownEvent*)data;
-
-			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId)) {
-				freeId();
-			}
-		});*/
-	}
-
-	void uninit() {
-		//freeId();
-	}
+	int newW = 0, newH = 0;
 
 	void onNode() {
-		/*
+		bl::shadow([](Node* shadow) {
+			if (newW > 0 && newH > 0) {
+				shadow->w = newW;
+				shadow->h = newH;
 
-		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (lastDownNodeId) delete[] lastDownNodeId;
+				newW = newH = 0;
+			}
+		});
 
-			lastDownNodeId = _strdup(bl::node->nid);
-			lastDownButton = button;
+		bl::on("mouse-drag", [](void* e) {
+			mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
+
+			newW = event->node->w + event->deltaX;
+			newH = event->node->h + event->deltaY;
+			
+			//printf("%i %i\n", event->deltaX, event->deltaY);
 
 			return true;
 		});
-
-		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
-				MouseClickEvent event;
-				event.mx = mx;
-				event.my = my;
-				event.button = button;
-				event.node = bl::node;
-
-				bl::pluginCall(plugin_name, bl::node, &event);
-
-				bl::fire("click", &event);
-			}
-
-			freeId();
-
-			return true;
-		});*/
 	}
 }
 

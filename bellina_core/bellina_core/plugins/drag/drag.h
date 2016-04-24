@@ -7,8 +7,7 @@ using namespace bl;
 namespace drag {
 	void load();
 
-	void init();
-	void tickOnAfterCoreRender();
+	void init();	
 	void uninit();
 
 	void onNode();

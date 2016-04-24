@@ -22,6 +22,8 @@ namespace bl {
 				snode = new Node(0);
 				snode->x = node->x;
 				snode->y = node->y;
+				snode->w = node->w;
+				snode->h = node->h;
 				shadowNodes[key] = snode;
 			}
 			else {
@@ -33,6 +35,8 @@ namespace bl {
 		void setNodeFromShadow(Node* node, Node* snode) {
 			node->x = snode->x;
 			node->y = snode->y;
+			node->w = snode->w;
+			node->h = snode->h;
 		}
 	}
 }

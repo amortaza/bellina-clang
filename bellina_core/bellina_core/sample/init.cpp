@@ -48,21 +48,14 @@ void Render_My_Bellina() {
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
 			bl::dim(320, 240);
-
-			bl::on("mouse-drag", [](void* e) {
-				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
-
-				printf("%i %i\n", event->deltaX, event->deltaY);
-
-				return true;
-			});
-/*			bl::on("resize", [](void* e) {
+			
+			bl::on("resize", [](void* e) {
 				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
 
 				printf("%i %i\n", event->w, event->h);
 
 				return true;
-			});*/
+			});
 		}
 		bl::end();
 
@@ -107,7 +100,7 @@ void Init_OnGL() {
 
 	//bl::pluginLoad(mouse_in::load);
 
-	//bl::pluginLoad(resize::load);
+	bl::pluginLoad(resize::load);
 }
 
 void UnInit() {

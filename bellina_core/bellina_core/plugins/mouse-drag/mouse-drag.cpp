@@ -20,6 +20,8 @@ namespace mouse_drag {
 
 	int dx = 0, dy = 0;	
 	int lastMx = 0, lastMy = 0;
+	int startMx = 0, startMy = 0;
+	int deltaX = 0, deltaY = 0;
 
 	void freeId() {
 		if (dragNodeId) {
@@ -64,6 +66,7 @@ namespace mouse_drag {
 			dy = bl::node->y - my;
 
 			lastMx = mx; lastMy = my;
+			startMx = mx; startMy = my;
 
 			return false;
 		});

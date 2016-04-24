@@ -39,13 +39,10 @@ namespace drag {
 
 	void uninit() { freeId(); }
 
-	void tickOnAfterCoreRender() {
-	}
-	
 	void onNode() {
 
 		bl::shadow([](Node* shadow) {
-			if (clickNodeId && bl::util::isNode(_::current_node, clickNodeId)) {
+			if (clickNodeId && bl::util::isNode(bl::current(), clickNodeId)) {
 				shadow->x = bl::sys::mouse_x + dx;
 				shadow->y = bl::sys::mouse_y + dy;
 			}
@@ -70,6 +67,6 @@ void drag::load() {
 	bl::pluginRegister(	drag::plugin_name, 
 						drag::init, 
 						drag::onNode, 
-						drag::tickOnAfterCoreRender, 
+						nullptr, 
 						drag::uninit);
 }

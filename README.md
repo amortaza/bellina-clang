@@ -1,1 +1,4 @@
-# bellina_core
+# Bellina
+
+bl:shadow
+    bl::current() is valid
