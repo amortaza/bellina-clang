@@ -15,8 +15,7 @@ void OnTick() {
 		Render_My_Bellina();		
 	}
 	catch (char* msg) {
-		printf(msg);
-		printf("\n");
+		printf("%s\n", msg);
 	}
 
 	Xel::Swap();

@@ -14,6 +14,14 @@ namespace bl {
 		std::map<std::string, Plugin*> pluginMap;
 
 		std::map<std::string, int> intMap;
+
+		bool isRegistered(char* name) {
+			string key(name);
+
+			auto e2 = pluginMap.find(key);
+			
+			return e2 != pluginMap.end();			
+		}
 	}
 }
 
@@ -67,6 +75,11 @@ void bl::pluginRegister(char* pluginName,
 						PluginOnNode onNode, 
 						PluginTickAfterCoreRender tickAfterCoreRender, 
 						PluginUninit uninit) {
+
+	if (plugin::isRegistered(pluginName)) {
+		printf("Plugin \"%s\" is already loaded.  Ignoring re-load request.\n", pluginName);
+		return;
+	}
 
 	Plugin* plugin = new Plugin();
 

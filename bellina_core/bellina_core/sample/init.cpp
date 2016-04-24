@@ -38,7 +38,6 @@ void Render_My_Bellina() {
 	//rintf("start root\n");
 	bl::root();
 	{
-		
 		bl::color(50, 0, 10);
 
 		bl::div(); {
@@ -113,6 +112,7 @@ void Init_OnGL() {
 	//bl::pluginSetInt("double click", "duration", 1001);
 	//bl::pluginLoad(double_click::load);
 
+	bl::pluginLoad(mouse_drag::load);
 	bl::pluginLoad(mouse_drag::load);
 	bl::pluginLoad(node_drag::load);
 	
