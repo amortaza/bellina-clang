@@ -78,6 +78,9 @@
     <Filter Include="plugins\z-index">
       <UniqueIdentifier>{a1d1d675-eb10-45b8-971c-1c4863d32d08}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina\bl-input\pump">
+      <UniqueIdentifier>{de2bd3b3-b15d-42a7-871a-2d930c0fc286}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -230,6 +233,12 @@
     <ClInclude Include="plugins\z-index\z-index.h">
       <Filter>plugins\z-index</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-pump.h">
+      <Filter>bellina\bl-input\pump</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-mouse.h">
+      <Filter>bellina\bl-input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -354,6 +363,12 @@
     </ClCompile>
     <ClCompile Include="plugins\z-index\z-index.cpp">
       <Filter>plugins\z-index</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-pump.cpp">
+      <Filter>bellina\bl-input\pump</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-input.cpp">
+      <Filter>bellina\bl-input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ namespace drag {
 	void tickOnAfterCoreRender();
 	void uninit();
 
-	void onNode(PluginCallback);
+	void onNode();
 
 	struct DragEvent {
 		int mx;

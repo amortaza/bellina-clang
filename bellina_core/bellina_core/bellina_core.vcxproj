@@ -182,9 +182,11 @@
     <ClInclude Include="bellina\bl-input.h" />
     <ClInclude Include="bellina\bl-lifecycle.h" />
     <ClInclude Include="bellina\bl-listener.h" />
+    <ClInclude Include="bellina\bl-mouse.h" />
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-plugin-bubble.h" />
     <ClInclude Include="bellina\bl-plugin.h" />
+    <ClInclude Include="bellina\bl-pump.h" />
     <ClInclude Include="bellina\bl-shadow.h" />
     <ClInclude Include="bellina\bl-sys.h" />
     <ClInclude Include="bellina\bl-types.h" />
@@ -221,11 +223,13 @@
     <ClCompile Include="bellina\bl-fluent-border.cpp" />
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-globals.cpp" />
+    <ClCompile Include="bellina\bl-input.cpp" />
     <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-lifecycle.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-plugin-bubble.cpp" />
     <ClCompile Include="bellina\bl-plugin.cpp" />
+    <ClCompile Include="bellina\bl-pump.cpp" />
     <ClCompile Include="bellina\bl-shadow.cpp" />
     <ClCompile Include="bellina\bl-sys.cpp" />
     <ClCompile Include="bellina\bl-core.cpp" />

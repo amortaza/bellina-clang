@@ -1,5 +1,8 @@
 #include "stdafx.h"
 
+#include <chrono>
+#include <thread>
+
 #include "g2/g2.h"
 
 #include "eos/eos.h"
@@ -12,6 +15,7 @@
 #include "bl-echo.h"
 #include "bl-plugin-bubble.h"
 #include "bl-lifecycle.h"
+#include "bl-pump.h"
 
 using namespace g2::flags;
 
@@ -19,6 +23,8 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::echo;
+
+void paint2();
 
 void lifecycle::tickBeforeCoreRender() {	
 
@@ -36,10 +42,8 @@ void lifecycle::tickBeforeCoreRender() {
 	if (root_node) { delete root_node; root_node = 0; }
 }
 
-void bl::paint() {
+void bl::paint() {	
 	if (!root_node) return;
-
-	plugin::tickAfterCoreRender();
 
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
@@ -47,6 +51,21 @@ void bl::paint() {
 	bl::util::calcGlobalPositions();
 
 	root_node->dim(winW, winH);
+
+	printf("pump\n");
+	pump::send();
+
+	plugin::tickAfterCoreRender();
+
+	paint2();
+}
+
+void paint2() {
+	printf("painting\n");
+//	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+	int winW = Xel::Window::width;
+	int winH = Xel::Window::height;
 
 	g2::viewport(winW, winH);
 	g2::ortho(winW, winH);

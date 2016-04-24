@@ -40,7 +40,7 @@ namespace drag {
 	void tickOnAfterCoreRender() {
 	}
 	
-	void onNode(PluginCallback cb) {
+	void onNode() {
 
 		bl::shadow([](Node* shadow) {
 			if (clickNodeId && bl::util::isNode(_::current_node, clickNodeId)) {

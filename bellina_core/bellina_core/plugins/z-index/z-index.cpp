@@ -160,6 +160,7 @@ void z_index::onNode() {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (button == Xel::Mouse::Button::Left) {
+				printf("     z-index\n");
 
 				Node* parent = bl::node->parent;
 

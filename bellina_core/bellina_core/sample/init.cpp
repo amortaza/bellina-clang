@@ -31,10 +31,12 @@ void Render_My_Bellina() {
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
-	printf("start root *********************** \n");
+	printf("********************************\n");
+	printf("start root\n");
 	bl::root();
 	{
-		bl::color(10, 0, 10);
+		
+		bl::color(50, 0, 10);
 
 		bl::div(); {
 			
@@ -63,16 +65,20 @@ void Render_My_Bellina() {
 			bl::color(50, 50, 150);
 			bl::pos(300, 300);
 			bl::dim(320, 240);
+
+			bl::use("drag");
 		}
 		bl::end();
 
-		bl::on("z-index", [](void* e) {
+		
+
+		/*bl::on("z-index", [](void* e) {
 			return true;
-		});
+		});*/
 	}
 	bl::end();
+	printf("end root\n");
 	
-	printf("paint ***\n");
 	bl::paint();
 }
 
@@ -85,8 +91,8 @@ void Init_OnGL() {
 	//bl::pluginSetInt("double click", "duration", 1001);
 	//bl::pluginLoad("double click", double_click::init, double_click::onNode, double_click::tickOnAfterCoreRender, double_click::uninit);
 
-	//bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, nullptr, drag::uninit);
-	bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::uninit);
+	bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, drag::uninit);
+	//bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::uninit);
 }
 
 void UnInit() {
