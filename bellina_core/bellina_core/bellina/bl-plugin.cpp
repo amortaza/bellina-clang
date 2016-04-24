@@ -100,6 +100,11 @@ void bl::use(char* pluginName) {
 }
 
 void bl::on(char* pluginName, PluginCallback cb) {
+	if (!isRegistered(pluginName)) {
+		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
+		return;
+	}
+
 	std::string key(pluginName);
 
 	auto e2 = pluginMap.find(key);
