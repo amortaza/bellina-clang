@@ -4,7 +4,7 @@
 
 using namespace bl;
 
-namespace drag {
+namespace node_drag {
 	void load();
 
 	void init();	
@@ -12,7 +12,7 @@ namespace drag {
 
 	void onNode();
 
-	struct DragEvent {
+	struct NodeDragEvent {
 		int mx;
 		int my;
 
@@ -20,7 +20,5 @@ namespace drag {
 		int dy;
 
 		Node* node;
-
-		Xel::Mouse::Button button;
 	};
 }

@@ -2,71 +2,51 @@
 
 #include "bellina/bellina.h"
 
-#include "../click/click.h"
+#include "../mouse-drag/mouse-drag.h"
 
-#include "drag.h"
+#include "node-drag.h"
 
 using namespace bl;
 using namespace bl::listener;
-using namespace click;
+using namespace mouse_drag;
 using namespace std;
 
-namespace drag {
+namespace node_drag {
 
-	char* plugin_name = "drag";
+	char* plugin_name = "node-drag";
+
 	void load();
 
-	char* clickNodeId = 0;
-
-	int dx = 0, dy = 0;
-
-	void freeId() {
-		if (clickNodeId) {
-			delete[] clickNodeId;
-			clickNodeId = 0;
-		}
-	}	
-
-	void init() {
-		bl::listenLongTerm("mouse up", [](void* e) {
-			MouseUpEvent* event = (MouseUpEvent*)e;
-
-			if (clickNodeId) {
-				freeId();
-			}
-		});
-	}
-
-	void uninit() { freeId(); }
+	bool hasData = false;
+	int newX = 0, newY = 0;
 
 	void onNode() {
 
 		bl::shadow([](Node* shadow) {
-			if (clickNodeId && bl::util::isNode(bl::current(), clickNodeId)) {
-				shadow->x = bl::sys::mouse_x + dx;
-				shadow->y = bl::sys::mouse_y + dy;
+			if (hasData) {
+				shadow->x = newX;
+				shadow->y = newY;
+				hasData = false;
 			}
 		});
 
-		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.
-										  // 
-			freeId();
+		bl::on("mouse-drag", [](void *e) {
+			mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-			clickNodeId = _strdup(bl::node->nid);
-
-			dx = bl::node->x - mx;
-			dy = bl::node->y - my;
+			newX = bl::sys::mouse_x + event->dx;
+			newY = bl::sys::mouse_y + event->dy;
+			hasData = true;
 
 			return false;
 		});
 	}
 }
 
-void drag::load() {
-	bl::pluginRegister(	drag::plugin_name, 
-						drag::init, 
-						drag::onNode, 
-						nullptr, 
-						drag::uninit);
+void node_drag::load() {
+	bl::pluginRegister(
+		node_drag::plugin_name,
+		nullptr,
+		node_drag::onNode,
+		nullptr, 
+		nullptr);
 }

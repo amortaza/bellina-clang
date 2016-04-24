@@ -193,10 +193,10 @@
     <ClInclude Include="bellina\bl-util.h" />
     <ClInclude Include="plugins\click\click.h" />
     <ClInclude Include="plugins\double-click\double-click.h" />
-    <ClInclude Include="plugins\drag\drag.h" />
     <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="plugins\mouse-drag\mouse-drag.h" />
     <ClInclude Include="plugins\mouse-in\mouse-in.h" />
+    <ClInclude Include="plugins\node-drag\node-drag.h" />
     <ClInclude Include="plugins\resize\resize.h" />
     <ClInclude Include="plugins\z-index\order-info.h" />
     <ClInclude Include="plugins\z-index\z-index.h" />
@@ -241,10 +241,10 @@
     <ClCompile Include="bellina\bl-window.cpp" />
     <ClCompile Include="plugins\click\click.cpp" />
     <ClCompile Include="plugins\double-click\double-click.cpp" />
-    <ClCompile Include="plugins\drag\drag.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="plugins\mouse-drag\mouse-drag.cpp" />
     <ClCompile Include="plugins\mouse-in\mouse-in.cpp" />
+    <ClCompile Include="plugins\node-drag\node-drag.cpp" />
     <ClCompile Include="plugins\resize\resize.cpp" />
     <ClCompile Include="plugins\z-index\z-index.cpp" />
     <ClCompile Include="sample\init.cpp" />

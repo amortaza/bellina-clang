@@ -9,7 +9,7 @@
 #include "plugins/focus/focus.h"
 #include "plugins/click/click.h"
 #include "plugins/double-click/double-click.h"
-#include "plugins/drag/drag.h"
+#include "plugins/node-drag/node-drag.h"
 #include "plugins/z-index/z-index.h"
 #include "plugins/mouse-in/mouse-in.h"
 #include "plugins/resize/resize.h"
@@ -56,6 +56,8 @@ void Render_My_Bellina() {
 				bl::color(50, 150, 50);
 				bl::pos(20, 20);
 				bl::dim(160, 120);
+
+				bl::use("node-drag");
 			}
 			bl::end();
 			
@@ -67,13 +69,13 @@ void Render_My_Bellina() {
 				return true;
 			});*/
 
-			bl::on("resize", [](void* e) {
+			/*bl::on("resize", [](void* e) {
 				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
 
 				printf("resize %i %i\n", event->w, event->h);
 
 				return true;
-			});
+			});*/
 		}
 		bl::end();
 
@@ -112,13 +114,13 @@ void Init_OnGL() {
 	//bl::pluginLoad(double_click::load);
 
 	bl::pluginLoad(mouse_drag::load);
-	//bl::pluginLoad(drag::load);
+	bl::pluginLoad(node_drag::load);
 	
 	//bl::pluginLoad(z_index::load);
 
 	//bl::pluginLoad(mouse_in::load);
 
-	bl::pluginLoad(resize::load);
+	//bl::pluginLoad(resize::load);
 }
 
 void UnInit() {

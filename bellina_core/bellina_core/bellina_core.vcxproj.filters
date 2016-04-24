@@ -66,9 +66,6 @@
     <Filter Include="plugins\double-click">
       <UniqueIdentifier>{6ed2670f-452f-4d07-874d-4c90be9ea528}</UniqueIdentifier>
     </Filter>
-    <Filter Include="plugins\drag">
-      <UniqueIdentifier>{68f3f474-ba8d-42e4-a7bd-7c835eca8b91}</UniqueIdentifier>
-    </Filter>
     <Filter Include="bellina\bl-core\life cycle">
       <UniqueIdentifier>{45fcce16-999e-4a45-88c6-b621ebae23d0}</UniqueIdentifier>
     </Filter>
@@ -92,6 +89,9 @@
     </Filter>
     <Filter Include="plugins\mouse-drag">
       <UniqueIdentifier>{ec693f88-7e0f-43cc-a280-e098edfeddce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="plugins\node-drag">
+      <UniqueIdentifier>{68f3f474-ba8d-42e4-a7bd-7c835eca8b91}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +233,6 @@
     <ClInclude Include="plugins\double-click\double-click.h">
       <Filter>plugins\double-click</Filter>
     </ClInclude>
-    <ClInclude Include="plugins\drag\drag.h">
-      <Filter>plugins\drag</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-lifecycle.h">
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClInclude>
@@ -262,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="plugins\mouse-drag\mouse-drag.h">
       <Filter>plugins\mouse-drag</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\node-drag\node-drag.h">
+      <Filter>plugins\node-drag</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -367,9 +367,6 @@
     <ClCompile Include="plugins\double-click\double-click.cpp">
       <Filter>plugins\double-click</Filter>
     </ClCompile>
-    <ClCompile Include="plugins\drag\drag.cpp">
-      <Filter>plugins\drag</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-lifecycle.cpp">
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClCompile>
@@ -399,6 +396,9 @@
     </ClCompile>
     <ClCompile Include="plugins\mouse-drag\mouse-drag.cpp">
       <Filter>plugins\mouse-drag</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\node-drag\node-drag.cpp">
+      <Filter>plugins\node-drag</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
