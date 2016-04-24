@@ -66,7 +66,7 @@ void Render_My_Bellina() {
 			bl::pos(300, 300);
 			bl::dim(320, 240);
 
-			//bl::use("drag");
+			bl::use("drag");
 		}
 		bl::end();
 
@@ -87,7 +87,7 @@ void Init_OnGL() {
 	//bl::pluginSetInt("double click", "duration", 1001);
 	//bl::pluginLoad("double click", double_click::init, double_click::onNode, double_click::tickOnAfterCoreRender, double_click::uninit);
 
-	//bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, drag::uninit);
+	bl::pluginLoad("drag", drag::init, drag::onNode, drag::tickOnAfterCoreRender, drag::uninit);
 	bl::pluginLoad("z-index", z_index::init, z_index::onNode, nullptr, z_index::uninit);
 }
 
