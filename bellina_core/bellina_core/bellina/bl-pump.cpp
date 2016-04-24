@@ -58,7 +58,7 @@ void pump::send() {
 		KeyDownEvent event;
 		event.xcode = xcode;
 
-		bl::fire("key down", &event);
+		bl::fire("key-down", &event);
 	}
 
 	if (keyUpped) {
@@ -67,7 +67,7 @@ void pump::send() {
 		KeyDownEvent event;
 		event.xcode = xcode;
 
-		bl::fire("key up", &event);
+		bl::fire("key-up", &event);
 	}
 }
 

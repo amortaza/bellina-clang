@@ -45,14 +45,14 @@ namespace mouse_drag {
 	}
 
 	void init() {
-		bl::listenLongTerm("mouse up", [](void* e) {
+		bl::listenLongTerm("mouse-up", [](void* e) {
 			MouseUpEvent* event = (MouseUpEvent*)e;
 			freeId();
 		});
 
 		// we need long term because drag requires apturing mouse
 		// otherwise "resize" will not work when going over neighboring nodes
-		bl::listenLongTerm("mouse move", [](void* e) {
+		bl::listenLongTerm("mouse-move", [](void* e) {
 			MouseMoveEvent* event = (MouseMoveEvent*)e;
 			
 			if (dragNodeId) {

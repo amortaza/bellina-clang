@@ -41,7 +41,7 @@ namespace mouse_in {
 	}
 	
 	void init() {
-		bl::listenLongTerm("mouse move", [](void* e) {
+		bl::listenLongTerm("mouse-move", [](void* e) {
 			MouseMoveEvent* event = (MouseMoveEvent*)e;
 
 			Node* This = event->node;

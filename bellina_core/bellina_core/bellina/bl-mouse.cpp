@@ -101,7 +101,7 @@ namespace bl {
 			event.my = my;
 			event.node = node;
 
-			bl::fire("mouse move", &event);
+			bl::fire("mouse-move", &event);
 
 			if (node) {
 				call_mouse_move(node, mx, my, 0);
@@ -120,7 +120,7 @@ namespace bl {
 			event.my = my;
 			event.amount = amount;
 
-			bl::fire("mouse scroll", &event);
+			bl::fire("mouse-scroll", &event);
 
 			if (node) {
 				call_mouse_scroll(node, amount, mx, my, 0);
@@ -137,9 +137,9 @@ namespace bl {
 			event.button = button;
 
 			if (action == Xel::Mouse::Action::Down)
-				bl::fire("mouse down", &event);
+				bl::fire("mouse-down", &event);
 			else if (action == Xel::Mouse::Action::Up)
-				bl::fire("mouse up", &event);
+				bl::fire("mouse-up", &event);
 
 			if (node) {
 				if (action == Xel::Mouse::Action::Down)

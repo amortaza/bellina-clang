@@ -20,7 +20,7 @@ namespace focus {
 	}
 
 	void init() {
-		bl::listenLongTerm("mouse down", [](void* data) {
+		bl::listenLongTerm("mouse-down", [](void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
@@ -29,7 +29,7 @@ namespace focus {
 			}
 		});
 
-		bl::listenLongTerm("key down", [](void* e) {
+		bl::listenLongTerm("key-down", [](void* e) {
 			KeyDownEvent* event = (KeyDownEvent*)e;
 
 			if (focusNodeId) {
