@@ -5,6 +5,8 @@
 using namespace bl;
 
 namespace drag {
+	void load();
+
 	void init();
 	void tickOnAfterCoreRender();
 	void uninit();

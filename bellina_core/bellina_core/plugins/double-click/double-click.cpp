@@ -41,7 +41,7 @@ namespace double_click {
 	void tickOnAfterCoreRender() {
 	}
 
-	void onNode(PluginCallback cb) {
+	void onNode() {
 
 		bl::on("click", [](void* e) {
 
@@ -68,4 +68,13 @@ namespace double_click {
 			return true;
 		});
 	}
+}
+
+void double_click::load() {
+	bl::pluginRegister(
+		double_click::plugin_name,
+		double_click::init,
+		double_click::onNode,
+		double_click::tickOnAfterCoreRender,
+		double_click::uninit);
 }

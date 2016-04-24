@@ -14,6 +14,8 @@ using namespace std;
 namespace drag {
 
 	char* plugin_name = "drag";
+	void load();
+
 	char* clickNodeId = 0;
 
 	int dx = 0, dy = 0;
@@ -62,4 +64,12 @@ namespace drag {
 			return false;
 		});
 	}
+}
+
+void drag::load() {
+	bl::pluginRegister(	drag::plugin_name, 
+						drag::init, 
+						drag::onNode, 
+						drag::tickOnAfterCoreRender, 
+						drag::uninit);
 }

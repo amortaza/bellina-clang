@@ -58,7 +58,11 @@ bool bl::pluginHasInt(char* name, char* prop_name) {
 	return true;
 }
 
-void bl::pluginLoad(	char* pluginName, 
+void bl::pluginLoad(PluginLoad load) {
+	load();
+}
+
+void bl::pluginRegister(char* pluginName, 
 						PluginInit init, 
 						PluginOnNode onNode, 
 						PluginTickAfterCoreRender tickAfterCoreRender, 

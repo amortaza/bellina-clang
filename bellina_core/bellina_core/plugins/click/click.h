@@ -3,11 +3,12 @@
 #include "bellina/bl-node.h" 
 
 namespace click {
+	void load();
 	void init();
 	void tickOnAfterCoreRender();
 	void uninit();
 
-	void onNode(PluginCallback);
+	void onNode();
 
 	struct MouseClickEvent {
 		int mx;

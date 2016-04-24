@@ -45,7 +45,7 @@ namespace click {
 	void tickOnAfterCoreRender() {
 	}
 
-	void onNode(PluginCallback cb) {
+	void onNode() {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
@@ -74,4 +74,13 @@ namespace click {
 			return true;
 		});
 	}
+}
+
+void click::load() {
+	bl::pluginRegister(
+		click::plugin_name, 
+		click::init, 
+		click::onNode, 
+		click::tickOnAfterCoreRender, 
+		click::uninit);
 }

@@ -31,7 +31,9 @@ namespace bl {
 	void use(char* pluginName);
 	void on(char* pluginName, PluginCallback cb);
 
-	void pluginLoad(char* pluginName, PluginInit, PluginOnNode, PluginTickAfterCoreRender, PluginUninit);
+	void pluginLoad(PluginLoad);
+
+	void pluginRegister(char* pluginName, PluginInit, PluginOnNode, PluginTickAfterCoreRender, PluginUninit);
 	void pluginCall(char* pluginName, Node* node, void* eventData);
 	bool pluginHasInt(char* pluginName, char* propName);
 	void pluginSetInt(char* pluginName, char* propName, int value);

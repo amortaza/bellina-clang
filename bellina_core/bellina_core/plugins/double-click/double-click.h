@@ -3,11 +3,12 @@
 #include "bellina/bl-node.h" 
 
 namespace double_click {
+	void load();
 	void init();
 	void tickOnAfterCoreRender();
 	void uninit();
 
-	void onNode(PluginCallback);
+	void onNode();
 
 	struct MouseDoubleClickEvent {
 		int mx;

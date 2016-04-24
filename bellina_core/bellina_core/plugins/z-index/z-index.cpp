@@ -180,3 +180,11 @@ void z_index::onNode() {
 
 	_::current_node = c;
 }
+
+void z_index::load() {
+	bl::pluginRegister(	z_index::plugin_name, 
+						z_index::init, 
+						z_index::onNode, 
+						nullptr, 
+						z_index::uninit);
+}

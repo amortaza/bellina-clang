@@ -44,7 +44,7 @@ namespace focus {
 	void tickOnAfterCoreRender() {
 	}
 
-	void onNode(PluginCallback cb) {
+	void onNode() {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
@@ -57,4 +57,13 @@ namespace focus {
 			return true;
 		});
 	}
+}
+
+void focus::load() {
+	bl::pluginRegister(
+		focus::plugin_name, 
+		focus::init, 
+		focus::onNode, 
+		focus::tickOnAfterCoreRender, 
+		focus::uninit);
 }
