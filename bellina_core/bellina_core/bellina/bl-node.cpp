@@ -73,17 +73,18 @@ void Node::color2(unsigned char _r, unsigned char _g, unsigned char _b) {
 void resetCanvasRef(Node *node, int w, int h) {
 	if (node->canvas) delete node->canvas;
 
-//	rintf("creating canvas %i %i\n", w, h);
+	//if (node->nid[0]=='r')
+	//rintf("creating node canvas %i %i for %s\n", w, h, node->nid);
 	node->canvas = g2::createCanvas(w,h);
 }
 
 void Node::dim(int _w, int _h) {
+	if (_w < 4) _w = 4;
+	if (_h < 4) _h = 4;
+
 	if (_w != w || _h != h) {
 		w = _w; h = _h;
 		resetCanvasRef(this, _w, _h);
-	}
-	else {
-		w = _w; h = _h;
 	}
 }
 

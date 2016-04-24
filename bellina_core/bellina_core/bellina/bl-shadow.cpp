@@ -35,8 +35,8 @@ namespace bl {
 		void setNodeFromShadow(Node* node, Node* snode) {
 			node->x = snode->x;
 			node->y = snode->y;
-			node->w = snode->w;
-			node->h = snode->h;
+
+			node->dim(snode->w, snode->h);
 		}
 	}
 }

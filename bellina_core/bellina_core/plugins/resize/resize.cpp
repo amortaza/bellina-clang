@@ -21,10 +21,12 @@ namespace resize {
 	void onNode() {
 		bl::shadow([](Node* shadow) {
 			if (newW > 0 && newH > 0) {
-				shadow->w = newW;
-				shadow->h = newH;
+				if (newW > 16 && newH > 16) {
+					shadow->w = newW;
+					shadow->h = newH;
 
-				printf("%i %i\n", newW, newH);
+					printf("%i %i\n", newW, newH);
+				}
 
 				newW = newH = 0;
 			}
