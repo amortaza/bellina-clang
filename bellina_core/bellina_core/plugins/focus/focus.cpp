@@ -12,13 +12,20 @@ namespace focus {
 	
 	char* focusNodeId = 0;
 
+	void freeId() {
+		if (focusNodeId) {
+			delete[] focusNodeId;
+			focusNodeId = 0;
+		}
+	}
+
 	void init() {
 		bl::listenLongTerm("mouse down", [](void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
-				//rintf("Blur!\n");
-				focusNodeId = 0;
+				// blur
+				freeId();
 			}
 		});
 
@@ -38,17 +45,14 @@ namespace focus {
 	}
 
 	void uninit() {
-		if (focusNodeId) delete[] focusNodeId;
-	}
-
-	void tickOnAfterCoreRender() {
+		freeId();
 	}
 
 	void onNode() {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
-			if (focusNodeId) delete[] focusNodeId;
+			freeId();
 
 			focusNodeId = _strdup(bl::node->nid);
 
@@ -64,6 +68,6 @@ void focus::load() {
 		focus::plugin_name, 
 		focus::init, 
 		focus::onNode, 
-		focus::tickOnAfterCoreRender, 
+		nullptr, 
 		focus::uninit);
 }

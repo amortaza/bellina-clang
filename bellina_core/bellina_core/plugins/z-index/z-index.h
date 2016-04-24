@@ -8,5 +8,4 @@ namespace z_index {
 	void uninit();
 
 	void onNode();
-	void tickBeforeEnd();
 }

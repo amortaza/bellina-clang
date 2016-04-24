@@ -11,6 +11,7 @@
 #include "plugins/double-click/double-click.h"
 #include "plugins/drag/drag.h"
 #include "plugins/z-index/z-index.h"
+#include "plugins/mouse-in/mouse-in.h"
 
 using namespace bl;
 using namespace bl::flags;
@@ -45,6 +46,27 @@ void Render_My_Bellina() {
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
 			bl::dim(320, 240);
+
+			bl::on("mouse-in", [](void* e) {
+				mouse_in::MouseInOutEvent* event = (mouse_in::MouseInOutEvent*) e;
+
+				if (event->isInEvent)
+					printf("IN: ");
+				else
+					printf("OUT: ");
+
+				if (event->outNode)
+					printf("%s-> ",event->outNode->nid);
+				else
+					printf("0 -> ");
+
+				if (event->inNode)
+					printf("%s\n", event->inNode->nid);
+				else
+					printf("0\n");
+
+				return true;
+			});
 		}
 		bl::end();
 
@@ -66,11 +88,11 @@ void Render_My_Bellina() {
 			bl::pos(300, 300);
 			bl::dim(320, 240);
 
-			bl::use("drag");
+			//bl::use("drag");
 		}
 		bl::end();
 
-		bl::use("z-index");
+		//bl::use("z-index");
 	}
 	bl::end();
 	//rintf("end root\n");
@@ -81,15 +103,17 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	bl::pluginLoad(focus::load);
-	bl::pluginLoad(click::load);
+	//bl::pluginLoad(focus::load);
+	//bl::pluginLoad(click::load);
 
-	bl::pluginSetInt("double click", "duration", 1001);
-	bl::pluginLoad(double_click::load);
+	//bl::pluginSetInt("double click", "duration", 1001);
+	//bl::pluginLoad(double_click::load);
 
-	bl::pluginLoad(drag::load);
+	//bl::pluginLoad(drag::load);
 	
-	bl::pluginLoad(z_index::load);
+	//bl::pluginLoad(z_index::load);
+
+	bl::pluginLoad(mouse_in::load);
 }
 
 void UnInit() {

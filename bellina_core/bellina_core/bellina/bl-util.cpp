@@ -72,6 +72,8 @@ bool util::isNode(Node *node, char* id) {
 }
 
 Node* util::getNodeById(char* id) {
+	if (!id) return 0;
+
 	std::string key(id);
 
 	auto e2 = nodeById.find(key);

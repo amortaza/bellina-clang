@@ -84,6 +84,9 @@
     <Filter Include="bellina\bl-input\mouse">
       <UniqueIdentifier>{fd1a37a6-50a7-4139-be50-5098ba4ddaaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\mouse-in">
+      <UniqueIdentifier>{7b7c2c3a-278a-46cf-ac7a-8e3ddab0afd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -245,6 +248,9 @@
     <ClInclude Include="bellina\bl-mouse.h">
       <Filter>bellina\bl-input\mouse</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\mouse-in\mouse-in.h">
+      <Filter>plugins\mouse-in</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -372,6 +378,9 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-core-mouse.cpp">
       <Filter>bellina\bl-input\mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\mouse-in\mouse-in.cpp">
+      <Filter>plugins\mouse-in</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
