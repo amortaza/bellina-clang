@@ -10,6 +10,21 @@ using namespace bl::util;
 
 namespace bl {
 	namespace util {
+		map<string, Node*>* buildNodeLookup(list<Node*>* nodes) {
+			map<string, Node*>* lookup = new map<string, Node*>();
+
+			list<Node*>::const_iterator iterator;
+			for (iterator = nodes->begin(); iterator != nodes->end(); ++iterator) {
+				Node *node = *iterator;
+
+				string key(node->nid);
+
+				(*lookup)[key] = node;
+			}
+
+			return lookup;
+		}
+
 		bool nodeContainsPoint(Node *node, int wx, int wy) {
 			return wx >= node->global_pos.x && wx <= node->global_pos.x + node->w && wy >= node->global_pos.y && wy <= node->global_pos.y + node->h;
 		}

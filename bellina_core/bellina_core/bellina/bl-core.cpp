@@ -15,6 +15,8 @@
 #include "bl-lifecycle.h"
 #include "bl-shadow.h"
 
+using namespace std;
+
 using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
@@ -28,6 +30,7 @@ void bl::root() {
 
 	id("ROOT");
 }
+
 
 Node* bl::div() {
 	Node* parent = current_node;

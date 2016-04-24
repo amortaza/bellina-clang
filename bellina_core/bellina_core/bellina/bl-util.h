@@ -1,5 +1,9 @@
 #pragma once
 
+#include <map>
+
+using namespace std;
+
 namespace bl { extern class Node; }
 
 namespace bl {
@@ -12,5 +16,7 @@ namespace bl {
 		bool isNode(Node*, char* id);
 
 		char* nextGlobalId();
+
+		map<string, Node*>* buildNodeLookup(list<Node*>* nodes);
 	}
 }

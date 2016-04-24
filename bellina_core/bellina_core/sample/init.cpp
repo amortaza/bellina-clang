@@ -33,33 +33,39 @@ void Render_My_Bellina() {
 
 	bl::root();
 	{
+		bl::color(10, 0, 10);
+
 		bl::div(); {
 			
-			bl::id("one");
+			bl::id("red");
 
 			bl::color(150, 0, 50);
-			bl::pos(360, 200);
-			bl::dim(160, 120);
+			bl::pos(100, 100);
+			bl::dim(320, 240);
 		}
 		bl::end();
 
-		
+		bl::div(); {
 
+			bl::id("green");
+
+			bl::color(50, 150, 50);
+			bl::pos(200, 200);
+			bl::dim(320, 240);
+		}
+		bl::end();
 
 		bl::div(); {
 
-			bl::id("two");
+			bl::id("blue");
 
-			bl::color(50, 150, 0);
-			bl::pos(460, 300);
-			bl::dim(260, 220);
-
-			
+			bl::color(50, 50, 150);
+			bl::pos(300, 300);
+			bl::dim(320, 240);
 		}
 		bl::end();
 
 		bl::on("z-index", [](void* e) {
-			printf("hee\n");
 			return true;
 		});
 	}
