@@ -5,10 +5,11 @@
 namespace click {
 	void load();
 	void init();
-	void tickOnAfterCoreRender();
 	void uninit();
 
 	void onNode();
+
+	extern char* plugin_name;
 
 	struct MouseClickEvent {
 		int mx;

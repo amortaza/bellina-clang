@@ -11,6 +11,8 @@ namespace resize {
 
 	void onNode();
 
+	extern char* plugin_name;
+
 	struct ResizeEvent {
 		int w;
 		int h;

@@ -5,10 +5,11 @@
 namespace focus {
 	void load();
 	void init();
-	void tickOnAfterCoreRender();
 	void uninit();
 
 	void onNode();
+
+	extern char* plugin_name;
 
 	struct FocusOnKeyEvent {
 		bl::listener::KeyDownEvent* keyDownEvent;

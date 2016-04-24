@@ -43,6 +43,8 @@ namespace node_drag {
 }
 
 void node_drag::load() {
+	bl::pluginLoad(mouse_drag::load);
+
 	bl::pluginRegister(
 		node_drag::plugin_name,
 		nullptr,

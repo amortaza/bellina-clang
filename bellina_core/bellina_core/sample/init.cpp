@@ -109,7 +109,7 @@ void Init_OnGL() {
 	//bl::pluginLoad(focus::load);
 	//bl::pluginLoad(click::load);
 
-	//bl::pluginSetInt("double click", "duration", 1001);
+	//bl::pluginSetInt("double-click", "duration", 1001);
 	//bl::pluginLoad(double_click::load);
 
 	bl::pluginLoad(mouse_drag::load);

@@ -46,6 +46,8 @@ namespace resize {
 }
 
 void resize::load() {
+	bl::pluginLoad(mouse_drag::load);
+
 	bl::pluginRegister(
 		resize::plugin_name,
 		resize::init,

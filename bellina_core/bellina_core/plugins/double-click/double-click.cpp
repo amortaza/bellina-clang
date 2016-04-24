@@ -14,7 +14,7 @@ using namespace std::chrono;
 
 namespace double_click {
 	
-	char* plugin_name = "double click";
+	char* plugin_name = "double-click";
 
 	char* lastClickNodeId = 0;
 	Xel::Mouse::Button lastClickButton;
@@ -36,9 +36,6 @@ namespace double_click {
 
 	void uninit() {
 		freeId();
-	}
-
-	void tickOnAfterCoreRender() {
 	}
 
 	void onNode() {
@@ -71,10 +68,12 @@ namespace double_click {
 }
 
 void double_click::load() {
+	bl::pluginLoad(click::load);
+
 	bl::pluginRegister(
 		double_click::plugin_name,
 		double_click::init,
 		double_click::onNode,
-		double_click::tickOnAfterCoreRender,
+		nullptr,
 		double_click::uninit);
 }

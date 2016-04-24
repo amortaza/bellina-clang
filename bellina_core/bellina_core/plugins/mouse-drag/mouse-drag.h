@@ -12,6 +12,8 @@ namespace mouse_drag {
 
 	void onNode();
 
+	extern char* plugin_name;
+
 	struct MouseDragEvent {
 		int mx;
 		int my;

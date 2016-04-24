@@ -8,4 +8,6 @@ namespace z_index {
 	void uninit();
 
 	void onNode();
+
+	extern char* plugin_name;
 }

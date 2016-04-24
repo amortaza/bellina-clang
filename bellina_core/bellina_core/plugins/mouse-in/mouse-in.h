@@ -11,6 +11,8 @@ namespace mouse_in {
 
 	void onNode();
 
+	extern char* plugin_name;
+
 	struct MouseInOutEvent {
 		int mx;
 		int my;

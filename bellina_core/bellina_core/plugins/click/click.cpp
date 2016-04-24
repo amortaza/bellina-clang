@@ -42,9 +42,6 @@ namespace click {
 		freeId();
 	}
 
-	void tickOnAfterCoreRender() {
-	}
-
 	void onNode() {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
@@ -81,6 +78,6 @@ void click::load() {
 		click::plugin_name, 
 		click::init, 
 		click::onNode, 
-		click::tickOnAfterCoreRender, 
+		nullptr, 
 		click::uninit);
 }
