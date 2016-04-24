@@ -196,6 +196,7 @@
     <ClInclude Include="plugins\drag\drag.h" />
     <ClInclude Include="plugins\focus\focus.h" />
     <ClInclude Include="plugins\mouse-in\mouse-in.h" />
+    <ClInclude Include="plugins\resize\resize.h" />
     <ClInclude Include="plugins\z-index\order-info.h" />
     <ClInclude Include="plugins\z-index\z-index.h" />
     <ClInclude Include="sample\main.h" />
@@ -242,6 +243,7 @@
     <ClCompile Include="plugins\drag\drag.cpp" />
     <ClCompile Include="plugins\focus\focus.cpp" />
     <ClCompile Include="plugins\mouse-in\mouse-in.cpp" />
+    <ClCompile Include="plugins\resize\resize.cpp" />
     <ClCompile Include="plugins\z-index\z-index.cpp" />
     <ClCompile Include="sample\init.cpp" />
     <ClCompile Include="sample\main.cpp" />

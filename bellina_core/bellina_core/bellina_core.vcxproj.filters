@@ -87,6 +87,9 @@
     <Filter Include="plugins\mouse-in">
       <UniqueIdentifier>{7b7c2c3a-278a-46cf-ac7a-8e3ddab0afd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\resize">
+      <UniqueIdentifier>{fa9832c9-21e4-4464-ac57-a2a7b43e626f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -251,6 +254,9 @@
     <ClInclude Include="plugins\mouse-in\mouse-in.h">
       <Filter>plugins\mouse-in</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\resize\resize.h">
+      <Filter>plugins\resize</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -381,6 +387,9 @@
     </ClCompile>
     <ClCompile Include="plugins\mouse-in\mouse-in.cpp">
       <Filter>plugins\mouse-in</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\resize\resize.cpp">
+      <Filter>plugins\resize</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
