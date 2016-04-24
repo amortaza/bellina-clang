@@ -13,6 +13,7 @@
 #include "plugins/z-index/z-index.h"
 #include "plugins/mouse-in/mouse-in.h"
 #include "plugins/resize/resize.h"
+#include "plugins/mouse-drag/mouse-drag.h"
 
 using namespace bl;
 using namespace bl::flags;
@@ -48,13 +49,20 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(320, 240);
 
-			bl::on("resize", [](void* e) {
-				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
+			bl::on("mouse-drag", [](void* e) {
+				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-				printf("%i %i\n",event->w, event->h);
+				printf("%i %i\n", event->deltaX, event->deltaY);
 
 				return true;
 			});
+/*			bl::on("resize", [](void* e) {
+				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
+
+				printf("%i %i\n", event->w, event->h);
+
+				return true;
+			});*/
 		}
 		bl::end();
 
@@ -92,13 +100,14 @@ void Init_OnGL() {
 	//bl::pluginSetInt("double click", "duration", 1001);
 	//bl::pluginLoad(double_click::load);
 
+	bl::pluginLoad(mouse_drag::load);
 	//bl::pluginLoad(drag::load);
 	
 	//bl::pluginLoad(z_index::load);
 
 	//bl::pluginLoad(mouse_in::load);
 
-	bl::pluginLoad(resize::load);
+	//bl::pluginLoad(resize::load);
 }
 
 void UnInit() {

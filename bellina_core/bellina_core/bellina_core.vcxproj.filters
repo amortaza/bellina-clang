@@ -90,6 +90,9 @@
     <Filter Include="plugins\resize">
       <UniqueIdentifier>{fa9832c9-21e4-4464-ac57-a2a7b43e626f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="plugins\mouse-drag">
+      <UniqueIdentifier>{ec693f88-7e0f-43cc-a280-e098edfeddce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -257,6 +260,9 @@
     <ClInclude Include="plugins\resize\resize.h">
       <Filter>plugins\resize</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\mouse-drag\mouse-drag.h">
+      <Filter>plugins\mouse-drag</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -390,6 +396,9 @@
     </ClCompile>
     <ClCompile Include="plugins\resize\resize.cpp">
       <Filter>plugins\resize</Filter>
+    </ClCompile>
+    <ClCompile Include="plugins\mouse-drag\mouse-drag.cpp">
+      <Filter>plugins\mouse-drag</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
