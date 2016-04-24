@@ -81,6 +81,9 @@
     <Filter Include="bellina\bl-input\pump">
       <UniqueIdentifier>{de2bd3b3-b15d-42a7-871a-2d930c0fc286}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina\bl-input\mouse">
+      <UniqueIdentifier>{fd1a37a6-50a7-4139-be50-5098ba4ddaaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -236,8 +239,11 @@
     <ClInclude Include="bellina\bl-pump.h">
       <Filter>bellina\bl-input\pump</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\z-index\order-info.h">
+      <Filter>plugins\z-index</Filter>
+    </ClInclude>
     <ClInclude Include="bellina\bl-mouse.h">
-      <Filter>bellina\bl-input</Filter>
+      <Filter>bellina\bl-input\mouse</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -307,9 +313,6 @@
     <ClCompile Include="bellina\bl-sys.cpp">
       <Filter>bellina\bl-util</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-mouse.cpp">
-      <Filter>bellina\bl-input</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-plugin.cpp">
       <Filter>bellina\bl-plugin</Filter>
     </ClCompile>
@@ -340,9 +343,6 @@
     <ClCompile Include="bellina\bl-echo.cpp">
       <Filter>bellina\bl-echo</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-core-input.cpp">
-      <Filter>bellina\bl-input</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-plugin-bubble.cpp">
       <Filter>bellina\bl-plugin</Filter>
     </ClCompile>
@@ -366,6 +366,12 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-input.cpp">
       <Filter>bellina\bl-input</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-mouse.cpp">
+      <Filter>bellina\bl-input\mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-core-mouse.cpp">
+      <Filter>bellina\bl-input\mouse</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

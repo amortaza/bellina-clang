@@ -30,3 +30,42 @@ void bl::onMouseMove(NodeMouseMoveCallback cb) {
 	current_node->onMouseMove_callbacks.push_back(cb);
 }
 
+void bl::onMouseMoveOnNode(Node* node, NodeMouseMoveCallback cb) {
+	Node* original = current_node;
+
+	current_node = node;
+
+	onMouseMove(cb);
+
+	current_node = original;
+}
+
+void bl::onMouseDownOnNode(Node* node, NodeMouseDownCallback cb) {
+	Node* original = current_node;
+
+	current_node = node;
+
+	onMouseDown(cb);
+
+	current_node = original;
+}
+
+void bl::onMouseUpOnNode(Node* node, NodeMouseUpCallback cb) {
+	Node* original = current_node;
+
+	current_node = node;
+
+	onMouseUp(cb);
+
+	current_node = original;
+}
+
+void bl::onMouseScrollOnNode(Node* node, NodeMouseScrollCallback cb) {
+	Node* original = current_node;
+
+	current_node = node;
+
+	onMouseScroll(cb);
+
+	current_node = original;
+}

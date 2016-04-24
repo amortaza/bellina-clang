@@ -92,4 +92,9 @@ namespace bl {
 	void onMouseDown(NodeMouseDownCallback);
 	void onMouseUp(NodeMouseUpCallback);
 	void onMouseScroll(NodeMouseScrollCallback);
+
+	void onMouseMoveOnNode(Node*,NodeMouseMoveCallback);
+	void onMouseDownOnNode(Node*, NodeMouseDownCallback);
+	void onMouseUpOnNode(Node*, NodeMouseUpCallback);
+	void onMouseScrollOnNode(Node*, NodeMouseScrollCallback);
 }

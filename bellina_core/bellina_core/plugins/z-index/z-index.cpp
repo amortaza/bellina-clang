@@ -3,6 +3,7 @@
 #include "bellina/bellina.h"
 
 #include "z-index.h"
+#include "order-info.h"
 
 using namespace std;
 using namespace bl;
@@ -12,71 +13,6 @@ using namespace z_index;
 
 namespace z_index {
 	char* plugin_name = "z-index";
-	
-	struct Order {
-		string nodeId;
-		int order;
-	};
-
-	typedef list<Order*> Orders;
-	
-	class OrderInfo {
-		public:
-		
-		int maxOrder;
-		
-		Orders* orders = new Orders();
-		map<string, Order*> orderByNode;		
-		
-		~OrderInfo() {
-			orderByNode.clear();
-			
-			Orders::const_iterator iterator;
-			for (iterator = orders->begin(); iterator != orders->end(); ++iterator) {
-				Order* order = *iterator;
-
-				delete order;
-			}
-			
-			orders->clear();
-
-			delete orders;
-		}
-		
-		OrderInfo(Node* parent) {
-			orders->clear();
-
-			int index = 1;
-			int maxIndex = -1;
-
-			list<Node*>::const_iterator i2;
-			for (i2 = parent->kids.begin(); i2 != parent->kids.end(); ++i2) {
-				Node* kid = *i2;
-				string key(kid->nid);
-
-				Order* order = new Order();
-				order->nodeId = key;
-				order->order = index;
-				
-				++index;
-
-				orderByNode[key] = order;
-
-				orders->push_back(order);
-			}
-			
-			maxOrder = index;
-		}
-		
-		Order* getOrderById(char* nid) {
-			string key(nid);
-
-			auto e2 = orderByNode.find(key);
-			if (e2 == orderByNode.end()) throw "not possible";
-			Order* order = e2->second;
-			return order;
-		}
-	};	
 
 	map<string, OrderInfo*> orderInfoByParent;
 
@@ -151,7 +87,7 @@ void z_index::uninit() {
 
 void z_index::onNode() {
 
-	Node* c = _::current_node;
+	Node* c = bl::current();
 
 	map<string, Node*>* nodeById;
 	nodeById = bl::util::buildNodeLookup(&c->kids);
@@ -163,11 +99,9 @@ void z_index::onNode() {
 
 	list<Node*>::const_iterator it;
 	for (it = c->kids.begin(); it != c->kids.end(); ++it) {
-		Node *node = *it;
+		Node *kid = *it;
 
-		_::current_node = node;
-
-		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		bl::onMouseDownOnNode(kid, [](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (button == Xel::Mouse::Button::Left) {
 				Node* parent = bl::node->parent;
 
@@ -177,8 +111,6 @@ void z_index::onNode() {
 			return true;
 		});
 	}
-
-	_::current_node = c;
 }
 
 void z_index::load() {

@@ -195,6 +195,7 @@
     <ClInclude Include="plugins\double-click\double-click.h" />
     <ClInclude Include="plugins\drag\drag.h" />
     <ClInclude Include="plugins\focus\focus.h" />
+    <ClInclude Include="plugins\z-index\order-info.h" />
     <ClInclude Include="plugins\z-index\z-index.h" />
     <ClInclude Include="sample\main.h" />
     <ClInclude Include="stdafx.h" />
@@ -216,7 +217,7 @@
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp" />
     <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp" />
-    <ClCompile Include="bellina\bl-core-input.cpp" />
+    <ClCompile Include="bellina\bl-core-mouse.cpp" />
     <ClCompile Include="bellina\bl-core-node.cpp" />
     <ClCompile Include="bellina\bl-echo.cpp" />
     <ClCompile Include="bellina\bl-flags.cpp" />
