@@ -52,7 +52,7 @@ void bl::paint() {
 
 	root_node->dim(winW, winH);
 
-	printf("pump\n");
+	//rintf("pump\n");
 	pump::send();
 
 	plugin::tickAfterCoreRender();
@@ -61,8 +61,8 @@ void bl::paint() {
 }
 
 void paint2() {
-	printf("painting\n");
-//	std::this_thread::sleep_for(std::chrono::milliseconds(100));
+	//rintf("painting\n");
+	//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;

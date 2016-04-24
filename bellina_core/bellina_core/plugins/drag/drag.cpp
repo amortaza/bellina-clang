@@ -59,8 +59,6 @@ namespace drag {
 			dx = bl::node->x - mx;
 			dy = bl::node->y - my;
 
-			// printf("dx dy %i %i\n", dx, dy);
-
 			return false;
 		});
 	}

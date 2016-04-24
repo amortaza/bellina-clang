@@ -128,7 +128,6 @@ namespace bl {
 		}
 
 		void bl_onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
-			//printf("%i %i\n", mx,my );
 			Node* node = util::getNodeAtPos(mx, my);
 
 			MouseDownEvent event;
@@ -143,7 +142,6 @@ namespace bl {
 				bl::fire("mouse up", &event);
 
 			if (node) {
-				//printf("found node %s\n",node->nid);
 				if (action == Xel::Mouse::Action::Down)
 					call_mouse_down(node, button, mx, my, 0);
 				else if (action == Xel::Mouse::Action::Up)

@@ -14,6 +14,5 @@ void input::onMouseScroll(int amount) {
 }
 
 void input::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
-	printf("input-mouse button\n");
 	pump::onMouseButton(button, action, mx, my);
 }

@@ -84,8 +84,6 @@ Node* util::getNodeById(char* id) {
 Node* util::getNodeAtPos(int wx, int wy) {
 	Node *node = getNodeAtPos(root_node, wx, wy);
 
-	// if (node) printf("found something\n"); else printf("FOUND NOTHING\n");
-
 	if (!node) return root_node;
 
 	return node;

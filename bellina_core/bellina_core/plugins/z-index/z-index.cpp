@@ -90,7 +90,7 @@ namespace z_index {
 
 		auto e2 = orderInfoByParent.find(parentKey);
 		if (e2 == orderInfoByParent.end()) {
-			
+
 			OrderInfo* info = new OrderInfo(parent);
 			orderInfoByParent[parentKey] = info;
 
@@ -103,10 +103,10 @@ namespace z_index {
 
 	void reorderDom(	Node* p, 
 						map<string, Node*>* nodeById) {
-							
-		p->kids.clear();
 		
 		OrderInfo* info = getKidsOrderInfo(p);
+
+		p->kids.clear(); // only do this AFTER getKidsOrderInfo		
 
 		int index = 1;
 		
@@ -119,6 +119,7 @@ namespace z_index {
 
 			Node* kid = (*nodeById)[order->nodeId];
 
+			//rintf(">>>>>>>>>> kid stack %s\n", kid->nid );
 			p->kids.push_back(kid);
 		}
 		
@@ -152,6 +153,14 @@ void z_index::onNode() {
 
 	Node* c = _::current_node;
 
+	map<string, Node*>* nodeById;
+	nodeById = bl::util::buildNodeLookup(&c->kids);
+
+	reorderDom(c, nodeById);
+
+	nodeById->clear();
+	delete nodeById;
+
 	list<Node*>::const_iterator it;
 	for (it = c->kids.begin(); it != c->kids.end(); ++it) {
 		Node *node = *it;
@@ -160,20 +169,9 @@ void z_index::onNode() {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (button == Xel::Mouse::Button::Left) {
-				printf("     z-index\n");
-
 				Node* parent = bl::node->parent;
 
-				map<string, Node*>* nodeById;
-				nodeById = bl::util::buildNodeLookup(&parent->kids);
-
-				printf("%s\n", bl::node->nid);
 				bringToTop(parent, bl::node->nid);
-
-				reorderDom(parent, nodeById);
-
-				nodeById->clear();
-				delete nodeById;
 			}
 
 			return true;
@@ -181,9 +179,4 @@ void z_index::onNode() {
 	}
 
 	_::current_node = c;
-
-	//bringToTop(parent,"blue");
-	//bringToTop(parent, "green");
-	//bringToTop(parent, "red");
-
 }

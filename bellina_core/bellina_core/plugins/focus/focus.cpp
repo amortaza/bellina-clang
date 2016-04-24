@@ -17,7 +17,7 @@ namespace focus {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
-				printf("Blur!\n");
+				//rintf("Blur!\n");
 				focusNodeId = 0;
 			}
 		});
@@ -52,7 +52,7 @@ namespace focus {
 
 			focusNodeId = _strdup(bl::node->nid);
 
-			printf("focus node id is %s\n", focusNodeId);
+			//rintf("focus node id is %s\n", focusNodeId);
 
 			return true;
 		});

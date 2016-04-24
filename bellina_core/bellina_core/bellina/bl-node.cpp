@@ -73,7 +73,7 @@ void Node::color2(unsigned char _r, unsigned char _g, unsigned char _b) {
 void resetCanvasRef(Node *node, int w, int h) {
 	if (node->canvas) delete node->canvas;
 
-//	printf("creating canvas %i %i\n", w, h);
+//	rintf("creating canvas %i %i\n", w, h);
 	node->canvas = g2::createCanvas(w,h);
 }
 
