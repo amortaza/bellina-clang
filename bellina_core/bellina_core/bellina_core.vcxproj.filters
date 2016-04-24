@@ -310,9 +310,6 @@
     <ClCompile Include="bellina\bl-mouse.cpp">
       <Filter>bellina\bl-input</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-key.cpp">
-      <Filter>bellina\bl-input</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-plugin.cpp">
       <Filter>bellina\bl-plugin</Filter>
     </ClCompile>

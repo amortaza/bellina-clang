@@ -224,7 +224,6 @@
     <ClCompile Include="bellina\bl-fluent-font.cpp" />
     <ClCompile Include="bellina\bl-globals.cpp" />
     <ClCompile Include="bellina\bl-input.cpp" />
-    <ClCompile Include="bellina\bl-key.cpp" />
     <ClCompile Include="bellina\bl-lifecycle.cpp" />
     <ClCompile Include="bellina\bl-mouse.cpp" />
     <ClCompile Include="bellina\bl-plugin-bubble.cpp" />

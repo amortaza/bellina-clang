@@ -7,5 +7,8 @@ namespace bl {
 		void onMouseMove(int mx, int my);
 		void onMouseScroll(int amount);
 		void onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my);
+
+		void onKeyUp(unsigned long long xcode);
+		void onKeyDown(unsigned long long xcode);
 	}
 }

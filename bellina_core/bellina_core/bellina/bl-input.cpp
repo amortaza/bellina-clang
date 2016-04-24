@@ -16,3 +16,11 @@ void input::onMouseScroll(int amount) {
 void input::onMouseButton(Xel::Mouse::Button button, Xel::Mouse::Action action, int mx, int my) {
 	pump::onMouseButton(button, action, mx, my);
 }
+
+void bl::input::onKeyDown(unsigned long long xcode) {
+	pump::onKeyDown(xcode);
+}
+
+void bl::input::onKeyUp(unsigned long long xcode) {
+	pump::onKeyUp(xcode);
+}
