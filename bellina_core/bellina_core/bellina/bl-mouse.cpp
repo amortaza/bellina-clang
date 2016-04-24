@@ -228,21 +228,5 @@ void bl::input::onMouseScroll(int amount) {
 void bl::input::onMouseMove(int mx, int my) {
 	updateSysMouse(mx, my);
 
-	/*if (capture_mouse_nod)
-		printf("on move %s\n", capture_mouse_nod->nid);
-	else
-		printf("no capture\n");
-
-	if (capture_mouse_nod) 
-		bl_onMouseMove_captured(mx, my);
-	else */
-		bl_onMouseMove(mx, my);
+	bl_onMouseMove(mx, my);
 }
-
-/*void bl::captureMouse() {
-	capture_mouse_nod = bl::node;
-}
-
-Node* bl::getMouseOwner() {
-	return capture_mouse_nod;
-}*/

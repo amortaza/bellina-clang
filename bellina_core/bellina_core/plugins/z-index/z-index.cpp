@@ -149,17 +149,40 @@ void z_index::uninit() {
 }
 
 void z_index::onNode() {
-	Node* parent = _::current_node;	
 
-	map<string, Node*>* nodeById;
-	nodeById = bl::util::buildNodeLookup(&parent->kids);
+	Node* c = _::current_node;
+
+	list<Node*>::const_iterator it;
+	for (it = c->kids.begin(); it != c->kids.end(); ++it) {
+		Node *node = *it;
+
+		_::current_node = node;
+
+		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+			if (button == Xel::Mouse::Button::Left) {
+
+				Node* parent = bl::node->parent;
+
+				map<string, Node*>* nodeById;
+				nodeById = bl::util::buildNodeLookup(&parent->kids);
+
+				printf("%s\n", bl::node->nid);
+				bringToTop(parent, bl::node->nid);
+
+				reorderDom(parent, nodeById);
+
+				nodeById->clear();
+				delete nodeById;
+			}
+
+			return true;
+		});
+	}
+
+	_::current_node = c;
 
 	//bringToTop(parent,"blue");
-	bringToTop(parent, "green");
+	//bringToTop(parent, "green");
 	//bringToTop(parent, "red");
 
-	reorderDom(parent, nodeById);
-	
-	nodeById->clear();
-	delete nodeById;
 }

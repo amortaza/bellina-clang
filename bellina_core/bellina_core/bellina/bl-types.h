@@ -3,25 +3,27 @@
 #include <functional>
 #include "Xel/Xel.h"
 
+using namespace std;
+
 namespace bl { extern class Node; }
 
 namespace bl {
-	typedef std::function<bool(int mx, int my, Node* bubbledFrom)> NodeMouseMoveCallback;
-	typedef std::function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseDownCallback;
-	typedef std::function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseUpCallback;
-	typedef std::function<bool(int amount, int mx, int my, Node* bubbledFrom)> NodeMouseScrollCallback;
+	typedef function<bool(int mx, int my, Node* bubbledFrom)> NodeMouseMoveCallback;
+	typedef function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseDownCallback;
+	typedef function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseUpCallback;
+	typedef function<bool(int amount, int mx, int my, Node* bubbledFrom)> NodeMouseScrollCallback;
 
 	//
 
-	typedef std::function<void(void)> PluginInit;
-	typedef std::function<void(void)> PluginUninit;
-	typedef std::function<void(void)> PluginTickAfterCoreRender;
-	typedef std::function<bool(void*)> PluginCallback;
-	typedef std::function<void(void)> PluginOnNode;
+	typedef function<void(void)> PluginInit;
+	typedef function<void(void)> PluginUninit;
+	typedef function<void(void)> PluginTickAfterCoreRender;
+	typedef function<bool(void*)> PluginCallback;
+	typedef function<void(void)> PluginOnNode;
 
 	//
-	typedef std::function<void(Node*)> ShadowCallback;
-	typedef std::function<void(void*)> ListenerCallback;
+	typedef function<void(Node*)> ShadowCallback;
+	typedef function<void(void*)> ListenerCallback;
 
 	//
 	

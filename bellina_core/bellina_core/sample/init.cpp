@@ -31,6 +31,7 @@ void Render_My_Bellina() {
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
+	printf("start root *********************** \n");
 	bl::root();
 	{
 		bl::color(10, 0, 10);
@@ -71,6 +72,7 @@ void Render_My_Bellina() {
 	}
 	bl::end();
 	
+	printf("paint ***\n");
 	bl::paint();
 }
 
