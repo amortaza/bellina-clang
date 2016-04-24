@@ -49,6 +49,31 @@ namespace mouse_drag {
 			MouseUpEvent* event = (MouseUpEvent*)e;
 			freeId();
 		});
+
+		// we need long term because drag requires apturing mouse
+		// otherwise "resize" will not work when going over neighboring nodes
+		bl::listenLongTerm("mouse move", [](void* e) {
+			MouseMoveEvent* event = (MouseMoveEvent*)e;
+			
+			if (dragNodeId) {
+				Node* dragNode = util::getNodeById(dragNodeId);
+
+				if (!dragNode) {
+					freeId();
+					return;
+				}
+
+				int mx = event->mx;
+				int my = event->my;
+
+				int deltaX = mx - lastMx;
+				int deltaY = my - lastMy;
+
+				lastMx = mx; lastMy = my;
+
+				fire(dragNode, mx, my, dx, dy, deltaX, deltaY);
+			}
+		});
 	}
 
 	void uninit() { freeId(); }
@@ -71,6 +96,7 @@ namespace mouse_drag {
 			return false;
 		});
 
+		/*
 		bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
 			if (!dragNodeId) return false;
 
@@ -84,7 +110,7 @@ namespace mouse_drag {
 			}
 
 			return false;
-		});
+		});*/
 	}
 }
 

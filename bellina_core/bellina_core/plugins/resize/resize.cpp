@@ -24,6 +24,8 @@ namespace resize {
 				shadow->w = newW;
 				shadow->h = newH;
 
+				printf("%i %i\n", newW, newH);
+
 				newW = newH = 0;
 			}
 		});

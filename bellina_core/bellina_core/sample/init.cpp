@@ -48,18 +48,36 @@ void Render_My_Bellina() {
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
 			bl::dim(320, 240);
+
+			bl::div(); {
+
+				bl::id("green");
+
+				bl::color(50, 150, 50);
+				bl::pos(20, 20);
+				bl::dim(160, 120);
+			}
+			bl::end();
 			
+			/*bl::on("mouse-drag", [](void* e) {
+				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
+
+				printf("mouse drag %i %i\n", event->mx, event->my);
+
+				return true;
+			});*/
+
 			bl::on("resize", [](void* e) {
 				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
 
-				printf("%i %i\n", event->w, event->h);
+				printf("resize %i %i\n", event->w, event->h);
 
 				return true;
 			});
 		}
 		bl::end();
 
-		bl::div(); {
+		/*bl::div(); {
 
 			bl::id("green");
 
@@ -68,7 +86,7 @@ void Render_My_Bellina() {
 			bl::dim(320, 240);
 		}
 		bl::end();
-
+		*/
 		bl::div(); {
 
 			bl::id("blue");
