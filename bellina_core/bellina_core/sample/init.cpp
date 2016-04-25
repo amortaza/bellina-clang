@@ -68,13 +68,13 @@ void Render_My_Bellina() {
 				return true;
 			});*/
 
-			/*bl::on("resize", [](void* e) {
+			bl::on("resize", [](void* e) {
 				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
 
 				printf("resize %i %i\n", event->w, event->h);
 
 				return true;
-			});*/
+			});
 		}
 		bl::end();
 
@@ -113,13 +113,13 @@ void Init_OnGL() {
 	//bl::pluginLoad(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
-	//bl::pluginLoad(node_drag::load);
+	bl::pluginLoad(node_drag::load);
 	
 	//bl::pluginLoad(z_index::load);
 
 	//bl::pluginLoad(mouse_in::load);
 
-	//bl::pluginLoad(resize::load);
+	bl::pluginLoad(resize::load);
 }
 
 void UnInit() {

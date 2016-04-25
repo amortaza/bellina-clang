@@ -12,16 +12,18 @@ using namespace click;
 using namespace std;
 
 namespace mouse_drag {
-
 	char* plugin_name = "mouse-drag";
-	void load();
 
 	char* dragNodeId = 0;
 
-	int dx = 0, dy = 0;	
+	int dx = 0, dy = 0;
 	int lastMx = 0, lastMy = 0;
 	int startMx = 0, startMy = 0;
 	int deltaX = 0, deltaY = 0;
+}
+
+namespace mouse_drag {
+	void load();
 
 	void freeId() {
 		if (dragNodeId) {
@@ -95,22 +97,6 @@ namespace mouse_drag {
 
 			return false;
 		});
-
-		/*
-		bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-			if (!dragNodeId) return false;
-
-			if (util::isNode(bl::node, dragNodeId)) {
-				int deltaX = mx - lastMx;
-				int deltaY = my - lastMy;
-
-				lastMx = mx; lastMy = my;
-				
-				fire(bl::node, mx, my, dx, dy, deltaX, deltaY);
-			}
-
-			return false;
-		});*/
 	}
 }
 

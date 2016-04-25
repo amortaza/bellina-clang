@@ -1,19 +1,24 @@
 #include "stdafx.h"
 
+#include "bl-types.h"
 #include "bl-core.h"
 #include "bl-globals.h"
 #include "bl-plugin.h"
 #include "bl-plugin-bubble.h"
 
 using namespace std;
+
+using namespace bl;
 using namespace bl::_;
 using namespace bl::plugin;
 
 namespace bl {
 	namespace plugin {
-		std::map<std::string, Plugin*> pluginMap;
+		map<string, Plugin*> pluginMap;
 
-		std::map<std::string, int> intMap;
+		map<string, int> intMap;
+
+		list<PluginTickAfterCoreRender> tickAfterCoreRenderPluginCallbacks;
 
 		bool isRegistered(char* name) {
 			string key(name);
@@ -25,19 +30,21 @@ namespace bl {
 	}
 }
 
-void bl::plugin::tickAfterCoreRender() {
+void plugin::registerTickAfterCoreRender(PluginTickAfterCoreRender cb) {
+	tickAfterCoreRenderPluginCallbacks.push_back(cb);
+}
 
-	typedef map<string, Plugin*>::iterator it1;
+void plugin::tickAfterCoreRender() {
 
-	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
-		Plugin* plugin = it->second;
-
-		if (plugin->tickAfterCoreRender != nullptr) plugin->tickAfterCoreRender();
+	list<PluginTickAfterCoreRender>::const_iterator it;
+	for (it = tickAfterCoreRenderPluginCallbacks.begin(); it != tickAfterCoreRenderPluginCallbacks.end(); ++it) {
+		PluginTickAfterCoreRender cb = *it;
+		cb();
 	}
 }
 
 void bl::pluginSetInt(char* name, char* prop_name, int value) {
-	std::string key(name);
+	string key(name);
 	key.append(":");
 	key.append(prop_name);
 
@@ -45,7 +52,7 @@ void bl::pluginSetInt(char* name, char* prop_name, int value) {
 }
 
 int bl::pluginGetInt(char* name, char* prop_name) {
-	std::string key(name);
+	string key(name);
 	key.append(":");
 	key.append(prop_name);
 
@@ -56,7 +63,7 @@ int bl::pluginGetInt(char* name, char* prop_name) {
 }
 
 bool bl::pluginHasInt(char* name, char* prop_name) {
-	std::string key(name);
+	string key(name);
 	key.append(":");
 	key.append(prop_name);
 
@@ -86,10 +93,12 @@ void bl::pluginRegister(char* pluginName,
 	plugin->name.assign(pluginName, strlen(pluginName));
 	plugin->init = init;
 	plugin->onNode = onNode;
-	plugin->tickAfterCoreRender = tickAfterCoreRender;
 	plugin->uninit = uninit;
 
 	pluginMap[plugin->name] = plugin;
+
+	if (tickAfterCoreRender != nullptr)
+		plugin::registerTickAfterCoreRender(tickAfterCoreRender);
 
 	if (init != nullptr) init();
 }
@@ -105,7 +114,7 @@ void bl::on(char* pluginName, PluginCallback cb) {
 		return;
 	}
 
-	std::string key(pluginName);
+	string key(pluginName);
 
 	auto e2 = pluginMap.find(key);
 	if (e2 == pluginMap.end()) throw "plugin not found";
@@ -123,7 +132,7 @@ void bl::pluginCall(char* pluginName, Node* node, void* eventData) {
 
 void bl::plugin::uninit() {
 	//
-	typedef std::map<std::string, Plugin*>::iterator it1;
+	typedef map<string, Plugin*>::iterator it1;
 	for (it1 it = pluginMap.begin(); it != pluginMap.end(); it++) {
 		Plugin* plugin = it->second;
 
@@ -131,6 +140,9 @@ void bl::plugin::uninit() {
 
 		delete plugin;
 	}
+
+	// 
+	tickAfterCoreRenderPluginCallbacks.clear();
 
 	//
 	intMap.clear();
