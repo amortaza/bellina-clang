@@ -98,11 +98,10 @@ void bl::on(char* pluginName, PluginCallback cb) {
 	string key(pluginName);
 
 	auto e2 = pluginMap.find(key);
-	if (e2 == pluginMap.end()) throw "plugin not found";
 
 	Plugin* plugin = e2->second;
 
-	pluginBubble->setCallback(cb, current_node, pluginName);
+	_::pluginBubble->setCallback(cb, current_node, pluginName);
 
 	plugin->onNode();
 }

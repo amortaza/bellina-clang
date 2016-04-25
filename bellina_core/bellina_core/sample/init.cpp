@@ -56,7 +56,8 @@ void Render_My_Bellina() {
 				bl::pos(20, 20);
 				bl::dim(160, 120);
 
-				bl::use("node-drag");
+				bl::use("click");
+				//bl::use("node-drag");
 			}
 			bl::end();
 			
@@ -68,13 +69,13 @@ void Render_My_Bellina() {
 				return true;
 			});*/
 
-			bl::on("resize", [](void* e) {
+			/*bl::on("resize", [](void* e) {
 				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
 
 				printf("resize %i %i\n", event->w, event->h);
 
 				return true;
-			});
+			});*/
 		}
 		bl::end();
 
@@ -107,13 +108,13 @@ void Init_OnGL() {
 	bl::init();
 
 	//bl::pluginLoad(focus::load);
-	//bl::pluginLoad(click::load);
+	bl::pluginLoad(click::load);
 
 	//bl::pluginSetInt("double-click", "duration", 1001);
 	//bl::pluginLoad(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
-	bl::pluginLoad(node_drag::load);
+	//bl::pluginLoad(node_drag::load);
 	
 	//bl::pluginLoad(z_index::load);
 
