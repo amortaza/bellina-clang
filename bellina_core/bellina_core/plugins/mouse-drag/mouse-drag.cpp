@@ -20,6 +20,8 @@ namespace mouse_drag {
 	int lastMx = 0, lastMy = 0;
 	int startMx = 0, startMy = 0;
 	int deltaX = 0, deltaY = 0;
+
+	Xel::Mouse::Button lastButton;
 }
 
 namespace mouse_drag {
@@ -42,12 +44,14 @@ namespace mouse_drag {
 		event.relativeY = relativeY;
 		event.deltaX = deltaX;
 		event.deltaY = deltaY;
+		event.button = lastButton;
 		
 		bl::pluginCall(plugin_name, node, &event);
 		bl::fire(plugin_name, &event);
 	}
 
 	void init() {
+
 		bl::listenLongTerm("mouse-up", [](void* e) {
 			MouseUpEvent* event = (MouseUpEvent*)e;
 			freeId();
@@ -87,6 +91,8 @@ namespace mouse_drag {
 			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.
 										   
 			freeId();
+
+			lastButton = button;
 
 			dragNodeId = _strdup(bl::node->nid);
 

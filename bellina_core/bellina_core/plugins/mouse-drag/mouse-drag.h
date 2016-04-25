@@ -22,5 +22,7 @@ namespace mouse_drag {
 		int deltaX, deltaY;
 
 		Node* node;
+
+		Xel::Mouse::Button button;
 	};
 }
