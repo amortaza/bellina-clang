@@ -52,6 +52,5 @@ void resize::load() {
 		resize::plugin_name,
 		resize::init,
 		resize::onNode,
-		nullptr, 
 		resize::uninit);
 }

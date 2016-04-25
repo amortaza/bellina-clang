@@ -112,6 +112,5 @@ void mouse_in::load() {
 		mouse_in::plugin_name,
 		mouse_in::init,
 		mouse_in::onNode,
-		nullptr, 
 		mouse_in::uninit);
 }

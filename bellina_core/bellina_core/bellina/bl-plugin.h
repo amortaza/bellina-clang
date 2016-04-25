@@ -18,15 +18,10 @@ namespace bl {
 
 			PluginInit init;
 			PluginOnNode onNode;
-			//PluginTickAfterCoreRender tickAfterCoreRender;
 			PluginUninit uninit;
 		};
 
 		extern map<string, Plugin*> pluginMap;
-
-		void registerTickAfterCoreRender(PluginTickAfterCoreRender);
-
-		void tickAfterCoreRender();
 
 		void uninit();		
 	}

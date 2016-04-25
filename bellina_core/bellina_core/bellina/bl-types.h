@@ -18,7 +18,6 @@ namespace bl {
 	typedef function<void(void)> PluginLoad;
 	typedef function<void(void)> PluginInit;
 	typedef function<void(void)> PluginUninit;
-	typedef function<void(void)> PluginTickAfterCoreRender;
 	typedef function<bool(void*)> PluginCallback;
 	typedef function<void(void)> PluginOnNode;
 

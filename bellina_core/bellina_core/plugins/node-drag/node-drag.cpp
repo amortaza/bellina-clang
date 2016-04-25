@@ -49,6 +49,5 @@ void node_drag::load() {
 		node_drag::plugin_name,
 		nullptr,
 		node_drag::onNode,
-		nullptr, 
 		nullptr);
 }

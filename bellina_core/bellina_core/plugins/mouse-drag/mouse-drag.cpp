@@ -107,6 +107,5 @@ void mouse_drag::load() {
 		mouse_drag::plugin_name, 
 		mouse_drag::init,
 		mouse_drag::onNode,
-		nullptr, 
 		mouse_drag::uninit);
 }

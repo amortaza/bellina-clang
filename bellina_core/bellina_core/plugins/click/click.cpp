@@ -78,6 +78,5 @@ void click::load() {
 		click::plugin_name, 
 		click::init, 
 		click::onNode, 
-		nullptr, 
 		click::uninit);
 }

@@ -18,8 +18,6 @@ namespace bl {
 
 		map<string, int> intMap;
 
-		list<PluginTickAfterCoreRender> tickAfterCoreRenderPluginCallbacks;
-
 		bool isRegistered(char* name) {
 			string key(name);
 
@@ -27,19 +25,6 @@ namespace bl {
 			
 			return e2 != pluginMap.end();			
 		}
-	}
-}
-
-void plugin::registerTickAfterCoreRender(PluginTickAfterCoreRender cb) {
-	tickAfterCoreRenderPluginCallbacks.push_back(cb);
-}
-
-void plugin::tickAfterCoreRender() {
-
-	list<PluginTickAfterCoreRender>::const_iterator it;
-	for (it = tickAfterCoreRenderPluginCallbacks.begin(); it != tickAfterCoreRenderPluginCallbacks.end(); ++it) {
-		PluginTickAfterCoreRender cb = *it;
-		cb();
 	}
 }
 
@@ -80,7 +65,6 @@ void bl::pluginLoad(PluginLoad load) {
 void bl::pluginRegister(char* pluginName, 
 						PluginInit init, 
 						PluginOnNode onNode, 
-						PluginTickAfterCoreRender tickAfterCoreRender, 
 						PluginUninit uninit) {
 
 	if (plugin::isRegistered(pluginName)) {
@@ -96,9 +80,6 @@ void bl::pluginRegister(char* pluginName,
 	plugin->uninit = uninit;
 
 	pluginMap[plugin->name] = plugin;
-
-	if (tickAfterCoreRender != nullptr)
-		plugin::registerTickAfterCoreRender(tickAfterCoreRender);
 
 	if (init != nullptr) init();
 }
@@ -140,9 +121,6 @@ void bl::plugin::uninit() {
 
 		delete plugin;
 	}
-
-	// 
-	tickAfterCoreRenderPluginCallbacks.clear();
 
 	//
 	intMap.clear();

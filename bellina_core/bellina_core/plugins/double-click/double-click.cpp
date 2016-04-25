@@ -74,6 +74,5 @@ void double_click::load() {
 		double_click::plugin_name,
 		double_click::init,
 		double_click::onNode,
-		nullptr,
 		double_click::uninit);
 }

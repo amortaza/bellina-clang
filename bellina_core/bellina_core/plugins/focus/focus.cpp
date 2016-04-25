@@ -68,6 +68,5 @@ void focus::load() {
 		focus::plugin_name, 
 		focus::init, 
 		focus::onNode, 
-		nullptr, 
 		focus::uninit);
 }
