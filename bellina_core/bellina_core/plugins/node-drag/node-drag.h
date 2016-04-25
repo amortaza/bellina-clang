@@ -15,8 +15,8 @@ namespace node_drag {
 		int mx;
 		int my;
 
-		int dx;
-		int dy;
+		int relativeX;
+		int relativeY;
 
 		Node* node;
 	};

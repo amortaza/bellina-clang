@@ -42,7 +42,7 @@ namespace mouse_drag {
 		event.relativeY = relativeY;
 		event.deltaX = deltaX;
 		event.deltaY = deltaY;
-
+		
 		bl::pluginCall(plugin_name, node, &event);
 	}
 

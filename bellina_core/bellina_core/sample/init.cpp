@@ -56,8 +56,14 @@ void Render_My_Bellina() {
 				bl::pos(20, 20);
 				bl::dim(160, 120);
 
-				bl::use("click");
-				//bl::use("node-drag");
+				//bl::use("click");
+				bl::on("node-drag", [](void* e) {
+					node_drag::NodeDragEvent* event = (node_drag::NodeDragEvent*) e;
+					if (!event->node) printf("no node\n");
+					else printf("node drag %s\n", event->node->nid);
+
+					return false;
+				});
 			}
 			bl::end();
 			
@@ -114,7 +120,7 @@ void Init_OnGL() {
 	//bl::pluginLoad(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
-	//bl::pluginLoad(node_drag::load);
+	bl::pluginLoad(node_drag::load);
 	
 	//bl::pluginLoad(z_index::load);
 

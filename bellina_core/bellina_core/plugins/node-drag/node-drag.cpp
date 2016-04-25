@@ -37,6 +37,16 @@ namespace node_drag {
 			newY = bl::sys::mouse_y + event->relativeY;
 			hasData = true;
 
+			NodeDragEvent nde;
+			nde.mx = bl::sys::mouse_x;
+			nde.my = bl::sys::mouse_y;
+			nde.node = event->node;
+			nde.relativeX = event->relativeX;
+			nde.relativeY = event->relativeY;
+
+			bl::pluginCall(plugin_name, event->node, &nde);
+			bl::fire(plugin_name, &nde);
+
 			return false;
 		});
 	}
