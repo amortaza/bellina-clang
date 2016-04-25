@@ -18,7 +18,7 @@ namespace mouse_drag {
 		int mx;
 		int my;
 
-		int dx, dy;
+		int relativeX, relativeY; // Relative.Pos = Node.Pos - Mouse.Pos (on initial click)
 		int deltaX, deltaY;
 
 		Node* node;

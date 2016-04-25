@@ -33,8 +33,8 @@ namespace node_drag {
 		bl::on("mouse-drag", [](void *e) {
 			mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-			newX = bl::sys::mouse_x + event->dx;
-			newY = bl::sys::mouse_y + event->dy;
+			newX = bl::sys::mouse_x + event->relativeX;
+			newY = bl::sys::mouse_y + event->relativeY;
 			hasData = true;
 
 			return false;

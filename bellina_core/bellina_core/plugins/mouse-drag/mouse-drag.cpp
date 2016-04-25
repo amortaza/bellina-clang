@@ -16,7 +16,7 @@ namespace mouse_drag {
 
 	char* dragNodeId = 0;
 
-	int dx = 0, dy = 0;
+	int relativeX = 0, relativeY = 0;
 	int lastMx = 0, lastMy = 0;
 	int startMx = 0, startMy = 0;
 	int deltaX = 0, deltaY = 0;
@@ -32,14 +32,14 @@ namespace mouse_drag {
 		}
 	}	
 
-	void fire(Node* node, int mx, int my, int dx, int dy, int deltaX, int deltaY) {
+	void fire(Node* node, int mx, int my, int relativeX, int relativeY, int deltaX, int deltaY) {
 
 		MouseDragEvent event;
 		event.node = node;
 		event.mx = mx;
 		event.my = my;
-		event.dx = dx;
-		event.dy = dy;
+		event.relativeX = relativeX;
+		event.relativeY = relativeY;
 		event.deltaX = deltaX;
 		event.deltaY = deltaY;
 
@@ -73,7 +73,7 @@ namespace mouse_drag {
 
 				lastMx = mx; lastMy = my;
 
-				fire(dragNode, mx, my, dx, dy, deltaX, deltaY);
+				fire(dragNode, mx, my, relativeX, relativeY, deltaX, deltaY);
 			}
 		});
 	}
@@ -89,8 +89,8 @@ namespace mouse_drag {
 
 			dragNodeId = _strdup(bl::node->nid);
 
-			dx = bl::node->x - mx;
-			dy = bl::node->y - my;
+			relativeX = bl::node->x - mx;
+			relativeY = bl::node->y - my;
 
 			lastMx = mx; lastMy = my;
 			startMx = mx; startMy = my;
