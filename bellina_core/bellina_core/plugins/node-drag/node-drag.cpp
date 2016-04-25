@@ -33,6 +33,8 @@ namespace node_drag {
 		bl::on("mouse-drag", [](void *e) {
 			mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
+			if (event->button != Xel::Mouse::Button::Left) return false;
+
 			newX = bl::sys::mouse_x + event->relativeX;
 			newY = bl::sys::mouse_y + event->relativeY;
 			hasData = true;
