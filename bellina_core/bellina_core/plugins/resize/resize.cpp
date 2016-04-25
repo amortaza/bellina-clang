@@ -38,7 +38,13 @@ namespace resize {
 			newW = event->node->w + event->deltaX;
 			newH = event->node->h + event->deltaY;
 			
-			//printf("%i %i\n", event->deltaX, event->deltaY);
+			resize::ResizeEvent e2;
+			e2.w = newW;
+			e2.h = newH;
+			e2.node = event->node;
+
+			bl::pluginCall(plugin_name, event->node, &e2);
+			bl::fire(plugin_name, &e2);
 
 			return true;
 		});

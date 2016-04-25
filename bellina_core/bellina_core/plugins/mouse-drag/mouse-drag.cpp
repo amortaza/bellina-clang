@@ -44,6 +44,7 @@ namespace mouse_drag {
 		event.deltaY = deltaY;
 		
 		bl::pluginCall(plugin_name, node, &event);
+		bl::fire(plugin_name, &event);
 	}
 
 	void init() {

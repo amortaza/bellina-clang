@@ -40,6 +40,7 @@ namespace focus {
 				focusEvent.node = node;
 				
 				bl::pluginCall(plugin_name, node, &focusEvent);
+				bl::fire(plugin_name, &focusEvent);
 			}			
 		});
 	}

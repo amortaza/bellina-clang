@@ -14,5 +14,5 @@ void bl::input::onResize(int w, int h) {
 	event.width = w;
 	event.height = h;
 
-	bl::fire("window resize", &event);
+	bl::fire("window-resize", &event);
 }

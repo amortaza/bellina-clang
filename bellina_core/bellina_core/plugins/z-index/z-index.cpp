@@ -106,6 +106,12 @@ void z_index::onNode() {
 				Node* parent = bl::node->parent;
 
 				bringToTop(parent, bl::node->nid);
+
+				ZIndexEvent event;
+				event.topNode = bl::node;
+
+				bl::pluginCall(plugin_name, bl::node->parent, &event);
+				bl::fire(plugin_name, &event);
 			}
 
 			return true;

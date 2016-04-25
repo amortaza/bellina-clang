@@ -31,13 +31,16 @@ namespace mouse_in {
 
 		if (in) {
 			event.isInEvent = true;
-			bl::pluginCall(plugin_name, in, &event);
+			bl::pluginCall(plugin_name, in, &event);			
 		}
 
 		if (out) {
 			event.isInEvent = false;
 			bl::pluginCall(plugin_name, out, &event);
 		}
+
+		// note that event.isInEvent is non-sensical here
+		if (in || out ) bl::fire(plugin_name, &event);
 	}
 	
 	void init() {
@@ -79,31 +82,7 @@ namespace mouse_in {
 	}
 
 	void onNode() {
-		/*bl::onMouseMove([](int mx, int my, Node* bubbledFrom) {
-			Node* This = bl::node;
-
-			if (lastNodeId) {
-				if (bl::util::isNode(This, lastNodeId)) {
-					// same node...move along...nothing interesting is happening
-				}
-				else {
-					// we went from a node to a node
-					fire(This->nid, lastNodeId, mx, my);
-
-					freeId();
-					lastNodeId = _strdup(This->nid);
-				}
-			}
-			else {
-				// went from no node to a node
-				fire(0, This->nid, mx, my);
-
-				freeId();
-				lastNodeId = _strdup(This->nid);
-			}
-
-			return true;
-		});*/
+		// unused in load
 	}
 }
 
@@ -111,6 +90,6 @@ void mouse_in::load() {
 	bl::pluginRegister(
 		mouse_in::plugin_name,
 		mouse_in::init,
-		mouse_in::onNode,
+		nullptr,
 		mouse_in::uninit);
 }

@@ -62,8 +62,7 @@ namespace click {
 				event.node = bl::node;
 
 				bl::pluginCall(plugin_name, bl::node, &event);
-
-				bl::fire("click", &event);
+				bl::fire(plugin_name, &event);
 			}
 
 			freeId();

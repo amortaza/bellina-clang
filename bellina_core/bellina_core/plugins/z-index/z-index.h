@@ -10,4 +10,8 @@ namespace z_index {
 	void onNode();
 
 	extern char* plugin_name;
+
+	struct ZIndexEvent {
+		Node* topNode;
+	};
 }
