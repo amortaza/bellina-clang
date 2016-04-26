@@ -3,6 +3,8 @@
 #include"bl-node.h"
 #include"bl-shadow-node.h"
 
+#include "BasePluginContext.h"
+
 using namespace bl;
 
 void ShadowNode::copyTo(Node* target) {
@@ -45,7 +47,9 @@ ShadowNode::~ShadowNode() {
 	// plugins
 	typedef map<string, BasePluginContext*>::iterator it1;
 	for (it1 it = basePluginMap.begin(); it != basePluginMap.end(); it++) {
+		
 		BasePluginContext* p = it->second;
+
 		delete p;
 	}
 }

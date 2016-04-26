@@ -3,6 +3,8 @@
 namespace bl {
 	class BasePluginContext {
 	public:
+
 		virtual void onNode() = 0;
+		virtual ~BasePluginContext() {}
 	};
 }
