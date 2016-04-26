@@ -48,10 +48,10 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("resize", [](void* e) {
+			//bl::on("resize", [](void* e) {
 				//printf("red!\n");
-				return true;
-			});
+				//return true;
+			//});
 
 		} 
 		bl:end();
@@ -61,15 +61,17 @@ void Render_My_Bellina() {
 			bl::id("green");
 
 			bl::color(50, 150, 50);
-			bl::pos(280, 200);
+			bl::pos(180, 120);
 			bl::dim(160, 120);
 
-			bl::on("resize", [](void* e) {
+			//bl::on("resize", [](void* e) {
 				//printf("green!\n");
-				return true;
-			});
+				//return true;
+			//});
 		}
 		bl::end();
+
+		bl::use("z-index");
 	}
 	bl::end();
 	
@@ -88,7 +90,7 @@ void Init_OnGL() {
 	//bl::pluginLoad(mouse_drag::load);
 	bl::pluginLoad(node_drag::load);
 	
-	//bl::pluginLoad(z_index::load);
+	bl::pluginLoad(z_index::load);
 
 	//bl::pluginLoad(mouse_in::load);
 

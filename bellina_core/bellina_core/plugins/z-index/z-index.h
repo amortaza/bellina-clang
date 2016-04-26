@@ -4,9 +4,6 @@
 
 namespace z_index {
 	void load();
-	void init();
-	void uninit();
-
 	void onNode();
 
 	extern char* plugin_name;

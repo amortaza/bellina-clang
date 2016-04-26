@@ -278,6 +278,9 @@
     <ClInclude Include="bellina\bl-shadow-node.h">
       <Filter>bellina\bl-om\shadow</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\z-index\ZIndexContext.h">
+      <Filter>plugins\z-index</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
