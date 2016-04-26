@@ -4,7 +4,7 @@ using namespace bl;
 
 namespace node_drag {
 
-	class NodeDragPlugin {
+	class NodeDragContext {
 
 	public:
 		bool hasData = false;
@@ -14,8 +14,8 @@ namespace node_drag {
 
 		void onNode() {
 			bl::shadow([](Node* shadow) {
-				NodeDragPlugin* This = (NodeDragPlugin*)shadow->getPlugin(plugin_name, []() {
-					return new NodeDragPlugin();
+				NodeDragContext* This = (NodeDragContext*) shadow->getPlugin(plugin_name, []() {
+					return new NodeDragContext();
 				});
 
 				if (This->hasData) {
@@ -28,7 +28,7 @@ namespace node_drag {
 			bl::on("mouse-drag", [](void *e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-				NodeDragPlugin* This = (NodeDragPlugin*)event->node->getPluginFromShadow(node_drag::plugin_name, nullptr);
+				NodeDragContext* This = (NodeDragContext*) event->node->getPluginFromShadow(node_drag::plugin_name, nullptr);
 
 				if (event->button != Xel::Mouse::Button::Left) return false;
 

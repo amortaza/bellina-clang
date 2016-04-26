@@ -5,7 +5,7 @@
 #include "../mouse-drag/mouse-drag.h"
 
 #include "node-drag.h"
-#include "NodeDragPlugin.h"
+#include "NodeDragContext.h"
 
 using namespace bl;
 using namespace bl::listener;
@@ -20,11 +20,11 @@ namespace node_drag {
 
 	void onNode() {
 
-		NodeDragPlugin* nodeDragPlugin = (NodeDragPlugin* ) bl::current()->getPluginFromShadow(plugin_name, []() {
-			return new NodeDragPlugin();
+		NodeDragContext* nodeDragCtx = (NodeDragContext* ) bl::current()->getPluginFromShadow(plugin_name, []() {
+			return new NodeDragContext();
 		});
 
-		nodeDragPlugin->onNode();
+		nodeDragCtx->onNode();
 	}
 }
 

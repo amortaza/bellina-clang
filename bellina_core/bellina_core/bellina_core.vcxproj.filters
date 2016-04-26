@@ -266,11 +266,11 @@
     <ClInclude Include="bellina\BasePlugin.h">
       <Filter>bellina\bl-plugin</Filter>
     </ClInclude>
-    <ClInclude Include="plugins\node-drag\NodeDragPlugin.h">
-      <Filter>plugins\node-drag</Filter>
-    </ClInclude>
     <ClInclude Include="plugins\resize\ResizeContext.h">
       <Filter>plugins\resize</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\node-drag\NodeDragContext.h">
+      <Filter>plugins\node-drag</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
