@@ -7,7 +7,7 @@ namespace resize {
 
 	public:
 		void onNode() {
-			bl::shadow([](Node* shadow) {
+			bl::shadow([](ShadowNode* shadow) {
 				ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, []() {
 					return new ResizeContext();
 				});

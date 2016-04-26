@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "bl-core.h"
+#include "bl-shadow-node.h"
 #include "bl-node.h"
 #include "bl-globals.h"
 #include "bl-shadow.h"
@@ -10,15 +11,8 @@ using namespace std;
 
 namespace bl {
 	namespace shadow_ {
-		map<string, Node *> shadowNodes;
-		Node* shadowNode;
-
-		void setNodeFromShadow(Node* node, Node* snode) {
-			node->x = snode->x;
-			node->y = snode->y;
-
-			node->dim(snode->w, snode->h);
-		}
+		map<string, ShadowNode *> shadowNodes;
+		ShadowNode* shadowNode;
 	}
 }
 
@@ -26,7 +20,7 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::shadow_;
 
-Node* bl::get_shadow() {
+ShadowNode* bl::get_shadow() {
 	return getShadowNode(current_node);
 }
 
@@ -35,27 +29,27 @@ void bl::shadow(ShadowCallback cb) {
 
 	cb(shadowNode);
 
-	setNodeFromShadow(current_node, shadowNode);
+	shadowNode->copyTo(current_node);
 }
 
 void bl::shadow_::uninit() {
-	typedef map<string, Node*>::iterator it1;
+	typedef map<string, ShadowNode*>::iterator it1;
 
 	for (it1 it = shadowNodes.begin(); it != shadowNodes.end(); it++) {
-		Node* node = it->second;
+		ShadowNode* snode = it->second;
 
-		delete node;
+		delete snode;
 	}
 }
 
-Node* shadow_::getShadowNode(Node* node) {
-	Node* snode = 0;
+ShadowNode* shadow_::getShadowNode(Node* node) {
+	ShadowNode* snode = 0;
 
 	string key(node->nid);
 
 	auto e2 = shadow_::shadowNodes.find(key);
 	if (e2 == shadow_::shadowNodes.end()) {
-		snode = new Node(0);
+		snode = new ShadowNode();
 		snode->x = node->x;
 		snode->y = node->y;
 		snode->w = node->w;

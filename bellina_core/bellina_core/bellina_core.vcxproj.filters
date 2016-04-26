@@ -69,9 +69,6 @@
     <Filter Include="bellina\bl-core\life cycle">
       <UniqueIdentifier>{45fcce16-999e-4a45-88c6-b621ebae23d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="bellina\bl-core\shadow">
-      <UniqueIdentifier>{f8e17940-fbe0-4494-8ee5-2354d601c730}</UniqueIdentifier>
-    </Filter>
     <Filter Include="plugins\z-index">
       <UniqueIdentifier>{a1d1d675-eb10-45b8-971c-1c4863d32d08}</UniqueIdentifier>
     </Filter>
@@ -92,6 +89,12 @@
     </Filter>
     <Filter Include="plugins\node-drag">
       <UniqueIdentifier>{68f3f474-ba8d-42e4-a7bd-7c835eca8b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-om\node">
+      <UniqueIdentifier>{fa57a8c4-172d-49cb-879d-4b3668f99fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bellina\bl-om\shadow">
+      <UniqueIdentifier>{f8e17940-fbe0-4494-8ee5-2354d601c730}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +200,6 @@
     <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
       <Filter>source files\eos</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-node.h">
-      <Filter>bellina\bl-om</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-util.h">
       <Filter>bellina\bl-util</Filter>
     </ClInclude>
@@ -237,7 +237,7 @@
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClInclude>
     <ClInclude Include="bellina\bl-shadow.h">
-      <Filter>bellina\bl-core\shadow</Filter>
+      <Filter>bellina\bl-om\shadow</Filter>
     </ClInclude>
     <ClInclude Include="plugins\z-index\z-index.h">
       <Filter>plugins\z-index</Filter>
@@ -271,6 +271,12 @@
     </ClInclude>
     <ClInclude Include="bellina\BasePluginContext.h">
       <Filter>bellina\bl-plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-node.h">
+      <Filter>bellina\bl-om\node</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\bl-shadow-node.h">
+      <Filter>bellina\bl-om\shadow</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -346,9 +352,6 @@
     <ClCompile Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.cpp">
       <Filter>source files\eos</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-node.cpp">
-      <Filter>bellina\bl-om</Filter>
-    </ClCompile>
     <ClCompile Include="bellina\bl-window.cpp">
       <Filter>bellina\bl-input</Filter>
     </ClCompile>
@@ -380,7 +383,7 @@
       <Filter>bellina\bl-core\life cycle</Filter>
     </ClCompile>
     <ClCompile Include="bellina\bl-shadow.cpp">
-      <Filter>bellina\bl-core\shadow</Filter>
+      <Filter>bellina\bl-om\shadow</Filter>
     </ClCompile>
     <ClCompile Include="plugins\z-index\z-index.cpp">
       <Filter>plugins\z-index</Filter>
@@ -408,6 +411,12 @@
     </ClCompile>
     <ClCompile Include="plugins\node-drag\node-drag.cpp">
       <Filter>plugins\node-drag</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-node.cpp">
+      <Filter>bellina\bl-om\node</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-shadow-node.cpp">
+      <Filter>bellina\bl-om\shadow</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

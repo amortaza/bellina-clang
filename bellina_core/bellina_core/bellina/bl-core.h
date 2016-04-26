@@ -9,7 +9,9 @@ namespace g2 { extern class TextureRef; }
 
 namespace bl { extern class FluentBorder; }
 namespace bl { extern class FluentFont; }
+
 namespace bl { extern class Node; }
+namespace bl { extern class ShadowNode; }
 
 using namespace bl;
 using namespace bl::plugin;
@@ -18,7 +20,7 @@ namespace bl {
 
 	void root();	
 
-	Node* get_shadow();
+	ShadowNode* get_shadow();
 	void shadow(ShadowCallback);
 
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);

@@ -1,12 +1,12 @@
 #pragma once
 
-namespace bl { extern class Node; };
+namespace bl { extern class ShadowNode; };
 
 namespace bl {
 	namespace shadow_ {
-		extern map<string, Node *> shadowNodes;
+		extern map<string, ShadowNode*> shadowNodes;
 
-		Node* getShadowNode(Node* node);
+		ShadowNode* getShadowNode(Node* node);
 
 		void uninit();
 	}

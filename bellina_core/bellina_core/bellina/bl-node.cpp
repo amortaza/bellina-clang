@@ -3,6 +3,7 @@
 #include"g2/g2.h"
 
 #include"bl-globals.h"
+#include"bl-shadow-node.h"
 #include"bl-node.h"
 #include"bl-flags.h"
 #include"bl-echo.h"
@@ -39,7 +40,7 @@ BasePluginContext* Node::getPlugin(char* pluginName, PluginFactory factory) {
 }
 
 BasePluginContext* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
-	Node* shadow = shadow_::getShadowNode(this);
+	ShadowNode* shadow = shadow_::getShadowNode(this);
 
 	return shadow->getPlugin(pluginName, factory);
 }

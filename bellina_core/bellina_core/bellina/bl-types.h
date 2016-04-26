@@ -6,6 +6,7 @@
 using namespace std;
 
 namespace bl { extern class Node; }
+namespace bl { extern class ShadowNode; }
 namespace bl { extern class BasePluginContext; }
 
 namespace bl {
@@ -23,7 +24,7 @@ namespace bl {
 	typedef function<void(void)> PluginOnNode;
 
 	//
-	typedef function<void(Node*)> ShadowCallback;
+	typedef function<void(ShadowNode*)> ShadowCallback;
 	typedef function<void(void*)> ListenerCallback;
 
 	//

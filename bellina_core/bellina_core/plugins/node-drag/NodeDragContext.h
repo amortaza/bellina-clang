@@ -13,7 +13,7 @@ namespace node_drag {
 	public:
 
 		void onNode() {
-			bl::shadow([](Node* shadow) {
+			bl::shadow([](ShadowNode* shadow) {
 				NodeDragContext* This = (NodeDragContext*) shadow->getPlugin(plugin_name, []() {
 					return new NodeDragContext();
 				});
