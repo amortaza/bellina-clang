@@ -3,7 +3,6 @@
 #include "bl-util.h"
 #include "bl-globals.h"
 #include "bl-node.h"
-#include "bl-shadow.h"
 
 using namespace bl;
 using namespace bl::_;
@@ -11,26 +10,6 @@ using namespace bl::util;
 
 namespace bl {
 	namespace util {
-		Node* getShadowNode(Node* node) {
-			Node* snode = 0;
-
-			string key(node->nid);
-
-			auto e2 = shadow_::shadowNodes.find(key);
-			if (e2 == shadow_::shadowNodes.end()) {
-				snode = new Node(0);
-				snode->x = node->x;
-				snode->y = node->y;
-				snode->w = node->w;
-				snode->h = node->h;
-				shadow_::shadowNodes[key] = snode;
-			}
-			else {
-				snode = e2->second;
-			}
-
-			return snode;
-		}
 
 		map<string, Node*>* buildNodeLookup(list<Node*>* nodes) {
 			map<string, Node*>* lookup = new map<string, Node*>();

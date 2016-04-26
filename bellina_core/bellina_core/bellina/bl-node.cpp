@@ -7,6 +7,8 @@
 #include"bl-flags.h"
 #include"bl-echo.h"
 #include"bl-util.h"
+#include"bl-shadow.h"
+
 #include"BasePlugin.h"
 
 using namespace g2;
@@ -26,7 +28,7 @@ BasePlugin* Node::getPlugin(char* pluginName) {
 }
 
 BasePlugin* Node::getPluginFromShadow(char* pluginName) {
-	Node* shadow = util::getShadowNode(this);
+	Node* shadow = shadow_::getShadowNode(this);
 
 	return shadow->getPlugin(pluginName);
 }

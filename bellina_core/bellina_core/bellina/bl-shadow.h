@@ -6,6 +6,8 @@ namespace bl {
 	namespace shadow_ {
 		extern map<string, Node *> shadowNodes;
 
+		Node* getShadowNode(Node* node);
+
 		void uninit();
 	}
 }

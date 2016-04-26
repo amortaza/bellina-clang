@@ -27,11 +27,11 @@ using namespace bl::_;
 using namespace bl::shadow_;
 
 Node* bl::get_shadow() {
-	return util::getShadowNode(current_node);
+	return getShadowNode(current_node);
 }
 
 void bl::shadow(ShadowCallback cb) {
-	shadowNode = util::getShadowNode(current_node);
+	shadowNode = getShadowNode(current_node);
 
 	cb(shadowNode);
 
@@ -46,4 +46,25 @@ void bl::shadow_::uninit() {
 
 		delete node;
 	}
+}
+
+Node* shadow_::getShadowNode(Node* node) {
+	Node* snode = 0;
+
+	string key(node->nid);
+
+	auto e2 = shadow_::shadowNodes.find(key);
+	if (e2 == shadow_::shadowNodes.end()) {
+		snode = new Node(0);
+		snode->x = node->x;
+		snode->y = node->y;
+		snode->w = node->w;
+		snode->h = node->h;
+		shadow_::shadowNodes[key] = snode;
+	}
+	else {
+		snode = e2->second;
+	}
+
+	return snode;
 }
