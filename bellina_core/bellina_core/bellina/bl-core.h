@@ -18,6 +18,7 @@ namespace bl {
 
 	void root();
 
+	Node* get_shadow();
 	void shadow(ShadowCallback);
 
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);

@@ -18,5 +18,7 @@ namespace bl {
 		char* nextGlobalId();
 
 		map<string, Node*>* buildNodeLookup(list<Node*>* nodes);
+
+		Node* getShadowNode(Node* node);
 	}
 }

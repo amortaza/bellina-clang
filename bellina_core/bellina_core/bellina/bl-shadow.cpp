@@ -4,6 +4,7 @@
 #include "bl-node.h"
 #include "bl-globals.h"
 #include "bl-shadow.h"
+#include "bl-util.h"
 
 using namespace std;
 
@@ -12,26 +13,6 @@ namespace bl {
 		map<string, Node *> shadowNodes;
 		Node* shadowNode;
 
-		Node* getShadowNode(Node* node) {
-			Node* snode = 0;
-
-			string key(node->nid);
-
-			auto e2 = shadowNodes.find(key);
-			if (e2 == shadowNodes.end()) {
-				snode = new Node(0);
-				snode->x = node->x;
-				snode->y = node->y;
-				snode->w = node->w;
-				snode->h = node->h;
-				shadowNodes[key] = snode;
-			}
-			else {
-				snode = e2->second;
-			}
-
-			return snode;
-		}
 		void setNodeFromShadow(Node* node, Node* snode) {
 			node->x = snode->x;
 			node->y = snode->y;
@@ -45,8 +26,12 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::shadow_;
 
+Node* bl::get_shadow() {
+	return util::getShadowNode(current_node);
+}
+
 void bl::shadow(ShadowCallback cb) {
-	shadowNode = getShadowNode(current_node);
+	shadowNode = util::getShadowNode(current_node);
 
 	cb(shadowNode);
 

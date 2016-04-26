@@ -172,6 +172,7 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h" />
+    <ClInclude Include="bellina\BasePlugin.h" />
     <ClInclude Include="bellina\bellina.h" />
     <ClInclude Include="bellina\bl-core.h" />
     <ClInclude Include="bellina\bl-echo.h" />
@@ -197,6 +198,7 @@
     <ClInclude Include="plugins\mouse-drag\mouse-drag.h" />
     <ClInclude Include="plugins\mouse-in\mouse-in.h" />
     <ClInclude Include="plugins\node-drag\node-drag.h" />
+    <ClInclude Include="plugins\node-drag\NodeDragPlugin.h" />
     <ClInclude Include="plugins\resize\resize.h" />
     <ClInclude Include="plugins\z-index\order-info.h" />
     <ClInclude Include="plugins\z-index\z-index.h" />

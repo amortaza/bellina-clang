@@ -41,67 +41,33 @@ void Render_My_Bellina() {
 		bl::color(50, 0, 10);
 
 		bl::div(); {
-			
+
 			bl::id("red");
 
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
-			bl::dim(320, 240);
+			bl::dim(160, 120);
 
-			bl::div(); {
-
-				bl::id("green2");
-
-				bl::color(50, 150, 50);
-				bl::pos(20, 20);
-				bl::dim(160, 120);
-
-				//bl::use("click");
-				bl::on("node-drag", [](void* e) {
-					node_drag::NodeDragEvent* event = (node_drag::NodeDragEvent*) e;
-					if (!event->node) printf("no node\n");
-					else printf("node drag %s\n", event->node->nid);
-
-					return false;
-				});
-			}
-			bl::end();
-			
-			/*bl::on("mouse-drag", [](void* e) {
-				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
-
-				printf("mouse drag %i %i\n", event->mx, event->my);
-
+			bl::on("node-drag", [](void* e) {
+				printf("red!\n");
 				return true;
-			});*/
+			});
 
-			/*bl::on("resize", [](void* e) {
-				resize::ResizeEvent* event = (resize::ResizeEvent*) e;
+		} 
+		bl:end();
 
-				printf("resize %i %i\n", event->w, event->h);
-
-				return true;
-			});*/
-		}
-		bl::end();
-
-		/*bl::div(); {
+		bl::div(); {
 
 			bl::id("green");
 
 			bl::color(50, 150, 50);
-			bl::pos(200, 200);
-			bl::dim(320, 240);
-		}
-		bl::end();
-		*/
-		bl::div(); {
+			bl::pos(280, 200);
+			bl::dim(160, 120);
 
-			bl::id("blue");
-
-			bl::color(50, 50, 150);
-			bl::pos(300, 300);
-			bl::dim(320, 240);
+			bl::on("node-drag", [](void* e) {
+				printf("green!\n");
+				return true;
+			});
 		}
 		bl::end();
 	}

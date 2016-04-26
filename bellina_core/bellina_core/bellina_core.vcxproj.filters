@@ -263,6 +263,12 @@
     <ClInclude Include="plugins\node-drag\node-drag.h">
       <Filter>plugins\node-drag</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\BasePlugin.h">
+      <Filter>bellina\bl-plugin</Filter>
+    </ClInclude>
+    <ClInclude Include="plugins\node-drag\NodeDragPlugin.h">
+      <Filter>plugins\node-drag</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

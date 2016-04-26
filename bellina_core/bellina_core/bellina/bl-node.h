@@ -1,21 +1,31 @@
 #pragma once
 
 #include "bl-types.h"
+#include "BasePlugin.h"
 
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
+using namespace std;
+
 namespace bl {
 
 	class Node {
+	private:
+		map<string, BasePlugin*> basePluginMap;
+
+	public:
+		BasePlugin* getPlugin(char* pluginName);
+		BasePlugin* getPluginFromShadow(char* pluginName);
+		void addPlugin(char* pluginName, BasePlugin* plugin);
 
 	public:
 		Point global_pos;
 
-		std::list<NodeMouseScrollCallback> onMouseScroll_callbacks;
-		std::list<NodeMouseMoveCallback> onMouseMove_callbacks;
-		std::list<NodeMouseDownCallback> onMouseDown_callbacks;
-		std::list<NodeMouseUpCallback> onMouseUp_callbacks;
+		list<NodeMouseScrollCallback> onMouseScroll_callbacks;
+		list<NodeMouseMoveCallback> onMouseMove_callbacks;
+		list<NodeMouseDownCallback> onMouseDown_callbacks;
+		list<NodeMouseUpCallback> onMouseUp_callbacks;
 
 		char* nid;
 
@@ -47,7 +57,7 @@ namespace bl {
 		bool label_tops_canvas;
 
 		Node* parent;
-		std::list<Node*> kids;
+		list<Node*> kids;
 
 	public:
 		g2::CanvasRef* canvas;
