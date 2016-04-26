@@ -1,7 +1,8 @@
 #pragma once
 
+#include <map>
+
 #include "bl-types.h"
-#include "BasePlugin.h"
 
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
@@ -12,12 +13,12 @@ namespace bl {
 
 	class Node {
 	private:
-		map<string, BasePlugin*> basePluginMap;
+		map<string, void*> basePluginMap;
 
 	public:
-		BasePlugin* getPlugin(char* pluginName);
-		BasePlugin* getPluginFromShadow(char* pluginName);
-		void addPlugin(char* pluginName, BasePlugin* plugin);
+		void* getPlugin(char* pluginName);
+		void* getPluginFromShadow(char* pluginName);
+		void addPlugin(char* pluginName, void* plugin);
 
 	public:
 		Point global_pos;

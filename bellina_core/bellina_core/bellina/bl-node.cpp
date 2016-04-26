@@ -9,8 +9,6 @@
 #include"bl-util.h"
 #include"bl-shadow.h"
 
-#include"BasePlugin.h"
-
 using namespace g2;
 using namespace g2::flags;
 
@@ -18,7 +16,7 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-BasePlugin* Node::getPlugin(char* pluginName) {
+void* Node::getPlugin(char* pluginName) {
 	string key(pluginName);
 
 	auto e2 = basePluginMap.find(key);
@@ -27,13 +25,13 @@ BasePlugin* Node::getPlugin(char* pluginName) {
 	return e2->second;
 }
 
-BasePlugin* Node::getPluginFromShadow(char* pluginName) {
+void* Node::getPluginFromShadow(char* pluginName) {
 	Node* shadow = shadow_::getShadowNode(this);
 
 	return shadow->getPlugin(pluginName);
 }
 
-void Node::addPlugin(char* pluginName, BasePlugin* plugin) {
+void Node::addPlugin(char* pluginName, void* plugin) {
 	string key(pluginName);
 
 	basePluginMap[key] = plugin;
@@ -205,9 +203,9 @@ Node::~Node() {
 	if (canvas) delete canvas;
 
 	// plugins
-	typedef map<string, BasePlugin*>::iterator it1;
+	typedef map<string, void*>::iterator it1;
 	for (it1 it = basePluginMap.begin(); it != basePluginMap.end(); it++) {
-		BasePlugin* p = (BasePlugin*) it->second;
+		void* p = (void*) it->second;
 		delete p;
 	}
 

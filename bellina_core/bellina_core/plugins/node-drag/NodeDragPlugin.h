@@ -1,12 +1,10 @@
 #pragma once
 
-#include "bellina/BasePlugin.h"
-
 using namespace bl;
 
 namespace node_drag {
 
-	class NodeDragPlugin : public BasePlugin {
+	class NodeDragPlugin {
 
 	public:
 		bool hasData = false;
