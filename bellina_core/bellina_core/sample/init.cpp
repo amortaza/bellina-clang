@@ -48,10 +48,10 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			//bl::on("resize", [](void* e) {
+			bl::on("resize", [](void* e) {
 				//printf("red!\n");
-				//return true;
-			//});
+				return true;
+			});
 
 		} 
 		bl:end();
@@ -64,10 +64,10 @@ void Render_My_Bellina() {
 			bl::pos(180, 120);
 			bl::dim(160, 120);
 
-			//bl::on("resize", [](void* e) {
+			bl::on("resize", [](void* e) {
 				//printf("green!\n");
-				//return true;
-			//});
+				return true;
+			});
 		}
 		bl::end();
 
