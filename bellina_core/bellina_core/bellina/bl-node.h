@@ -14,14 +14,9 @@ using namespace std;
 namespace bl {
 
 	class Node {
-	private:
-		map<string, BasePluginContext*> basePluginMap;
 
 	public:
-		BasePluginContext* getPlugin(char* pluginName, PluginFactory );
 		BasePluginContext* getPluginFromShadow(char* pluginName, PluginFactory);
-
-		void addPlugin(char* pluginName, BasePluginContext* plugin);
 
 	public:
 		Point global_pos;

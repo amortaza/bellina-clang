@@ -19,36 +19,10 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-BasePluginContext* Node::getPlugin(char* pluginName, PluginFactory factory) {
-	string key(pluginName);
-
-	auto e2 = basePluginMap.find(key);
-	if (e2 == basePluginMap.end()) {
-		if (factory == nullptr) {
-			printf("getPlugin \"%s\" did not have a plugin for node id \"%s\".\n", pluginName, nid);
-			return 0;
-		}
-
-		BasePluginContext* plugin = factory();
-
-		addPlugin(pluginName, plugin);
-
-		return plugin;
-	}
-	
-	return e2->second;
-}
-
 BasePluginContext* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
 	ShadowNode* shadow = shadow_::getShadowNode(this);
 
 	return shadow->getPlugin(pluginName, factory);
-}
-
-void Node::addPlugin(char* pluginName, BasePluginContext* plugin) {
-	string key(pluginName);
-
-	basePluginMap[key] = plugin;
 }
 
 Node::Node(Node* parent) {
@@ -215,13 +189,6 @@ Node::~Node() {
 
 	// canvas ref
 	if (canvas) delete canvas;
-
-	// plugins
-	typedef map<string, BasePluginContext*>::iterator it1;
-	for (it1 it = basePluginMap.begin(); it != basePluginMap.end(); it++) {
-		BasePluginContext* p = it->second;
-		delete p;
-	}
 
 	// kids
 	std::list<Node*>::const_iterator iterator;

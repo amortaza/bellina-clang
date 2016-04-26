@@ -11,21 +11,21 @@ using namespace std;
 
 namespace bl {
 	namespace shadow_ {
-		map<string, ShadowNode *> shadowNodes;
-		ShadowNode* shadowNode;
+		map<string, ShadowNode *> shadowNodes;		
 	}
 }
 
 using namespace bl;
 using namespace bl::_;
-using namespace bl::shadow_;
 
 ShadowNode* bl::get_shadow() {
-	return getShadowNode(current_node);
+	return shadow_::getShadowNode(current_node);
 }
 
 void bl::shadow(ShadowCallback cb) {
-	shadowNode = getShadowNode(current_node);
+	ShadowNode* shadowNode;
+
+	shadowNode = shadow_::getShadowNode(current_node);
 
 	cb(shadowNode);
 
