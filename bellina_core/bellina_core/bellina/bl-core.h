@@ -16,7 +16,7 @@ using namespace bl::plugin;
 
 namespace bl {	
 
-	void root();
+	void root();	
 
 	Node* get_shadow();
 	void shadow(ShadowCallback);
@@ -35,6 +35,7 @@ namespace bl {
 	void pluginLoad(PluginLoad);
 
 	void pluginRegister(char* pluginName, PluginInit, PluginOnNode, PluginUninit);
+	void pluginOnNode(char* pluginName, PluginFactory);
 	void pluginCall(char* pluginName, Node* node, void* eventData);
 	bool pluginHasInt(char* pluginName, char* propName);
 	void pluginSetInt(char* pluginName, char* propName, int value);

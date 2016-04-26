@@ -1,14 +1,14 @@
 #pragma once
 
 namespace resize {
-	class ResizeContext {
+	class ResizeContext : public BasePluginContext {
 	private:
 		int newW = 0, newH = 0;
 
 	public:
 		void onNode() {
 			bl::shadow([](Node* shadow) {
-				ResizeContext* This = (ResizeContext*)shadow->getPlugin(plugin_name, []() {
+				ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, []() {
 					return new ResizeContext();
 				});
 

@@ -6,6 +6,7 @@
 using namespace std;
 
 namespace bl { extern class Node; }
+namespace bl { extern class BasePluginContext; }
 
 namespace bl {
 	typedef function<bool(int mx, int my, Node* bubbledFrom)> NodeMouseMoveCallback;
@@ -26,7 +27,7 @@ namespace bl {
 	typedef function<void(void*)> ListenerCallback;
 
 	//
-	typedef function<void*(void)> PluginFactory;
+	typedef function<BasePluginContext*(void)> PluginFactory;
 
 	//	
 	struct BorderSide {

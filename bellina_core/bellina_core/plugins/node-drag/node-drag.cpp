@@ -20,11 +20,9 @@ namespace node_drag {
 
 	void onNode() {
 
-		NodeDragContext* nodeDragCtx = (NodeDragContext* ) bl::current()->getPluginFromShadow(plugin_name, []() {
+		bl::pluginOnNode(plugin_name, []() {
 			return new NodeDragContext();
 		});
-
-		nodeDragCtx->onNode();
 	}
 }
 

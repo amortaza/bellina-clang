@@ -5,6 +5,9 @@
 #include "bl-globals.h"
 #include "bl-plugin.h"
 #include "bl-plugin-bubble.h"
+#include "bl-node.h"
+
+#include "BasePluginContext.h"
 
 using namespace std;
 
@@ -26,6 +29,12 @@ namespace bl {
 			return e2 != pluginMap.end();			
 		}
 	}
+}
+
+void bl::pluginOnNode(char* pluginName, PluginFactory factory) {
+	BasePluginContext* ctx = current_node->getPluginFromShadow(pluginName, factory);
+
+	ctx->onNode();
 }
 
 void bl::pluginSetInt(char* name, char* prop_name, int value) {

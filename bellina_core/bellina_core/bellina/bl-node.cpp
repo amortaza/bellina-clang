@@ -9,6 +9,8 @@
 #include"bl-util.h"
 #include"bl-shadow.h"
 
+//#include "BasePluginContext.h"
+
 using namespace g2;
 using namespace g2::flags;
 
@@ -16,7 +18,7 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-void* Node::getPlugin(char* pluginName, PluginFactory factory) {
+BasePluginContext* Node::getPlugin(char* pluginName, PluginFactory factory) {
 	string key(pluginName);
 
 	auto e2 = basePluginMap.find(key);
@@ -26,7 +28,7 @@ void* Node::getPlugin(char* pluginName, PluginFactory factory) {
 			return 0;
 		}
 
-		void* plugin = factory();
+		BasePluginContext* plugin = factory();
 
 		addPlugin(pluginName, plugin);
 
@@ -36,13 +38,13 @@ void* Node::getPlugin(char* pluginName, PluginFactory factory) {
 	return e2->second;
 }
 
-void* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
+BasePluginContext* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
 	Node* shadow = shadow_::getShadowNode(this);
 
 	return shadow->getPlugin(pluginName, factory);
 }
 
-void Node::addPlugin(char* pluginName, void* plugin) {
+void Node::addPlugin(char* pluginName, BasePluginContext* plugin) {
 	string key(pluginName);
 
 	basePluginMap[key] = plugin;
@@ -214,9 +216,9 @@ Node::~Node() {
 	if (canvas) delete canvas;
 
 	// plugins
-	typedef map<string, void*>::iterator it1;
+	typedef map<string, BasePluginContext*>::iterator it1;
 	for (it1 it = basePluginMap.begin(); it != basePluginMap.end(); it++) {
-		void* p = (void*) it->second;
+		BasePluginContext* p = it->second;
 		delete p;
 	}
 

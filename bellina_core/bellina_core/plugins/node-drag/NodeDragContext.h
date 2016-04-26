@@ -4,7 +4,7 @@ using namespace bl;
 
 namespace node_drag {
 
-	class NodeDragContext {
+	class NodeDragContext : public BasePluginContext {
 
 	public:
 		bool hasData = false;

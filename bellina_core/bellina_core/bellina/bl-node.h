@@ -7,19 +7,21 @@
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
+namespace bl { extern class BasePluginContext; };
+
 using namespace std;
 
 namespace bl {
 
 	class Node {
 	private:
-		map<string, void*> basePluginMap;
+		map<string, BasePluginContext*> basePluginMap;
 
 	public:
-		void* getPlugin(char* pluginName, PluginFactory );
-		void* getPluginFromShadow(char* pluginName, PluginFactory);
+		BasePluginContext* getPlugin(char* pluginName, PluginFactory );
+		BasePluginContext* getPluginFromShadow(char* pluginName, PluginFactory);
 
-		void addPlugin(char* pluginName, void* plugin);
+		void addPlugin(char* pluginName, BasePluginContext* plugin);
 
 	public:
 		Point global_pos;

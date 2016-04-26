@@ -8,17 +8,14 @@
 #include "ResizeContext.h"
 
 using namespace bl;
-using namespace bl::listener;
 
 namespace resize {
 	char* plugin_name = "resize";	
 
 	void onNode() {
-		ResizeContext* resizeCtx = (ResizeContext*)bl::current()->getPluginFromShadow(plugin_name, []() {
+		bl::pluginOnNode(plugin_name, []() {
 			return new ResizeContext();
 		});
-
-		resizeCtx->onNode();
 	}
 }
 

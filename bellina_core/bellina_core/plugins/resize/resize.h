@@ -1,6 +1,6 @@
 #pragma once
 
-#include "bellina/bl-node.h" 
+namespace bl { extern class Node; };
 
 using namespace bl;
 
