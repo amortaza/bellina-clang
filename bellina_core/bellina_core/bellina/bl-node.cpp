@@ -16,19 +16,30 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-void* Node::getPlugin(char* pluginName) {
+void* Node::getPlugin(char* pluginName, PluginFactory factory) {
 	string key(pluginName);
 
 	auto e2 = basePluginMap.find(key);
-	if (e2 == basePluginMap.end()) return 0;
+	if (e2 == basePluginMap.end()) {
+		if (factory == nullptr) {
+			printf("getPlugin \"%s\" did not have a plugin for node id \"%s\".\n", pluginName, nid);
+			return 0;
+		}
+
+		void* plugin = factory();
+
+		addPlugin(pluginName, plugin);
+
+		return plugin;
+	}
 	
 	return e2->second;
 }
 
-void* Node::getPluginFromShadow(char* pluginName) {
+void* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
 	Node* shadow = shadow_::getShadowNode(this);
 
-	return shadow->getPlugin(pluginName);
+	return shadow->getPlugin(pluginName, factory);
 }
 
 void Node::addPlugin(char* pluginName, void* plugin) {

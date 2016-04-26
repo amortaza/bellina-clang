@@ -11,17 +11,12 @@ namespace node_drag {
 		int newX = 0, newY = 0;
 
 	public:
-		NodeDragPlugin() {
-			printf("NodeDragPlugin\n");
-		}
-
-		~NodeDragPlugin() {
-			printf("~NodeDragPlugin\n");
-		}
 
 		void onNode() {
 			bl::shadow([](Node* shadow) {
-				NodeDragPlugin* This = (NodeDragPlugin*)shadow->getPlugin(plugin_name);
+				NodeDragPlugin* This = (NodeDragPlugin*)shadow->getPlugin(plugin_name, []() {
+					return new NodeDragPlugin();
+				});
 
 				if (This->hasData) {
 					shadow->x = This->newX;
@@ -33,7 +28,7 @@ namespace node_drag {
 			bl::on("mouse-drag", [](void *e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-				NodeDragPlugin* This = (NodeDragPlugin*)event->node->getPluginFromShadow(node_drag::plugin_name);
+				NodeDragPlugin* This = (NodeDragPlugin*)event->node->getPluginFromShadow(node_drag::plugin_name, nullptr);
 
 				if (event->button != Xel::Mouse::Button::Left) return false;
 

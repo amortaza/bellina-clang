@@ -16,8 +16,9 @@ namespace bl {
 		map<string, void*> basePluginMap;
 
 	public:
-		void* getPlugin(char* pluginName);
-		void* getPluginFromShadow(char* pluginName);
+		void* getPlugin(char* pluginName, PluginFactory );
+		void* getPluginFromShadow(char* pluginName, PluginFactory);
+
 		void addPlugin(char* pluginName, void* plugin);
 
 	public:

@@ -200,6 +200,7 @@
     <ClInclude Include="plugins\node-drag\node-drag.h" />
     <ClInclude Include="plugins\node-drag\NodeDragPlugin.h" />
     <ClInclude Include="plugins\resize\resize.h" />
+    <ClInclude Include="plugins\resize\ResizeContext.h" />
     <ClInclude Include="plugins\z-index\order-info.h" />
     <ClInclude Include="plugins\z-index\z-index.h" />
     <ClInclude Include="sample\main.h" />

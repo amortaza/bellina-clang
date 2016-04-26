@@ -6,8 +6,6 @@ using namespace bl;
 
 namespace resize {
 	void load();
-	void init();
-	void uninit();
 
 	void onNode();
 

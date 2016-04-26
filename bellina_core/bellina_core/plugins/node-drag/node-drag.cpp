@@ -20,13 +20,9 @@ namespace node_drag {
 
 	void onNode() {
 
-		Node* shadow = get_shadow();
-		NodeDragPlugin* nodeDragPlugin = (NodeDragPlugin*) shadow->getPlugin(plugin_name);
-
-		if (!nodeDragPlugin) {
-			nodeDragPlugin = new NodeDragPlugin();
-			shadow->addPlugin(plugin_name, nodeDragPlugin);
-		}
+		NodeDragPlugin* nodeDragPlugin = (NodeDragPlugin* ) bl::current()->getPluginFromShadow(plugin_name, []() {
+			return new NodeDragPlugin();
+		});
 
 		nodeDragPlugin->onNode();
 	}

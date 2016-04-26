@@ -269,6 +269,9 @@
     <ClInclude Include="plugins\node-drag\NodeDragPlugin.h">
       <Filter>plugins\node-drag</Filter>
     </ClInclude>
+    <ClInclude Include="plugins\resize\ResizeContext.h">
+      <Filter>plugins\resize</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

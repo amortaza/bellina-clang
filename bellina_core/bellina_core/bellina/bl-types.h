@@ -26,7 +26,9 @@ namespace bl {
 	typedef function<void(void*)> ListenerCallback;
 
 	//
-	
+	typedef function<void*(void)> PluginFactory;
+
+	//	
 	struct BorderSide {
 		unsigned char red, green, blue;
 		int thickness;

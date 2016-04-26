@@ -48,8 +48,8 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) {
-				printf("red!\n");
+			bl::on("resize", [](void* e) {
+				//printf("red!\n");
 				return true;
 			});
 
@@ -64,8 +64,8 @@ void Render_My_Bellina() {
 			bl::pos(280, 200);
 			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) {
-				printf("green!\n");
+			bl::on("resize", [](void* e) {
+				//printf("green!\n");
 				return true;
 			});
 		}
