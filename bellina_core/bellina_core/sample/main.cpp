@@ -16,6 +16,8 @@ void OnTick() {
 	}
 	catch (char* msg) {
 		printf("%s\n", msg);
+		int i;
+		cin >> i;
 	}
 
 	Xel::Swap();

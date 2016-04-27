@@ -49,7 +49,7 @@ void Render_My_Bellina() {
 			bl::dim(160, 120);
 
 			bl::use("node-drag");
-			//bl::use("resize");
+			bl::use("resize");
 
 			//bl::use("z-index");
 			//bl::on("resize", [](void* e) {
@@ -68,7 +68,7 @@ void Render_My_Bellina() {
 			bl::pos(180, 120);
 			bl::dim(160, 120);
 
-			bl::use("node-drag");
+			//bl::use("node-drag");
 			//bl::use("resize");
 			/*bl::on("resize", [](void* e) {
 				printf("green!\n");
@@ -77,7 +77,7 @@ void Render_My_Bellina() {
 		}
 		bl::end();
 
-		bl::use("z-index");
+		//bl::use("z-index");
 	}
 	bl::end();
 	
