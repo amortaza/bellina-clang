@@ -7,10 +7,13 @@ namespace resize {
 
 	public:
 		void onNode() {
-			bl::shadow([](ShadowNode* shadow) {
-				ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, []() {
+
+			ResizeContext* This = this;
+
+			bl::shadow([This](ShadowNode* shadow) {
+				/*ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, []() {
 					return new ResizeContext();
-				});
+				});*/
 
 				if (This->newW > 0 && This->newH > 0) {
 					if (This->newW > 16 && This->newH > 16) {
@@ -24,10 +27,10 @@ namespace resize {
 				}
 			});
 
-			bl::on("mouse-drag", [](void* e) {
+			bl::on("mouse-drag", [This](void* e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
-				ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);
+				// ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);
 
 				This->newW = event->node->w + event->deltaX;
 				This->newH = event->node->h + event->deltaY;

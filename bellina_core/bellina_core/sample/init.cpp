@@ -48,10 +48,14 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("resize", [](void* e) {
+			bl::use("node-drag");
+			//bl::use("resize");
+
+			//bl::use("z-index");
+			//bl::on("resize", [](void* e) {
 				//printf("red!\n");
-				return true;
-			});
+				//return true;
+			//});
 
 		} 
 		bl:end();
@@ -64,10 +68,12 @@ void Render_My_Bellina() {
 			bl::pos(180, 120);
 			bl::dim(160, 120);
 
-			bl::on("resize", [](void* e) {
-				//printf("green!\n");
+			bl::use("node-drag");
+			//bl::use("resize");
+			/*bl::on("resize", [](void* e) {
+				printf("green!\n");
 				return true;
-			});
+			});*/
 		}
 		bl::end();
 
@@ -89,7 +95,8 @@ void Init_OnGL() {
 
 	//bl::pluginLoad(mouse_drag::load);
 	bl::pluginLoad(node_drag::load);
-	
+
+	//bl::pluginSetBool(z_index::plugin_name, "")
 	bl::pluginLoad(z_index::load);
 
 	//bl::pluginLoad(mouse_in::load);

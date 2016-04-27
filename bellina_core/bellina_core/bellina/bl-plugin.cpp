@@ -19,7 +19,8 @@ namespace bl {
 	namespace plugin {
 		map<string, Plugin*> pluginMap;
 
-		map<string, int> intMap;
+		map<string, int> pluginIntProperty;
+		map<string, bool> pluginBoolProperty;
 
 		bool isRegistered(char* name) {
 			string key(name);
@@ -42,7 +43,15 @@ void bl::pluginSetInt(char* name, char* prop_name, int value) {
 	key.append(":");
 	key.append(prop_name);
 
-	intMap[key] = value;
+	pluginIntProperty[key] = value;
+}
+
+void bl::pluginSetBool(char* name, char* prop_name, bool value) {
+	string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	pluginBoolProperty[key] = value;
 }
 
 int bl::pluginGetInt(char* name, char* prop_name) {
@@ -50,8 +59,19 @@ int bl::pluginGetInt(char* name, char* prop_name) {
 	key.append(":");
 	key.append(prop_name);
 
-	auto e2 = intMap.find(key);
-	if (e2 == intMap.end()) throw "plugin value not found in pluginGetInt";
+	auto e2 = pluginIntProperty.find(key);
+	if (e2 == pluginIntProperty.end()) throw "plugin value not found in pluginGetInt";
+
+	return e2->second;
+}
+
+bool bl::pluginGetBool(char* name, char* prop_name) {
+	string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	auto e2 = pluginBoolProperty.find(key);
+	if (e2 == pluginBoolProperty.end()) throw "plugin value not found in pluginGetBool";
 
 	return e2->second;
 }
@@ -61,8 +81,19 @@ bool bl::pluginHasInt(char* name, char* prop_name) {
 	key.append(":");
 	key.append(prop_name);
 
-	auto e2 = intMap.find(key);
-	if (e2 == intMap.end()) return false;
+	auto e2 = pluginIntProperty.find(key);
+	if (e2 == pluginIntProperty.end()) return false;
+
+	return true;
+}
+
+bool bl::pluginHasBool(char* name, char* prop_name) {
+	string key(name);
+	key.append(":");
+	key.append(prop_name);
+
+	auto e2 = pluginBoolProperty.find(key);
+	if (e2 == pluginBoolProperty.end()) return false;
 
 	return true;
 }
@@ -131,5 +162,6 @@ void bl::plugin::uninit() {
 	}
 
 	//
-	intMap.clear();
+	pluginIntProperty.clear();
+	pluginBoolProperty.clear();
 }

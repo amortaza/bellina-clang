@@ -39,9 +39,14 @@ namespace bl {
 	void pluginRegister(char* pluginName, PluginInit, PluginOnNode, PluginUninit);
 	void pluginOnNode(char* pluginName, PluginFactory);
 	void pluginCall(char* pluginName, Node* node, void* eventData);
+
 	bool pluginHasInt(char* pluginName, char* propName);
 	void pluginSetInt(char* pluginName, char* propName, int value);
 	int  pluginGetInt(char* pluginName, char* propName);
+
+	bool pluginHasBool(char* pluginName, char* propName);
+	void pluginSetBool(char* pluginName, char* propName, bool value);
+	bool pluginGetBool(char* pluginName, char* propName);
 
 	Node* div();
 	void end();
