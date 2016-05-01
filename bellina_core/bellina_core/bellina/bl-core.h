@@ -32,7 +32,7 @@ namespace bl {
 	void uninit();	
 
 	void use(char* pluginName, char* signature);	
-	void on(char* pluginName, char* signature, PluginCallback* ptrCb);
+	void on(char* pluginName, char* signature, PluginCallback cb);
 
 	//void use_1s(char* pluginName, char* sArg);
 	//void on_1s(char* pluginName, char* sArg, PluginCallback cb);

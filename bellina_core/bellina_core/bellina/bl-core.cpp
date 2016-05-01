@@ -24,6 +24,7 @@ using namespace bl::sys;
 using namespace bl::plugin;
 
 void bl::root() {
+
 	lifecycle::tickBeforeCoreRender();
 
 	root_node = div();

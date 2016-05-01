@@ -19,11 +19,11 @@ namespace bl {
 			public:
 				void bubbleUp(Node* node, char* pluginName, char* signature, void* eventData);
 
-				void addCallback(PluginCallback* ptrCb, Node* node, char* pluginName, char* signature);
-				list<PluginCallback*>* getCallbacks(Node*, char* pluginName, char* signature);
+				void addCallback(PluginCallback cb, Node* node, char* pluginName, char* signature);
+				list<PluginCallback>* getCallbacks(Node*, char* pluginName, char* signature);
 
 			private:				
-				MapList<PluginCallback*> callbackPtrList_By_NodeId_and_PluginName_and_Signature;
+				MapList<PluginCallback> callbacks_By_NodeId_and_PluginName_and_Signature;
 			};
 		}
 	}

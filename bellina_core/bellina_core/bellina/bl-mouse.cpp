@@ -27,16 +27,20 @@ namespace bl {
 		void call_mouse_down(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			bool bubbleUp = true;
 
+			//rintf("call_mouse_down\n");
 			std::list<NodeMouseDownCallback>::const_iterator iterator;
 			for (iterator = node->onMouseDown_callbacks.begin(); iterator != node->onMouseDown_callbacks.end(); ++iterator) {
 				NodeMouseDownCallback cb = *iterator;
 				bl::node = node;
 				bubbleUp = cb(button, mx, my, bubbledFrom);
+				//rintf("ok\n");
 			}
+			//rintf("done.\n");
 
 			// bubble up the event!
 			if (bubbleUp && node->parent) {
 				bl::node = node->parent;
+				//rintf("parent...\n");
 				call_mouse_down(node->parent, button, mx, my, node);
 			}
 		}

@@ -27,7 +27,7 @@ namespace resize {
 				}
 			});
 
-			bl::on("mouse-drag", signature, &(PluginCallback)[This, signature](void* e) {
+			bl::on("mouse-drag", signature, [This, signature](void* e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				// ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);

@@ -29,11 +29,6 @@ g2::TextureRef* jet;
 int frame = 0;
 long double first = time(0);
 
-PluginCallback cb = [](void* data) {
-	printf("hello click\n");
-	return true;
-};
-
 void Render_My_Bellina() {
 
 	frame++;
@@ -63,11 +58,14 @@ void Render_My_Bellina() {
 				return new NodeDragContext();
 			});*/
 
-
-			bl::on("click", "1", new PluginCallback([](void* e) {
-				printf("clicked\n");
-				return true; }));
+			bl::on("mouse-drag", "1", [](void* e) {
+				printf("dragged 1\n");
+				return true; });
 			
+			/*bl::on("click", "2", [](void* e) {
+				printf("clicked 2\n");
+				return true; });*/
+
 			/*bl::on("resize", "2", &(PluginCallback)[](void* data) {
 				printf("hello resize 2\n");
 				return true;

@@ -151,7 +151,7 @@ void bl::on_1s(char* pluginName, char* sArg, PluginCallback cb) {
 	plugin->onNode();
 }*/
 
-void bl::on(char* pluginName, char* signature, PluginCallback* ptrCb) {
+void bl::on(char* pluginName, char* signature, PluginCallback cb) {
 	if (!isRegistered(pluginName)) {
 		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
 		return;
@@ -168,7 +168,7 @@ void bl::on(char* pluginName, char* signature, PluginCallback* ptrCb) {
 
 	Plugin* plugin = e2->second;
 
-	_::pluginBubble->addCallback(ptrCb, current_node, pluginName, signature);
+	_::pluginBubble->addCallback(cb, current_node, pluginName, signature);
 
 	plugin->onNode(signature);
 }

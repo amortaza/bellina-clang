@@ -52,8 +52,9 @@ namespace click {
 
 			return true;
 		});
-
+		
 		bl::onMouseUp([signature](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+			
 			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
 				MouseClickEvent event;
 				event.mx = mx;
@@ -61,6 +62,7 @@ namespace click {
 				event.button = button;
 				event.node = bl::node;
 
+				//printf("mouse up getting called for signature %s\n", signature);
 				bl::pluginCall(plugin_name, signature, bl::node, &event);
 				bl::fire(plugin_name, &event);
 			}

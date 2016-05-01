@@ -4,7 +4,7 @@ template <class T>
 class MapList {
 public:
 	map <string, list<T>* > mapOfList;
-	map <intptr_t, bool> addresses;
+	//map <intptr_t, bool> addresses;
 
 	list<T>* getList(string key) {
 		auto e2 = mapOfList.find(key);
@@ -36,8 +36,8 @@ public:
 
 		listPtr->push_back(valuePtr);
 
-		intptr_t address = (intptr_t)valuePtr;
-		addresses[address] = true;
+		//intptr_t address = (intptr_t)valuePtr;
+		//addresses[address] = true;
 		//printf("addresses= %i\n",addresses.size());
 	}
 
@@ -60,7 +60,7 @@ public:
 		}
 
 		mapOfList.clear();
-		addresses.clear();
+		//addresses.clear();
 	}
 
 	void clear(string key) {

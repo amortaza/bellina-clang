@@ -22,6 +22,7 @@ namespace bl {
 		};
 
 		//extern map<string, Plugin*> pluginByNameSignatureKey;
+		//extern map<string, Plugin*> pluginRegistryByName;
 
 		void uninit();
 

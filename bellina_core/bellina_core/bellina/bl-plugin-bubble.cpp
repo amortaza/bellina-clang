@@ -14,14 +14,15 @@ void PluginBubble::bubbleUp(Node* node, char* pluginName, char* signature, void*
 	Node* parent = node;
 
 	while (bubble && parent) {
-		list<PluginCallback*>* cbs = getCallbacks(parent, pluginName, signature);
-
+		list<PluginCallback>* cbs = getCallbacks(parent, pluginName, signature);
+		//rintf("got callbacks for signature %s\n", signature);
 		if (cbs) {
-			list<PluginCallback*>::const_iterator it;
+			//rintf("cbs size %s %i\n", signature, cbs->size());
+			list<PluginCallback>::const_iterator it;
 			for (it = cbs->begin(); it != cbs->end(); ++it) {
-				PluginCallback* ptrCb = *it;
+				PluginCallback cb = *it;
 
-				bubble = (*ptrCb)(eventData) && bubble;
+				bubble = cb(eventData) && bubble;
 			}			
 		}
 
@@ -29,20 +30,20 @@ void PluginBubble::bubbleUp(Node* node, char* pluginName, char* signature, void*
 	}
 }
 
-list<PluginCallback*>* PluginBubble::getCallbacks(Node* node, char* pluginName, char* signature) {
+list<PluginCallback>* PluginBubble::getCallbacks(Node* node, char* pluginName, char* signature) {
 	string key = util::getPluginKey(node->nid, pluginName, signature);
 
-	list<PluginCallback*>* cbs = callbackPtrList_By_NodeId_and_PluginName_and_Signature.getList(key);
+	list<PluginCallback>* cbs = callbacks_By_NodeId_and_PluginName_and_Signature.getList(key);
 
 	return cbs;
 }
 
-void PluginBubble::addCallback(PluginCallback* ptrCb, Node* node, char* pluginName, char* signature) {
+void PluginBubble::addCallback(PluginCallback cb, Node* node, char* pluginName, char* signature) {
 	string key = util::getPluginKey(node->nid, pluginName, signature);
 
-	callbackPtrList_By_NodeId_and_PluginName_and_Signature.add(key, ptrCb);
+	callbacks_By_NodeId_and_PluginName_and_Signature.add(key, cb);
 }
 
 PluginBubble::~PluginBubble() {
-	callbackPtrList_By_NodeId_and_PluginName_and_Signature.clear();
+	callbacks_By_NodeId_and_PluginName_and_Signature.clear();
 }

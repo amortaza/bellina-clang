@@ -40,7 +40,7 @@ namespace double_click {
 
 	void onNode(char* signature) {
 
-		bl::on("click", signature, &(PluginCallback)[signature](void* e) {
+		bl::on("click", signature, [signature](void* e) {
 
 			click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 			

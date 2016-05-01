@@ -24,6 +24,7 @@ void bl::onMouseUp(NodeMouseUpCallback cb) {
 
 void bl::onMouseDown(NodeMouseDownCallback cb) {
 	current_node->onMouseDown_callbacks.push_back(cb);
+	//printf("mouse down size %i\n", current_node->onMouseDown_callbacks.size());
 }
 
 void bl::onMouseMove(NodeMouseMoveCallback cb) {
