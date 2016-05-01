@@ -15,6 +15,9 @@
 #include "plugins/resize/resize.h"
 #include "plugins/mouse-drag/mouse-drag.h"
 
+#include "plugins/node-drag/NodeDragContext.h"
+
+using namespace node_drag;
 using namespace bl;
 using namespace bl::flags;
 
@@ -34,8 +37,6 @@ void Render_My_Bellina() {
 		printf("FPS = %1.2f\n", (float)frame / delta);
 	}
 
-	//rintf("********************************\n");
-	//rintf("start root\n");
 	bl::root();
 	{
 		bl::color(50, 0, 10);
@@ -48,9 +49,26 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::use("node-drag");
-			bl::use("resize");
+			//bl::use_1s("node-drag", "custome red");
 
+			/*bl::pluginCtxOnNode("mouse-drag", "node-drag", []() {
+				return new NodeDragContext();
+			});*/
+			/*bl::pluginOnNode("resize", "1", []() {
+				return new NodeDragContext();
+			});*/
+
+			bl::on("resize", "1", &(PluginCallback)[](void* data) {
+				printf("hello resize 1\n");
+				return true;
+			});
+			
+			/*bl::on("resize", "2", &(PluginCallback)[](void* data) {
+				printf("hello resize 2\n");
+				return true;
+			});*/
+			
+			
 			//bl::use("z-index");
 			//bl::on("resize", [](void* e) {
 				//printf("red!\n");
@@ -59,25 +77,6 @@ void Render_My_Bellina() {
 
 		} 
 		bl:end();
-
-		bl::div(); {
-
-			bl::id("green");
-
-			bl::color(50, 150, 50);
-			bl::pos(180, 120);
-			bl::dim(160, 120);
-
-			//bl::use("node-drag");
-			//bl::use("resize");
-			/*bl::on("resize", [](void* e) {
-				printf("green!\n");
-				return true;
-			});*/
-		}
-		bl::end();
-
-		//bl::use("z-index");
 	}
 	bl::end();
 	

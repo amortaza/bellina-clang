@@ -7,7 +7,7 @@ namespace focus {
 	void init();
 	void uninit();
 
-	void onNode();
+	void onNode(char* signature);
 
 	extern char* plugin_name;
 

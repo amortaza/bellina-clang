@@ -21,8 +21,13 @@ namespace bl {
 			PluginUninit uninit;
 		};
 
-		extern map<string, Plugin*> pluginMap;
+		//extern map<string, Plugin*> pluginByNameSignatureKey;
 
-		void uninit();		
+		void uninit();
+
+		namespace util {
+			string getPluginKey(char*nodeId, char* pluginName, char* signature);
+			string getPluginKey(char* pluginName, char* signature);
+		}
 	}
 }

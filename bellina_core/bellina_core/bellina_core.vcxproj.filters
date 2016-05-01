@@ -281,6 +281,9 @@
     <ClInclude Include="plugins\z-index\ZIndexContext.h">
       <Filter>plugins\z-index</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-map-list.h">
+      <Filter>bellina\bl-util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

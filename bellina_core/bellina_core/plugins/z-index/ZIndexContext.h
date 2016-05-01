@@ -6,7 +6,7 @@ namespace z_index {
 		return a->order < b->order;
 	}
 
-	class ZIndexContext : public BasePluginContext {
+	class ZIndexContext : public BasePluginCtx {
 
 	public:
 		OrderInfo* orderInfo = 0;
@@ -15,13 +15,13 @@ namespace z_index {
 			if (orderInfo) delete orderInfo;
 		}
 
-		void onNode() {
+		void onNode(char* signature) {
 
 			Node* c = bl::current();
 
 			ShadowNode* shadow = bl::get_shadow();
 			
-			ZIndexContext* ctx = (ZIndexContext*)shadow->getPlugin(z_index::plugin_name, []() {
+			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, signature, []() {
 				return new ZIndexContext();
 			});
 
@@ -40,18 +40,18 @@ namespace z_index {
 			for (it = c->kids.begin(); it != c->kids.end(); ++it) {
 				Node *kid = *it;
 
-				bl::onMouseDownOnNode(kid, [](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				bl::onMouseDownOnNode(kid, [signature](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 					if (button == Xel::Mouse::Button::Left) {
 						Node* parent = bl::node->parent;
 
-						ZIndexContext* This = (ZIndexContext*) parent->getPluginFromShadow(z_index::plugin_name, nullptr);
+						ZIndexContext* This = (ZIndexContext*) parent->getPluginCtxFromShadow(z_index::plugin_name, signature, nullptr);
 
 						This->bringToTop(This->orderInfo, bl::node->nid);
 
 						ZIndexEvent event;
 						event.topNode = bl::node;
 
-						bl::pluginCall(plugin_name, bl::node->parent, &event);
+						bl::pluginCall(plugin_name, signature, bl::node->parent, &event);
 						bl::fire(plugin_name, &event);
 					}
 

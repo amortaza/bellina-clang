@@ -2,8 +2,9 @@
 
 #include"bl-node.h"
 #include"bl-shadow-node.h"
+#include"bl-plugin.h"
 
-#include "BasePluginContext.h"
+#include "BasePluginCtx.h"
 
 using namespace bl;
 
@@ -14,30 +15,30 @@ void ShadowNode::copyTo(Node* target) {
 	target->dim(w, h);
 }
 
-BasePluginContext* ShadowNode::getPlugin(char* pluginName, PluginFactory factory) {
-	string key(pluginName);
+BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, PluginCtxFactory factory) {
+	string key = plugin::util::getPluginKey(pluginName, signature);
 
-	auto e2 = basePluginMap.find(key);
-	if (e2 == basePluginMap.end()) {
+	auto e2 = pluginCtxByNameSignatureKey.find(key);
+	if (e2 == pluginCtxByNameSignatureKey.end()) {
 		if (factory == nullptr) {
 			printf("getPlugin \"%s\" did not have a plugin for node id \"%s\".\n", pluginName, nid);
 			return 0;
 		}
 
-		BasePluginContext* plugin = factory();
+		BasePluginCtx* pluginCtx = factory();
 
-		addPlugin(pluginName, plugin);
+		setPluginCtx(pluginName, signature, pluginCtx);
 
-		return plugin;
+		return pluginCtx;
 	}
 	
 	return e2->second;
 }
 
-void ShadowNode::addPlugin(char* pluginName, BasePluginContext* plugin) {
-	string key(pluginName);
+void ShadowNode::setPluginCtx(char* pluginName, char* signature, BasePluginCtx* pluginCtx) {
+	string key = plugin::util::getPluginKey(pluginName, signature);
 
-	basePluginMap[key] = plugin;
+	pluginCtxByNameSignatureKey[key] = pluginCtx;
 }
 
 ShadowNode::~ShadowNode() {
@@ -45,10 +46,10 @@ ShadowNode::~ShadowNode() {
 	if (nid) delete[] nid;
 
 	// plugins
-	typedef map<string, BasePluginContext*>::iterator it1;
-	for (it1 it = basePluginMap.begin(); it != basePluginMap.end(); it++) {
+	typedef map<string, BasePluginCtx*>::iterator it1;
+	for (it1 it = pluginCtxByNameSignatureKey.begin(); it != pluginCtxByNameSignatureKey.end(); it++) {
 		
-		BasePluginContext* p = it->second;
+		BasePluginCtx* p = it->second;
 
 		delete p;
 	}

@@ -19,10 +19,10 @@ using namespace bl;
 using namespace bl::echo;
 using namespace bl::flags;
 
-BasePluginContext* Node::getPluginFromShadow(char* pluginName, PluginFactory factory) {
+BasePluginCtx* Node::getPluginCtxFromShadow(char* pluginName, char* signature, PluginCtxFactory factory) {
 	ShadowNode* shadow = shadow_::getShadowNode(this);
 
-	return shadow->getPlugin(pluginName, factory);
+	return shadow->getPluginCtx(pluginName, signature, factory);
 }
 
 Node::Node(Node* parent) {

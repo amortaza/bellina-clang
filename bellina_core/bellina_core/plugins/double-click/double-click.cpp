@@ -29,18 +29,18 @@ namespace double_click {
 	}
 
 	void init() {
-		if (bl::pluginHasInt(plugin_name, "duration")) {
+		/*if (bl::pluginHasInt(plugin_name, "duration")) {
 			maxDurationMs = bl::pluginGetInt(plugin_name, "duration");
-		}
+		}*/
 	}
 
 	void uninit() {
 		freeId();
 	}
 
-	void onNode() {
+	void onNode(char* signature) {
 
-		bl::on("click", [](void* e) {
+		bl::on("click", signature, &(PluginCallback)[signature](void* e) {
 
 			click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 			
@@ -48,7 +48,7 @@ namespace double_click {
 				milliseconds diff = duration_cast<milliseconds>(system_clock::now().time_since_epoch()) - lastClickMs;
 
 				if (diff.count() < maxDurationMs) {
-					bl::pluginCall(plugin_name, bl::node, event);
+					bl::pluginCall(plugin_name, signature, bl::node, event);
 					fire(plugin_name, event);
 				}
 

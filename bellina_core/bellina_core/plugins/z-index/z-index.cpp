@@ -10,10 +10,11 @@ using namespace z_index;
 
 namespace z_index {
 	char* plugin_name = "z-index";
+	char* signature = "z-index";
 }
 
-void z_index::onNode() {
-	bl::pluginOnNode(plugin_name, []() {
+void z_index::onNode(char* signature) {
+	bl::pluginCtxOnNode(plugin_name, signature, []() {
 		return new ZIndexContext();
 	});
 }

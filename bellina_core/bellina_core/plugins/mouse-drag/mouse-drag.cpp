@@ -46,7 +46,7 @@ namespace mouse_drag {
 		event.deltaY = deltaY;
 		event.button = lastButton;
 		
-		bl::pluginCall(plugin_name, node, &event);
+		bl::pluginCall(plugin_name, "mouse-drag", node, &event);
 		bl::fire(plugin_name, &event);
 	}
 
@@ -63,7 +63,7 @@ namespace mouse_drag {
 			MouseMoveEvent* event = (MouseMoveEvent*)e;
 			
 			if (dragNodeId) {
-				Node* dragNode = util::getNodeById(dragNodeId);
+				Node* dragNode = bl::util::getNodeById(dragNodeId);
 
 				if (!dragNode) {
 					freeId();
@@ -85,7 +85,7 @@ namespace mouse_drag {
 
 	void uninit() { freeId(); }
 
-	void onNode() {
+	void onNode(char* signature) {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.

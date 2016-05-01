@@ -1,49 +1,48 @@
 #include "stdafx.h"
 
 #include "bl-node.h"
+#include "bl-plugin.h"
 #include "bl-plugin-bubble.h"
 
 using namespace bl;
+using namespace bl::plugin;
 using namespace bl::plugin::bubble;
 
-void PluginBubble::bubbleUp(Node* node, char* pluginName, void* eventData) {
+void PluginBubble::bubbleUp(Node* node, char* pluginName, char* signature, void* eventData) {
 	bool bubble = true;
 
 	Node* parent = node;
 
 	while (bubble && parent) {
-		PluginCallback cb = getCallback(parent, pluginName);
+		list<PluginCallback*>* cbs = getCallbacks(parent, pluginName, signature);
 
-		if (cb) bubble = cb(eventData);
+		if (cbs) {
+			list<PluginCallback*>::const_iterator it;
+			for (it = cbs->begin(); it != cbs->end(); ++it) {
+				PluginCallback* ptrCb = *it;
+
+				bubble = (*ptrCb)(eventData) && bubble;
+			}			
+		}
 
 		parent = parent->parent;
 	}
 }
 
-PluginCallback PluginBubble::getCallback(Node* node, char* pluginName) {
-	std::string key(node->nid);
-	key.append(":");
-	key.append(pluginName);
+list<PluginCallback*>* PluginBubble::getCallbacks(Node* node, char* pluginName, char* signature) {
+	string key = util::getPluginKey(node->nid, pluginName, signature);
 
-	auto e2 = callback_By_NodeId_and_PluginName.find(key);
+	list<PluginCallback*>* cbs = callbackPtrList_By_NodeId_and_PluginName_and_Signature.getList(key);
 
-	if (e2 == callback_By_NodeId_and_PluginName.end()) return nullptr;
-
-	return e2->second;
+	return cbs;
 }
 
-void PluginBubble::setCallback(PluginCallback cb, Node* node, char* pluginName) {
-	std::string key(node->nid);
-	key.append(":");
-	key.append(pluginName);
+void PluginBubble::addCallback(PluginCallback* ptrCb, Node* node, char* pluginName, char* signature) {
+	string key = util::getPluginKey(node->nid, pluginName, signature);
 
-	auto e2 = callback_By_NodeId_and_PluginName.find(key);
-
-	if (e2 != callback_By_NodeId_and_PluginName.end()) throw "There is already a callback registered for this plugin for this node.";
-
-	callback_By_NodeId_and_PluginName[key] = cb;
+	callbackPtrList_By_NodeId_and_PluginName_and_Signature.add(key, ptrCb);
 }
 
 PluginBubble::~PluginBubble() {
-	callback_By_NodeId_and_PluginName.clear();
+	callbackPtrList_By_NodeId_and_PluginName_and_Signature.clear();
 }

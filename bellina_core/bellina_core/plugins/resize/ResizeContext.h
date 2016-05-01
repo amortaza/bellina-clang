@@ -1,12 +1,12 @@
 #pragma once
 
 namespace resize {
-	class ResizeContext : public BasePluginContext {
+	class ResizeContext : public BasePluginCtx {
 	private:
 		int newW = 0, newH = 0;
 
 	public:
-		void onNode() {
+		void onNode(char* signature) {
 
 			ResizeContext* This = this;
 
@@ -27,7 +27,7 @@ namespace resize {
 				}
 			});
 
-			bl::on("mouse-drag", [This](void* e) {
+			bl::on("mouse-drag", signature, &(PluginCallback)[This, signature](void* e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				// ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);
@@ -40,7 +40,7 @@ namespace resize {
 				e2.h = This->newH;
 				e2.node = event->node;
 
-				bl::pluginCall(plugin_name, event->node, &e2);
+				bl::pluginCall(plugin_name, signature, event->node, &e2);
 				bl::fire(plugin_name, &e2);
 
 				return true;

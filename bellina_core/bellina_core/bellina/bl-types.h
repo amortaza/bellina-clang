@@ -7,7 +7,10 @@ using namespace std;
 
 namespace bl { extern class Node; }
 namespace bl { extern class ShadowNode; }
-namespace bl { extern class BasePluginContext; }
+namespace bl { extern class BasePluginCtx; }
+namespace bl { namespace plugin { extern class Plugin; } }
+
+using namespace bl::plugin;
 
 namespace bl {
 	typedef function<bool(int mx, int my, Node* bubbledFrom)> NodeMouseMoveCallback;
@@ -21,14 +24,15 @@ namespace bl {
 	typedef function<void(void)> PluginInit;
 	typedef function<void(void)> PluginUninit;
 	typedef function<bool(void*)> PluginCallback;
-	typedef function<void(void)> PluginOnNode;
+	typedef function<void(char*)> PluginOnNode; // signature
 
 	//
 	typedef function<void(ShadowNode*)> ShadowCallback;
 	typedef function<void(void*)> ListenerCallback;
 
 	//
-	typedef function<BasePluginContext*(void)> PluginFactory;
+	typedef function<BasePluginCtx*(void)> PluginCtxFactory;
+	//typedef function<Plugin*(void)> PluginFactory;
 
 	//	
 	struct BorderSide {

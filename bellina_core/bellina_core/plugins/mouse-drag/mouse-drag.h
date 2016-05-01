@@ -10,7 +10,7 @@ namespace mouse_drag {
 	void init();
 	void uninit();
 
-	void onNode();
+	void onNode(char* signature);
 
 	extern char* plugin_name;
 

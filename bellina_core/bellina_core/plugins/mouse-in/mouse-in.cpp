@@ -31,12 +31,12 @@ namespace mouse_in {
 
 		if (in) {
 			event.isInEvent = true;
-			bl::pluginCall(plugin_name, in, &event);			
+			bl::pluginCall(plugin_name, "mouse-in", in, &event);			
 		}
 
 		if (out) {
 			event.isInEvent = false;
-			bl::pluginCall(plugin_name, out, &event);
+			bl::pluginCall(plugin_name, "mouse-in", out, &event);
 		}
 
 		// note that event.isInEvent is non-sensical here
@@ -81,7 +81,7 @@ namespace mouse_in {
 		freeId();
 	}
 
-	void onNode() {
+	void onNode(char* signature) {
 		// unused in load
 	}
 }

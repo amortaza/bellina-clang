@@ -183,6 +183,7 @@
     <ClInclude Include="bellina\bl-input.h" />
     <ClInclude Include="bellina\bl-lifecycle.h" />
     <ClInclude Include="bellina\bl-listener.h" />
+    <ClInclude Include="bellina\bl-map-list.h" />
     <ClInclude Include="bellina\bl-mouse.h" />
     <ClInclude Include="bellina\bl-node.h" />
     <ClInclude Include="bellina\bl-plugin-bubble.h" />

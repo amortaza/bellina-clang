@@ -7,7 +7,7 @@ using namespace bl;
 namespace node_drag {
 	void load();
 
-	void onNode();
+	void onNode(char* signature);
 
 	extern char* plugin_name;
 

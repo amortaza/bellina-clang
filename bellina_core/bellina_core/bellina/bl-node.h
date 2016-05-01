@@ -7,7 +7,7 @@
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
-namespace bl { extern class BasePluginContext; };
+namespace bl { extern class BasePluginCtx; };
 
 using namespace std;
 
@@ -16,7 +16,7 @@ namespace bl {
 	class Node {
 
 	public:
-		BasePluginContext* getPluginFromShadow(char* pluginName, PluginFactory);
+		BasePluginCtx* getPluginCtxFromShadow(char* pluginName, char* signature, PluginCtxFactory);
 
 	public:
 		Point global_pos;

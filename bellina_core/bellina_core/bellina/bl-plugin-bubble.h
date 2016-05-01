@@ -3,6 +3,9 @@
 #include <map>
 
 #include "bl-types.h"
+#include "bl-map-list.h"
+
+using namespace std;
 
 namespace bl { extern class Node; }
 
@@ -14,13 +17,13 @@ namespace bl {
 				~PluginBubble();
 
 			public:
-				void bubbleUp(Node* node, char* pluginName, void* eventData);
+				void bubbleUp(Node* node, char* pluginName, char* signature, void* eventData);
 
-				void setCallback(PluginCallback cb, Node* node, char* pluginName);
-				PluginCallback getCallback(Node*, char* pluginName);
+				void addCallback(PluginCallback* ptrCb, Node* node, char* pluginName, char* signature);
+				list<PluginCallback*>* getCallbacks(Node*, char* pluginName, char* signature);
 
 			private:				
-				std::map<std::string, PluginCallback> callback_By_NodeId_and_PluginName;
+				MapList<PluginCallback*> callbackPtrList_By_NodeId_and_PluginName_and_Signature;
 			};
 		}
 	}

@@ -9,7 +9,7 @@ namespace mouse_in {
 	void init();
 	void uninit();
 
-	void onNode();
+	void onNode(char* signature);
 
 	extern char* plugin_name;
 

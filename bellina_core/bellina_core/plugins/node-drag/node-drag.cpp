@@ -14,13 +14,13 @@ using namespace std;
 
 namespace node_drag {
 
-	char* plugin_name = "node-drag";
+	char* plugin_name = "node-drag";	
 
 	void load();	
 
-	void onNode() {
+	void onNode(char* signature) {
 
-		bl::pluginOnNode(plugin_name, []() {
+		bl::pluginCtxOnNode(plugin_name, signature, []() {
 			return new NodeDragContext();
 		});
 	}

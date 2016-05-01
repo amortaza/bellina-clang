@@ -12,8 +12,8 @@ using namespace bl;
 namespace resize {
 	char* plugin_name = "resize";	
 
-	void onNode() {
-		bl::pluginOnNode(plugin_name, []() {
+	void onNode(char* signature) {
+		bl::pluginCtxOnNode(plugin_name, signature, []() {
 			return new ResizeContext();
 		});
 	}

@@ -39,7 +39,7 @@ namespace focus {
 				focusEvent.keyDownEvent = event;
 				focusEvent.node = node;
 				
-				bl::pluginCall(plugin_name, node, &focusEvent);
+				bl::pluginCall(plugin_name, "focus", node, &focusEvent);
 				bl::fire(plugin_name, &focusEvent);
 			}			
 		});
@@ -49,7 +49,7 @@ namespace focus {
 		freeId();
 	}
 
-	void onNode() {
+	void onNode(char* signature) {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {

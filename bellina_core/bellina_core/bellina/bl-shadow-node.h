@@ -4,7 +4,7 @@
 
 #include "bl-types.h"
 
-namespace bl { extern class BasePluginContext; };
+namespace bl { extern class BasePluginCtx; };
 
 using namespace std;
 
@@ -13,11 +13,11 @@ namespace bl {
 	class ShadowNode {
 
 	private:
-		map<string, BasePluginContext*> basePluginMap;
+		map<string, BasePluginCtx*> pluginCtxByNameSignatureKey;
 
 	public:
-		BasePluginContext* getPlugin(char* pluginName, PluginFactory );
-		void addPlugin(char* pluginName, BasePluginContext* plugin);
+		BasePluginCtx* getPluginCtx(char* pluginName, char* signature, PluginCtxFactory );
+		void setPluginCtx(char* pluginName, char* signature, BasePluginCtx* pluginCtx);
 
 		void copyTo(Node* target);
 

@@ -12,4 +12,4 @@
 #include "bl-echo.h"
 #include "bl-sys.h"
 
-#include "BasePluginContext.h"
+#include "BasePluginCtx.h"
