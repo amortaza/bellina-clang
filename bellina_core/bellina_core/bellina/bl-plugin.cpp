@@ -35,7 +35,7 @@ namespace bl {
 
 void bl::pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory factory) {
 	BasePluginCtx* ctx = current_node->getPluginCtxFromShadow(pluginName, signature, factory);
-
+	
 	ctx->onNode(signature);
 }
 

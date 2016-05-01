@@ -7,7 +7,7 @@ namespace resize {
 
 	public:
 		void onNode(char* signature) {
-
+			
 			ResizeContext* This = this;
 
 			bl::shadow([This](ShadowNode* shadow) {

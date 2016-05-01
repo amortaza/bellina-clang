@@ -38,6 +38,7 @@ public:
 
 		intptr_t address = (intptr_t)valuePtr;
 		addresses[address] = true;
+		//printf("addresses= %i\n",addresses.size());
 	}
 
 	int size(string key) {
