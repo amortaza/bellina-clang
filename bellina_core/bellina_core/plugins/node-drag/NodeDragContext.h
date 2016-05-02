@@ -20,15 +20,15 @@ namespace node_drag {
 			
 			NodeDragContext* This = this;
 
-			/*todo bl::shadow([This] (ShadowNode* shadow) {
+			bl::shadow([This] (ShadowNode* shadow) {
 				if (This->hasData) {
 					shadow->x = This->newX;
 					shadow->y = This->newY;
 					This->hasData = false;
 				}
-			});*/
+			});
 
-			/*todo bl::on("mouse-drag", [This] (void *e) {
+			bl::on("mouse-drag", [This] (void *e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				if (event->button != Xel::Mouse::Button::Left) return false;
@@ -48,7 +48,7 @@ namespace node_drag {
 				bl::fire(plugin_name, &nde);
 
 				return false;
-			});*/
+			});
 		}
 	};
 }

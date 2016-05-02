@@ -21,7 +21,7 @@ namespace click {
 	}
 
 	void init() {
-		/*todo bl::listenLongTerm("mouse-down", [] (void* data) {
+		bl::listenLongTerm("mouse-down", [] (void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId) ) {
@@ -35,7 +35,7 @@ namespace click {
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId)) {
 				freeId();
 			}
-		});*/
+		});
 	}
 
 	void uninit() {
@@ -44,7 +44,7 @@ namespace click {
 
 	void onNode(char* signature, PluginCtxFactory factory) {
 
-		/*todo bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
 
 			lastDownNodeId = _strdup(bl::node->nid);
@@ -70,7 +70,7 @@ namespace click {
 			freeId();
 
 			return true;
-		});*/
+		});
 	}
 }
 

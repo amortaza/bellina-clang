@@ -20,16 +20,16 @@ namespace focus {
 	}
 
 	void init() {
-		/*todo bl::listenLongTerm("mouse-down", [] (void* data) {
+		bl::listenLongTerm("mouse-down", [] (void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
 				// blur
 				freeId();
 			}
-		});*/
+		});
 
-		/*todo bl::listenLongTerm("key-down", [] (void* e) {
+		bl::listenLongTerm("key-down", [] (void* e) {
 			KeyDownEvent* event = (KeyDownEvent*)e;
 
 			if (focusNodeId) {
@@ -42,7 +42,7 @@ namespace focus {
 				bl::pluginCall(plugin_name, "focus", node, &focusEvent);
 				bl::fire(plugin_name, &focusEvent);
 			}			
-		});*/
+		});
 	}
 
 	void uninit() {
@@ -52,7 +52,7 @@ namespace focus {
 	void onNode(char* signature, PluginCtxFactory factory) {
 		bl::color(200, 255, 35);
 
-		/*todo bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			freeId();
 
 			focusNodeId = _strdup(bl::node->nid);
@@ -60,7 +60,7 @@ namespace focus {
 			//rintf("focus node id is %s\n", focusNodeId);
 
 			return true;
-		});*/
+		});
 	}
 }
 

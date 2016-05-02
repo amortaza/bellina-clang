@@ -17,7 +17,6 @@ using namespace bl::plugin;
 
 namespace bl {
 	namespace plugin {
-		//map<string, Plugin*> pluginByNameSignatureKey;
 		map<string, Plugin*> pluginRegistryByName;
 
 		map<string, int> pluginIntProperty;
@@ -127,7 +126,7 @@ void bl::pluginRegister(char* pluginName,
 
 
 void bl::use(char* pluginName) {
-	bl::use(pluginName, "default", 0);
+	bl::use(pluginName, "default", nullptr);
 }
 
 void bl::use(char* pluginName, char* signature, PluginCtxFactory factory) {
@@ -153,10 +152,10 @@ void bl::on_1s(char* pluginName, char* sArg, PluginCallback cb) {
 	_::pluginBubble->setCallback(cb, current_node, pluginName);
 
 	plugin->onNode();
-}*/
-
+}
+*/
 void bl::on(char* pluginName, PluginCallback cb) {
-	bl::on(pluginName, "default", 0, cb);
+	bl::on(pluginName, "default", nullptr, cb);
 }
 
 void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb) {

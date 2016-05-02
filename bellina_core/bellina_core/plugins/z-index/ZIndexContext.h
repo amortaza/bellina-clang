@@ -27,7 +27,7 @@ namespace z_index {
 
 			ShadowNode* shadow = bl::get_shadow();
 			
-			/*todo ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", [] () {
+			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", [] () {
 				return new ZIndexContext("default");
 			});
 
@@ -41,14 +41,14 @@ namespace z_index {
 
 			nodeById->clear();
 			delete nodeById;
-			*/
+			
 			char* signature = _signature;
 			
 			list<Node*>::const_iterator it;
 			for (it = c->kids.begin(); it != c->kids.end(); ++it) {
 				Node *kid = *it;
 
-				/*todo bl::onMouseDownOnNode(kid, [signature] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+				bl::onMouseDownOnNode(kid, [signature] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 					if (button == Xel::Mouse::Button::Left) {
 						Node* parent = bl::node->parent;
 
@@ -64,7 +64,7 @@ namespace z_index {
 					}
 
 					return true;
-				});*/
+				});
 			}
 		}
 

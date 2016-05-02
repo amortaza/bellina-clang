@@ -14,9 +14,9 @@ namespace resize {
 
 	void onNode(char* signature, PluginCtxFactory factory) {
 		
-		/*todo bl::pluginCtxOnNode(plugin_name, "default", [] () {
+		bl::pluginCtxOnNode(plugin_name, "default", [] () {
 			return new ResizeContext();
-		});*/
+		});
 	}
 }
 

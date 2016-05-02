@@ -17,12 +17,12 @@ namespace resize {
 			
 			ResizeContext* This = this;
 
-			/*todo bl::shadow([This] (ShadowNode* shadow) {
+			bl::shadow([This] (ShadowNode* shadow) {
 				/*ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, [] () {
 					return new ResizeContext();
 				});*/
 
-				/*if (This->newW > 0 && This->newH > 0) {
+				if (This->newW > 0 && This->newH > 0) {
 					if (This->newW > 16 && This->newH > 16) {
 						shadow->w = This->newW;
 						shadow->h = This->newH;
@@ -32,9 +32,9 @@ namespace resize {
 
 					This->newW = This->newH = 0;
 				}
-			});*/
+			});
 
-			/*todo bl::on("mouse-drag", [This] (void* e) {
+			bl::on("mouse-drag", [This] (void* e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				// ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);
@@ -51,7 +51,7 @@ namespace resize {
 				bl::fire(plugin_name, &e2);
 
 				return true;
-			});*/
+			});
 		}
 	};
 }

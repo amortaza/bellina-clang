@@ -40,7 +40,7 @@ namespace double_click {
 
 	void onNode(char* signature, PluginCtxFactory factory) {
 
-		/*todo bl::on("click", [] (void* e) {
+		bl::on("click", [] (void* e) {
 
 			click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 			
@@ -63,7 +63,7 @@ namespace double_click {
 			}
 			
 			return true;
-		});*/
+		});
 	}
 }
 
