@@ -22,12 +22,20 @@ namespace bl {
 		map<string, int> pluginIntProperty;
 		map<string, bool> pluginBoolProperty;
 
-		bool isRegistered(char* name) {
-			string key(name);
+		namespace util {
+			Plugin *getPluginByName(char* pluginName) {
+				string key(pluginName);
 
-			auto e2 = pluginRegistryByName.find(key);
-			
-			return e2 != pluginRegistryByName.end();
+				auto e2 = pluginRegistryByName.find(key);
+
+				if (e2 == pluginRegistryByName.end()) return 0;
+
+				return e2->second;
+			}
+
+			bool isRegistered(char* name) {
+				return getPluginByName(name) != 0;
+			}
 		}
 	}
 }
@@ -104,11 +112,12 @@ void bl::pluginLoad(PluginLoad load) {
 
 void bl::pluginRegister(char* pluginName, 
 						PluginInit init, 
-						PluginOnNode onNode, 
+						PluginCtxFactory default_factory,
+						PluginOnNode on_node,
 						PluginUninit uninit) {
 
-	if (plugin::isRegistered(pluginName)) {
-		printf("Plugin \"%s\" is already loaded.  Ignoring re-load request.\n", pluginName);
+	if (plugin::util::isRegistered(pluginName)) {
+		// rintf("Plugin \"%s\" is already loaded.  Ignoring re-load request.\n", pluginName);
 		return;
 	}
 
@@ -116,7 +125,8 @@ void bl::pluginRegister(char* pluginName,
 
 	plugin->name.assign(pluginName, strlen(pluginName));
 	plugin->init = init;
-	plugin->onNode = onNode;
+	plugin->default_factory = default_factory;
+	plugin->on_node = on_node;
 	plugin->uninit = uninit;
 
 	pluginRegistryByName[plugin->name] = plugin;
@@ -151,7 +161,7 @@ void bl::on_1s(char* pluginName, char* sArg, PluginCallback cb) {
 
 	_::pluginBubble->setCallback(cb, current_node, pluginName);
 
-	plugin->onNode();
+	plugin->on_node();
 }
 */
 void bl::on(char* pluginName, PluginCallback cb) {
@@ -159,7 +169,7 @@ void bl::on(char* pluginName, PluginCallback cb) {
 }
 
 void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb) {
-	if (!isRegistered(pluginName)) {
+	if (!util::isRegistered(pluginName)) {
 		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
 		return;
 	}
@@ -177,7 +187,7 @@ void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginC
 
 	_::pluginBubble->addCallback(cb, current_node, pluginName, signature);
 
-	plugin->onNode(signature, factory);
+	plugin->on_node(signature, factory);
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {

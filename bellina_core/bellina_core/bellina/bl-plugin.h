@@ -17,16 +17,17 @@ namespace bl {
 			string name;
 
 			PluginInit init;
-			PluginOnNode onNode;
+			PluginOnNode on_node;
+			PluginCtxFactory default_factory;
 			PluginUninit uninit;
 		};
-
-		//extern map<string, Plugin*> pluginByNameSignatureKey;
-		//extern map<string, Plugin*> pluginRegistryByName;
 
 		void uninit();
 
 		namespace util {
+			bool isRegistered(char* name);
+			Plugin *getPluginByName(char* pluginName);
+
 			string getPluginKey(char*nodeId, char* pluginName, char* signature);
 			string getPluginKey(char* pluginName, char* signature);
 		}

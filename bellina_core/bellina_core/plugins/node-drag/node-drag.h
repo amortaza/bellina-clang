@@ -6,7 +6,7 @@ using namespace bl;
 
 namespace node_drag {
 	void load();
-
+	
 	extern char* plugin_name;
 
 	struct NodeDragEvent {

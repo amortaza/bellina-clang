@@ -18,11 +18,12 @@ namespace node_drag {
 
 	void load();	
 
-	void onNode(char* signature, PluginCtxFactory factory) {
+	void on_node(char* signature, PluginCtxFactory factory) {
+		bl::pluginCtxOnNode(plugin_name, signature, factory);
+	}
 
-		bl::pluginCtxOnNode(plugin_name, "default", [] () {
-			return new NodeDragContext();
-		});
+	NodeDragContext* default_factory() {
+		return new NodeDragContext();
 	}
 }
 
@@ -32,6 +33,7 @@ void node_drag::load() {
 	bl::pluginRegister(
 		node_drag::plugin_name,
 		nullptr,
-		node_drag::onNode,
+		node_drag::default_factory,
+		node_drag::on_node,
 		nullptr);
 }

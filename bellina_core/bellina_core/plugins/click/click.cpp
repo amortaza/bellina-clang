@@ -42,7 +42,7 @@ namespace click {
 		freeId();
 	}
 
-	void onNode(char* signature, PluginCtxFactory factory) {
+	void on_node(char* signature, PluginCtxFactory factory) {
 
 		bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
@@ -78,6 +78,7 @@ void click::load() {
 	bl::pluginRegister(
 		click::plugin_name, 
 		click::init, 
-		click::onNode, 
+		nullptr,
+		click::on_node,
 		click::uninit);
 }

@@ -43,7 +43,7 @@ namespace bl {
 
 	void pluginLoad(PluginLoad);
 
-	void pluginRegister(char* pluginName, PluginInit, PluginOnNode, PluginUninit);
+	void pluginRegister(char* pluginName, PluginInit, PluginCtxFactory default_factory, PluginOnNode, PluginUninit);
 	void pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory);
 	void pluginCall(char* pluginName, char* signature, Node* node, void* eventData);
 

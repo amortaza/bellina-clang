@@ -88,5 +88,6 @@ void mouse_in::load() {
 		mouse_in::plugin_name,
 		mouse_in::init,
 		nullptr,
+		nullptr,
 		mouse_in::uninit);
 }

@@ -11,14 +11,12 @@ namespace z_index {
 	public:
 		OrderInfo* orderInfo = 0;
 
-		ZIndexContext(char* signature) : BasePluginCtx(signature) {
+		ZIndexContext() : BasePluginCtx("default") {
 		}
 
 		~ZIndexContext() {
 			if (orderInfo) delete orderInfo;
 		}
-
-		char* signature = _signature;
 
 		// does not need signature or factory cause "this" already exits...
 		void pluginOnNode() {
@@ -27,9 +25,7 @@ namespace z_index {
 
 			ShadowNode* shadow = bl::get_shadow();
 			
-			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", [] () {
-				return new ZIndexContext("default");
-			});
+			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", nullptr);
 
 			if (!ctx->orderInfo)
 				ctx->orderInfo = new OrderInfo(c);

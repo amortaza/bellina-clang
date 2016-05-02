@@ -38,7 +38,7 @@ namespace double_click {
 		freeId();
 	}
 
-	void onNode(char* signature, PluginCtxFactory factory) {
+	void on_node(char* signature, PluginCtxFactory factory) {
 
 		bl::on("click", [] (void* e) {
 
@@ -73,6 +73,7 @@ void double_click::load() {
 	bl::pluginRegister(
 		double_click::plugin_name,
 		double_click::init,
-		double_click::onNode,
+		nullptr,
+		double_click::on_node,
 		double_click::uninit);
 }

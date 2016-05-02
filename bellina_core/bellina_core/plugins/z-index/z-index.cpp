@@ -12,15 +12,18 @@ namespace z_index {
 	char* plugin_name = "z-index";
 }
 
-void z_index::onNode(char* signature, PluginCtxFactory factory) {
-	bl::pluginCtxOnNode(plugin_name, "default", [] () {
-		return new ZIndexContext("default");
-	});
+void z_index::on_node(char* signature, PluginCtxFactory factory) {
+	bl::pluginCtxOnNode(plugin_name, signature, factory);
+}
+
+ZIndexContext* z_index::default_factory() {
+	return new ZIndexContext();
 }
 
 void z_index::load() {
 	bl::pluginRegister(	z_index::plugin_name, 
 						nullptr, 
-						z_index::onNode, 
+						z_index::default_factory,
+						z_index::on_node,
 						nullptr);
 }

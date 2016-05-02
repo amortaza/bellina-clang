@@ -58,21 +58,22 @@ void Render_My_Bellina() {
 				return new NodeDragContext();
 			});*/
 
-			bl::on("resize", [] (void* e) {
+			/*bl::on("resize", [] (void* e) {
 				printf("resize\n");
-				return true; });
+				return true; });*/
 
-			bl::on("node-drag", [] (void* e) {
+			/*bl::on("node-drag", [] (void* e) {
 				printf("node drag\n");
-				return true; });
+				return true; });*/
 			
 			/*			bl::on("click", "default", [] (void* e) {
 				printf("click 1\n");
 				return true; });
-			
-			bl::on("click", "default", [] (void* e) {
+			*/
+
+			bl::on("click", [](void* e) {
 				printf("clicked 2\n");
-				return true; });*/
+				return true; });
 
 			/*bl::on("resize", "2", &(PluginCallback)[] (void* data) {
 				printf("hello resize 2\n");

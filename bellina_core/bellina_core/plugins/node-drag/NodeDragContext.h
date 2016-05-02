@@ -12,8 +12,7 @@ namespace node_drag {
 
 	public:
 
-		NodeDragContext() : BasePluginCtx("default") {
-		}
+		NodeDragContext() : BasePluginCtx("default") {}
 
 		// does not need signature or factory cause "this" already exits...
 		void pluginOnNode() {

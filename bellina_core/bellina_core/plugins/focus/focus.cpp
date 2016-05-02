@@ -49,7 +49,7 @@ namespace focus {
 		freeId();
 	}
 
-	void onNode(char* signature, PluginCtxFactory factory) {
+	void on_node(char* signature, PluginCtxFactory factory) {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
@@ -68,6 +68,7 @@ void focus::load() {
 	bl::pluginRegister(
 		focus::plugin_name, 
 		focus::init, 
-		focus::onNode, 
+		nullptr,
+		focus::on_node,
 		focus::uninit);
 }

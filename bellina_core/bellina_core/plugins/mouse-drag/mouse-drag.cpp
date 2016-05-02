@@ -86,7 +86,7 @@ namespace mouse_drag {
 
 	void uninit() { freeId(); }
 
-	void onNode(char* signature, PluginCtxFactory factory) {
+	void on_node(char* signature, PluginCtxFactory factory) {
 
 		bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.
@@ -113,9 +113,10 @@ namespace mouse_drag {
 void mouse_drag::load() {
 	bl::pluginLoad(click::load);
 
-	bl::pluginRegister(	
+	bl::pluginRegister(
 		mouse_drag::plugin_name, 
 		mouse_drag::init,
-		mouse_drag::onNode,
+		nullptr,
+		mouse_drag::on_node,
 		mouse_drag::uninit);
 }
