@@ -29,9 +29,9 @@ namespace double_click {
 	}
 
 	void init() {
-		/*if (bl::pluginHasInt(plugin_name, "duration")) {
+		if (bl::pluginHasInt(plugin_name, "duration")) {
 			maxDurationMs = bl::pluginGetInt(plugin_name, "duration");
-		}*/
+		}
 	}
 
 	void uninit() {

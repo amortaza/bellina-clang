@@ -46,7 +46,7 @@ void bl::pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory fac
 	ctx->pluginOnNode();
 }
 
-/*void bl::pluginSetInt(char* name, char* prop_name, int value) {
+void bl::pluginSetInt(char* name, char* prop_name, int value) {
 	string key(name);
 	key.append(":");
 	key.append(prop_name);
@@ -104,7 +104,7 @@ bool bl::pluginHasBool(char* name, char* prop_name) {
 	if (e2 == pluginBoolProperty.end()) return false;
 
 	return true;
-}*/
+}
 
 void bl::pluginLoad(PluginLoad load) {
 	load();
@@ -143,27 +143,6 @@ void bl::use(char* pluginName, char* signature, PluginCtxFactory factory) {
 	on(pluginName, signature, factory, nullptr);
 }
 
-/*void bl::use_1s(char* pluginName, char* sArg) {
-	on_1s(pluginName, sArg, nullptr);
-}
-
-void bl::on_1s(char* pluginName, char* sArg, PluginCallback cb) {
-	if (!isRegistered(pluginName)) {
-		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
-		return;
-	}
-
-	string key(pluginName);
-
-	auto e2 = pluginMap.find(key);
-
-	Plugin* plugin = e2->second;
-
-	_::pluginBubble->setCallback(cb, current_node, pluginName);
-
-	plugin->on_node();
-}
-*/
 void bl::on(char* pluginName, PluginCallback cb) {
 	bl::on(pluginName, "default", nullptr, cb);
 }

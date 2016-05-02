@@ -38,22 +38,19 @@ namespace bl {
 	void use(char* pluginName, char* signature, PluginCtxFactory factory);
 	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);
 
-	//void use_1s(char* pluginName, char* sArg);
-	//void on_1s(char* pluginName, char* sArg, PluginCallback cb);
-
 	void pluginLoad(PluginLoad);
 
 	void pluginRegister(char* pluginName, PluginInit, PluginCtxFactory default_factory, PluginOnNode, PluginUninit);
 	void pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory);
 	void pluginCall(char* pluginName, char* signature, Node* node, void* eventData);
 
-	/*bool pluginHasInt(char* pluginName, char* propName);
+	bool pluginHasInt(char* pluginName, char* propName);
 	void pluginSetInt(char* pluginName, char* propName, int value);
 	int  pluginGetInt(char* pluginName, char* propName);
 
 	bool pluginHasBool(char* pluginName, char* propName);
 	void pluginSetBool(char* pluginName, char* propName, bool value);
-	bool pluginGetBool(char* pluginName, char* propName);*/
+	bool pluginGetBool(char* pluginName, char* propName);
 
 	Node* div();
 	void end();
