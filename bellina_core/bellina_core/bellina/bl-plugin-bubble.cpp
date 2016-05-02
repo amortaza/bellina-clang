@@ -39,6 +39,8 @@ list<PluginCallback>* PluginBubble::getCallbacks(Node* node, char* pluginName, c
 }
 
 void PluginBubble::addCallback(PluginCallback cb, Node* node, char* pluginName, char* signature) {
+	if (cb == nullptr) return;
+
 	string key = util::getPluginKey(node->nid, pluginName, signature);
 
 	callbacks_By_NodeId_and_PluginName_and_Signature.add(key, cb);

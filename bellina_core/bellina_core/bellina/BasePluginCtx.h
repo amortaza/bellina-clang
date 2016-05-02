@@ -15,7 +15,7 @@ namespace bl {
 		virtual ~BasePluginCtx() {			
 			if (_signature) {
 				delete[] _signature; 
-				printf("cleared signature of BasePluginCtx\n");
+				//rintf("cleared signature of BasePluginCtx\n");
 			}
 		}
 	};
