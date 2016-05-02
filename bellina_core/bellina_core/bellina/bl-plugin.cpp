@@ -36,7 +36,7 @@ namespace bl {
 void bl::pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory factory) {
 	BasePluginCtx* ctx = current_node->getPluginCtxFromShadow(pluginName, signature, factory);
 	
-	ctx->onNode(signature);
+	ctx->onNode();
 }
 
 /*void bl::pluginSetInt(char* name, char* prop_name, int value) {
@@ -170,7 +170,7 @@ void bl::on(char* pluginName, char* signature, PluginCallback cb) {
 
 	_::pluginBubble->addCallback(cb, current_node, pluginName, signature);
 
-	plugin->onNode(signature);
+	plugin->onNode();
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {

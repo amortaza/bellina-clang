@@ -19,6 +19,7 @@ BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, Plugi
 	string key = plugin::util::getPluginKey(pluginName, signature);
 
 	auto e2 = pluginCtxByNameSignatureKey.find(key);
+
 	if (e2 == pluginCtxByNameSignatureKey.end()) {
 		if (factory == nullptr) {
 			printf("getPlugin \"%s\" did not have a plugin for node id \"%s\".\n", pluginName, nid);

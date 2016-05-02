@@ -24,7 +24,7 @@ namespace bl {
 	typedef function<void(void)> PluginInit;
 	typedef function<void(void)> PluginUninit;
 	typedef function<bool(void*)> PluginCallback;
-	typedef function<void(char*)> PluginOnNode; // signature
+	typedef function<void(void)> PluginOnNode; // signature
 
 	//
 	typedef function<void(ShadowNode*)> ShadowCallback;
