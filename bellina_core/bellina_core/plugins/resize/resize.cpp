@@ -12,11 +12,11 @@ using namespace bl;
 namespace resize {
 	char* plugin_name = "resize";	
 
-	void onNode() {
+	void onNode(char* signature, PluginCtxFactory factory) {
 		
-		bl::pluginCtxOnNode(plugin_name, "default", []() {
-			return new ResizeContext("default");
-		});
+		/*todo bl::pluginCtxOnNode(plugin_name, "default", [] () {
+			return new ResizeContext();
+		});*/
 	}
 }
 

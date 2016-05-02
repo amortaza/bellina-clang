@@ -6,11 +6,11 @@ namespace bl {
 		char* _signature = 0;
 
 		BasePluginCtx(char* signature) {
-			this->_signature = _strdup(signature);
+			_signature = _strdup(signature);
 			printf("set signature of BasePluginCtx\n");
 		}
 
-		virtual void onNode() = 0;
+		virtual void pluginOnNode() = 0;
 
 		virtual ~BasePluginCtx() {			
 			if (_signature) {

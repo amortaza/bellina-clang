@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+
 #include "Xel/Xel.h"
 
 using namespace std;
@@ -19,19 +20,19 @@ namespace bl {
 	typedef function<bool(int amount, int mx, int my, Node* bubbledFrom)> NodeMouseScrollCallback;
 
 	//
+	typedef function<BasePluginCtx*(void)> PluginCtxFactory;
 
 	typedef function<void(void)> PluginLoad;
 	typedef function<void(void)> PluginInit;
 	typedef function<void(void)> PluginUninit;
 	typedef function<bool(void*)> PluginCallback;
-	typedef function<void(void)> PluginOnNode; // signature
+	typedef function<void(char* signature, PluginCtxFactory factory)> PluginOnNode;
 
 	//
 	typedef function<void(ShadowNode*)> ShadowCallback;
 	typedef function<void(void*)> ListenerCallback;
 
 	//
-	typedef function<BasePluginCtx*(void)> PluginCtxFactory;
 	//typedef function<Plugin*(void)> PluginFactory;
 
 	//	

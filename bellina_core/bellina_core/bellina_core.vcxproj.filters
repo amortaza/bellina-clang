@@ -269,9 +269,6 @@
     <ClInclude Include="plugins\node-drag\NodeDragContext.h">
       <Filter>plugins\node-drag</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\BasePluginContext.h">
-      <Filter>bellina\bl-plugin</Filter>
-    </ClInclude>
     <ClInclude Include="bellina\bl-node.h">
       <Filter>bellina\bl-om\node</Filter>
     </ClInclude>
@@ -283,6 +280,9 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-map-list.h">
       <Filter>bellina\bl-util</Filter>
+    </ClInclude>
+    <ClInclude Include="bellina\BasePluginCtx.h">
+      <Filter>bellina\bl-plugin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

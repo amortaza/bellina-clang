@@ -12,10 +12,10 @@ namespace z_index {
 	char* plugin_name = "z-index";
 }
 
-void z_index::onNode() {
-	bl::pluginCtxOnNode(plugin_name, "default", []() {
+void z_index::onNode(char* signature, PluginCtxFactory factory) {
+	/*todo bl::pluginCtxOnNode(plugin_name, "default", [] () {
 		return new ZIndexContext("default");
-	});
+	});*/
 }
 
 void z_index::load() {

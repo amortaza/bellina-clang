@@ -12,25 +12,23 @@ namespace node_drag {
 
 	public:
 
-		NodeDragContext(char* signature) : BasePluginCtx(signature) {
-
+		NodeDragContext() : BasePluginCtx("default") {
 		}
 
-		void onNode() {
+		// does not need signature or factory cause "this" already exits...
+		void pluginOnNode() {
 			
 			NodeDragContext* This = this;
 
-			bl::shadow([This](ShadowNode* shadow) {
+			/*todo bl::shadow([This] (ShadowNode* shadow) {
 				if (This->hasData) {
 					shadow->x = This->newX;
 					shadow->y = This->newY;
 					This->hasData = false;
 				}
-			});
+			});*/
 
-			char* signature = _signature;
-
-			bl::on("mouse-drag", _signature, [This, signature](void *e) {
+			/*todo bl::on("mouse-drag", [This] (void *e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				if (event->button != Xel::Mouse::Button::Left) return false;
@@ -46,11 +44,11 @@ namespace node_drag {
 				nde.relativeX = event->relativeX;
 				nde.relativeY = event->relativeY;
 
-				bl::pluginCall(plugin_name, signature, event->node, &nde);
+				bl::pluginCall(plugin_name, "default", event->node, &nde);
 				bl::fire(plugin_name, &nde);
 
 				return false;
-			});
+			});*/
 		}
 	};
 }

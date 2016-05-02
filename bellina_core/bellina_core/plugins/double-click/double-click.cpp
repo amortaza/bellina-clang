@@ -38,9 +38,9 @@ namespace double_click {
 		freeId();
 	}
 
-	void onNode() {
+	void onNode(char* signature, PluginCtxFactory factory) {
 
-		bl::on("click", "default", [](void* e) {
+		/*todo bl::on("click", [] (void* e) {
 
 			click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 			
@@ -63,7 +63,7 @@ namespace double_click {
 			}
 			
 			return true;
-		});
+		});*/
 	}
 }
 

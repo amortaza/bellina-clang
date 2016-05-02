@@ -8,20 +8,21 @@ namespace resize {
 		int newW = 0, newH = 0;
 
 	public:
-		ResizeContext(char* signature) : BasePluginCtx(signature) {
+		ResizeContext() : BasePluginCtx("default") {
 
 		}
 
-		void onNode() {
+		// does not need signature or factory cause "this" already exits...
+		void pluginOnNode() {
 			
 			ResizeContext* This = this;
 
-			bl::shadow([This](ShadowNode* shadow) {
-				/*ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, []() {
+			/*todo bl::shadow([This] (ShadowNode* shadow) {
+				/*ResizeContext* This = (ResizeContext*)shadow->getPlugin(resize::plugin_name, [] () {
 					return new ResizeContext();
 				});*/
 
-				if (This->newW > 0 && This->newH > 0) {
+				/*if (This->newW > 0 && This->newH > 0) {
 					if (This->newW > 16 && This->newH > 16) {
 						shadow->w = This->newW;
 						shadow->h = This->newH;
@@ -31,9 +32,9 @@ namespace resize {
 
 					This->newW = This->newH = 0;
 				}
-			});
+			});*/
 
-			bl::on("mouse-drag", "default", [This](void* e) {
+			/*todo bl::on("mouse-drag", [This] (void* e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				// ResizeContext* This = (ResizeContext*)event->node->getPluginFromShadow(resize::plugin_name, nullptr);
@@ -50,7 +51,7 @@ namespace resize {
 				bl::fire(plugin_name, &e2);
 
 				return true;
-			});
+			});*/
 		}
 	};
 }

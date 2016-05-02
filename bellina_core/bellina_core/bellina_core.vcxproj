@@ -172,7 +172,7 @@
     <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h" />
     <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h" />
-    <ClInclude Include="bellina\BasePluginContext.h" />
+    <ClInclude Include="bellina\BasePluginCtx.h" />
     <ClInclude Include="bellina\bellina.h" />
     <ClInclude Include="bellina\bl-core.h" />
     <ClInclude Include="bellina\bl-echo.h" />

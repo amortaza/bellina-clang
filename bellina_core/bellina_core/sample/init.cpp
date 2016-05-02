@@ -51,37 +51,37 @@ void Render_My_Bellina() {
 
 			//bl::use_1s("node-drag", "custome red");
 
-			/*bl::pluginCtxOnNode("mouse-drag", "node-drag", []() {
+			/*bl::pluginCtxOnNode("mouse-drag", "node-drag", [] () {
 				return new NodeDragContext();
 			});*/
-			/*bl::pluginOnNode("resize", "1", []() {
+			/*bl::pluginOnNode("resize", "1", [] () {
 				return new NodeDragContext();
 			});*/
 
-			bl::on("resize", "default", [](void* e) {
+			/*todo bl::on("resize", [] (void* e) {
 				printf("resize\n");
 				return true; });
 
-			bl::on("node-drag", "default", [](void* e) {
+			bl::on("node-drag", [] (void* e) {
 				printf("node drag\n");
-				return true; });
+				return true; });*/
 			
-			/*			bl::on("click", "default", [](void* e) {
+			/*			bl::on("click", "default", [] (void* e) {
 				printf("click 1\n");
 				return true; });
 			
-			bl::on("click", "default", [](void* e) {
+			bl::on("click", "default", [] (void* e) {
 				printf("clicked 2\n");
 				return true; });*/
 
-			/*bl::on("resize", "2", &(PluginCallback)[](void* data) {
+			/*bl::on("resize", "2", &(PluginCallback)[] (void* data) {
 				printf("hello resize 2\n");
 				return true;
 			});*/
 			
 			
 			//bl::use("z-index");
-			//bl::on("resize", [](void* e) {
+			//bl::on("resize", [] (void* e) {
 				//printf("red!\n");
 				//return true;
 			//});

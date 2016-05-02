@@ -16,7 +16,7 @@ namespace bl {
 	class Node {
 
 	public:
-		BasePluginCtx* getPluginCtxFromShadow(char* pluginName, char* signature, PluginCtxFactory);
+		BasePluginCtx* getPluginCtxFromShadow(char* pluginName, char* signature, PluginCtxFactory factory);
 
 	public:
 		Point global_pos;

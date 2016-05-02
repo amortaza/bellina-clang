@@ -31,8 +31,12 @@ namespace bl {
 	void init();
 	void uninit();	
 
-	void use(char* pluginName, char* signature);	
-	void on(char* pluginName, char* signature, PluginCallback cb);
+	// default signature
+	void use(char* pluginName);
+	void on(char* pluginName, PluginCallback cb);
+
+	void use(char* pluginName, char* signature, PluginCtxFactory factory);
+	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);
 
 	//void use_1s(char* pluginName, char* sArg);
 	//void on_1s(char* pluginName, char* sArg, PluginCallback cb);

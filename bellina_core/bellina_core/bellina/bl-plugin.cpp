@@ -36,7 +36,7 @@ namespace bl {
 void bl::pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory factory) {
 	BasePluginCtx* ctx = current_node->getPluginCtxFromShadow(pluginName, signature, factory);
 	
-	ctx->onNode();
+	ctx->pluginOnNode();
 }
 
 /*void bl::pluginSetInt(char* name, char* prop_name, int value) {
@@ -126,8 +126,12 @@ void bl::pluginRegister(char* pluginName,
 }
 
 
-void bl::use(char* pluginName, char* signature) {
-	on(pluginName, signature, nullptr);
+void bl::use(char* pluginName) {
+	bl::use(pluginName, "default", 0);
+}
+
+void bl::use(char* pluginName, char* signature, PluginCtxFactory factory) {
+	on(pluginName, signature, factory, nullptr);
 }
 
 /*void bl::use_1s(char* pluginName, char* sArg) {
@@ -151,7 +155,11 @@ void bl::on_1s(char* pluginName, char* sArg, PluginCallback cb) {
 	plugin->onNode();
 }*/
 
-void bl::on(char* pluginName, char* signature, PluginCallback cb) {
+void bl::on(char* pluginName, PluginCallback cb) {
+	bl::on(pluginName, "default", 0, cb);
+}
+
+void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb) {
 	if (!isRegistered(pluginName)) {
 		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
 		return;
@@ -170,7 +178,7 @@ void bl::on(char* pluginName, char* signature, PluginCallback cb) {
 
 	_::pluginBubble->addCallback(cb, current_node, pluginName, signature);
 
-	plugin->onNode();
+	plugin->onNode(signature, factory);
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {

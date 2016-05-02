@@ -21,7 +21,7 @@ namespace click {
 	}
 
 	void init() {
-		bl::listenLongTerm("mouse-down", [](void* data) {
+		/*todo bl::listenLongTerm("mouse-down", [] (void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId) ) {
@@ -29,22 +29,22 @@ namespace click {
 			}
 		});
 
-		bl::listenLongTerm("mouse-up", [](void* data) {
+		bl::listenLongTerm("mouse-up", [] (void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
 			if (lastDownNodeId && !bl::util::isNode(event->node, lastDownNodeId)) {
 				freeId();
 			}
-		});
+		});*/
 	}
 
 	void uninit() {
 		freeId();
 	}
 
-	void onNode() {
+	void onNode(char* signature, PluginCtxFactory factory) {
 
-		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		/*todo bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
 
 			lastDownNodeId = _strdup(bl::node->nid);
@@ -53,7 +53,7 @@ namespace click {
 			return true;
 		});
 		
-		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		bl::onMouseUp([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			
 			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
 				MouseClickEvent event;
@@ -70,7 +70,7 @@ namespace click {
 			freeId();
 
 			return true;
-		});
+		});*/
 	}
 }
 

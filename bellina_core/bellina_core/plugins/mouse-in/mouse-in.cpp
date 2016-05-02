@@ -44,7 +44,7 @@ namespace mouse_in {
 	}
 	
 	void init() {
-		bl::listenLongTerm("mouse-move", [](void* e) {
+		/*todo bl::listenLongTerm("mouse-move", [] (void* e) {
 			MouseMoveEvent* event = (MouseMoveEvent*)e;
 
 			Node* This = event->node;
@@ -74,7 +74,7 @@ namespace mouse_in {
 				freeId();
 				lastNodeId = _strdup(This->nid);
 			}
-		});
+		});*/
 	}
 
 	void uninit() {

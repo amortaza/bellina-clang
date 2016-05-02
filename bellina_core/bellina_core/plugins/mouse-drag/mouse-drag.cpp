@@ -52,14 +52,14 @@ namespace mouse_drag {
 
 	void init() {
 
-		bl::listenLongTerm("mouse-up", [](void* e) {
+		/*todo bl::listenLongTerm("mouse-up", [] (void* e) {
 			MouseUpEvent* event = (MouseUpEvent*)e;
 			freeId();
 		});
 
 		// we need long term because drag requires apturing mouse
 		// otherwise "resize" will not work when going over neighboring nodes
-		bl::listenLongTerm("mouse-move", [](void* e) {
+		bl::listenLongTerm("mouse-move", [] (void* e) {
 			MouseMoveEvent* event = (MouseMoveEvent*)e;
 
 			if (dragNodeId) {
@@ -81,14 +81,14 @@ namespace mouse_drag {
 				
 				fire(dragNode, mx, my, relativeX, relativeY, deltaX, deltaY);
 			}
-		});
+		});*/
 	}
 
 	void uninit() { freeId(); }
 
-	void onNode() {
+	void onNode(char* signature, PluginCtxFactory factory) {
 
-		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		/*todo bl::onMouseDown([] (Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (bubbledFrom) return true; // if this from a bubble, leave it alone.  pass it along.
 										   
 			freeId();
@@ -106,7 +106,7 @@ namespace mouse_drag {
 			//rintf("mouse-drag: mouse down\n");
 
 			return false;
-		});
+		});*/
 	}
 }
 
