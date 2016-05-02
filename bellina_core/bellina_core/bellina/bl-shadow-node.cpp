@@ -40,12 +40,12 @@ BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, Plugi
 	auto e2 = pluginCtxByNameSignatureKey.find(key);
 
 	if (e2 == pluginCtxByNameSignatureKey.end()) {
-		
-		if (strcmp("default", signature) == 0 || factory == nullptr) {
-			return shadow_node::createDefaultPluginCtx(pluginName);
-		}
-		
-		BasePluginCtx* pluginCtx = factory();
+		BasePluginCtx* pluginCtx;
+
+		if (strcmp("default", signature) == 0 || factory == nullptr) 
+			pluginCtx = shadow_node::createDefaultPluginCtx(pluginName);
+		else		
+			pluginCtx = factory();
 
 		setPluginCtx(pluginName, signature, pluginCtx);
 

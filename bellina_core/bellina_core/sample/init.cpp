@@ -39,7 +39,7 @@ void Render_My_Bellina() {
 	{
 		bl::color(50, 0, 10);
 
-		bl::div(); {
+		/*bl::div(); {
 
 			bl::id("green");
 
@@ -47,11 +47,11 @@ void Render_My_Bellina() {
 			bl::pos(200, 200);
 			bl::dim(160, 120);
 
-			bl::on("mouse-in", [](void* e) {
+			bl::on("node-drag", [](void* e) {
 				printf("drag green\n");
 				return true; });
 		}
-		bl::end();
+		bl::end();*/
 
 		bl::div(); {
 
@@ -61,7 +61,7 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("mouse-in", [](void* e) {
+			bl::on("node-drag", [](void* e) {
 				printf("drag red\n");
 				return true; });
 

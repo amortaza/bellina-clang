@@ -7,14 +7,15 @@ namespace bl {
 
 		BasePluginCtx(char* signature) {
 			_signature = _strdup(signature);
-			printf("set signature of BasePluginCtx\n");
+			//rintf("set signature of BasePluginCtx %s\n", _signature);
 		}
 
 		virtual void pluginOnNode() = 0;
 
 		virtual ~BasePluginCtx() {			
 			if (_signature) {
-				delete[] _signature; printf("cleared signature of BasePluginCtx\n");
+				delete[] _signature; 
+				printf("cleared signature of BasePluginCtx\n");
 			}
 		}
 	};

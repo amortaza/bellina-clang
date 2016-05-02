@@ -19,6 +19,7 @@ namespace node_drag {
 	void load();	
 
 	void on_node(char* signature, PluginCtxFactory factory) {
+		//rintf("here\n");
 		bl::pluginCtxOnNode(plugin_name, signature, factory);
 	}
 

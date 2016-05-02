@@ -45,7 +45,7 @@ int main(int argc, char** argv) {
 
 	Xel::Loop(OnTick);
 
-	int i; std::cin >> i;
+//	int i; std::cin >> i;
 	printf("good bye.\n");	return 0;
 }
 
