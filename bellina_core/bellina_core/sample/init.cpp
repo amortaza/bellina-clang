@@ -47,8 +47,8 @@ void Render_My_Bellina() {
 			bl::pos(200, 200);
 			bl::dim(160, 120);
 
-			bl::on("focus", [](void* e) {
-				printf("focus green\n");
+			bl::on("mouse-in", [](void* e) {
+				printf("drag green\n");
 				return true; });
 		}
 		bl::end();
@@ -61,8 +61,8 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("double-click", [](void* e) {
-				printf("d-clicked red\n");
+			bl::on("mouse-in", [](void* e) {
+				printf("drag red\n");
 				return true; });
 
 			//bl::use_1s("node-drag", "custome red");
@@ -126,7 +126,7 @@ void Init_OnGL() {
 	//bl::pluginSetBool(z_index::plugin_name, "")
 	bl::pluginLoad(z_index::load);
 
-	//bl::pluginLoad(mouse_in::load);
+	bl::pluginLoad(mouse_in::load);
 
 	bl::pluginLoad(resize::load);
 }

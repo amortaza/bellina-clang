@@ -31,12 +31,12 @@ namespace mouse_in {
 
 		if (in) {
 			event.isInEvent = true;
-			bl::pluginCall(plugin_name, "mouse-in", in, &event);			
+			bl::pluginCall(plugin_name, "default", in, &event);			
 		}
 
 		if (out) {
 			event.isInEvent = false;
-			bl::pluginCall(plugin_name, "mouse-in", out, &event);
+			bl::pluginCall(plugin_name, "default", out, &event);
 		}
 
 		// note that event.isInEvent is non-sensical here

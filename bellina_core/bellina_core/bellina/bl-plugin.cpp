@@ -187,7 +187,9 @@ void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginC
 
 	_::pluginBubble->addCallback(cb, current_node, pluginName, signature);
 
-	plugin->on_node(signature, factory);
+	// some plugins do not have on_node, see mouse-in
+	if (plugin->on_node != nullptr)
+		plugin->on_node(signature, factory);
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {
