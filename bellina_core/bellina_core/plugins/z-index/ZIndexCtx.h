@@ -6,15 +6,15 @@ namespace z_index {
 		return a->order < b->order;
 	}
 
-	class ZIndexContext : public BasePluginCtx {
+	class ZIndexCtx : public BasePluginCtx {
 
 	public:
 		OrderInfo* orderInfo = 0;
 
-		ZIndexContext() : BasePluginCtx("default") {
+		ZIndexCtx() : BasePluginCtx("default") {
 		}
 
-		~ZIndexContext() {
+		~ZIndexCtx() {
 			if (orderInfo) delete orderInfo;
 		}
 
@@ -25,7 +25,7 @@ namespace z_index {
 
 			ShadowNode* shadow = bl::get_shadow();
 			
-			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", nullptr);
+			ZIndexCtx* ctx = (ZIndexCtx*)shadow->getPluginCtx(z_index::plugin_name, "default", nullptr);
 
 			if (!ctx->orderInfo)
 				ctx->orderInfo = new OrderInfo(c);
@@ -48,7 +48,7 @@ namespace z_index {
 					if (button == Xel::Mouse::Button::Left) {
 						Node* parent = bl::node->parent;
 
-						ZIndexContext* This = (ZIndexContext*) parent->getPluginCtxFromShadow(z_index::plugin_name, signature, nullptr);
+						ZIndexCtx* This = (ZIndexCtx*) parent->getPluginCtxFromShadow(z_index::plugin_name, signature, nullptr);
 
 						This->bringToTop(This->orderInfo, bl::node->nid);
 

@@ -3,18 +3,18 @@
 #include "bellina/BasePluginCtx.h"
 
 namespace resize {
-	class ResizeContext : public BasePluginCtx {
+	class ResizeCtx : public BasePluginCtx {
 
 	private:
 		int newW = 0, newH = 0;
 
 	public:
-		ResizeContext() : BasePluginCtx("default") {}
+		ResizeCtx() : BasePluginCtx("default") {}
 
 		// does not need signature or factory cause "this" already exits...
 		void pluginOnNode() {
 			
-			ResizeContext* This = this;
+			ResizeCtx* This = this;
 
 			bl::shadow([This] (ShadowNode* shadow) {
 

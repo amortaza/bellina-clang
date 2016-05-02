@@ -5,7 +5,7 @@
 #include "../mouse-drag/mouse-drag.h"
 
 #include "resize.h"
-#include "ResizeContext.h"
+#include "ResizeCtx.h"
 
 using namespace bl;
 
@@ -16,8 +16,8 @@ namespace resize {
 		bl::pluginCtxOnNode(plugin_name, signature, factory);
 	}
 
-	ResizeContext* default_factory() {
-		return new ResizeContext();
+	ResizeCtx* default_factory() {
+		return new ResizeCtx();
 	}
 }
 

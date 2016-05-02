@@ -5,7 +5,7 @@
 #include "../mouse-drag/mouse-drag.h"
 
 #include "node-drag.h"
-#include "NodeDragContext.h"
+#include "NodeDragCtx.h"
 
 using namespace bl;
 using namespace bl::listener;
@@ -22,8 +22,8 @@ namespace node_drag {
 		bl::pluginCtxOnNode(plugin_name, signature, factory);
 	}
 
-	NodeDragContext* default_factory() {
-		return new NodeDragContext();
+	NodeDragCtx* default_factory() {
+		return new NodeDragCtx();
 	}
 }
 

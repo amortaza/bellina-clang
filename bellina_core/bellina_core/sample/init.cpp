@@ -15,8 +15,6 @@
 #include "plugins/resize/resize.h"
 #include "plugins/mouse-drag/mouse-drag.h"
 
-#include "plugins/node-drag/NodeDragContext.h"
-
 using namespace node_drag;
 using namespace bl;
 using namespace bl::flags;
@@ -43,19 +41,37 @@ void Render_My_Bellina() {
 
 		bl::div(); {
 
+			bl::id("green");
+
+			bl::color(0, 150, 50);
+			bl::pos(200, 200);
+			bl::dim(160, 120);
+
+			bl::on("focus", [](void* e) {
+				printf("focus green\n");
+				return true; });
+		}
+		bl::end();
+
+		bl::div(); {
+
 			bl::id("red");
 
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
+			bl::on("double-click", [](void* e) {
+				printf("d-clicked red\n");
+				return true; });
+
 			//bl::use_1s("node-drag", "custome red");
 
 			/*bl::pluginCtxOnNode("mouse-drag", "node-drag", [] () {
-				return new NodeDragContext();
+				return new NodeDragCtx();
 			});*/
 			/*bl::pluginOnNode("resize", "1", [] () {
-				return new NodeDragContext();
+				return new NodeDragCtx();
 			});*/
 
 			/*bl::on("resize", [] (void* e) {
@@ -71,9 +87,9 @@ void Render_My_Bellina() {
 				return true; });
 			*/
 
-			bl::on("click", [](void* e) {
+			/*bl::on("double-click", [](void* e) {
 				printf("clicked 2\n");
-				return true; });
+				return true; });*/
 
 			/*bl::on("resize", "2", &(PluginCallback)[] (void* data) {
 				printf("hello resize 2\n");
@@ -98,11 +114,11 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	//bl::pluginLoad(focus::load);
+	bl::pluginLoad(focus::load);
 	bl::pluginLoad(click::load);
 
 	//bl::pluginSetInt("double-click", "duration", 1001);
-	//bl::pluginLoad(double_click::load);
+	bl::pluginLoad(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
 	bl::pluginLoad(node_drag::load);

@@ -4,7 +4,7 @@ using namespace bl;
 
 namespace node_drag {	
 
-	class NodeDragContext : public BasePluginCtx {
+	class NodeDragCtx : public BasePluginCtx {
 
 	public:
 		bool hasData = false;
@@ -12,12 +12,12 @@ namespace node_drag {
 
 	public:
 
-		NodeDragContext() : BasePluginCtx("default") {}
+		NodeDragCtx() : BasePluginCtx("default") {}
 
 		// does not need signature or factory cause "this" already exits...
 		void pluginOnNode() {
 			
-			NodeDragContext* This = this;
+			NodeDragCtx* This = this;
 
 			bl::shadow([This] (ShadowNode* shadow) {
 				if (This->hasData) {

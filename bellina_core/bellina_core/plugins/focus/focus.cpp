@@ -23,7 +23,7 @@ namespace focus {
 		bl::listenLongTerm("mouse-down", [] (void* data) {
 			MouseDownEvent* event = (MouseDownEvent*)data;
 
-			if (focusNodeId && strcmp(focusNodeId, event->node->nid) != 0) {
+			if (!bl::util::isNode(event->node, focusNodeId)) {
 				// blur
 				freeId();
 			}
@@ -39,7 +39,7 @@ namespace focus {
 				focusEvent.keyDownEvent = event;
 				focusEvent.node = node;
 				
-				bl::pluginCall(plugin_name, "focus", node, &focusEvent);
+				bl::pluginCall(plugin_name, "default", node, &focusEvent);
 				bl::fire(plugin_name, &focusEvent);
 			}			
 		});
@@ -56,8 +56,6 @@ namespace focus {
 			freeId();
 
 			focusNodeId = _strdup(bl::node->nid);
-
-			//rintf("focus node id is %s\n", focusNodeId);
 
 			return true;
 		});

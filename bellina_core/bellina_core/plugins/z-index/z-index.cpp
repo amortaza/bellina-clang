@@ -4,7 +4,7 @@
 
 #include "z-index.h"
 #include "order-info.h"
-#include "ZIndexContext.h"
+#include "ZIndexCtx.h"
 
 using namespace z_index;
 
@@ -16,8 +16,8 @@ void z_index::on_node(char* signature, PluginCtxFactory factory) {
 	bl::pluginCtxOnNode(plugin_name, signature, factory);
 }
 
-ZIndexContext* z_index::default_factory() {
-	return new ZIndexContext();
+ZIndexCtx* z_index::default_factory() {
+	return new ZIndexCtx();
 }
 
 void z_index::load() {
