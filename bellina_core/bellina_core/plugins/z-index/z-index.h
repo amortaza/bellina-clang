@@ -4,7 +4,7 @@
 
 namespace z_index {
 	void load();
-	void onNode(char* signature);
+	void onNode();
 
 	extern char* plugin_name;
 

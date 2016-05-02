@@ -81,9 +81,6 @@ namespace mouse_in {
 		freeId();
 	}
 
-	void onNode(char* signature) {
-		// unused in load
-	}
 }
 
 void mouse_in::load() {

@@ -7,11 +7,6 @@ using namespace bl;
 namespace mouse_drag {
 	void load();
 
-	void init();
-	void uninit();
-
-	void onNode(char* signature);
-
 	extern char* plugin_name;
 
 	struct MouseDragEvent {

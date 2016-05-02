@@ -12,7 +12,11 @@ namespace node_drag {
 
 	public:
 
-		void onNode(char* signature) {
+		NodeDragContext(char* signature) : BasePluginCtx(signature) {
+
+		}
+
+		void onNode() {
 			
 			NodeDragContext* This = this;
 
@@ -24,7 +28,9 @@ namespace node_drag {
 				}
 			});
 
-			bl::on("mouse-drag", signature, [This, signature](void *e) {
+			char* signature = _signature;
+
+			bl::on("mouse-drag", _signature, [This, signature](void *e) {
 				mouse_drag::MouseDragEvent* event = (mouse_drag::MouseDragEvent*) e;
 
 				if (event->button != Xel::Mouse::Button::Left) return false;

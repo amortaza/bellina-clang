@@ -11,18 +11,21 @@ namespace z_index {
 	public:
 		OrderInfo* orderInfo = 0;
 
+		ZIndexContext(char* signature) : BasePluginCtx(signature) {
+		}
+
 		~ZIndexContext() {
 			if (orderInfo) delete orderInfo;
 		}
 
-		void onNode(char* signature) {
+		void onNode() {
 
 			Node* c = bl::current();
 
 			ShadowNode* shadow = bl::get_shadow();
 			
-			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, signature, []() {
-				return new ZIndexContext();
+			ZIndexContext* ctx = (ZIndexContext*)shadow->getPluginCtx(z_index::plugin_name, "default", []() {
+				return new ZIndexContext("default");
 			});
 
 			if (!ctx->orderInfo)
@@ -36,6 +39,8 @@ namespace z_index {
 			nodeById->clear();
 			delete nodeById;
 
+			char* signature = _signature;
+			
 			list<Node*>::const_iterator it;
 			for (it = c->kids.begin(); it != c->kids.end(); ++it) {
 				Node *kid = *it;

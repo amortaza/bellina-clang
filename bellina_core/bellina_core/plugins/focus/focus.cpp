@@ -49,7 +49,7 @@ namespace focus {
 		freeId();
 	}
 
-	void onNode(char* signature) {
+	void onNode() {
 		bl::color(200, 255, 35);
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {

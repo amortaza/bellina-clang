@@ -42,7 +42,7 @@ namespace click {
 		freeId();
 	}
 
-	void onNode(char* signature) {
+	void onNode() {
 
 		bl::onMouseDown([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			if (lastDownNodeId) delete[] lastDownNodeId;
@@ -53,7 +53,7 @@ namespace click {
 			return true;
 		});
 		
-		bl::onMouseUp([signature](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
+		bl::onMouseUp([](Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {
 			
 			if (bl::util::isNode(bl::node, lastDownNodeId ) && button == lastDownButton ) {
 				MouseClickEvent event;
@@ -63,7 +63,7 @@ namespace click {
 				event.node = bl::node;
 
 				//printf("mouse up getting called for signature %s\n", signature);
-				bl::pluginCall(plugin_name, signature, bl::node, &event);
+				bl::pluginCall(plugin_name, "default", bl::node, &event);
 				bl::fire(plugin_name, &event);
 			}
 

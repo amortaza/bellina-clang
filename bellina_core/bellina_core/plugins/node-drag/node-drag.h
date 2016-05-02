@@ -7,8 +7,6 @@ using namespace bl;
 namespace node_drag {
 	void load();
 
-	void onNode(char* signature);
-
 	extern char* plugin_name;
 
 	struct NodeDragEvent {

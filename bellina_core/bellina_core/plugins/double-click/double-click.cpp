@@ -38,9 +38,9 @@ namespace double_click {
 		freeId();
 	}
 
-	void onNode(char* signature) {
+	void onNode() {
 
-		bl::on("click", signature, [signature](void* e) {
+		bl::on("click", "default", [](void* e) {
 
 			click::MouseClickEvent* event = (click::MouseClickEvent*) e;
 			
@@ -48,7 +48,7 @@ namespace double_click {
 				milliseconds diff = duration_cast<milliseconds>(system_clock::now().time_since_epoch()) - lastClickMs;
 
 				if (diff.count() < maxDurationMs) {
-					bl::pluginCall(plugin_name, signature, bl::node, event);
+					bl::pluginCall(plugin_name, "default", bl::node, event);
 					fire(plugin_name, event);
 				}
 
