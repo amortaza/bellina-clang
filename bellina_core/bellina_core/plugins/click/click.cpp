@@ -75,7 +75,7 @@ namespace click {
 }
 
 void click::load() {
-	bl::pluginRegister(
+	pango::registerPlugin(
 		click::plugin_name, 
 		click::init, 
 		nullptr,

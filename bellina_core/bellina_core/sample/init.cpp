@@ -77,21 +77,21 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	bl::pluginLoad(focus::load);
-	bl::pluginLoad(click::load);
+	pango::load(focus::load);
+	pango::load(click::load);
 
 	//bl::pluginSetInt("double-click", "duration", 1001);
-	bl::pluginLoad(double_click::load);
+	pango::load(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
-	bl::pluginLoad(node_drag::load);
+	pango::load(node_drag::load);
 
 	//bl::pluginSetBool(z_index::plugin_name, "")
-	bl::pluginLoad(z_index::load);
+	pango::load(z_index::load);
 
-	bl::pluginLoad(mouse_in::load);
+	pango::load(mouse_in::load);
 
-	bl::pluginLoad(resize::load);
+	pango::load(resize::load);
 }
 
 void UnInit() {

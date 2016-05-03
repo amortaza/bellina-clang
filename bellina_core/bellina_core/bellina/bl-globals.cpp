@@ -7,10 +7,9 @@
 #include "bl-fluent-border.h"
 #include "bl-fluent-font.h"
 #include "bl-flags.h"
-#include "bl-plugin-bubble.h"
 
 using namespace bl::echo;
-using namespace bl::plugin::bubble;
+using namespace pango::bubble;
 
 namespace bl {
 	Node* node = 0;

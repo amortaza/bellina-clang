@@ -4,9 +4,12 @@
 
 #include "bl-types.h"
 
-namespace bl { extern class BasePluginCtx; };
-
 using namespace std;
+
+//namespace pango { extern class BasePluginCtx; }
+
+class pango::BasePluginCtx;
+using namespace pango;
 
 namespace bl {
 

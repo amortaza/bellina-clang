@@ -84,7 +84,7 @@ namespace mouse_in {
 }
 
 void mouse_in::load() {
-	bl::pluginRegister(
+	pango::registerPlugin(
 		mouse_in::plugin_name,
 		mouse_in::init,
 		nullptr,

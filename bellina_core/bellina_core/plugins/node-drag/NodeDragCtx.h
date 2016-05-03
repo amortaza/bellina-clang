@@ -1,5 +1,7 @@
 #pragma once
 
+#include "pango/pango.h"
+
 using namespace bl;
 
 namespace node_drag {	

@@ -29,9 +29,9 @@ namespace node_drag {
 }
 
 void node_drag::load() {
-	bl::pluginLoad(mouse_drag::load);
+	pango::load(mouse_drag::load);
 
-	bl::pluginRegister(
+	pango::registerPlugin(
 		node_drag::plugin_name,
 		nullptr,
 		node_drag::default_factory,

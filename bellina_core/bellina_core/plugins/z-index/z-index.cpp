@@ -1,5 +1,8 @@
 #include "stdafx.h"
 
+#include <list>
+#include <map>
+using namespace std;
 #include "bellina/bellina.h"
 
 #include "z-index.h"
@@ -21,9 +24,10 @@ ZIndexCtx* z_index::default_factory() {
 }
 
 void z_index::load() {
-	bl::pluginRegister(	z_index::plugin_name, 
-						nullptr, 
-						z_index::default_factory,
-						z_index::on_node,
-						nullptr);
+	pango::registerPlugin(	
+		z_index::plugin_name, 
+		nullptr, 
+		z_index::default_factory,
+		z_index::on_node,
+		nullptr);
 }

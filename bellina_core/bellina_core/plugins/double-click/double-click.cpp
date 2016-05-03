@@ -29,8 +29,8 @@ namespace double_click {
 	}
 
 	void init() {
-		if (bl::pluginHasInt(plugin_name, "duration")) {
-			maxDurationMs = bl::pluginGetInt(plugin_name, "duration");
+		if (pango::hasInt(plugin_name, "duration")) {
+			maxDurationMs = pango::getInt(plugin_name, "duration");
 		}
 	}
 
@@ -68,9 +68,9 @@ namespace double_click {
 }
 
 void double_click::load() {
-	bl::pluginLoad(click::load);
+	pango::load(click::load);
 
-	bl::pluginRegister(
+	pango::registerPlugin(
 		double_click::plugin_name,
 		double_click::init,
 		nullptr,

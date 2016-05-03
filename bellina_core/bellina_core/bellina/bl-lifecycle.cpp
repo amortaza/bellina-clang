@@ -6,6 +6,7 @@
 #include "g2/g2.h"
 
 #include "eos/eos.h"
+#include "pango/pango.h"
 
 #include "bl-util.h"
 #include "bl-globals.h"
@@ -13,11 +14,11 @@
 #include "bl-flags.h"
 #include "bl-listener.h"
 #include "bl-echo.h"
-#include "bl-plugin-bubble.h"
 #include "bl-lifecycle.h"
 #include "bl-pump.h"
 
 using namespace g2::flags;
+using namespace pango;
 
 using namespace bl;
 using namespace bl::_;
@@ -32,8 +33,7 @@ void lifecycle::tickBeforeCoreRender() {
 	delete short_term_echo;
 	short_term_echo = new Echo();
 
-	delete pluginBubble; 
-	pluginBubble = new PluginBubble();
+	bubble::clearCallbacks();
 
 	nodeById.clear();
 

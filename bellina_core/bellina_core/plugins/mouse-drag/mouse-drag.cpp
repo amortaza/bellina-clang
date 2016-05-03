@@ -111,9 +111,9 @@ namespace mouse_drag {
 }
 
 void mouse_drag::load() {
-	bl::pluginLoad(click::load);
+	pango::load(click::load);
 
-	bl::pluginRegister(
+	pango::registerPlugin(
 		mouse_drag::plugin_name, 
 		mouse_drag::init,
 		nullptr,

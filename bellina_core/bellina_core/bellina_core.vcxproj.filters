@@ -96,6 +96,9 @@
     <Filter Include="bellina\bl-om\shadow">
       <UniqueIdentifier>{f8e17940-fbe0-4494-8ee5-2354d601c730}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pango">
+      <UniqueIdentifier>{a6f4f042-b63f-418d-bf50-99ee09d1d1c5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -194,9 +197,6 @@
     <ClInclude Include="bellina\bl-sys.h">
       <Filter>bellina\bl-util</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\bl-plugin.h">
-      <Filter>bellina\bl-plugin</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\eos\eos_dev\eos_dev\eos\eos.h">
       <Filter>source files\eos</Filter>
     </ClInclude>
@@ -226,9 +226,6 @@
     </ClInclude>
     <ClInclude Include="bellina\bl-types.h">
       <Filter>bellina\bl-core</Filter>
-    </ClInclude>
-    <ClInclude Include="bellina\bl-plugin-bubble.h">
-      <Filter>bellina\bl-plugin</Filter>
     </ClInclude>
     <ClInclude Include="plugins\double-click\double-click.h">
       <Filter>plugins\double-click</Filter>
@@ -272,9 +269,6 @@
     <ClInclude Include="bellina\bl-map-list.h">
       <Filter>bellina\bl-util</Filter>
     </ClInclude>
-    <ClInclude Include="bellina\BasePluginCtx.h">
-      <Filter>bellina\bl-plugin</Filter>
-    </ClInclude>
     <ClInclude Include="plugins\z-index\ZIndexCtx.h">
       <Filter>plugins\z-index</Filter>
     </ClInclude>
@@ -283,6 +277,33 @@
     </ClInclude>
     <ClInclude Include="plugins\node-drag\NodeDragCtx.h">
       <Filter>plugins\node-drag</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango-types.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\BasePluginCtx.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\Plugin.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango-core.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango-state.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango-params.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\MapList.h">
+      <Filter>pango</Filter>
+    </ClInclude>
+    <ClInclude Include="pango\pango-bubble.h">
+      <Filter>pango</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -379,9 +400,6 @@
     <ClCompile Include="bellina\bl-echo.cpp">
       <Filter>bellina\bl-echo</Filter>
     </ClCompile>
-    <ClCompile Include="bellina\bl-plugin-bubble.cpp">
-      <Filter>bellina\bl-plugin</Filter>
-    </ClCompile>
     <ClCompile Include="plugins\double-click\double-click.cpp">
       <Filter>plugins\double-click</Filter>
     </ClCompile>
@@ -423,6 +441,18 @@
     </ClCompile>
     <ClCompile Include="bellina\bl-shadow-node.cpp">
       <Filter>bellina\bl-om\shadow</Filter>
+    </ClCompile>
+    <ClCompile Include="pango\pango.cpp">
+      <Filter>pango</Filter>
+    </ClCompile>
+    <ClCompile Include="pango\pango-state.cpp">
+      <Filter>pango</Filter>
+    </ClCompile>
+    <ClCompile Include="pango\pango-params.cpp">
+      <Filter>pango</Filter>
+    </ClCompile>
+    <ClCompile Include="pango\pango-bubble.cpp">
+      <Filter>pango</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

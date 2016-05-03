@@ -5,7 +5,6 @@
 #include "bl-core.h"
 #include "bl-globals.h"
 #include "bl-sys.h"
-#include "bl-plugin.h"
 #include "bl-flags.h"
 #include "bl-node.h"
 

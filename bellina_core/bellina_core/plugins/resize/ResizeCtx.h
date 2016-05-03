@@ -1,8 +1,9 @@
 #pragma once
 
-#include "bellina/BasePluginCtx.h"
+#include "pango/pango.h"
 
 namespace resize {
+
 	class ResizeCtx : public BasePluginCtx {
 
 	private:

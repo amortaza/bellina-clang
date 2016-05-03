@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Xel/Xel.h"
-
-#include "bl-plugin.h" // too complicated to comment out
+#include "pango/pango.h"
 #include "bl-types.h"
 
 namespace g2 { extern class TextureRef; }
@@ -14,7 +13,7 @@ namespace bl { extern class Node; }
 namespace bl { extern class ShadowNode; }
 
 using namespace bl;
-using namespace bl::plugin;
+using namespace pango;
 
 namespace bl {	
 
@@ -36,21 +35,10 @@ namespace bl {
 	void on(char* pluginName, PluginCallback cb);
 
 	void use(char* pluginName, char* signature, PluginCtxFactory factory);
-	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);
+	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);	
 
-	void pluginLoad(PluginLoad);
-
-	void pluginRegister(char* pluginName, PluginInit, PluginCtxFactory default_factory, PluginOnNode, PluginUninit);
 	void pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory);
 	void pluginCall(char* pluginName, char* signature, Node* node, void* eventData);
-
-	bool pluginHasInt(char* pluginName, char* propName);
-	void pluginSetInt(char* pluginName, char* propName, int value);
-	int  pluginGetInt(char* pluginName, char* propName);
-
-	bool pluginHasBool(char* pluginName, char* propName);
-	void pluginSetBool(char* pluginName, char* propName, bool value);
-	bool pluginGetBool(char* pluginName, char* propName);
 
 	Node* div();
 	void end();

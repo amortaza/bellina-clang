@@ -6,12 +6,10 @@
 #include "bl-core.h"
 #include "bl-globals.h"
 #include "bl-sys.h"
-#include "bl-plugin.h"
 #include "bl-flags.h"
 #include "bl-listener.h"
 #include "bl-node.h"
 #include "bl-util.h"
-#include "bl-plugin-bubble.h"
 #include "bl-lifecycle.h"
 #include "bl-shadow.h"
 
@@ -21,7 +19,6 @@ using namespace bl;
 using namespace bl::_;
 using namespace bl::flags;
 using namespace bl::sys;
-using namespace bl::plugin;
 
 void bl::root() {
 

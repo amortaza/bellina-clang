@@ -22,9 +22,9 @@ namespace resize {
 }
 
 void resize::load() {
-	bl::pluginLoad(mouse_drag::load);
+	pango::load(mouse_drag::load);
 
-	bl::pluginRegister(
+	pango::registerPlugin(
 		resize::plugin_name,
 		nullptr,
 		resize::default_factory,

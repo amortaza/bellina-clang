@@ -7,8 +7,6 @@
 namespace g2 { extern class CanvasRef; }
 namespace g2 { extern class TextureRef; }
 
-namespace bl { extern class BasePluginCtx; };
-
 using namespace std;
 
 namespace bl {

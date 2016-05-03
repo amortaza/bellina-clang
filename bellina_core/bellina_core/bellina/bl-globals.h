@@ -6,10 +6,8 @@ namespace bl { extern class Node; }
 namespace bl { extern class FluentFont; }
 namespace bl { extern class FluentBorder; }
 namespace bl { namespace echo { extern class Echo; } }
-namespace bl { namespace plugin { namespace bubble { extern class PluginBubble; } } }
 
 using namespace bl::echo;
-using namespace bl::plugin::bubble;
 
 namespace bl {
 	extern Node* node;
@@ -30,9 +28,5 @@ namespace bl {
 		extern Echo* long_term_echo;
 
 		extern std::map<std::string, Node*> nodeById;
-
-		extern PluginBubble* pluginBubble;
-
-		//extern Node* capture_mouse_nod;
 	}
 }

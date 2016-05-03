@@ -62,7 +62,7 @@ namespace focus {
 }
 
 void focus::load() {
-	bl::pluginRegister(
+	pango::registerPlugin(
 		focus::plugin_name, 
 		focus::init, 
 		nullptr,
