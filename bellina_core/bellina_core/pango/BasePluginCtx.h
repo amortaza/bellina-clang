@@ -1,7 +1,6 @@
 #pragma once
 
-//namespace pango {
-//namespace joe {
+namespace pango {
 	class BasePluginCtx {
 	public:
 		char* _signature = 0;
@@ -16,4 +15,4 @@
 
 		virtual void pluginOnNode() = 0;		
 	};
-//}
+}

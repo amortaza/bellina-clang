@@ -5,6 +5,7 @@
 #include "pango-core.h"
 #include "pango-state.h"
 #include "pango-params.h"
+#include "pango-bubble.h"
 
 #include "Plugin.h"
 
@@ -39,6 +40,8 @@ void pango::uninit() {
 
 	intProperty.clear();
 	boolProperty.clear();
+
+	pango::bubble::clearCallbacks();
 }
 
 string pango::constructPluginKey(char*nodeId, char* pluginName, char* signature) {

@@ -53,7 +53,7 @@ void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventDa
 	bool bubble = true;
 
 	while (parent && bubble) {
-		bubble = bubble::startBubble(node->nid, pluginName, signature, eventData) && bubble;
+		bubble = bubble::startBubble(parent->nid, pluginName, signature, eventData) && bubble;
 		parent = parent->parent;
 	}
 }

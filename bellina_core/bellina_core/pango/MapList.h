@@ -12,7 +12,6 @@ namespace pango {
 
 			template <class T>
 			class MapList {
-
 			public:
 				map <string, list<T>* > mapOfList;
 
@@ -43,7 +42,7 @@ namespace pango {
 					else {
 						listPtr = e2->second;
 					}
-
+					//rintf("MapList add\n");
 					listPtr->push_back(valuePtr);
 				}
 
@@ -66,6 +65,7 @@ namespace pango {
 					}
 
 					mapOfList.clear();
+					//rintf("MapList clear\n");
 				}
 
 				void clear(string key) {

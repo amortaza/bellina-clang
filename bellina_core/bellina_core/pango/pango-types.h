@@ -2,13 +2,11 @@
 
 #include <functional>
 
-//#include "BasePluginCtx.h"
+using namespace std;
 
-//using namespace pango;
+namespace pango { extern class BasePluginCtx; }
 
 namespace pango {	
-
-	class BasePluginCtx;
 
 	typedef function<BasePluginCtx*(void)> PluginCtxFactory;
 
@@ -16,5 +14,5 @@ namespace pango {
 	typedef function<void(void)> PluginInit;
 	typedef function<void(void)> PluginUninit;
 	typedef function<bool(void*)> PluginCallback;
-	typedef function<void(char* signature, PluginCtxFactory* factory)> PluginOnNode;
+	typedef function<void(char* signature, PluginCtxFactory factory)> PluginOnNode;
 }
