@@ -47,13 +47,11 @@ void Render_My_Bellina() {
 			bl::pos(200, 200);
 			bl::dim(160, 120);
 
-			auto a = [](void* e) { printf("green2\n"); return true; };
+			bl::on("node-drag", [](void* e) { printf("green\n"); return true; });
 
-			bl::on("click", a);
-
-			/*bl::on("resize", [](void* e) {
+			bl::on("resize", [](void* e) {
 				printf("resize green\n");
-				return true; });*/
+				return true; });
 		}
 		bl::end();
 
@@ -65,13 +63,15 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
+			bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
+
 			/*bl::on("resize", [](void* e) {
 				printf("resize red\n");
 				return true; });*/
 		} 
 		bl:end();
 
-		//bl::use("z-index");
+		bl::use("z-index");
 	}
 	bl::end();
 	
