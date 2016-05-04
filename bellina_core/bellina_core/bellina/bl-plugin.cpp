@@ -49,7 +49,12 @@ void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginC
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {
-	printf("you forgot bl-plugin.cpp line 52...parent!!!\n");
-	bubble::startBubble(node->nid, pluginName, signature, eventData);
+	Node* parent = node;
+	bool bubble = true;
+
+	while (parent && bubble) {
+		bubble = bubble::startBubble(node->nid, pluginName, signature, eventData) && bubble;
+		parent = parent->parent;
+	}
 }
 

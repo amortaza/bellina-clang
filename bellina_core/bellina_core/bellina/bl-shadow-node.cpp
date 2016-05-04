@@ -1,10 +1,9 @@
 #include "stdafx.h"
 
+#include "pango/pango.h"
+
 #include"bl-node.h"
 #include"bl-shadow-node.h"
-#include"bl-plugin.h"
-
-#include "BasePluginCtx.h"
 
 using namespace bl;
 
@@ -18,7 +17,7 @@ void ShadowNode::copyTo(Node* target) {
 namespace bl {
 	namespace shadow_node {
 		BasePluginCtx* createDefaultPluginCtx(char* pluginName) {
-			Plugin* plugin = bl::plugin::util::getPluginByName(pluginName);
+			Plugin* plugin = pango::getPluginByName(pluginName);
 
 			if (plugin == 0) {
 				printf("ShadowNode.getPluginCtx failed cause there is no plugin named \"%s\"\n", pluginName);
@@ -35,7 +34,7 @@ namespace bl {
 	}
 }
 BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, PluginCtxFactory factory) {
-	string key = plugin::util::getPluginKey(pluginName, signature);
+	string key = pango::constructPluginKey(pluginName, signature);
 
 	auto e2 = pluginCtxByNameSignatureKey.find(key);
 
@@ -56,7 +55,7 @@ BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, Plugi
 }
 
 void ShadowNode::setPluginCtx(char* pluginName, char* signature, BasePluginCtx* pluginCtx) {
-	string key = plugin::util::getPluginKey(pluginName, signature);
+	string key = pango::constructPluginKey(pluginName, signature);
 
 	pluginCtxByNameSignatureKey[key] = pluginCtx;
 }

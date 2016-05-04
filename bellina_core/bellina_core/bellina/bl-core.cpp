@@ -64,7 +64,7 @@ void bl::init() {
 
 void bl::uninit() {
 
-	bl::plugin::uninit();
+	pango::uninit();
 	bl::shadow_::uninit();
 
 	if (root_node) delete root_node;
@@ -72,9 +72,7 @@ void bl::uninit() {
 	nodeById.clear();
 
 	delete _::short_term_echo;
-	delete _::long_term_echo;	
-
-	if (pluginBubble) delete pluginBubble;
+	delete _::long_term_echo;		
 
 	g2::uninit();
 }

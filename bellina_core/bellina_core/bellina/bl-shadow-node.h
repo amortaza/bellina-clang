@@ -6,10 +6,7 @@
 
 using namespace std;
 
-//namespace pango { extern class BasePluginCtx; }
-
-class pango::BasePluginCtx;
-using namespace pango;
+namespace pango { extern class BasePluginCtx; }
 
 namespace bl {
 

@@ -2,6 +2,8 @@
 
 #include <map>
 
+using namespace std;
+
 #include "bl-echo.h"
 #include "bl-node.h"
 #include "bl-fluent-border.h"
@@ -22,7 +24,7 @@ namespace bl {
 
 		unsigned int border_flag = bl::flags::BL_BORDER_ALL;
 
-		std::stack<Node *> nodeStack;
+		stack<Node *> nodeStack;
 
 		FluentBorder fluent_border;
 		FluentFont fluent_font;
@@ -30,9 +32,7 @@ namespace bl {
 		Echo* short_term_echo = new Echo();
 		Echo* long_term_echo = new Echo();
 
-		 std::map<std::string, Node*> nodeById;
-
-		 PluginBubble *pluginBubble = new PluginBubble();
+		 map<string, Node*> nodeById;
 
 		 unsigned int next_global_id = 0;
 	}
