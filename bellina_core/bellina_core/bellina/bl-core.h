@@ -21,6 +21,7 @@ namespace bl {
 
 	ShadowNode* get_shadow();
 	void shadow(ShadowCallback);
+	void* shadow(char* id, Constructor, Destructor);
 
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
 	void listenLongTerm(char* eventName, ListenerCallback eventCallback);

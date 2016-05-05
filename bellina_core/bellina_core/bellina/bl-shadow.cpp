@@ -32,6 +32,10 @@ void bl::shadow(ShadowCallback cb) {
 	shadowNode->copyTo(current_node);
 }
 
+void* bl::shadow(char* id, Constructor constructor, Destructor destructor) {
+	return 0;
+}
+
 void bl::shadow_::uninit() {
 	typedef map<string, ShadowNode*>::iterator it1;
 

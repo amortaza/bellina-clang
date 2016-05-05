@@ -15,6 +15,8 @@
 #include "plugins/resize/resize.h"
 #include "plugins/mouse-drag/mouse-drag.h"
 
+#include "widgets/button/button.h"
+
 using namespace node_drag;
 using namespace bl;
 using namespace bl::flags;
@@ -39,23 +41,12 @@ void Render_My_Bellina() {
 	{
 		bl::color(50, 0, 10);
 
-		bl::div(); {
+		button::begin(); {
 
-			bl::id("green");
+		} button::end();
 
-			bl::color(0, 150, 50);
-			bl::pos(200, 200);
-			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) { printf("green\n"); return true; });
-
-			bl::on("resize", [](void* e) {
-				printf("resize green\n");
-				return true; });
-		}
-		bl::end();
-
-		bl::div(); {
+/*		bl::div(); {
 
 			bl::id("red");
 
@@ -68,10 +59,10 @@ void Render_My_Bellina() {
 			/*bl::on("resize", [](void* e) {
 				printf("resize red\n");
 				return true; });*/
-		} 
-		bl:end();
+		/*} 
+		bl:end();*/
 
-		bl::use("z-index");
+		//bl::use("z-index");
 	}
 	bl::end();
 	

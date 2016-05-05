@@ -99,6 +99,12 @@
     <Filter Include="pango">
       <UniqueIdentifier>{a6f4f042-b63f-418d-bf50-99ee09d1d1c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="widgets">
+      <UniqueIdentifier>{29d68b1a-7494-48b5-ad7a-19b8ae563b56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="widgets\button">
+      <UniqueIdentifier>{3f742a30-4c6c-4a53-b5fe-587bfcb52af1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -305,6 +311,9 @@
     <ClInclude Include="pango\pango-bubble.h">
       <Filter>pango</Filter>
     </ClInclude>
+    <ClInclude Include="widgets\button\button.h">
+      <Filter>widgets\button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -453,6 +462,9 @@
     </ClCompile>
     <ClCompile Include="pango\pango-bubble.cpp">
       <Filter>pango</Filter>
+    </ClCompile>
+    <ClCompile Include="widgets\button\button.cpp">
+      <Filter>widgets\button</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

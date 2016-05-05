@@ -22,6 +22,10 @@ namespace bl {
 	typedef function<void(ShadowNode*)> ShadowCallback;
 	typedef function<void(void*)> ListenerCallback;
 
+	// 
+	typedef function<void*(void)> Constructor;
+	typedef function<void(void*)> Destructor;
+
 	//	
 	struct BorderSide {
 		unsigned char red, green, blue;
