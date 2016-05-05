@@ -23,7 +23,7 @@ namespace bl {
 	typedef function<void(void*)> ListenerCallback;
 
 	// 
-	typedef function<void*(void)> Constructor;
+	typedef function<void*(char* id)> Constructor;
 	typedef function<void(void*)> Destructor;
 
 	//	

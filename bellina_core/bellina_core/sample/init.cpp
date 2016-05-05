@@ -41,9 +41,9 @@ void Render_My_Bellina() {
 	{
 		bl::color(50, 0, 10);
 
-		button::begin(); {
-
-		} button::end();
+		button::begin("bad");
+		button::click([]() {printf("button click\n"); });
+		button::end();
 
 
 /*		bl::div(); {

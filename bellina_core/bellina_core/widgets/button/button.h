@@ -4,14 +4,26 @@
 
 namespace button {
 
+	typedef function<void(void)> ClickCallback;
+
 	struct Button {
 		char* id;
 		Destructor destructor;
+
+		char* title;
+		ClickCallback click_cb;
 	};
 
-	void begin();
-	void end();
+	extern Button* This;
 
-	Button* construct(char* id);
-	void destruct(Button*);
+	void begin(char* bid);
+	void end();
+	void render();
+
+	void* construct(char* id);
+	void destruct(void*);
+
+	void title(char*);
+
+	void click(ClickCallback);
 }

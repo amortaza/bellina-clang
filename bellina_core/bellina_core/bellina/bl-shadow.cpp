@@ -12,6 +12,7 @@ using namespace std;
 namespace bl {
 	namespace shadow_ {
 		map<string, ShadowNode *> shadowNodes;		
+		map<string, void*> shadowObjs;
 	}
 }
 
@@ -32,8 +33,21 @@ void bl::shadow(ShadowCallback cb) {
 	shadowNode->copyTo(current_node);
 }
 
-void* bl::shadow(char* id, Constructor constructor, Destructor destructor) {
-	return 0;
+void* bl::shadows(char* id, Constructor constructor, Destructor destructor) {
+
+	string key(id);
+	void* obj;
+
+	auto e2 = shadow_::shadowObjs.find(key);
+	
+	if (e2 == shadow_::shadowObjs.end()) {
+		obj = constructor(id);
+		shadow_::shadowObjs[key] = obj;
+		printf("created shadow\n");
+	}
+	else obj = e2->second;
+
+	return obj;
 }
 
 void bl::shadow_::uninit() {
@@ -44,6 +58,13 @@ void bl::shadow_::uninit() {
 
 		delete snode;
 	}
+
+	//
+	printf("WARNING you are not clearing shadow objects\n");
+	/*typedef map<string, void*>::iterator it2;
+	for (it2 it = aaa.begin(); it != aaa.end(); it++) {
+		ttt ccc = it->second;
+	}*/
 }
 
 ShadowNode* shadow_::getShadowNode(Node* node) {
