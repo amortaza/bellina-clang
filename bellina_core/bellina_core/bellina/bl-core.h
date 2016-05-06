@@ -39,7 +39,9 @@ namespace bl {
 	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);	
 
 	void pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory);
+
 	void pluginCall(char* pluginName, char* signature, Node* node, void* eventData);
+	void pluginCall2nd(char* pluginName, char* signature, Node* node, void* eventData);
 
 	Node* div();
 	void end();
