@@ -9,6 +9,7 @@ using namespace bl::listener;
 
 namespace click {
 	char* plugin_name = "click";
+	char* lifecycle_default = "default";
 
 	char* lastDownNodeId = 0;
 	Xel::Mouse::Button lastDownButton;
