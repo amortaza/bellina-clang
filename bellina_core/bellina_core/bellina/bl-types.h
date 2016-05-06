@@ -37,4 +37,8 @@ namespace bl {
 	struct Point {
 		int x, y;
 	};
+
+	struct Color {
+		unsigned char r, g, b;
+	};
 }

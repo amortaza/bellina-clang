@@ -12,6 +12,10 @@ namespace button {
 
 		char* title;
 		ClickCallback click_cb;
+
+		int w, h;
+
+		int state;
 	};
 
 	extern Button* This;
@@ -24,6 +28,7 @@ namespace button {
 	void destruct(void*);
 
 	void title(char*);
+	void dim(int w, int h);
 
 	void click(ClickCallback);
 }

@@ -6,7 +6,8 @@
 namespace pango {
 	namespace bubble {
 		namespace _ {
-			MapList<PluginCallback> callbacks_By_NodeId_and_PluginName_and_Signature;
+			int MaxLifeCycleCallbacks = 4;
+			MapList<PluginCallback> callbacks_By_NodeId_and_PluginName_and_Signature_array[MaxLifeCycleCallbacks];
 		}
 	}
 }
@@ -35,6 +36,7 @@ list<PluginCallback>* bubble::getCallbacks(char* nodeId, char* pluginName, char*
 
 	return cbs;
 }
+
 bool bubble::startBubble(char* nodeId, char* pluginName, char* signature, void* eventData) {
 
 	bool bubble = true;
@@ -43,6 +45,25 @@ bool bubble::startBubble(char* nodeId, char* pluginName, char* signature, void* 
 	
 	if (cbs) {
 		
+		list<PluginCallback>::const_iterator it;
+		for (it = cbs->begin(); it != cbs->end(); ++it) {
+			PluginCallback cb = *it;
+
+			bubble = cb(eventData) && bubble;
+		}
+	}
+
+	return bubble;
+}
+
+bool bubble::startBubble2nd(char* nodeId, char* pluginName, char* signature, void* eventData) {
+
+	bool bubble = true;
+
+	list<PluginCallback>* cbs = getCallbacks2nd(nodeId, pluginName, signature);
+
+	if (cbs) {
+
 		list<PluginCallback>::const_iterator it;
 		for (it = cbs->begin(); it != cbs->end(); ++it) {
 			PluginCallback cb = *it;
