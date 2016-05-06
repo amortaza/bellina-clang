@@ -17,5 +17,4 @@ namespace pango {
 	void setBool(char* pluginName, char* propName, bool value);
 	bool getBool(char* pluginName, char* propName);
 	bool hasBool(char* pluginName, char* propName);
-
 }
