@@ -25,6 +25,7 @@ void bubble::addCallback(PluginCallback cb, char* nodeId, char* pluginName, char
 
 	string key = constructPluginKey__Node_and_Plugin_and_Signature_and_LifeCycle(nodeId, pluginName, signature, lifeCycle);
 
+	//cout << "adding callback " << key << "\n";
 	callbacks_By_NodeId_and_PluginName_and_Signature_and_LifeCycle.add(key, cb);
 }
 
@@ -33,12 +34,19 @@ list<PluginCallback>* bubble::getCallbacks(char* nodeId, char* pluginName, char*
 
 	list<PluginCallback>* cbs = callbacks_By_NodeId_and_PluginName_and_Signature_and_LifeCycle.getList(key);
 
+	/*if (cbs) {
+		cout << "getting callback " << key << "\n";
+
+		//printf("size %i\n", cbs->size());
+	}*/
 	return cbs;
 }
 
 bool bubble::startBubble(char* nodeId, char* pluginName, char* signature, char* lifeCycle, void* eventData) {
 
 	bool bubble = true;
+
+	//printf("startBubble %s %s\n", nodeId, lifeCycle);
 
 	list<PluginCallback>* cbs = getCallbacks(nodeId, pluginName, signature, lifeCycle);
 	

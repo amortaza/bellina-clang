@@ -13,4 +13,11 @@ namespace click {
 		Node* node;
 		Xel::Mouse::Button button;
 	};
+
+	namespace lifecycle {
+		extern char* default;
+		extern char* mouse_down;
+		extern char* mouse_drag;
+		extern char* mouse_up_and_no_click;
+	}
 }

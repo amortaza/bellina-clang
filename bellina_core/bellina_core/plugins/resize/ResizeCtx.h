@@ -40,7 +40,7 @@ namespace resize {
 				e2.h = This->newH;
 				e2.node = event->node;
 
-				bl::pluginCall(plugin_name, "default", event->node, &e2);
+				bl::pluginCall(plugin_name, "default", "default", event->node, &e2);
 				bl::fire(plugin_name, &e2);
 
 				return true;

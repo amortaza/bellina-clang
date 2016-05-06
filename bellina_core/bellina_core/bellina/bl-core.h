@@ -34,13 +34,14 @@ namespace bl {
 	void use(char* pluginName);
 	void on(char* pluginName, PluginCallback cb);
 
+	void onLifeCycle(char* pluginName, char* signature, char* lifeCycle, PluginCallback cb);
+	void onLifeCycle(char* pluginName,                  char* lifeCycle, PluginCallback cb);
+
 	void use(char* pluginName, char* signature, PluginCtxFactory factory);
-	void on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);	
-	void on(char* pluginName, char* signature, char* lifeCycle, PluginCtxFactory factory, PluginCallback cb);
+	void on( char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb);		
 
 	void pluginCtxOnNode(char* pluginName, char* signature, PluginCtxFactory);
 
-	void pluginCall(char* pluginName, char* signature,					Node* node, void* eventData);
 	void pluginCall(char* pluginName, char* signature, char* lifeCycle, Node* node, void* eventData);
 
 	Node* div();

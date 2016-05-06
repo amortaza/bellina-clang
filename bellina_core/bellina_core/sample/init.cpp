@@ -47,11 +47,11 @@ void Render_My_Bellina() {
 			bl::pos(200, 200);
 			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) { printf("green\n"); return true; });
-
-			bl::on("resize", [](void* e) {
-				printf("resize green\n");
+			bl::onLifeCycle("click", "default", click::lifecycle::mouse_down, [](void* e) { 
+				printf("green down\n"); 
 				return true; });
+
+			bl::on("click", [](void* e) { printf("green click\n"); return true; });
 		}
 		bl::end();
 
@@ -63,7 +63,7 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
+			//bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
 
 			/*bl::on("resize", [](void* e) {
 				printf("resize red\n");
@@ -71,7 +71,7 @@ void Render_My_Bellina() {
 		} 
 		bl:end();
 
-		bl::use("z-index");
+		//bl::use("z-index");
 	}
 	bl::end();
 	
@@ -81,21 +81,21 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	pango::load(focus::load);
+	//pango::load(focus::load);
 	pango::load(click::load);
 
 	//bl::pluginSetInt("double-click", "duration", 1001);
-	pango::load(double_click::load);
+	//pango::load(double_click::load);
 
 	//bl::pluginLoad(mouse_drag::load);
-	pango::load(node_drag::load);
+	//pango::load(node_drag::load);
 
 	//bl::pluginSetBool(z_index::plugin_name, "")
-	pango::load(z_index::load);
+	//pango::load(z_index::load);
 
-	pango::load(mouse_in::load);
+	//pango::load(mouse_in::load);
 
-	pango::load(resize::load);
+	//pango::load(resize::load);
 }
 
 void UnInit() {

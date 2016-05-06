@@ -9,7 +9,13 @@ using namespace bl::listener;
 
 namespace click {
 	char* plugin_name = "click";
-	char* lifecycle_default = "default";
+
+	namespace lifecycle {
+		char* default = "default";
+		char* mouse_down = "mouse-down";
+		char* mouse_drag = "mouse-drag";
+		char* mouse_up_and_no_click = "mouse-up-no-click";
+	}
 
 	char* lastDownNodeId = 0;
 	Xel::Mouse::Button lastDownButton;
@@ -51,6 +57,16 @@ namespace click {
 			lastDownNodeId = _strdup(bl::node->nid);
 			lastDownButton = button;
 
+			MouseClickEvent event;
+			event.mx = mx;
+			event.my = my;
+			event.button = button;
+			event.node = bl::node;
+
+			//printf("onmousedown\n");
+
+			bl::pluginCall(plugin_name, "default", lifecycle::mouse_down, bl::node, &event);
+
 			return true;
 		});
 		
@@ -64,7 +80,7 @@ namespace click {
 				event.node = bl::node;
 
 				//printf("mouse up getting called for signature %s\n", signature);
-				bl::pluginCall(plugin_name, "default", bl::node, &event);
+				bl::pluginCall(plugin_name, "default", lifecycle::default, bl::node, &event);
 				bl::fire(plugin_name, &event);
 			}
 

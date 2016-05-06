@@ -46,7 +46,7 @@ namespace mouse_drag {
 		event.deltaY = deltaY;
 		event.button = lastButton;
 		//rintf("firing\n");
-		bl::pluginCall(plugin_name, "default", node, &event);
+		bl::pluginCall(plugin_name, "default", "default", node, &event);
 		bl::fire(plugin_name, &event);
 	}
 

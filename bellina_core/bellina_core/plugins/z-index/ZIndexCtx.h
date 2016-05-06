@@ -55,7 +55,7 @@ namespace z_index {
 						ZIndexEvent event;
 						event.topNode = bl::node;
 
-						bl::pluginCall(plugin_name, signature, bl::node->parent, &event);
+						bl::pluginCall(plugin_name, signature, "default", bl::node->parent, &event);
 						bl::fire(plugin_name, &event);
 					}
 

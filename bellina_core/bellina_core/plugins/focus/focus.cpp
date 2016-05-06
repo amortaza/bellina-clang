@@ -39,7 +39,7 @@ namespace focus {
 				focusEvent.keyDownEvent = event;
 				focusEvent.node = node;
 				
-				bl::pluginCall(plugin_name, "default", node, &focusEvent);
+				bl::pluginCall(plugin_name, "default", "default", node, &focusEvent);
 				bl::fire(plugin_name, &focusEvent);
 			}			
 		});
