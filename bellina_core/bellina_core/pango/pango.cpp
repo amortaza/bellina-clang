@@ -68,6 +68,15 @@ string pango::constructPluginKey__Plugin_and_Signature_and_LifeCycle(char* plugi
 	return key;
 }
 
+string pango::constructPluginKey__Plugin_and_Signature(char* pluginName, char* signature) {
+	string key(pluginName);
+
+	key.append(".");
+	key.append(signature);
+
+	return key;
+}
+
 void pango::registerPlugin(
 	char* pluginName,
 	PluginInit init,

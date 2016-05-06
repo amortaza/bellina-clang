@@ -29,10 +29,14 @@ void bl::use(char* pluginName, char* signature, PluginCtxFactory factory) {
 }
 
 void bl::on(char* pluginName, PluginCallback cb) {
-	bl::on(pluginName, "default", nullptr, cb);
+	bl::on(pluginName, "default", "default", nullptr, cb);
 }
 
 void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginCallback cb) {
+	bl::on(pluginName, signature, "default", factory, cb);
+}
+
+void bl::on(char* pluginName, char* signature, char* lifeCycle, PluginCtxFactory factory, PluginCallback cb) {
 	if (!isRegistered(pluginName)) {
 		printf("Unregistered plugin cannot be used, see \"%s\"\n", pluginName);
 		return;
@@ -41,7 +45,7 @@ void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginC
 	Plugin* plugin = pango::getPluginByName(pluginName);
 
 	if (cb != nullptr) 
-		bubble::addCallback(cb, current_node->nid, pluginName, signature);
+		bubble::addCallback(cb, current_node->nid, pluginName, signature, lifeCycle);
 
 	// some plugins do not have on_node, see mouse-in
 	if (plugin->on_node != nullptr)
@@ -49,11 +53,15 @@ void bl::on(char* pluginName, char* signature, PluginCtxFactory factory, PluginC
 }
 
 void bl::pluginCall(char* pluginName, char* signature, Node* node, void* eventData) {
+	bl::pluginCall(pluginName, signature, "default", node, eventData);
+}
+
+void bl::pluginCall(char* pluginName, char* signature, char* lifeCycle, Node* node, void* eventData) {
 	Node* parent = node;
 	bool bubble = true;
 
 	while (parent && bubble) {
-		bubble = bubble::startBubble(parent->nid, pluginName, signature, eventData) && bubble;
+		bubble = bubble::startBubble(parent->nid, pluginName, signature, lifeCycle, eventData) && bubble;
 		parent = parent->parent;
 	}
 }

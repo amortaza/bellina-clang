@@ -23,6 +23,7 @@ namespace pango {
 
 	void uninit();
 
-	string constructPluginKey__Node_and_Plugin_and_Signature_and_LifeCycle(char*nodeId, char* pluginName, char* signature);
-	string constructPluginKey__Plugin_and_Signature_and_LifeCycle(                      char* pluginName, char* signature);
+	string constructPluginKey__Node_and_Plugin_and_Signature_and_LifeCycle(char*nodeId, char* pluginName, char* signature, char* lifeCycle);
+	string constructPluginKey__Plugin_and_Signature_and_LifeCycle(                      char* pluginName, char* signature, char* lifeCycle);
+	string constructPluginKey__Plugin_and_Signature(                                    char* pluginName, char* signature);
 }
