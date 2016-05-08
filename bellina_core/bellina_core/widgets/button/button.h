@@ -5,6 +5,7 @@
 namespace button {
 
 	typedef function<void(void)> ClickCallback;
+	typedef function<void(void)> VoidCallback;
 
 	struct Button {
 		char* id;

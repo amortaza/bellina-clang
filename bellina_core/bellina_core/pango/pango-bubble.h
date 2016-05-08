@@ -10,13 +10,13 @@ using namespace std;
 namespace pango {
 	namespace bubble {
 		namespace _ {
-			extern MapList<PluginCallback> callbacks_By_NodeId_and_PluginName_and_Signature;
+			extern MapList<PluginCallback> callbacks_By_NodeId_and_PluginName_and_Signature_and_LifeCycle;
 		}
 
-		void addCallback(PluginCallback cb, char* nodeId, char* pluginName, char* signature);
-		list<PluginCallback>* getCallbacks(char* nodeId, char* pluginName, char* signature);
+		void addCallback(PluginCallback cb, char* nodeId, char* pluginName, char* signature, char* lifeCycle);
+		list<PluginCallback>* getCallbacks(char* nodeId, char* pluginName, char* signature, char* lifeCycle);
 
-		bool startBubble(char* nodeId, char* pluginName, char* signature, void* eventData);
+		bool startBubble(char* nodeId, char* pluginName, char* signature, char* lifeCycle, void* eventData);
 
 		void clearCallbacks();
 	}

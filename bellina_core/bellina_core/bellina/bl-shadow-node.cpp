@@ -34,7 +34,7 @@ namespace bl {
 	}
 }
 BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, PluginCtxFactory factory) {
-	string key = pango::constructPluginKey(pluginName, signature);
+	string key = pango::constructPluginKey__Plugin_and_Signature(pluginName, signature);
 
 	auto e2 = pluginCtxByNameSignatureKey.find(key);
 
@@ -55,7 +55,7 @@ BasePluginCtx* ShadowNode::getPluginCtx(char* pluginName, char* signature, Plugi
 }
 
 void ShadowNode::setPluginCtx(char* pluginName, char* signature, BasePluginCtx* pluginCtx) {
-	string key = pango::constructPluginKey(pluginName, signature);
+	string key = pango::constructPluginKey__Plugin_and_Signature(pluginName, signature);
 
 	pluginCtxByNameSignatureKey[key] = pluginCtx;
 }

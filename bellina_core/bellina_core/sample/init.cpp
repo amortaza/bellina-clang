@@ -43,9 +43,8 @@ void Render_My_Bellina() {
 
 		button::begin("bad");
 		button::title("Jordan");
-		button::click([]() {printf("button click\n"); });
+		button::click([]() {printf("!!! click\n"); });
 		button::end();
-
 
 /*		bl::div(); {
 
@@ -55,7 +54,7 @@ void Render_My_Bellina() {
 			bl::pos(100, 100);
 			bl::dim(160, 120);
 
-			bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
+			//bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
 
 			/*bl::on("resize", [](void* e) {
 				printf("resize red\n");
@@ -73,21 +72,22 @@ void Render_My_Bellina() {
 void Init_OnGL() {
 	bl::init();
 
-	pango::load(focus::load);
+	// needs to be before click
+	pango::load(mouse_in::load);
+
+	//pango::load(focus::load);
 	pango::load(click::load);
 
-	//bl::pluginSetInt("double-click", "duration", 1001);
-	pango::load(double_click::load);
+	//pango::load(double_click::load);
 
-	//bl::pluginLoad(mouse_drag::load);
 	pango::load(node_drag::load);
 
 	//bl::pluginSetBool(z_index::plugin_name, "")
-	pango::load(z_index::load);
+	//pango::load(z_index::load);
 
-	pango::load(mouse_in::load);
+	
 
-	pango::load(resize::load);
+	//pango::load(resize::load);
 }
 
 void UnInit() {

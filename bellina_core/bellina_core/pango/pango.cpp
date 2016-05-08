@@ -44,18 +44,31 @@ void pango::uninit() {
 	pango::bubble::clearCallbacks();
 }
 
-string pango::constructPluginKey(char*nodeId, char* pluginName, char* signature) {
+string pango::constructPluginKey__Node_and_Plugin_and_Signature_and_LifeCycle(char* nodeId, char* pluginName, char* signature, char* lifeCycle) {
 	string key(nodeId);
 
-	key.append(":");
+	key.append(":");	
 	key.append(pluginName);
 	key.append(".");
 	key.append(signature);
+	key.append("#");
+	key.append(lifeCycle);
 
 	return key;
 }
 
-string pango::constructPluginKey(char* pluginName, char* signature) {
+string pango::constructPluginKey__Plugin_and_Signature_and_LifeCycle(char* pluginName, char* signature, char* lifeCycle) {
+	string key(pluginName);
+
+	key.append(".");
+	key.append(signature);
+	key.append("#");
+	key.append(lifeCycle);
+
+	return key;
+}
+
+string pango::constructPluginKey__Plugin_and_Signature(char* pluginName, char* signature) {
 	string key(pluginName);
 
 	key.append(".");
@@ -72,7 +85,6 @@ void pango::registerPlugin(
 	PluginUninit uninit) {
 
 	if (isRegistered(pluginName)) {
-		// rintf("Plugin \"%s\" is already loaded.  Ignoring re-load request.\n", pluginName);
 		return;
 	}
 

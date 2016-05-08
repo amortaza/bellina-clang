@@ -2,6 +2,7 @@
 
 #include "bellina/bellina.h"
 #include "plugins/mouse-in/mouse-in.h"
+#include "plugins/click/click.h"
 
 #include "button.h"
 
@@ -9,12 +10,11 @@ namespace button {
 	Button* This;
 
 	int State_Default = 0;
-	int State_In = 1;
-	int State_Out = 2;
+	int State_Mouse_Down = 1;	
 
 	void renderText() {
 
-		if (This->state == State_In)
+		if (This->state == State_Mouse_Down)
 			bl::fontColor(255, 255, 100);
 		else
 			bl::fontColor(100, 100, 100);
@@ -24,7 +24,7 @@ namespace button {
 	}
 
 	void setupHover() {
-		bl::on("mouse-in", [](void* data) {
+		/*bl::on("mouse-in", [](void* data) {
 			mouse_in::MouseInOutEvent* e = (mouse_in::MouseInOutEvent*)data;
 
 			if (e->isInEvent)
@@ -33,16 +33,35 @@ namespace button {
 				This->state = State_Out;
 			
 			return true;
-		});
+		});*/
 	}
 
 	void setupClick() {
+
+		bl::onLifeCycle("click", click::lifecycle::mouse_down, [](void* data) {
+			//rintf("button mouse down\n");
+			This->state = State_Mouse_Down;
+			return false;
+		});
+
+		bl::onLifeCycle("click", click::lifecycle::mouse_up_and_no_click, [](void* data) {
+			//rintf("button mouse up no click\n");
+			This->state = State_Default;
+			return false;
+		});
+
+		/*bl::onLifeCycle("click", click::lifecycle::mouse_drag, [](void* data) {
+			printf("button mouse drag\n");
+			return false;
+		});*/
+
 		if (This->click_cb != nullptr) {
 			ClickCallback cb = This->click_cb;
 
 			bl::on("click", [cb](void* data) {
+				This->state = State_Default;
 				cb();
-				return true;
+				return false;
 			});
 		}
 	}
@@ -91,6 +110,7 @@ void* button::construct(char* id) {
 
 	b->id = _strdup(id);
 	b->title = 0;
+
 	b->click_cb = nullptr;
 
 	b->w = 128;

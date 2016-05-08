@@ -45,7 +45,7 @@ namespace node_drag {
 				nde.relativeX = event->relativeX;
 				nde.relativeY = event->relativeY;
 
-				bl::pluginCall(plugin_name, "default", event->node, &nde);
+				bl::pluginCall(plugin_name, "default", "default", event->node, &nde);
 				bl::fire(plugin_name, &nde);
 
 				return false;
