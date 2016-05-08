@@ -15,9 +15,9 @@ namespace button {
 	void renderText() {
 
 		if (This->state == State_Mouse_Down)
-			bl::fontColor(255, 255, 100);
+			bl::textColor(255, 255, 100);
 		else
-			bl::fontColor(100, 100, 100);
+			bl::textColor(100, 100, 100);
 		
 		bl::padding(5, 5, 0, 0);
 		bl::text(This->title);

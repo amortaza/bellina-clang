@@ -73,7 +73,7 @@ void paint2() {
 	g2::texture(root_node->canvas);
 	g2::rectFlipped(G2_TEXTURE, 0, 0, winW, winH);
 
-	if (root_node->label_ && root_node->label_tops_canvas) {
+	if (root_node->text_ && root_node->text_tops_canvas) {
 		eos::_::renderLabel(root_node, 0, 0);
 	}
 

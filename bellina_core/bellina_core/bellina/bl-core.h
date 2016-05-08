@@ -77,15 +77,16 @@ namespace bl {
 	void borderOpacity(float a);
 
 	FluentFont* font(char *name, int size);
-	FluentFont* fontColor(unsigned char r, unsigned char g, unsigned char b);
-	FluentFont* text(char *);
-	FluentFont* fontOpacity(float);
+
+	FluentFont* textColor(unsigned char r, unsigned char g, unsigned char b);
+	FluentFont* textOpacity(float);
+	FluentFont* text(char *);	
+
+	void textTops(bool);
 
 	void resetFlags(int);
 	void addFlag(int);
-	void removeFlag(int);
-
-	void labelTops(bool);
+	void removeFlag(int);	
 
 	void setColorSolidFlag();
 	void setColorHorizGradientFlag();

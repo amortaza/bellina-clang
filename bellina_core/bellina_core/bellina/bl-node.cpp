@@ -41,36 +41,36 @@ Node::Node(Node* parent) {
 	w = h = -1;
 	font_name = 0;
 	font_size = 24;
-	label_ = 0;
+	text_ = 0;
 
 	canvasOpacity1(1.f);
 	canvasOpacity2(1.f);
 
-	fontOpacity(1.f);
+	textOpacity(1.f);
 
 	pos(0, 0);
 	padding(0, 0, 0, 0);
 
 	color1(255, 0, 0);
 	color2(255, 0, 0);
-	fontColor(255, 255, 255);
+	textColor(255, 255, 255);
 
-	labelTops(false);
+	textTops(false);
 
 	borderColor(BL_BORDER_ALL, 255, 255, 0);
 	borderOpacity(BL_BORDER_ALL, 1.f);
 	borderThickness(BL_BORDER_ALL, 1);
 	borderTops(BL_BORDER_ALL, false);
 
-	flags = G2_COLOR_SOLID | G2_ALPHA_NONE;
+	flags = G2_COLOR_SOLID | G2_ALPHA_NONE | BL_TEXT_ALIGN_DEFAULT;
 }
 
 void Node::id(char* _id) {
 	nid = _strdup(_id);
 }
 
-void Node::labelTops(bool tops) {
-	label_tops_canvas = tops;
+void Node::textTops(bool tops) {
+	text_tops_canvas = tops;
 }
 
 void Node::color1(unsigned char _r, unsigned char _g, unsigned char _b) {
@@ -107,8 +107,8 @@ void Node::addKid(Node* kid) {
 	kids.push_back(kid);
 }
 
-void Node::label(char *_text) {
-	label_ = _strdup(_text);
+void Node::text(char *_text) {
+	text_ = _strdup(_text);
 
 	if (!font_name) font("arial", font_size);
 }
@@ -124,12 +124,12 @@ void Node::font(char *name, int size) {
 	fontHeight = g2::font_height();
 }
 
-void Node::fontColor(unsigned char r, unsigned char g, unsigned char b) {
-	font_red = r; font_green = g; font_blue = b;
+void Node::textColor(unsigned char r, unsigned char g, unsigned char b) {
+	text_red = r; text_green = g; text_blue = b;
 }
 
-void Node::fontOpacity(float alpha) {
-	font_alpha = alpha;
+void Node::textOpacity(float alpha) {
+	text_alpha = alpha;
 }
 
 void Node::padding(int l, int t, int r, int b) {
@@ -176,8 +176,8 @@ Node::~Node() {
 	// font
 	if (font_name) delete[] font_name;
 
-	// label
-	if (label_) delete[] label_;
+	// text
+	if (text_) delete[] text_;
 
 	// texture ref
 	if (texture_) delete texture_;

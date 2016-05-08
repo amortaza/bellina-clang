@@ -39,28 +39,31 @@ void Render_My_Bellina() {
 
 	bl::root();
 	{
-		bl::color(50, 0, 10);
+		/*bl::color(50, 0, 10);
 
 		button::begin("bad");
 		button::title("Jordan");
 		button::click([]() {printf("!!! click\n"); });
-		button::end();
+		button::end();*/
 
-/*		bl::div(); {
+		bl::div(); {
 
 			bl::id("red");
 
 			bl::color(150, 0, 50);
 			bl::pos(100, 100);
-			bl::dim(160, 120);
+			bl::dim(320, 240);
+
+			bl::addFlag(BL_TEXT_ALIGN_DEFAULT);
+			bl::text("Ace the Clown");
 
 			//bl::on("node-drag", [](void* e) { printf("red\n"); return true; });
 
 			/*bl::on("resize", [](void* e) {
 				printf("resize red\n");
 				return true; });*/
-		/*} 
-		bl:end();*/
+		} 
+		bl:end();
 
 		//bl::use("z-index");
 	}

@@ -11,7 +11,7 @@ FluentFont* FluentFont::font(char *name, int size) {
 }
 
 FluentFont* FluentFont::color(unsigned char r, unsigned char g, unsigned char b) {
-	bl::fontColor(r, g, b);
+	bl::textColor(r, g, b);
 	return this;
 }
 
@@ -21,6 +21,6 @@ FluentFont* FluentFont::text(char *t) {
 }
 
 FluentFont* FluentFont::opacity(float a) {
-	bl::fontOpacity(a);
+	bl::textOpacity(a);
 	return this;
 }

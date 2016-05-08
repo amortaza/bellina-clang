@@ -74,8 +74,8 @@ void bl::borderOpacity(float a) {
 	current_node->borderOpacity(border_flag, a);
 }
 
-FluentFont* bl::fontOpacity(float a) {
-	current_node->fontOpacity(a);
+FluentFont* bl::textOpacity(float a) {
+	current_node->textOpacity(a);
 
 	return &fluent_font;
 }
@@ -86,14 +86,14 @@ FluentFont* bl::font(char *name, int size) {
 	return &fluent_font;
 }
 
-FluentFont* bl::fontColor(unsigned char r, unsigned char g, unsigned char b) {
-	current_node->fontColor(r, g, b);
+FluentFont* bl::textColor(unsigned char r, unsigned char g, unsigned char b) {
+	current_node->textColor(r, g, b);
 
 	return &fluent_font;
 }
 
-FluentFont* bl::text(char *label) {
-	current_node->label(label);
+FluentFont* bl::text(char *text) {
+	current_node->text(text);
 
 	return &fluent_font;
 }
@@ -111,8 +111,8 @@ void bl::removeFlag(int f) {
 }
 
 
-void bl::labelTops(bool b) {
-	current_node->labelTops(b);
+void bl::textTops(bool b) {
+	current_node->textTops(b);
 }
 
 void bl::setColorSolidFlag() {
