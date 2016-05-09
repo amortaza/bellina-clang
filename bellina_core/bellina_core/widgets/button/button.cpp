@@ -5,11 +5,13 @@
 #include "plugins/click/click.h"
 
 #include "button.h"
+#include "ButtonCtx.hpp"
 
 using namespace bl::flags;
+using namespace button;
 
 namespace button {
-	Button* This;
+	ButtonCtx* This;
 
 	int State_Default = 0;
 	int State_Mouse_Down = 1;	
@@ -77,7 +79,7 @@ void button::begin(char* bid) {
 	bl::div(); 
 	bl::id(bid);
 
-	This = (Button*) bl::shadows(bid, construct, destruct);
+	This = (ButtonCtx*) bl::shadows(bid, construct);
 
 	// set widget properties
 	title("ok");
@@ -108,34 +110,16 @@ void button::render() {
 	bl::border(bl::flags::BL_BORDER_ALL);
 }
 
-void* button::construct(char* id) {
-	Button* b = new Button();
-
-	b->id = _strdup(id);
-	b->title = 0;
-
-	b->click_cb = nullptr;
-
-	b->w = 128;
-	b->h = 64;
-
-	b->state = State_Default;
+Widget* button::construct(char* id) {
+	ButtonCtx* b = new ButtonCtx(id);
 
 	return b;
 }
 
-void button::destruct(void* btn) {
-	Button* b = (Button*)btn;
-
-	delete[] b->id;
-
-	if (b->title) delete[] b->title;
-
-	delete b;
-}
-
 void button::title(char* t) {
-	This->title = t;
+	if (This->title) delete[] This->title;
+
+	This->title = _strdup(t);
 }
 
 void button::click(ClickCallback cb) {

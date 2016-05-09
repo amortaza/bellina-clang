@@ -1,32 +1,20 @@
 #pragma once
 
 #include "bellina/bl-types.h"
+#include "bellina/bl-widget.h"
+
+#include "types.h"
 
 namespace button {
+	extern class ButtonCtx;
 
-	typedef function<void(void)> ClickCallback;
-	typedef function<void(void)> VoidCallback;
-
-	struct Button {
-		char* id;
-		Destructor destructor;
-
-		char* title;
-		ClickCallback click_cb;
-
-		int w, h;
-
-		int state;
-	};
-
-	extern Button* This;
+	extern ButtonCtx* This;
 
 	void begin(char* bid);
 	void end();
 	void render();
 
-	void* construct(char* id);
-	void destruct(void*);
+	Widget* construct(char* id);
 
 	void title(char*);
 	void dim(int w, int h);
