@@ -15,14 +15,8 @@
     <Filter Include="source files\soil">
       <UniqueIdentifier>{641b7315-bfbc-4c99-aa65-4efb36e2d195}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source files\free_font">
-      <UniqueIdentifier>{a6b6e25f-b395-4efd-afdc-6365a7c4bf3a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source files\g2">
       <UniqueIdentifier>{4a535589-ef64-4b7c-9032-b4f8e50b76c8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="source files\g2\include">
-      <UniqueIdentifier>{a0dae0cb-eba9-4900-9f23-30f57097e313}</UniqueIdentifier>
     </Filter>
     <Filter Include="plugins">
       <UniqueIdentifier>{848fd597-a661-49a2-b297-3eee48ad12fb}</UniqueIdentifier>
@@ -105,6 +99,9 @@
     <Filter Include="widgets\button">
       <UniqueIdentifier>{3f742a30-4c6c-4a53-b5fe-587bfcb52af1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source files\ace-font">
+      <UniqueIdentifier>{1f5c8770-b9c6-4ccf-a142-31683127acb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -133,57 +130,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\c_lib\lib\Soil\stbi_DDS_aug_c.h">
       <Filter>source files\soil</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\FreeFont\free_font\free_font\free_font.h">
-      <Filter>source files\free_font</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceFramebuffer.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceImageRect.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceMaskRgbRect.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceProgram.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceRgbRect.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceShader.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceTexture.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceTextureGlyph.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\AceTextureRect.hpp">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_canvas.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_core.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_externals.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h">
-      <Filter>source files\g2\include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h">
-      <Filter>source files\g2\include</Filter>
     </ClInclude>
     <ClInclude Include="sample\main.h">
       <Filter>sample</Filter>
@@ -314,6 +260,63 @@
     <ClInclude Include="widgets\button\button.h">
       <Filter>widgets\button</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceFramebuffer.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceImageRect.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\acemaskrgbrect.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceProgram.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceRgbRect.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceShader.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceTexture.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceTextureGlyph.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\AceTextureRect.hpp">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\CanvasRef.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_canvas.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_core.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_externals.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_font.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_opacity.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\g2_texture.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\g2\g2\g2\TextureRef.h">
+      <Filter>source files\g2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ace-font\ace-font\ace-font\ace-font.h">
+      <Filter>source files\ace-font</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -330,36 +333,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\c_lib\lib\Soil\stb_image_aug.cpp">
       <Filter>source files\soil</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\FreeFont\free_font\free_font\free_font.cpp">
-      <Filter>source files\free_font</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\AceTexture.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_canvas.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_core.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_font.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_internal.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_mask.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_opacity.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_rect.cpp">
-      <Filter>source files\g2</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\g2\g2\g2_cpp\g2_texture.cpp">
-      <Filter>source files\g2</Filter>
     </ClCompile>
     <ClCompile Include="sample\init.cpp">
       <Filter>sample</Filter>
@@ -465,6 +438,66 @@
     </ClCompile>
     <ClCompile Include="widgets\button\button.cpp">
       <Filter>widgets\button</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceFramebuffer.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceImageRect.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceMaskRgbRect.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceProgram.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceRgbRect.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceShader.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceTexture.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceTextureGlyph.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\AceTextureRect.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\CanvasRef.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_canvas.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_core.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_font.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_internal.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_mask.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_opacity.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_rect.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\g2_texture.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\g2\g2\g2\TextureRef.cpp">
+      <Filter>source files\g2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ace-font\ace-font\ace-font\ace-font.cpp">
+      <Filter>source files\ace-font</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

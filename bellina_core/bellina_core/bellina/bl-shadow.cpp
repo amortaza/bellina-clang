@@ -57,13 +57,15 @@ void bl::shadow_::uninit() {
 		ShadowNode* snode = it->second;
 
 		delete snode;
+		// test new ShadowNode();
 	}
 
 	//
-	printf("WARNING you are not clearing shadow objects\n");
+	for (int i = 0; i < 100;i++)
+		printf("!!!!!!!!!!! WARNING you are not clearing shadow objects\n");
 	/*typedef map<string, void*>::iterator it2;
-	for (it2 it = aaa.begin(); it != aaa.end(); it++) {
-		ttt ccc = it->second;
+	for (it2 it = shadow_::shadowObjs.begin(); it != shadow_::shadowObjs.end(); it++) {
+		void* obj = it->second;
 	}*/
 }
 

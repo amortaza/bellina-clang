@@ -18,5 +18,6 @@ namespace bl {
 
 		extern unsigned int BL_TEXT_CENTER_ALL;
 		extern unsigned int BL_TEXT_ALIGN_DEFAULT;
+		extern unsigned int BL_TEXT_ALIGN_ANY;
 	}
 }

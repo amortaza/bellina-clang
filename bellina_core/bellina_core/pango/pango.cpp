@@ -36,6 +36,7 @@ void pango::uninit() {
 		if (plugin->uninit != nullptr) plugin->uninit();
 
 		delete plugin;
+		//test new Plugin();
 	}
 
 	intProperty.clear();

@@ -24,6 +24,7 @@ namespace z_index {
 				Order* order = *iterator;
 
 				delete order;
+				//test new Order();
 			}
 
 			orders->clear();

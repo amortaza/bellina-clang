@@ -4,6 +4,8 @@
 #include "bl-globals.h"
 #include "bl-node.h"
 
+using namespace std;
+
 using namespace bl;
 using namespace bl::_;
 using namespace bl::util;
@@ -35,7 +37,7 @@ namespace bl {
 
 			if (!nodeContainsPoint(parent, wx, wy)) return 0;
 
-			std::list<Node*>::const_iterator iterator;
+			list<Node*>::const_iterator iterator;
 
 			Node* topmost = parent;
 			for (iterator = parent->kids.begin(); iterator != parent->kids.end(); ++iterator) {
@@ -57,7 +59,7 @@ namespace bl {
 			parentX = node->global_pos.x = node->x + parentX;
 			parentY = node->global_pos.y = node->y + parentY;
 
-			std::list<Node*>::const_iterator iterator;
+			list<Node*>::const_iterator iterator;
 
 			for (iterator = node->kids.begin(); iterator != node->kids.end(); ++iterator) {
 				Node *kid = *iterator;
@@ -75,7 +77,7 @@ bool util::isNode(Node *node, char* id) {
 Node* util::getNodeById(char* id) {
 	if (!id) return 0;
 
-	std::string key(id);
+	string key(id);
 
 	auto e2 = nodeById.find(key);
 

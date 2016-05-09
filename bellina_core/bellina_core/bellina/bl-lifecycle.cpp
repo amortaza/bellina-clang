@@ -58,7 +58,7 @@ void bl::paint() {
 }
 
 void paint2() {
-	//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+	//this_thread::sleep_for(chrono::milliseconds(2000));
 
 	int winW = Xel::Window::width;
 	int winH = Xel::Window::height;
@@ -74,7 +74,7 @@ void paint2() {
 	g2::rectFlipped(G2_TEXTURE, 0, 0, winW, winH);
 
 	if (root_node->text_ && root_node->text_tops_canvas) {
-		eos::_::renderLabel(root_node, 0, 0);
+		eos::_::renderText(root_node, 0, 0);
 	}
 
 	if (root_node->flags & BL_BORDER_ANY) {

@@ -16,6 +16,7 @@ namespace z_index {
 
 		~ZIndexCtx() {
 			if (orderInfo) delete orderInfo;
+			// test new OrderInfo();
 		}
 
 		// does not need signature or factory cause "this" already exits...

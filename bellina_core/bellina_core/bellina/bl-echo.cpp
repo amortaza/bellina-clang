@@ -3,13 +3,15 @@
 #include "bl-echo.h"
 #include "bl-types.h"
 
+using namespace std;
+
 using namespace bl;
 using namespace bl::echo;
 
 Echo::~Echo() {
-	typedef std::map<std::string, std::list<ListenerCallback>*>::iterator it1;
+	typedef map<string, list<ListenerCallback>*>::iterator it1;
 	for (it1 it = listenerRegistry.begin(); it != listenerRegistry.end(); it++) {
-		std::list<ListenerCallback>* callbacks = it->second;
+		list<ListenerCallback>* callbacks = it->second;
 
 		callbacks->clear();
 
@@ -20,14 +22,14 @@ Echo::~Echo() {
 }
 
 void Echo::listen(char* eventName, ListenerCallback callback) {
-   	std::string key = std::string(eventName);
+   	string key = string(eventName);
 
-	std::list<ListenerCallback>* callbacks;
+	list<ListenerCallback>* callbacks;
 
 	auto e2 = listenerRegistry.find(key);
 
 	if (e2 == listenerRegistry.end()) {
-		callbacks = new std::list<ListenerCallback>();
+		callbacks = new list<ListenerCallback>();
 		listenerRegistry[key] = callbacks;
 	}
 	else {
@@ -38,16 +40,16 @@ void Echo::listen(char* eventName, ListenerCallback callback) {
 }
 
 void Echo::fire(char* eventName, void*eventData) {
-   	std::string key = std::string(eventName);
+   	string key = string(eventName);
 
-	std::list<ListenerCallback>* callbacks;
+	list<ListenerCallback>* callbacks;
 
 	auto e2 = listenerRegistry.find(key);
 
 	if (e2 != listenerRegistry.end()) {
 		callbacks = e2->second;
 
-		std::list<ListenerCallback>::const_iterator iterator;
+		list<ListenerCallback>::const_iterator iterator;
 
 		for (iterator = callbacks->begin(); iterator != callbacks->end(); ++iterator) {
 			ListenerCallback cb = *iterator;

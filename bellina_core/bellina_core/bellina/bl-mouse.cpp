@@ -11,6 +11,8 @@
 #include "bl-node.h"
 #include "bl-pump.h"
 
+using namespace std;
+
 using namespace bl;
 using namespace bl::_;
 using namespace bl::sys;
@@ -28,7 +30,7 @@ namespace bl {
 			bool bubbleUp = true;
 
 			//rintf("call_mouse_down\n");
-			std::list<NodeMouseDownCallback>::const_iterator iterator;
+			list<NodeMouseDownCallback>::const_iterator iterator;
 			for (iterator = node->onMouseDown_callbacks.begin(); iterator != node->onMouseDown_callbacks.end(); ++iterator) {
 				NodeMouseDownCallback cb = *iterator;
 				bl::node = node;
@@ -48,7 +50,7 @@ namespace bl {
 		void call_mouse_up(Node* node, Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom) {			
 			bool bubbleUp = true;
 
-			std::list<NodeMouseUpCallback>::const_iterator iterator;
+			list<NodeMouseUpCallback>::const_iterator iterator;
 			for (iterator = node->onMouseUp_callbacks.begin(); iterator != node->onMouseUp_callbacks.end(); ++iterator) {
 				NodeMouseUpCallback cb = *iterator;
 				bl::node = node;
@@ -65,7 +67,7 @@ namespace bl {
 		void call_mouse_scroll(Node *node, int amount, int mx, int my, Node* bubbledFrom) {
 			bool bubbleUp = true;
 
-			std::list<NodeMouseScrollCallback>::const_iterator iterator;
+			list<NodeMouseScrollCallback>::const_iterator iterator;
 			for (iterator = node->onMouseScroll_callbacks.begin(); iterator != node->onMouseScroll_callbacks.end(); ++iterator) {
 				NodeMouseScrollCallback cb = *iterator;
 				bl::node = node;
@@ -82,7 +84,7 @@ namespace bl {
 		void call_mouse_move(Node *node, int mx, int my, Node* bubbledFrom) {
 			bool bubbleUp = true;
 
-			std::list<NodeMouseMoveCallback>::const_iterator iterator;
+			list<NodeMouseMoveCallback>::const_iterator iterator;
 			for (iterator = node->onMouseMove_callbacks.begin(); iterator != node->onMouseMove_callbacks.end(); ++iterator) {
 				NodeMouseMoveCallback cb = *iterator;
 				bl::node = node;

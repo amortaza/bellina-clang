@@ -4,13 +4,15 @@
 #include "bl-globals.h"
 #include "bl-node.h"
 
+using namespace std;
+
 using namespace bl;
 using namespace bl::_;
 
 void bl::id(char* nid) {
 	current_node->id(nid);
 
-	std::string key(nid);
+	string key(nid);
 
 	nodeById[key] = current_node;
 }

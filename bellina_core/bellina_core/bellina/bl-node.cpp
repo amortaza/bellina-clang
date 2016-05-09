@@ -10,7 +10,7 @@
 #include"bl-util.h"
 #include"bl-shadow.h"
 
-//#include "BasePluginContext.h"
+using namespace std;
 
 using namespace g2;
 using namespace g2::flags;
@@ -83,6 +83,7 @@ void Node::color2(unsigned char _r, unsigned char _g, unsigned char _b) {
 
 void resetCanvasRef(Node *node, int w, int h) {
 	if (node->canvas) delete node->canvas;
+	// test new CanvasRef();
 
 	//if (node->nid[0]=='r' || node->nid[0] == 'g')
 		//printf("creating node canvas %i %i for %s\n", w, h, node->nid);
@@ -181,6 +182,7 @@ Node::~Node() {
 
 	// texture ref
 	if (texture_) delete texture_;
+	// test new TextureRef();
 
 	// mask ref
 	if (mask_) delete mask_;
@@ -189,14 +191,16 @@ Node::~Node() {
 
 	// canvas ref
 	if (canvas) delete canvas;
+	// test new CanvasRef();
 
 	// kids
-	std::list<Node*>::const_iterator iterator;
+	list<Node*>::const_iterator iterator;
 
 	for (iterator = kids.begin(); iterator != kids.end(); ++iterator) {
 		Node *kid = *iterator;
 
 		delete kid;
+		// test new Node();
 	}
 }
 

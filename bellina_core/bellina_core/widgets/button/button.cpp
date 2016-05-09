@@ -6,6 +6,8 @@
 
 #include "button.h"
 
+using namespace bl::flags;
+
 namespace button {
 	Button* This;
 
@@ -19,7 +21,8 @@ namespace button {
 		else
 			bl::textColor(100, 100, 100);
 		
-		bl::padding(5, 5, 0, 0);
+		bl::removeFlag(BL_TEXT_ALIGN_ANY);
+		bl::addFlag(BL_TEXT_CENTER_ALL);
 		bl::text(This->title);
 	}
 

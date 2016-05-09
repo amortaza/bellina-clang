@@ -1,6 +1,9 @@
 #pragma once
 
 #include <map>
+#include <stack>
+
+using namespace std;
 
 namespace bl { extern class Node; }
 namespace bl { extern class FluentFont; }
@@ -19,7 +22,7 @@ namespace bl {
 
 		extern unsigned int border_flag;
 
-		extern std::stack<Node *> nodeStack;
+		extern stack<Node *> nodeStack;
 
 		extern FluentBorder fluent_border;
 		extern FluentFont fluent_font;
@@ -27,6 +30,6 @@ namespace bl {
 		extern Echo* short_term_echo;
 		extern Echo* long_term_echo;
 
-		extern std::map<std::string, Node*> nodeById;
+		extern map<string, Node*> nodeById;
 	}
 }

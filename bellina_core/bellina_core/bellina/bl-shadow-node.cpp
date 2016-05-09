@@ -71,6 +71,7 @@ ShadowNode::~ShadowNode() {
 		BasePluginCtx* p = it->second;
 
 		delete p;
+		// hmmm not allowed
 	}
 }
 

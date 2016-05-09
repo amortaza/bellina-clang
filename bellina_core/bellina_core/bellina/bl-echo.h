@@ -4,6 +4,8 @@
 #include <list>
 #include <functional>
 
+using namespace std;
+
 #include "bl-types.h"
 
 namespace bl { extern class Node; }
@@ -20,7 +22,7 @@ namespace bl {
 			void listen(char* eventName, ListenerCallback callback);
 
 		private:
-			std::map<std::string, std::list<ListenerCallback>*> listenerRegistry;
+			map<string, list<ListenerCallback>*> listenerRegistry;
 		};
 	}
 }
