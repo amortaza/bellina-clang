@@ -102,6 +102,9 @@
     <Filter Include="source files\ace-font">
       <UniqueIdentifier>{1f5c8770-b9c6-4ccf-a142-31683127acb4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bellina\bl-widget">
+      <UniqueIdentifier>{1ce65eb4-a198-4ef1-a712-67e78ab1fabc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -317,6 +320,15 @@
     <ClInclude Include="..\..\..\ace-font\ace-font\ace-font\ace-font.h">
       <Filter>source files\ace-font</Filter>
     </ClInclude>
+    <ClInclude Include="bellina\bl-widget.h">
+      <Filter>bellina\bl-widget</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\button\ButtonCtx.hpp">
+      <Filter>widgets\button</Filter>
+    </ClInclude>
+    <ClInclude Include="widgets\button\types.h">
+      <Filter>widgets\button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -498,6 +510,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ace-font\ace-font\ace-font\ace-font.cpp">
       <Filter>source files\ace-font</Filter>
+    </ClCompile>
+    <ClCompile Include="bellina\bl-widget.cpp">
+      <Filter>bellina\bl-widget</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

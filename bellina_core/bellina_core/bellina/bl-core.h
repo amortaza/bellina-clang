@@ -11,6 +11,7 @@ namespace bl { extern class FluentFont; }
 
 namespace bl { extern class Node; }
 namespace bl { extern class ShadowNode; }
+namespace bl { extern class Widget; }
 
 using namespace bl;
 using namespace pango;
@@ -21,7 +22,7 @@ namespace bl {
 
 	ShadowNode* get_shadow();
 	void shadow(ShadowCallback);
-	void* shadows(char* id, Constructor, Destructor);
+	Widget* shadows(char* id, Constructor);
 
 	void listenShortTerm(char* eventName, ListenerCallback eventCallback);
 	void listenLongTerm(char* eventName, ListenerCallback eventCallback);

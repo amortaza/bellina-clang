@@ -13,6 +13,8 @@ namespace bl { extern class ShadowNode; }
 using namespace pango;
 
 namespace bl {
+	extern class Widget;
+
 	typedef function<bool(int mx, int my, Node* bubbledFrom)> NodeMouseMoveCallback;
 	typedef function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseDownCallback;
 	typedef function<bool(Xel::Mouse::Button button, int mx, int my, Node* bubbledFrom)> NodeMouseUpCallback;
@@ -23,8 +25,7 @@ namespace bl {
 	typedef function<void(void*)> ListenerCallback;
 
 	// 
-	typedef function<void*(char* id)> Constructor;
-	typedef function<void(void*)> Destructor;
+	typedef function<Widget*(char* id)> Constructor;
 
 	//	
 	struct BorderSide {

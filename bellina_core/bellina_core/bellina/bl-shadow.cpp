@@ -6,13 +6,14 @@
 #include "bl-globals.h"
 #include "bl-shadow.h"
 #include "bl-util.h"
+#include "bl-widget.h"
 
 using namespace std;
 
 namespace bl {
 	namespace shadow_ {
 		map<string, ShadowNode *> shadowNodes;		
-		map<string, void*> shadowObjs;
+		map<string, Widget*> shadowObjs;
 	}
 }
 
@@ -33,10 +34,10 @@ void bl::shadow(ShadowCallback cb) {
 	shadowNode->copyTo(current_node);
 }
 
-void* bl::shadows(char* id, Constructor constructor, Destructor destructor) {
+Widget* bl::shadows(char* id, Constructor constructor) {
 
 	string key(id);
-	void* obj;
+	Widget* obj;
 
 	auto e2 = shadow_::shadowObjs.find(key);
 	
@@ -61,12 +62,13 @@ void bl::shadow_::uninit() {
 	}
 
 	//
-	for (int i = 0; i < 100;i++)
-		printf("!!!!!!!!!!! WARNING you are not clearing shadow objects\n");
-	/*typedef map<string, void*>::iterator it2;
+	typedef map<string, Widget*>::iterator it2;
 	for (it2 it = shadow_::shadowObjs.begin(); it != shadow_::shadowObjs.end(); it++) {
-		void* obj = it->second;
-	}*/
+		Widget* obj = it->second;
+
+		delete obj;
+		//test new Widget();
+	}
 }
 
 ShadowNode* shadow_::getShadowNode(Node* node) {
